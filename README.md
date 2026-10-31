@@ -14,7 +14,7 @@ Layout matches the development checkout:
 - `dev/00runs/`: the report and probe files the table scripts read
 
 Manuscripts are not in this tree. They stay in their own repositories.
-Earlier run descriptions, and later trials, are not copied.
+Earlier run descriptions, later trials, and `staged_r<number>` drivers are not copied.
 A rerun uses `r128.json`. It does not need the previous `r<number>.json` files.
 
 Paper result files copied: 9.
