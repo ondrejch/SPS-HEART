@@ -1,5 +1,0 @@
-variants XTL XTL units 4000 4000
-nd0            n 28000.0 / 28000.0  share 0.5610 / 0.5610  max |sum difference| 9.98e+01
-sd_projectile  n 4000.0 / 4000.0  share 0.1959 / 0.1959  max |sum difference| 5.72e+01
-sd_target      n 4000.0 / 4000.0  share 0.1959 / 0.1959  max |sum difference| 1.75e+01
-dd             n 4000.0 / 4000.0  share 0.0472 / 0.0472  max |sum difference| 4.54e+01

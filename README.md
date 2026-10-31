@@ -10,17 +10,17 @@ Layout matches the development checkout:
 - `helpers/benchmarking/`: the fit driver
 - `helpers/na49_gateway/`: the cluster client, example config only
 - `dev/mixing2006/spshadrons.web.cern.ch/`: the SPS tables
-- `dev/00runs/`: compact fit records
+- `dev/mixing2006/config/runs/r128.json`: the paper fit description
+- `dev/00runs/`: the report and probe files the table scripts read
 
 Manuscripts are not in this tree. They stay in their own repositories.
+Earlier run descriptions, and later trials, are not copied.
+A rerun uses `r128.json`. It does not need the previous `r<number>.json` files.
 
-Compact run files copied: 436.
-Event samples, npz slot caches, generator chunk files, and any
-run file larger than 2 MiB are not in this snapshot. Regenerating
-the generator comparison needs those samples from the development
-checkout.
+Paper result files copied: 9.
+Event samples and generator chunk files are not in this snapshot.
+Regenerating the generator comparison needs those samples from the
+development checkout.
 
 Not copied: `.legacy/`, cluster `config.na49_project.json`,
 virtualenvs, and git history of the source trees.
-
-Omitted run paths: 203.
