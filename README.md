@@ -10,14 +10,18 @@ Layout matches the development checkout:
 - `helpers/benchmarking/`: the fit driver
 - `helpers/na49_gateway/`: the cluster client, example config only
 - `dev/mixing2006/spshadrons.web.cern.ch/`: the SPS tables
-- `dev/mixing2006/config/runs/r128.json`: the paper fit description
+- `dev/mixing2006/config/runs/r132.json`: the paper fit description
 - `dev/00runs/`: the report and probe files the table scripts read
 
 Manuscripts are not in this tree. They stay in their own repositories.
 Earlier run descriptions, later trials, and `staged_r<number>` drivers are not copied.
-A rerun uses `r128.json`. It does not need the previous `r<number>.json` files.
+A rerun uses `r132.json`. It does not need the previous `r<number>.json` files.
 
-Paper result files copied: 9.
+Some tests pin assertions to the earlier run descriptions. Those files
+are not copied, so those tests fail to collect or fail here. The fit
+driver, the paper fit description, and the paper result files are complete.
+
+Paper result files copied: 8.
 Event samples and generator chunk files are not in this snapshot.
 Regenerating the generator comparison needs those samples from the
 development checkout.

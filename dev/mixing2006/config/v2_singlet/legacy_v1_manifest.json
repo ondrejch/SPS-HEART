@@ -4208,6 +4208,17 @@
     "helpers/benchmarking/orchestrate_gateway_joint_fit.py"
    ],
    "reason": "the R131 spec (R130 with the diffractive epsilon free, at the R130 optimum), its test, the orchestrator entry (both copies)"
+  },
+  {
+   "card": "TASK-20261031-r132-epsilon-dl",
+   "files": [
+    "dev/mixing2006/config/runs/r132.json",
+    "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_joint_fit.py",
+    "dev/mixing2006/na49_mixing/one_pion_exchange.py",
+    "dev/mixing2006/tests/test_r132_spec.py",
+    "helpers/benchmarking/orchestrate_gateway_joint_fit.py"
+   ],
+   "reason": "the R132 spec (R130 with the diffractive epsilon at the Donnachie-Landshoff 0.0808, at the R131 optimum), its test, the orchestrator entry (both copies)"
   }
  ],
  "frozen_fit_outputs": {
@@ -4445,6 +4456,7 @@
   "dev/mixing2006/config/runs/r129.json": "f975a70de0eab8b811dea6583635270e0518ab60821a8bdf1d2d07e38f0b98a5",
   "dev/mixing2006/config/runs/r130.json": "78da8390ee9eef3416b53439851ca5482b5bf616d4a17d73dc813b9ee94f2228",
   "dev/mixing2006/config/runs/r131.json": "69290bb0a4627dbbe1bf5e31d9d443005e0f026bbf9e7a1fef774080b430614c",
+  "dev/mixing2006/config/runs/r132.json": "f23468b06b2c305510baa92d779046fd8dd3b1840abb3bbad074a599370ebf9b",
   "dev/mixing2006/config/runs/r74.json": "e208966fdec2cb3ab70301d3f2a24104ddd23406e5ea2b0cdc0ec66c6ce8bd4d",
   "dev/mixing2006/config/runs/r74_engine_replay.json": "1751982f1708299103aa128c6b10d8ba8e981beb7a37d7bdecdb7fa6f4eff7c3",
   "dev/mixing2006/config/runs/r75.json": "dbc4db3a118362502ab0edf245219b8609d4e041f7336ed629d60c734e243dd7",
@@ -4526,7 +4538,7 @@
   "dev/mixing2006/helpers/benchmarking/neutron_falsifier.py": "cd69138832a7e86eb172ad50268318ba0e79cabea689dc25fc07f4634111bb10",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_absyield_prior_scan.py": "9470725a17f272418a6bb127bcf794764df5b96e369252ea2210484704b916bc",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_balanced_reruns.py": "0254f671f3e004a9f9cec4dd95826ea342b1263b6505eba512dff0209f7ef018",
-  "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_joint_fit.py": "5a0d9166f90f2f047d94624b6536ac0d69400679a833c84d0021a1e024d7c86a",
+  "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_joint_fit.py": "c6f85eefcba12fe7a99b50df9b5b55ff9f7eb44c0d6ef5a201fc751cbe85b912",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_multispecies.py": "5a5461849db516d0dc586d95d72dc06d7c23d2fe5412811d9b8754b8a4be02cb",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_nstar_ladder_dynamic.py": "9d5b5f22f7aebbd46d8389597638f1d93338c4afb4cbb7628c5974e89ce1e3de",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_nstar_ladder_grid.py": "faffde8c054964ba895d5cd4e4f925fd9e4dd59b879c2e3f7715d3f5fb4a5b9f",
@@ -4762,7 +4774,7 @@
   "dev/mixing2006/na49_mixing/mixing.py": "7295867f4a7c0e17b182b2db05054efd3a9edeb1deffb23fdda6ef7ad7a699bb",
   "dev/mixing2006/na49_mixing/nd_duality.py": "82151782c0432fdb06daa0b6470f18990006caddb03c13cb8d1dc6fa8f64334a",
   "dev/mixing2006/na49_mixing/nucleon_kstar_pairs.py": "d88b3cf1ea27150890f9e9b44f1b4853caa5c5259f9b895e7fe3526b676a662c",
-  "dev/mixing2006/na49_mixing/one_pion_exchange.py": "fc5e3613dbecbb06312ba58c59a87c92d55eae99e97f548a51edde25727e7545",
+  "dev/mixing2006/na49_mixing/one_pion_exchange.py": "0e6a90fff097991450e0a1ceee932a5a961eed449167a73eb7dc13886c96c66d",
   "dev/mixing2006/na49_mixing/parallel.py": "f2650235d636f744ef6e13c66096880bf95d8cefc4bf857c8d92cd461a4c56f0",
   "dev/mixing2006/na49_mixing/particle.py": "27bf493621ab08d20468d784292cbea4b68dfdceb43346c0346b3276a94fea3e",
   "dev/mixing2006/na49_mixing/pdg_database.py": "4c57ecb60af416f2447e4358f749862d5e8fd2729b525d051feebc8f8a3f2f12",
@@ -4937,6 +4949,7 @@
   "dev/mixing2006/tests/test_r11_decomposition_coverage.py": "72e2adcc72e81e00ff6c8ecd0e068818512daa35326e107eb4ae460d75ae8d9d",
   "dev/mixing2006/tests/test_r11_decomposition_harness.py": "0c2470efaa720dbb3ce2c93958020f9f7b354af29e9887ba55286368e25528e7",
   "dev/mixing2006/tests/test_r131_spec.py": "e84850d4255730d3e8c2ba4c56b154e87b42c88f7f3d71b743e8751f36972717",
+  "dev/mixing2006/tests/test_r132_spec.py": "bbb0f7ec8f550a820eef7de0e03a5563abf9490ad2c889828bf01f7ef8a6de53",
   "dev/mixing2006/tests/test_r31_resume_contract_pins.py": "9ddf8dba0b75abc25e8f50fc851403e8bf8ac33165aa283293388511bce1fe2f",
   "dev/mixing2006/tests/test_r32_blend_contract_pins.py": "e848b76bd5b4894810aea269a2b5e612b4a3d9d62fe9b3915ee488bfffa125b7",
   "dev/mixing2006/tests/test_r3_engine_fix_contract_pins.py": "5555381a5e1162291c2c4a39654458d46c0770be01b16eebd33471d4253bc5b1",
@@ -5122,7 +5135,7 @@
   "helpers/benchmarking/neutron_falsifier.py": "cd69138832a7e86eb172ad50268318ba0e79cabea689dc25fc07f4634111bb10",
   "helpers/benchmarking/orchestrate_gateway_absyield_prior_scan.py": "418e8d27f48a7542afbee643c4fb1fde53546751050d7f322ef83b13b8c8848a",
   "helpers/benchmarking/orchestrate_gateway_balanced_reruns.py": "a438fb6674ba39a14fc37ba8f54e2bc67cd81fdbedce1eb83558a0daec04cb15",
-  "helpers/benchmarking/orchestrate_gateway_joint_fit.py": "5a0d9166f90f2f047d94624b6536ac0d69400679a833c84d0021a1e024d7c86a",
+  "helpers/benchmarking/orchestrate_gateway_joint_fit.py": "c6f85eefcba12fe7a99b50df9b5b55ff9f7eb44c0d6ef5a201fc751cbe85b912",
   "helpers/benchmarking/orchestrate_gateway_multispecies.py": "eada9d96c8cd2f028974df17925970e1df0c195143376e59fd060e26c9724004",
   "helpers/benchmarking/orchestrate_gateway_nstar_ladder_dynamic.py": "60d411ddb57b056a43ecdf4e54ef266e8e17bc7774d9c8939a06c11b32170537",
   "helpers/benchmarking/orchestrate_gateway_nstar_ladder_grid.py": "1dd30722d36c89eb3a6532944cb93b0d39559a01982cf2d7f52f1cddc631a970",
@@ -5298,5 +5311,5 @@
   "helpers/benchmarking/tests/test_window_yield_kernel.py": "182cb78cd2d55eaa411b52847d1fa39a7bd799331d5a3b8be22ead6e4d9abf03",
   "helpers/benchmarking/validate_np_scattering.py": "77d3763be583aab30a46ae70bd6ff21a574bb747f5cbf96cd77d6c2287e75b45"
  },
- "inventory_count": 884
+ "inventory_count": 886
 }

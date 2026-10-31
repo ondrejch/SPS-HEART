@@ -2,9 +2,9 @@
 
 In p + p -> n + X the projectile proton turns into a neutron by emitting a
 positive pion, and the pion and the other proton form the excited system
-X++ of mass M (M^2 = xi s, the neutron at x_L ~ 1 - xi).  The double
-differential cross section is the pion flux of the nucleon times the
-pion-proton total cross section at sqrt(s') = M:
+X++ of mass M (M^2 = xi s, the neutron at x_L ~ 1 - xi).  The
+double-differential cross section is the pion flux of the nucleon times
+the pion-proton total cross section at sqrt(s') = M:
 
     d2sigma / dxi dt  ~  xi^(1 - 2 alpha_pi(t)) * (-t) / (t - m_pi^2)^2 * F(t)^2 * sigma_pi+p(M^2)
 
@@ -21,15 +21,14 @@ Phys. Lett. B 296 (1992) 227 (``pion_proton="regge"``):
 
     sigma_pi+p(M^2) = 13.63 (M^2)^0.0808 + 27.56 (M^2)^-0.4525  mb .
 
-The
-factor ``(-t) / (t - m_pi^2)^2`` is the pseudoscalar coupling's spin flip
-and the pion propagator: the flux vanishes at t = 0 and peaks near
-``|t| ~ m_pi^2``.  At fixed xi the reachable window's upper end
+The factor ``(-t) / (t - m_pi^2)^2`` is the spin flip of the pseudoscalar
+coupling times the pion propagator: the flux vanishes at t = 0 and peaks
+near ``|t| ~ m_pi^2``.  At fixed xi the reachable window's upper end
 ``t_+ ~ -m_p^2 xi^2 / (1 - xi)`` closes the flux at large xi, so the
-leading neutron peaks near x_L ~ 0.75 (the leading-neutron spectra of p+p
-and e+p).  The law has no free parameter beyond ``alpha'`` and ``r2`` (none
-beyond ``alpha'`` with the proton form factor); the share of the class is
-the caller's.
+leading neutron peaks near x_L ~ 0.75, as in the leading-neutron spectra
+of p+p and e+p.  The law has no free parameter beyond ``alpha'`` and
+``r2`` (none beyond ``alpha'`` with the proton form factor); the share of
+the class is the caller's.
 
 The neutral partner (2026-10-27, ``pion="isospin"``): the pion couples to
 the proton's isospin, so p -> n pi+ carries twice the squared coupling of
@@ -49,9 +48,12 @@ Gottfried and Jackson, Nuovo Cim. 34 (1964) 735) the Born amplitude at
 impact parameter ``b`` is multiplied by the elastic S-matrix of the initial
 and the final two-body state, together ``1 - Gamma(b)`` with the p+p
 profile ``Gamma(b) = sigma_tot / (4 pi B) exp(-b^2 / 2B)`` (``sigma_tot``
-38.9 mb and the slope ``B`` 11.6 GeV^-2 at 158 GeV/c, :data:`PP_TOTAL_CROSS_SECTION_MB`,
-:data:`PP_ELASTIC_SLOPE`; ``absorption="eikonal_pdg"``, 2026-10-30, takes the PDG compilation's 38.75 mb and the
-slope 11.0 GeV^-2 at which the profile also gives the measured 6.97 mb elastic cross section, :func:`elastic_profile`).  The flux's two helicity amplitudes, the non-flip
+38.9 mb and the slope ``B`` 11.6 GeV^-2 at 158 GeV/c,
+:data:`PP_TOTAL_CROSS_SECTION_MB`, :data:`PP_ELASTIC_SLOPE`;
+``absorption="eikonal_pdg"``, 2026-10-30, takes the PDG compilation's
+38.75 mb and the slope 11.0 GeV^-2 at which the profile also gives the
+measured 6.97 mb elastic cross section, :func:`elastic_profile`).  The
+flux's two helicity amplitudes, the non-flip
 one ``xi m_p F(t) / (q^2 + mu^2)`` and the flip one ``q F(t) / (q^2 + mu^2)``
 with ``q`` the leading nucleon's transverse momentum and
 ``mu^2 = xi^2 m_p^2 + (1 - xi) m_pi^2``, are transformed to ``b`` (Bessel
@@ -118,17 +120,21 @@ _T_POINTS: int = 512
 FORM_FACTORS: tuple[str, ...] = ("exponential", "proton")
 #: The pi+ p cross section over the excited masses: constant, or the Donnachie-Landshoff Regge fit.
 PION_PROTON_LAWS: tuple[str, ...] = ("constant", "regge")
-#: The exchanged pion: the charged one (p -> n pi+), the neutral one (p -> p pi0), or both at the coupling ratio of isospin.
+#: The exchanged pion: the charged one (p -> n pi+), the neutral one
+#: (p -> p pi0), or both at the coupling ratio of isospin.
 PION_CHARGES: tuple[str, ...] = ("charged", "neutral", "isospin")
 #: The absorptive correction: none, or the eikonal absorption model with the p+p elastic profile, at the R124 inputs
 #: (``"eikonal"``) or at the PDG compilation's measurements (``"eikonal_pdg"``, 2026-10-30).
 ABSORPTIONS: tuple[str, ...] = ("none", "eikonal", "eikonal_pdg")
-#: The p+p total cross section [mb] at 158 GeV/c of ``"eikonal"`` (PDG compilation, 38.5-39.0 mb at p_lab 150-200 GeV/c).
+#: The p+p total cross section [mb] at 158 GeV/c of ``"eikonal"`` (PDG
+#: compilation, 38.5-39.0 mb at p_lab 150-200 GeV/c).
 PP_TOTAL_CROSS_SECTION_MB: float = 38.9
-#: The p+p elastic slope [GeV^-2] at 158 GeV/c of ``"eikonal"`` (11.5-11.8 GeV^-2 at p_lab 150-200 GeV/c, |t| 0.05-0.3 GeV^2).
+#: The p+p elastic slope [GeV^-2] at 158 GeV/c of ``"eikonal"`` (11.5-11.8
+#: GeV^-2 at p_lab 150-200 GeV/c, |t| 0.05-0.3 GeV^2).
 PP_ELASTIC_SLOPE: float = 11.6
 #: The p+p total cross section [mb] of ``"eikonal_pdg"`` (2026-10-30, the manuscript review): the PDG compilation's
-#: measurements at 150 and 170 GeV/c, 38.69 and 38.83 mb (Carroll et al., PL 61B (1976) 303), linear in p_lab at 158 GeV/c
+#: measurements at 150 and 170 GeV/c, 38.69 and 38.83 mb (Carroll et al.,
+#: PL 61B (1976) 303), linear in p_lab at 158 GeV/c
 #: (PDG, Workman et al., PTEP 2022, 083C01, the p+p total cross-section data file).
 PP_TOTAL_CROSS_SECTION_MB_PDG: float = 38.69 + (38.83 - 38.69) * (158.0 - 150.0) / (170.0 - 150.0)
 #: The p+p elastic cross section [mb] of ``"eikonal_pdg"``: the PDG compilation's measurements at 150 and 200 GeV/c,
@@ -136,12 +142,14 @@ PP_TOTAL_CROSS_SECTION_MB_PDG: float = 38.69 + (38.83 - 38.69) * (158.0 - 150.0)
 PP_ELASTIC_CROSS_SECTION_MB_PDG: float = 6.97 + (6.95 - 6.97) * (158.0 - 150.0) / (200.0 - 150.0)
 _MB_TO_GEV2: float = 2.56819
 #: The p+p elastic slope [GeV^-2] of ``"eikonal_pdg"``: the slope at which the purely absorptive Gaussian profile
-#: ``Gamma(b) = sigma_tot / (4 pi B) exp(-b^2 / 2B)`` gives both measured cross sections, sigma_el = sigma_tot^2 / (16 pi B)
+#: ``Gamma(b) = sigma_tot / (4 pi B) exp(-b^2 / 2B)`` gives both measured
+#: cross sections, sigma_el = sigma_tot^2 / (16 pi B)
 #: (11.0 GeV^-2).
 PP_ELASTIC_SLOPE_PDG: float = (PP_TOTAL_CROSS_SECTION_MB_PDG ** 2 / (16.0 * math.pi * PP_ELASTIC_CROSS_SECTION_MB_PDG)
                                * _MB_TO_GEV2)
 _DIPOLE_MASS2: float = 0.71
-#: The grids of the survival-factor table: xi (log-spaced), the transverse momentum q [GeV/c] and impact parameter b [GeV^-1].
+#: The grids of the survival-factor table: xi (log-spaced), the transverse
+#: momentum q [GeV/c] and impact parameter b [GeV^-1].
 _ABS_XI: np.ndarray = np.exp(np.linspace(math.log(1e-3), math.log(0.95), 48))
 _ABS_Q: np.ndarray = np.linspace(0.0, 6.0, 1200)
 _ABS_B: np.ndarray = np.linspace(0.0, 80.0, 2000)
@@ -153,12 +161,13 @@ class OPELaw:
     [GeV^-2] and the form factor slope ``r2`` [GeV^-2] of
     ``F(t) = exp(r2 (t - m_pi^2))``; ``t_cut`` [GeV^2] bounds ``|t|``.
     ``form_factor="proton"`` takes the proton's Dirac form factor instead
-    (``r2`` then 0); ``pion_proton="regge"`` weights the masses with the
+    (``r2`` is then 0); ``pion_proton="regge"`` weights the masses with the
     Regge fit of ``sigma_pi+p(M^2)``.  ``pion`` names the exchanged pion
     (:data:`PION_CHARGES`): ``"neutral"`` takes the neutral pion's mass and
     ``sigma_pi0 p``, ``"isospin"`` both exchanges (:func:`ope_parts`).
-    ``absorption="eikonal"`` multiplies the flux by the survival factor of
-    the absorption model (:func:`ope_log_absorption`)."""
+    ``absorption="eikonal"`` or ``"eikonal_pdg"`` multiplies the flux by
+    the survival factor of the absorption model (:func:`ope_log_absorption`,
+    :data:`ABSORPTIONS`)."""
 
     alpha_prime: float
     r2: float
@@ -232,8 +241,8 @@ def ope_parts(law: OPELaw) -> tuple[OPELaw, OPELaw]:
 def pion_proton_cross_section(m2: float, pion: str = "charged") -> float:
     """``sigma_pi+p`` [mb] at ``s' = M^2`` [GeV^2] from the Regge fit of
     Donnachie and Landshoff (1992): ``13.63 s'^0.0808 + 27.56 s'^-0.4525``;
-    ``sigma_pi0 p`` for ``pion="neutral"``, the pi+/pi- average with the
-    coefficient 31.79 (of 27.56 and 36.02, Appleby et al. 2016)."""
+    for ``pion="neutral"`` the ``sigma_pi0 p``, whose Regge coefficient
+    31.79 is the pi+/pi- average of 27.56 and 36.02 (Appleby et al. 2016)."""
     m2 = float(m2)
     if not (m2 > 0.0 and math.isfinite(m2)):
         raise ValueError(f"pion_proton_cross_section: needs M^2 > 0, got {m2!r}")
@@ -252,6 +261,7 @@ def _log_form_factor_squared(t, law: OPELaw):
 
 
 def _form_factor(t, law: OPELaw):
+    """``F(t)`` of the law's vertex form factor (elementwise, ``t < 0``)."""
     return np.exp(0.5 * _log_form_factor_squared(t, law))
 
 
@@ -296,8 +306,9 @@ def ope_log_absorption(xi, t, law: OPELaw):
     """``log S^2(xi, q)`` of the law's absorptive correction (elementwise;
     zero for ``absorption="none"``), with ``q^2 = -t (1 - xi) - xi^2 m_p^2``
     the leading nucleon's transverse momentum (clipped at zero below the
-    window's end); bilinear on the table in ``ln xi`` and ``q``, clamped at
-    the grid's ends."""
+    window's end); read from the table of :func:`_absorption_table` with
+    bilinear interpolation in ``ln xi`` and ``q``, clamped at the grid's
+    ends."""
     xi = np.asarray(xi, dtype=float)
     t = np.asarray(t, dtype=float)
     if law.absorption == "none":
@@ -331,14 +342,16 @@ def ope_log_density(xi, t, law: OPELaw):
 
 
 def _single(law: OPELaw, where: str) -> None:
+    """Guard of the one-charge samplers: ``pion="isospin"`` draws only
+    through its parts (:func:`ope_parts`)."""
     if law.pion == "isospin":
         raise ValueError(f"{where}: the law of both exchanges draws through its parts (ope_parts), got pion='isospin'")
 
 
 def _t_grid(t_lo: float, t_hi: float, t_cut: float) -> np.ndarray:
     """The transfer grid of one mass: log-spaced in ``|t|`` from the
-    window's upper end to its lower end or ``-t_cut``, as ``t`` values
-    (increasing ``|t|``)."""
+    window's upper end to its lower end or ``-t_cut``, returned as ``t``
+    values so that ``|t|`` increases along the grid."""
     a = max(-float(t_hi), 1e-12)
     b = min(-float(t_lo), float(t_cut))
     if not b > a:
@@ -359,6 +372,8 @@ def _t_cdf(xi: float, t_lo: float, t_hi: float, law: OPELaw) -> tuple[np.ndarray
 
 
 def _t_integral(xi: float, t_lo: float, t_hi: float, law: OPELaw) -> float:
+    """The flux integral over the reachable transfer window at fixed ``xi``
+    (the total mass of :func:`_t_cdf`)."""
     ts, cdf = _t_cdf(xi, t_lo, t_hi, law)
     return float(cdf[-1]) if ts.size > 1 else 0.0
 
@@ -367,7 +382,7 @@ def _t_integral(xi: float, t_lo: float, t_hi: float, law: OPELaw) -> float:
 def ope_marginal_cells(m2_min: float, m2_max: float, m2_remnant: float, s: float, law: OPELaw,
                        sqrt_s_window: float | None = None) -> tuple[np.ndarray, np.ndarray]:
     """The marginal of ``M^2`` on the geometric grid (uniform in
-    ``y = ln M^2``): the grid ``ys`` and the per-cell masses of
+    ``y = ln M^2``): the grid ``ys`` and the per-cell integrals of
     ``dsigma / dy = xi dsigma / dxi`` with ``dsigma/dxi`` the flux
     integrated over the reachable window of ``(M^2, m_remnant^2)``
     (:func:`~na49_mixing.topology_mass_laws.pp_t_window` at
@@ -412,7 +427,7 @@ def draw_ope(m2_min: float, m2_max: float, m2_remnant: float, s: float, law: OPE
              sqrt_s_window: float | None = None) -> tuple[float, float]:
     """One ``(M^2, t)`` draw of the one-pion-exchange law on exactly three
     uniforms from *rng*: the grid cell and the position within it for
-    ``M^2`` (the scheme of ``draw_marginal``), then ``t`` from the
+    ``M^2`` (the scheme of :func:`~na49_mixing.topology_mass_laws.draw_marginal`), then ``t`` from the
     conditional on the reachable window at that ``M^2`` (the inverse of its
     cumulative on the transfer grid).  *s* sets ``xi = M^2 / s``."""
     ys, cell = ope_marginal_cells(float(m2_min), float(m2_max), float(m2_remnant), float(s), law,
