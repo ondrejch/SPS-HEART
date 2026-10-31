@@ -1,0 +1,40 @@
+{
+ "label": "axial_isoscalars",
+ "source": "PDG 2024 summary tables, light unflavored mesons (S. Navas et al., Phys. Rev. D 110, 030001 (2024)); .collab/sources/pdg/rpp2024-tab-mesons-light.txt, the f1(1285) and h1(1170) entries",
+ "accessed_on": "2026-10-21",
+ "records": [
+  {
+   "pdg_id": 20223,
+   "name": "f1(1285)",
+   "pole_mass": 1.2818,
+   "nominal_width": 0.0230,
+   "modes": [
+    {"daughters": [113, 211, -211], "fraction": 0.109, "L": 0, "three_body": true, "note": "2pi+ 2pi- (10.9%), all through rho0 pi+ pi-"},
+    {"daughters": [213, -211, 111], "fraction": 0.109, "L": 0, "three_body": true, "note": "pi0 pi0 pi+ pi- (21.8%) through rho+- pi-+ pi0, half each (rho with an I = 1 pi pi pair to I = 0)"},
+    {"daughters": [-213, 211, 111], "fraction": 0.109, "L": 0, "three_body": true, "note": "as above"},
+    {"daughters": [9000111, 111], "fraction": 0.12667, "L": 1, "three_body": false, "note": "a0(980) pi (38%), the I = 1 x 1 -> 0 thirds"},
+    {"daughters": [9000211, -211], "fraction": 0.12667, "L": 1, "three_body": false, "note": "as above"},
+    {"daughters": [-9000211, 211], "fraction": 0.12666, "L": 1, "three_body": false, "note": "as above"},
+    {"daughters": [221, 211, -211], "fraction": 0.09333, "L": 0, "three_body": true, "note": "eta pi pi without the a0(980) (14%), eta pi+ pi- : eta pi0 pi0 = 2 : 1"},
+    {"daughters": [221, 111, 111], "fraction": 0.04667, "L": 0, "three_body": true, "note": "as above"},
+    {"daughters": [321, -311, -211], "fraction": 0.030, "L": 0, "three_body": true, "note": "K Kbar pi (9.0%) with K Kbar in I = 1 coupled to the pion to I = 0: K+ K0bar pi- and K0 K- pi+ a third each, K+ K- pi0 and K0 K0bar pi0 a sixth each"},
+    {"daughters": [311, -321, 211], "fraction": 0.030, "L": 0, "three_body": true, "note": "as above"},
+    {"daughters": [321, -321, 111], "fraction": 0.015, "L": 0, "three_body": true, "note": "as above"},
+    {"daughters": [311, -311, 111], "fraction": 0.015, "L": 0, "three_body": true, "note": "as above"},
+    {"daughters": [113, 22], "fraction": 0.061, "L": 0, "three_body": false, "note": "gamma rho0 (6.1%)"}
+   ]
+  },
+  {
+   "pdg_id": 10223,
+   "name": "h1(1170)",
+   "pole_mass": 1.166,
+   "nominal_width": 0.375,
+   "modes": [
+    {"daughters": [213, -211], "fraction": 0.33334, "L": 0, "three_body": false, "note": "rho pi (seen, the only listed mode), the I = 1 x 1 -> 0 thirds"},
+    {"daughters": [-213, 211], "fraction": 0.33333, "L": 0, "three_body": false, "note": "as above"},
+    {"daughters": [113, 111], "fraction": 0.33333, "L": 0, "three_body": false, "note": "as above"}
+   ]
+  }
+ ],
+ "rule": "the I = 0 members of the J^PC = 1++ and 1+- nonets, whose I = 1 members a1(1260) and b1(1235) the catalog carries: f1(1285) at its PDG 2024 mass, width and every mode of at least 1% (4pi 32.7%, eta pi pi 52.2%, K Kbar pi 9.0%, gamma rho0 6.1%, the multi-body modes through their three-body final states and charge splits by isospin), h1(1170) through rho pi; the b1(1235)0 record as the template (J = 1, P = +), I = 0; beside every continuum class of an omega and a pion the classes with the f1(1285) and the h1(1170) in the omega's place, the isospin factors deciding the charges; eta(1295) lists no fractions and stays out"
+}

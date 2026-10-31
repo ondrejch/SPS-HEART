@@ -1,0 +1,20 @@
+{
+ "batches": [
+  {
+   "batch": "7a587c67bbef80e4ca64",
+   "missing": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "namespace": "main"
+  }
+ ],
+ "key": "eval_f0_g0_r0",
+ "schema": "na49_mixing.fit_fanout.pending/1"
+}

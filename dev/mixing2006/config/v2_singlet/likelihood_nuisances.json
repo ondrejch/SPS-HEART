@@ -1,0 +1,35 @@
+{
+  "nuisances": [
+    {
+      "name": "sps_piminus_norm",
+      "sigma_eta": 0.01,
+      "table_scope": "pi_minus"
+    },
+    {
+      "name": "sps_piplus_norm",
+      "sigma_eta": 0.01,
+      "table_scope": "pi_plus"
+    },
+    {
+      "name": "sps_kaplus_norm",
+      "sigma_eta": 0.01,
+      "table_scope": "k_plus"
+    },
+    {
+      "name": "sps_kaminus_norm",
+      "sigma_eta": 0.01,
+      "table_scope": "k_minus"
+    },
+    {
+      "name": "sps_proton_norm",
+      "sigma_eta": 0.01,
+      "table_scope": "proton"
+    },
+    {
+      "name": "sps_antiproton_norm",
+      "sigma_eta": 0.01,
+      "table_scope": "antiproton"
+    }
+  ],
+  "use_data_covariance": false
+}

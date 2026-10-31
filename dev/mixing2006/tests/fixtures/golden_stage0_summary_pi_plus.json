@@ -1,0 +1,756 @@
+{
+  "band_seed_stride": 7919,
+  "band_seeds": 7,
+  "band_sigma_multiplier": 6.0,
+  "base_seed": 20260831,
+  "baseline_note": "Working tree as of 2026-09-01: nested dev/mixing2006 HEAD plus its uncommitted in-flight source-excitation work (na49_mixing/__init__.py export additions and the untracked quantum_numbers / excitation_kinematics / exchange_model / continuum_channels / source_event / event_builder_pp / event_builder_pA / staged_evaluation modules). Those modules do not participate in the resonance-template generator path exercised here; the outer tree carries mode-only (755->644) helper changes. No fully clean checkout exists in this workspace.",
+  "beam_momentum_gev_c": 158.0,
+  "beam_pdg": 2212,
+  "component_labels": [
+    "delta++",
+    "delta+",
+    "delta0",
+    "delta-",
+    "n1440_inclusive",
+    "n1520_inclusive",
+    "n1680_inclusive",
+    "eta",
+    "rho0",
+    "rho_plus",
+    "omega",
+    "f2",
+    "rho3_zero",
+    "rho3_plus",
+    "f4",
+    "nstar_eff1900_zero",
+    "nstar_eff2100_zero",
+    "nstar_eff2300_zero"
+  ],
+  "components": {
+    "delta+": {
+      "component_seed": 1261822528,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/michal/deltas-to-pion/delta+.gen",
+      "mass_law": {
+        "params": [
+          1.077,
+          1.232,
+          0.12,
+          1.0,
+          2.0,
+          2.5
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.014330808937266954,
+        "mean_pt_sigma_used": 0.014826447510175098,
+        "mean_xf_sigma_seed": 0.007142134138656358,
+        "mean_xf_sigma_used": 0.012507645039978608,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 11.916375287812984,
+        "n_target_sigma_used": 11.916375287812984
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 400,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 133,
+      "n_tracks": 800,
+      "pdg_counts": {
+        "111": 267,
+        "211": 133,
+        "2112": 133,
+        "2212": 267
+      },
+      "spec_key": "delta+::na49_mixing/generators/michal/deltas-to-pion/delta+.gen"
+    },
+    "delta++": {
+      "component_seed": 143092204,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/michal/deltas-to-pion/delta++.gen",
+      "mass_law": {
+        "params": [
+          1.077,
+          1.232,
+          0.12,
+          1.0,
+          2.0,
+          2.5
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.012536566128997704,
+        "mean_pt_sigma_used": 0.012536566128997704,
+        "mean_xf_sigma_seed": 0.011897319132614848,
+        "mean_xf_sigma_used": 0.011897319132614848,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 0.0,
+        "n_target_sigma_used": 20.0
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 400,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 400,
+      "n_tracks": 800,
+      "pdg_counts": {
+        "211": 400,
+        "2212": 400
+      },
+      "spec_key": "delta++::na49_mixing/generators/michal/deltas-to-pion/delta++.gen"
+    },
+    "delta-": {
+      "component_seed": 1546038376,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/michal/deltas-to-pion/delta-.gen",
+      "mass_law": {
+        "params": [
+          1.077,
+          1.232,
+          0.12,
+          1.0,
+          2.0,
+          2.5
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.0,
+        "mean_pt_sigma_used": 0.0,
+        "mean_xf_sigma_seed": 0.0,
+        "mean_xf_sigma_used": 0.0,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 0.0,
+        "n_target_sigma_used": 0.0
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 400,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 0,
+      "n_tracks": 800,
+      "pdg_counts": {
+        "-211": 400,
+        "2112": 400
+      },
+      "spec_key": "delta-::na49_mixing/generators/michal/deltas-to-pion/delta-.gen"
+    },
+    "delta0": {
+      "component_seed": 632833312,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/michal/deltas-to-pion/delta0.gen",
+      "mass_law": {
+        "params": [
+          1.077,
+          1.232,
+          0.12,
+          1.0,
+          2.0,
+          2.5
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.0,
+        "mean_pt_sigma_used": 0.0,
+        "mean_xf_sigma_seed": 0.0,
+        "mean_xf_sigma_used": 0.0,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 0.0,
+        "n_target_sigma_used": 0.0
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 400,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 0,
+      "n_tracks": 800,
+      "pdg_counts": {
+        "-211": 115,
+        "111": 285,
+        "2112": 285,
+        "2212": 115
+      },
+      "spec_key": "delta0::na49_mixing/generators/michal/deltas-to-pion/delta0.gen"
+    },
+    "eta": {
+      "component_seed": 1414789744,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/benchmark/eta_548.gen",
+      "mass_law": {
+        "mass_gev": 0.547862,
+        "type": "fixed_pdg"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.01378879783083573,
+        "mean_pt_sigma_used": 0.01378879783083573,
+        "mean_xf_sigma_seed": 0.005465792762667595,
+        "mean_xf_sigma_used": 0.006195967232821242,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 7.367883976130073,
+        "n_target_sigma_used": 10.535653752852738
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 400,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 111,
+      "n_tracks": 1047,
+      "pdg_counts": {
+        "-211": 111,
+        "111": 503,
+        "211": 111,
+        "22": 322
+      },
+      "spec_key": "eta::na49_mixing/generators/benchmark/eta_548.gen"
+    },
+    "f2": {
+      "component_seed": 2039744673,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/benchmark/f2_1270.gen",
+      "mass_law": {
+        "params": [
+          0.278,
+          1.27,
+          0.189,
+          1.0,
+          2.0,
+          2.5
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.01844040450341518,
+        "mean_pt_sigma_used": 0.01844040450341518,
+        "mean_xf_sigma_seed": 0.0054070929283487525,
+        "mean_xf_sigma_used": 0.007715255473509726,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 14.352077997876922,
+        "n_target_sigma_used": 16.673332000533065
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 407,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 278,
+      "n_tracks": 807,
+      "pdg_counts": {
+        "-211": 278,
+        "-321": 9,
+        "111": 226,
+        "130": 7,
+        "211": 278,
+        "321": 9
+      },
+      "spec_key": "f2::na49_mixing/generators/benchmark/f2_1270.gen"
+    },
+    "f4": {
+      "component_seed": 1830216614,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/benchmark/f4_2050.gen",
+      "mass_law": {
+        "params": [
+          0.278,
+          2.018,
+          0.237,
+          1.0,
+          2.0,
+          2.5
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.015784471871286055,
+        "mean_pt_sigma_used": 0.019053049279331956,
+        "mean_xf_sigma_seed": 0.010986393086526335,
+        "mean_xf_sigma_used": 0.010986393086526335,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 8.066686343935071,
+        "n_target_sigma_used": 16.0
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 416,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 256,
+      "n_tracks": 821,
+      "pdg_counts": {
+        "-211": 256,
+        "-321": 6,
+        "111": 283,
+        "130": 8,
+        "211": 256,
+        "22": 6,
+        "321": 6
+      },
+      "spec_key": "f4::na49_mixing/generators/benchmark/f4_2050.gen"
+    },
+    "n1440_inclusive": {
+      "component_seed": 2043968891,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/michal/nstar-to-delta/n1440-zero.gen",
+      "mass_law": {
+        "params": [
+          1.22,
+          1.44,
+          0.35,
+          0.429,
+          2.0,
+          2.5
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.038124723481510706,
+        "mean_pt_sigma_used": 0.038124723481510706,
+        "mean_xf_sigma_seed": 0.01463118894289938,
+        "mean_xf_sigma_used": 0.01463118894289938,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 4.0155946010522525,
+        "n_target_sigma_used": 6.082762530298219
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 456,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 37,
+      "n_tracks": 856,
+      "pdg_counts": {
+        "-211": 265,
+        "111": 154,
+        "211": 37,
+        "2112": 172,
+        "2212": 228
+      },
+      "spec_key": "n1440_inclusive::na49_mixing/generators/michal/nstar-to-delta/n1440-zero.gen"
+    },
+    "n1520_inclusive": {
+      "component_seed": 241794296,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/michal/nstar-to-delta/n1520-zero.gen",
+      "mass_law": {
+        "params": [
+          1.22,
+          1.52,
+          0.12,
+          0.363,
+          2.0,
+          2.5
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.01825306183500593,
+        "mean_pt_sigma_used": 0.019767857067336282,
+        "mean_xf_sigma_seed": 0.011202119090625313,
+        "mean_xf_sigma_used": 0.012051236420930278,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 6.823017765517794,
+        "n_target_sigma_used": 7.54983443527075
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 517,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 57,
+      "n_tracks": 917,
+      "pdg_counts": {
+        "-211": 284,
+        "111": 176,
+        "211": 57,
+        "2112": 173,
+        "2212": 227
+      },
+      "spec_key": "n1520_inclusive::na49_mixing/generators/michal/nstar-to-delta/n1520-zero.gen"
+    },
+    "n1680_inclusive": {
+      "component_seed": 317445644,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/michal/nstar-to-delta/n1680-zero.gen",
+      "mass_law": {
+        "params": [
+          1.22,
+          1.68,
+          0.13,
+          0.429,
+          2.3,
+          2.8
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.01938851120906454,
+        "mean_pt_sigma_used": 0.03686562351784574,
+        "mean_xf_sigma_seed": 0.026360436636485907,
+        "mean_xf_sigma_used": 0.026360436636485907,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 5.42481072744215,
+        "n_target_sigma_used": 5.656854249492381
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 467,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 32,
+      "n_tracks": 867,
+      "pdg_counts": {
+        "-211": 265,
+        "111": 170,
+        "211": 32,
+        "2112": 167,
+        "2212": 233
+      },
+      "spec_key": "n1680_inclusive::na49_mixing/generators/michal/nstar-to-delta/n1680-zero.gen"
+    },
+    "nstar_eff1900_zero": {
+      "component_seed": 1661191227,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/benchmark/nstar_eff1900_zero.gen",
+      "mass_law": {
+        "params": [
+          1.22,
+          1.9,
+          0.25,
+          1.0,
+          2.5,
+          3.1
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.014665413891154817,
+        "mean_pt_sigma_used": 0.015620903191043282,
+        "mean_xf_sigma_seed": 0.011528922388673202,
+        "mean_xf_sigma_used": 0.011528922388673202,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 6.128096884724607,
+        "n_target_sigma_used": 12.529964086141668
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 798,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 157,
+      "n_tracks": 1218,
+      "pdg_counts": {
+        "-211": 356,
+        "111": 256,
+        "211": 157,
+        "2112": 210,
+        "22": 22,
+        "2212": 190,
+        "311": 18,
+        "321": 9
+      },
+      "spec_key": "nstar_eff1900_zero::na49_mixing/generators/benchmark/nstar_eff1900_zero.gen"
+    },
+    "nstar_eff2100_zero": {
+      "component_seed": 1855645259,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/benchmark/nstar_eff2100_zero.gen",
+      "mass_law": {
+        "params": [
+          1.22,
+          2.1,
+          0.3,
+          1.0,
+          2.7,
+          3.3
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.015677583291889723,
+        "mean_pt_sigma_used": 0.019002121099604013,
+        "mean_xf_sigma_seed": 0.009217703553117346,
+        "mean_xf_sigma_used": 0.00993229418344329,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 11.389217958854143,
+        "n_target_sigma_used": 14.071247279470288
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 862,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 198,
+      "n_tracks": 1275,
+      "pdg_counts": {
+        "-211": 361,
+        "111": 270,
+        "211": 198,
+        "2112": 243,
+        "22": 27,
+        "2212": 157,
+        "311": 13,
+        "321": 6
+      },
+      "spec_key": "nstar_eff2100_zero::na49_mixing/generators/benchmark/nstar_eff2100_zero.gen"
+    },
+    "nstar_eff2300_zero": {
+      "component_seed": 570748010,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/benchmark/nstar_eff2300_zero.gen",
+      "mass_law": {
+        "params": [
+          1.22,
+          2.3,
+          0.35,
+          1.0,
+          2.9,
+          3.6
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.023109671647240742,
+        "mean_pt_sigma_used": 0.023109671647240742,
+        "mean_xf_sigma_seed": 0.012137970738356504,
+        "mean_xf_sigma_used": 0.012137970738356504,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 8.815570640309435,
+        "n_target_sigma_used": 13.784048752090222
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 909,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 190,
+      "n_tracks": 1325,
+      "pdg_counts": {
+        "-211": 371,
+        "111": 310,
+        "211": 190,
+        "2112": 224,
+        "22": 23,
+        "2212": 176,
+        "311": 26,
+        "321": 5
+      },
+      "spec_key": "nstar_eff2300_zero::na49_mixing/generators/benchmark/nstar_eff2300_zero.gen"
+    },
+    "omega": {
+      "component_seed": 1427894638,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/michal/mesons-to-pion/omega.gen",
+      "mass_law": {
+        "params": [
+          0.278,
+          0.782,
+          0.0085,
+          1.0,
+          2.0,
+          2.5
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.010063399402253355,
+        "mean_pt_sigma_used": 0.010063399402253355,
+        "mean_xf_sigma_seed": 0.0037826883528364343,
+        "mean_xf_sigma_used": 0.0037826883528364343,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 0.0,
+        "n_target_sigma_used": 20.0
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 400,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 400,
+      "n_tracks": 1192,
+      "pdg_counts": {
+        "-211": 400,
+        "111": 392,
+        "211": 400
+      },
+      "spec_key": "omega::na49_mixing/generators/michal/mesons-to-pion/omega.gen"
+    },
+    "rho0": {
+      "component_seed": 2030624696,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/michal/mesons-to-pion/rho0.gen",
+      "mass_law": {
+        "params": [
+          0.278,
+          0.77,
+          0.15,
+          1.0,
+          2.0,
+          2.5
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.009655472297515743,
+        "mean_pt_sigma_used": 0.012628055490689674,
+        "mean_xf_sigma_seed": 0.005259026305311894,
+        "mean_xf_sigma_used": 0.005715711188099183,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 0.0,
+        "n_target_sigma_used": 20.0
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 400,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 400,
+      "n_tracks": 800,
+      "pdg_counts": {
+        "-211": 400,
+        "211": 400
+      },
+      "spec_key": "rho0::na49_mixing/generators/michal/mesons-to-pion/rho0.gen"
+    },
+    "rho3_plus": {
+      "component_seed": 1458941547,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/benchmark/rho3_plus_1690.gen",
+      "mass_law": {
+        "params": [
+          0.278,
+          1.689,
+          0.161,
+          1.0,
+          2.0,
+          2.5
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.008173321523634026,
+        "mean_pt_sigma_used": 0.013763731878554342,
+        "mean_xf_sigma_seed": 0.00329548516617176,
+        "mean_xf_sigma_used": 0.004836307583820761,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 14.035032698826992,
+        "n_target_sigma_used": 22.271057451320086
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 538,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 496,
+      "n_tracks": 1102,
+      "pdg_counts": {
+        "-211": 138,
+        "-311": 42,
+        "111": 384,
+        "211": 496,
+        "321": 42
+      },
+      "spec_key": "rho3_plus::na49_mixing/generators/benchmark/rho3_plus_1690.gen"
+    },
+    "rho3_zero": {
+      "component_seed": 1875259945,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/benchmark/rho3_zero_1690.gen",
+      "mass_law": {
+        "params": [
+          0.278,
+          1.689,
+          0.161,
+          1.0,
+          2.0,
+          2.5
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.025173683974346977,
+        "mean_pt_sigma_used": 0.025173683974346977,
+        "mean_xf_sigma_seed": 0.005053757271578828,
+        "mean_xf_sigma_used": 0.006156323069126309,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 6.96419413859206,
+        "n_target_sigma_used": 18.973665961010276
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 542,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 360,
+      "n_tracks": 1107,
+      "pdg_counts": {
+        "-211": 360,
+        "-321": 40,
+        "111": 307,
+        "211": 360,
+        "321": 40
+      },
+      "spec_key": "rho3_zero::na49_mixing/generators/benchmark/rho3_zero_1690.gen"
+    },
+    "rho_plus": {
+      "component_seed": 1075811794,
+      "decay_lib_fingerprint": "",
+      "gen_file": "/home/o/NA49/2026/01-NA49-res/dev/mixing2006/na49_mixing/generators/benchmark/rho_plus_770.gen",
+      "mass_law": {
+        "params": [
+          0.278,
+          0.77,
+          0.15,
+          1.0,
+          2.0,
+          2.5
+        ],
+        "type": "breit_wigner"
+      },
+      "mc_band": {
+        "mean_pt_sigma_seed": 0.01185465382263759,
+        "mean_pt_sigma_used": 0.013154619166479689,
+        "mean_xf_sigma_seed": 0.005067591581486101,
+        "mean_xf_sigma_used": 0.0054020569840989244,
+        "n_sigma_multiplier": 6.0,
+        "n_target_sigma_seed": 0.0,
+        "n_target_sigma_used": 20.0
+      },
+      "n_decay_kinematic_failures": 0,
+      "n_decayed_parents": 400,
+      "n_events": 200,
+      "n_primary_decayed": 400,
+      "n_primary_generated": 400,
+      "n_target_species": 400,
+      "n_tracks": 800,
+      "pdg_counts": {
+        "111": 400,
+        "211": 400
+      },
+      "spec_key": "rho_plus::na49_mixing/generators/benchmark/rho_plus_770.gen"
+    }
+  },
+  "events_per_component": 200,
+  "fragmentation_mode": "both",
+  "max_decay_passes": 8,
+  "nested_head": "e4c4db6103a8712cd522ad675b2a0ae55c1727ff",
+  "outer_head": "ce0c4812b2faee1571ba24aa15e62011e992b55c",
+  "salt_in_force": "2026-08-26.1",
+  "schema_version": 1,
+  "species": "pi_plus",
+  "species_pdg": 211,
+  "stage": "stage0_golden_baseline",
+  "target_pdg": 2212,
+  "totals": {
+    "n_events": 3600,
+    "n_target_species": 3905,
+    "n_tracks": 17334
+  },
+  "weak_feed_policy": "inclusive_weak"
+}

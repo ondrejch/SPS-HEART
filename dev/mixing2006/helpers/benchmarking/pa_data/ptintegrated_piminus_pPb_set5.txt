@@ -1,0 +1,22 @@
+# NA49 p+Pb pi production, pT-integrated quantities, flat format
+# charge: pi-; sample: centrality selected set 5 of p+Pb events
+# centrality selection: n_grey = 14 -- 22; events: 62039; <nu> = 6.9 (thesis Tab. 'tabcdbins')
+# system: p+Pb, 158 GeV/c beam momentum (sqrt(s)_NN = 17.2 GeV), NA49
+# feed-down correction: applied (feed-down subtracted data)
+# source: O. Chvala, PhD thesis, Charles University Prague (2006), Tab. 'tabptiall' via datables/int.005.tex
+# thesis column semantics (header above \input of the table in phdthesis.tex):
+#   xF | dn/dxF, Delta[%] | <pT> [GeV/c], Delta[%] | <pT^2> [(GeV/c)^2], Delta[%]
+#   per charge (pi+ block then pi- block); Delta = statistical error in %
+# errors below converted to absolute: abs = value * pct / 100
+# columns: xF  dn/dxF  err_abs  mean_pT[GeV/c]  err_abs  mean_pT2[(GeV/c)^2]  err_abs
+# conversion date: 2026-09-29 by helpers/benchmarking/pa_data/convert_ptint_centrality.py
+# note: dn/dxF is the per-event pT-integrated density of the thesis (per triggered event of the sample); it is NOT divided by a cross section
+# NOTE: the thesis table for set 5 has no xF = 0.400 row (set 5 covers xF = 0.00..0.35)
+0.000 59.3 1.4232 0.2441 0.0112286 0.0964 0.017352
+0.050 11.40 0.1482 0.388 0.005044 0.2148 0.0090216
+0.100 3.32 0.08964 0.490 0.01764 0.339 0.0339
+0.150 1.182 0.030732 0.539 0.011858 0.392 0.021952
+0.200 0.498 0.020916 0.612 0.016524 0.507 0.032955
+0.250 0.2415 0.01449 0.677 0.02708 0.604 0.054964
+0.300 0.1052 0.011572 0.721 0.062727 0.712 0.08544
+0.350 0.0605 0.009075 0.792 0.16632 0.873 0.39285

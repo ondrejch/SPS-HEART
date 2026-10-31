@@ -1,0 +1,898 @@
+{
+ "blocks": [
+  {
+   "master_seed": 20260913,
+   "note": "Round 2 R23 raw replica seeds (round5 index item 9)",
+   "partition_base": null,
+   "raw_first": 20300913,
+   "raw_last": 20300920,
+   "run": "r23_resonance_only_pp_ablation",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260917,
+   "note": "block quoted in the Round 3 R31 cards; role not re-derived here (recorded as consumed to be safe)",
+   "partition_base": null,
+   "raw_first": 20301217,
+   "raw_last": 20301424,
+   "run": "round3_block_20301217_20301424",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260918,
+   "note": "R32 production blocks (round5 index item 9)",
+   "partition_base": null,
+   "raw_first": 20301519,
+   "raw_last": 20301726,
+   "run": "r32_spectral_systematic_production",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260918,
+   "note": "R32 confirmation blocks (round5 index item 9)",
+   "partition_base": null,
+   "raw_first": 20301819,
+   "raw_last": 20302034,
+   "run": "r32_spectral_systematic_confirmation",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260920,
+   "note": "R40-R44, relitigation, reserved audit block, R45, R46 (round5 index item 9)",
+   "partition_base": null,
+   "raw_first": 20301020,
+   "raw_last": 20301083,
+   "run": "round4_production",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260920,
+   "note": "rework card pre-registered candidate block (never fired; reserved)",
+   "partition_base": null,
+   "raw_first": 20301120,
+   "raw_last": 20301127,
+   "run": "round4_rework_reserved_c0_v0",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260920,
+   "note": "rework card pre-registered candidate block (never fired; reserved)",
+   "partition_base": null,
+   "raw_first": 20301220,
+   "raw_last": 20301227,
+   "run": "round4_rework_reserved_c0_v1",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260920,
+   "note": "rework card pre-registered candidate block (never fired; reserved)",
+   "partition_base": null,
+   "raw_first": 20301320,
+   "raw_last": 20301327,
+   "run": "round4_rework_reserved_c0_v2",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260920,
+   "note": "rework card pre-registered candidate block (never fired; reserved)",
+   "partition_base": null,
+   "raw_first": 20302120,
+   "raw_last": 20302127,
+   "run": "round4_rework_reserved_c1_v0",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260920,
+   "note": "rework card pre-registered candidate block (never fired; reserved)",
+   "partition_base": null,
+   "raw_first": 20302220,
+   "raw_last": 20302227,
+   "run": "round4_rework_reserved_c1_v1",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260920,
+   "note": "rework card pre-registered candidate block (never fired; reserved)",
+   "partition_base": null,
+   "raw_first": 20302320,
+   "raw_last": 20302327,
+   "run": "round4_rework_reserved_c1_v2",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260920,
+   "note": "rework card pre-registered candidate block (never fired; reserved)",
+   "partition_base": null,
+   "raw_first": 20303120,
+   "raw_last": 20303127,
+   "run": "round4_rework_reserved_c2_v0",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260920,
+   "note": "rework card pre-registered candidate block (never fired; reserved)",
+   "partition_base": null,
+   "raw_first": 20303220,
+   "raw_last": 20303227,
+   "run": "round4_rework_reserved_c2_v1",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260920,
+   "note": "rework card pre-registered candidate block (never fired; reserved)",
+   "partition_base": null,
+   "raw_first": 20303320,
+   "raw_last": 20303327,
+   "run": "round4_rework_reserved_c2_v2",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260918,
+   "note": "R32 smoke seeds 20305919 and 20306119 (range recorded conservatively)",
+   "partition_base": null,
+   "raw_first": 20305919,
+   "raw_last": 20306119,
+   "run": "round3_r32_smoke",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260920,
+   "note": "Round 4 smoke blocks (range recorded conservatively)",
+   "partition_base": null,
+   "raw_first": 20307920,
+   "raw_last": 20311920,
+   "run": "round4_smoke",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260925,
+   "note": "Round 5 (round5 closure record)",
+   "partition_base": 1000000000,
+   "raw_first": 20300925,
+   "raw_last": 20300944,
+   "run": "r50_pure_topology_templates",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260925,
+   "note": "Round 5 (round5 closure record)",
+   "partition_base": 1100000000,
+   "raw_first": 20300945,
+   "raw_last": 20300952,
+   "run": "r51_topology_fraction_fit",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260925,
+   "note": "Round 5 (round5 closure record)",
+   "partition_base": 1200000000,
+   "raw_first": 20300953,
+   "raw_last": 20300960,
+   "run": "r52_central_excitation_necessity",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260925,
+   "note": "Round 5 (round5 closure record)",
+   "partition_base": 1300000000,
+   "raw_first": 20300961,
+   "raw_last": 20300968,
+   "run": "r53_multiple_neutral_excitation",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260925,
+   "note": "Round 5 (round5 closure record)",
+   "partition_base": 1400000000,
+   "raw_first": 20300969,
+   "raw_last": 20300988,
+   "run": "r54_local_ledger_audit",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260925,
+   "note": "Round 5 (round5 closure record)",
+   "partition_base": 1500000000,
+   "raw_first": 20300989,
+   "raw_last": 20301008,
+   "run": "r55_frozen_topology_validation",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260925,
+   "note": "Round 5 (round5 closure record)",
+   "partition_base": 1600000000,
+   "raw_first": 20312925,
+   "raw_last": 20312925,
+   "run": "round5_smoke",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20260928,
+   "note": "Round 6 reservation, 2026-09-28 (master 20260928 + 40000 + 2500 + j): Gate 5 follow-up obligation 1: 4 classes x 8 replicas x up to 4 generations",
+   "partition_base": 2000000000,
+   "raw_first": 20303428,
+   "raw_last": 20303555,
+   "run": "r51b_topology_fraction_reconstraint",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260928,
+   "note": "Round 6 reservation, 2026-09-28 (master 20260928 + 40000 + 2500 + j): one seed per (family, mass node) job",
+   "partition_base": 2100000000,
+   "raw_first": 20303556,
+   "raw_last": 20303675,
+   "run": "r60_strange_source_grid",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260928,
+   "note": "Round 6 reservation, 2026-09-28 (master 20260928 + 40000 + 2500 + j): T2, 8 replicas",
+   "partition_base": 2200000000,
+   "raw_first": 20303676,
+   "raw_last": 20303683,
+   "run": "r61_pair_strangeness_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260928,
+   "note": "Round 6 reservation, 2026-09-28 (master 20260928 + 40000 + 2500 + j): T2, 8 replicas (conditional)",
+   "partition_base": 2300000000,
+   "raw_first": 20303684,
+   "raw_last": 20303691,
+   "run": "r62_associated_strangeness_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260928,
+   "note": "Round 6 reservation, 2026-09-28 (master 20260928 + 40000 + 2500 + j): T2, 8 replicas",
+   "partition_base": 2400000000,
+   "raw_first": 20303692,
+   "raw_last": 20303699,
+   "run": "r63_vector_hidden_strangeness_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260928,
+   "note": "Round 6 reservation, 2026-09-28 (master 20260928 + 40000 + 2500 + j): T2, 8 replicas",
+   "partition_base": 2500000000,
+   "raw_first": 20303700,
+   "raw_last": 20303707,
+   "run": "r64_baryon_pair_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260928,
+   "note": "Round 6 reservation, 2026-09-28 (master 20260928 + 40000 + 2500 + j): T3, 20 replicas",
+   "partition_base": 2600000000,
+   "raw_first": 20303708,
+   "raw_last": 20303727,
+   "run": "r65_flavor_closure_validation",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260928,
+   "note": "Round 6 reservation, 2026-09-28 (master 20260928 + 40000 + 2500 + j): Round 6 smoke seeds",
+   "partition_base": 2900000000,
+   "raw_first": 20303900,
+   "raw_last": 20303919,
+   "run": "round6_smoke",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260928,
+   "note": "Round 7 reservation, 2026-09-28: fit P7 joint refinement (T2, 8 replicas)",
+   "partition_base": 2700000000,
+   "raw_first": 20303728,
+   "raw_last": 20303735,
+   "run": "r7_p7_joint_flavor_refinement",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260928,
+   "note": "Round 5 follow-up reservation, 2026-09-28: R51c (4 classes x 8 replicas x up to 4 generations)",
+   "partition_base": 2800000000,
+   "raw_first": 20303736,
+   "raw_last": 20303863,
+   "run": "r51c_fraction_and_remnant_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260929,
+   "note": "R51d topology fit with the decoupled non-diffractive exponent (Round 5 follow-up, 2026-09-29): 32 slots x 4 generations",
+   "partition_base": 3000000000,
+   "raw_first": 20303920,
+   "raw_last": 20304047,
+   "run": "r51d_topology_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260929,
+   "note": "Round 5 follow-up / Round 7 smoke seeds (reduced runs into temporary directories; partitions 3.1e9 and above)",
+   "partition_base": 3100000000,
+   "raw_first": 20304100,
+   "raw_last": 20304119,
+   "run": "round7_smoke",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260929,
+   "note": "R51e topology refit on the Block B stage 1 substrate (2026-09-29): 32 slots x 4 generations",
+   "partition_base": 3200000000,
+   "raw_first": 20304120,
+   "raw_last": 20304247,
+   "run": "r51e_topology_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260930,
+   "note": "R51f joint proton and pion topology fit with the continuation floor on a grid (2026-09-30): 3 floors x 4 generations x 32 slots",
+   "partition_base": 3300000000,
+   "raw_first": 20313000,
+   "raw_last": 20313383,
+   "run": "r51f_joint_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20260930,
+   "note": "R51g joint proton and pion topology fit on the corrected final state (2026-09-30): 3 floors x 4 generations x 32 slots",
+   "partition_base": 3400000000,
+   "raw_first": 20313400,
+   "raw_last": 20313783,
+   "run": "r51g_joint_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261001,
+   "note": "R51h joint proton and pion topology fit with the floor grid (1.7, 2.0, 2.3 GeV) and the diffractive exponent bound opened upward (2026-10-01): 3 floors x 4 generations x 32 slots",
+   "partition_base": 3500000000,
+   "raw_first": 20313800,
+   "raw_last": 20314183,
+   "run": "r51h_joint_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261001,
+   "note": "R51i fine floor scan (1.6, 1.7, 1.8, 1.9 GeV) of the joint proton and pion fit (2026-10-01): 4 generations x 128 slots (32 replicas per class), common random numbers across the four floors",
+   "partition_base": 3600000000,
+   "raw_first": 20314200,
+   "raw_last": 20314711,
+   "run": "r51i_joint_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R66 joint flavor fit (gamma_s_had, assoc_norm, r_bbar) on the constrained R51i topology point (2026-10-02): 4 generations x 128 slots (32 replicas per class), floor 1.7 GeV",
+   "partition_base": 3700000000,
+   "raw_first": 20314800,
+   "raw_last": 20315311,
+   "run": "r66_joint_flavor_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R67 test of the central component (f_central free against f_central = 0) at the R66 flavor point (2026-10-02): 4 generations x 128 seeded slots (32 replicas of sd_projectile, sd_target, dd, nd; the nd0 replicas share the nd seeds)",
+   "partition_base": 3800000000,
+   "raw_first": 20315400,
+   "raw_last": 20315911,
+   "run": "r67_central_component_test",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R68 test of the central component on the uncapped cascade (continuation ceiling 17.3 GeV in memory) at the R66 flavor point (2026-10-02): 4 generations x 128 seeded slots (nd0 shares the nd seeds)",
+   "partition_base": 3900000000,
+   "raw_first": 20316000,
+   "raw_last": 20316511,
+   "run": "r68_central_component_uncapped",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R69 joint flavor (gamma_s_had, assoc_norm, r_bbar) and central-component fit on the uncapped cascade (2026-10-02): 4 generations x 128 seeded slots (nd0 shares the nd seeds)",
+   "partition_base": 4000000000,
+   "raw_first": 20316600,
+   "raw_last": 20317111,
+   "run": "r69_flavor_central_uncapped",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R70 joint flavor (gamma_s_had, assoc_norm, r_bbar) and central-component fit on the convolved quasi-two-body widths (FAB-10, 2026-10-02): 4 generations x 128 seeded slots (nd0 shares the nd seeds)",
+   "partition_base": 4100000000,
+   "raw_first": 20317200,
+   "raw_last": 20317711,
+   "run": "r70_flavor_central_convolved",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R71 central-component test on the fixed kernel (the CM-mirrored target single diffraction, the N pi threshold of the diffractive excitations, the radiative channels), the diffractive epsilon and B_SD free (2026-10-03): 4 generations x 128 seeded slots (nd0 shares the nd seeds)",
+   "partition_base": 4150000000,
+   "raw_first": 20317800,
+   "raw_last": 20318311,
+   "run": "r71_central_component_fixed_kernel",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R72 the R70 contract on the fixed kernel (the diffractive epsilon and B_SD held at the R70 values), separating the kernel fixes from R71's freed diffractive shapes (2026-10-03): 4 generations x 128 seeded slots (nd0 shares the nd seeds)",
+   "partition_base": 4200000000,
+   "raw_first": 20318400,
+   "raw_last": 20318911,
+   "run": "r72_fixed_kernel_r70_shapes",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R73 central-component test on the density-weighted continuation step (continuation_mass_law = density, set in memory), the R71 contract (2026-10-03): 4 generations x 128 seeded slots (nd0 shares the nd seeds)",
+   "partition_base": 4250000000,
+   "raw_first": 20319000,
+   "raw_last": 20319511,
+   "run": "r73_central_component_density_step",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R74 central-component test on the density-weighted continuation step with the P-wave barrier (continuation_barrier_l = 1, set in memory), the R71/R73 contract (2026-10-03): 4 generations x 128 seeded slots (nd0 shares the nd seeds)",
+   "partition_base": 4300000000,
+   "raw_first": 20319600,
+   "raw_last": 20320111,
+   "run": "r74_central_component_barrier_step",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R75 the charge-sensitive fit (the isospin-complete towers, the isovector exchange class with its fraction free, the neutron dN/dx_F segment, the central-component test repeated; run spec config/runs/r75.json) (2026-10-04): 4 generations x 128 seeded slots (nd0 shares the nd seeds)",
+   "partition_base": 4350000000,
+   "raw_first": 20320200,
+   "raw_last": 20320711,
+   "run": "r75_charge_sensitive_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R76 the charge-sensitive fit with the isovector exchange's own transfer slope (b_isovector free), the R75 contract (run spec config/runs/r76.json) (2026-10-04): 4 generations x 128 seeded slots (nd0 shares the nd seeds); stopped 2026-10-05 in generation 3 (owner decision after the regeneration defect), unsealed: the block stays consumed",
+   "partition_base": 4400000000,
+   "raw_first": 20320800,
+   "raw_last": 20321311,
+   "run": "r76_isovector_slope",
+   "status": "consumed"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R77 the single fit on the revised kernel: the two-component model (central_component false, f_central = 0 by construction), the exact transfer window and the per-line thresholds, the flat three-body phase space, the isovector exchange with its fraction free, the neutron dN/dx_F segment (run spec config/runs/r77.json) (2026-10-06): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 4450000000,
+   "raw_first": 20321400,
+   "raw_last": 20321911,
+   "run": "r77_single_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R78 the corrected fit: the R77 contract with the review corrections of 2026-10-06 (the density-integrated sibling weight, the bin-center correction, the exact CM sqrt(s) of the observables; run spec config/runs/r78.json) (2026-10-07): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 4500000000,
+   "raw_first": 20322000,
+   "raw_last": 20322511,
+   "run": "r78_corrected_fit",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R78e the edge-weight control of R78: the R78 contract with the committed edge sibling weight (run spec config/runs/r78e.json) (2026-10-07): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 4550000000,
+   "raw_first": 20322600,
+   "raw_last": 20323111,
+   "run": "r78e_edge_control",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R79 the calibrated continuation scale t_H = max(0.165, 0.25 M) on the density-integrated sibling weight, the R78 contract (run spec config/runs/r79.json) (2026-10-07): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 4600000000,
+   "raw_first": 20323200,
+   "raw_last": 20323711,
+   "run": "r79_calibrated_scale",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R79e the calibrated continuation scale t_H = max(0.165, 0.25 M) on the committed edge sibling weight, the R78e contract (run spec config/runs/r79e.json) (2026-10-07): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 4650000000,
+   "raw_first": 20323800,
+   "raw_last": 20324311,
+   "run": "r79e_calibrated_scale_edge",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R80 the central component measured on the calibrated cascade (alpha = 0.25, edge weight), f_central free, the recoiling central system (run spec config/runs/r80.json) (2026-10-07): 4 generations x 128 seeded slots (nd0 shares the nd seeds)",
+   "partition_base": 4700000000,
+   "raw_first": 20324400,
+   "raw_last": 20324911,
+   "run": "r80_central_on_calibrated",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R81 the competing reading on the calibrated cascade: the central component with its own power mass law (epsilon_c free), f_central free, the recoiling central system (run spec config/runs/r81.json) (2026-10-07): 4 generations x 128 seeded slots (nd0 shares the nd seeds)",
+   "partition_base": 4750000000,
+   "raw_first": 20325000,
+   "raw_last": 20325511,
+   "run": "r81_central_power_law",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R82 the leading-baryon split of the baryonic continuum roots (F = 0.2, kappa = 4) on the R78e contract (run spec config/runs/r82.json) (2026-10-08): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 4800000000,
+   "raw_first": 20325600,
+   "raw_last": 20326111,
+   "run": "r82_leading_split",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R83 the factorized vertex slopes of the 2 -> 2 transfer and the isoscalar low-mass remnant on the R82 contract (the leading-baryon split) (run spec config/runs/r83.json) (2026-10-08): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 4850000000,
+   "raw_first": 20326200,
+   "raw_last": 20326711,
+   "run": "r83_vertex_slopes",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R84 the isoscalar S-wave dipion of the nucleon resonances (f0(500), the PDG 2025 N* decay modes, the (N, f0(500)) floor class) on the R83 contract (run spec config/runs/r84.json) (2026-10-08): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 4900000000,
+   "raw_first": 20326800,
+   "raw_last": 20327311,
+   "run": "r84_isoscalar_dipion",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R85 the R84 contract (the isoscalar S-wave dipion of the nucleon resonances) at the 2.0 GeV continuation floor (run spec config/runs/r85.json) (2026-10-09): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 4950000000,
+   "raw_first": 20327400,
+   "raw_last": 20327911,
+   "run": "r85_floor2",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R86 the R85 contract (the 2.0 GeV continuation floor) with the floor pools of the charged and strange mesonic continuum (run spec config/runs/r86.json) (2026-10-09): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5000000000,
+   "raw_first": 20328000,
+   "raw_last": 20328511,
+   "run": "r86_floor_pools",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R87 the R86 contract (the floor pools of the charged and strange mesonic continuum at the 2.0 GeV continuation floor) with the single-diffraction non-excited line intact (run spec config/runs/r87.json) (2026-10-09): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5050000000,
+   "raw_first": 20328600,
+   "raw_last": 20329111,
+   "run": "r87_sd_intact",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R88 the R87 contract (the single-diffraction non-excited line intact) with the charge-conjugate baryonic towers and the vertex-slope mass exponent 1.25 (run spec config/runs/r88.json) (2026-10-09): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5100000000,
+   "raw_first": 20329200,
+   "raw_last": 20329711,
+   "run": "r88_conjugate_towers",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R89 the R88 contract (the charge-conjugate baryonic towers and the vertex-slope mass exponent 1.25) with the baryon-resonance pairs of the neutral mesonic continuum and the minimum continuation-step momentum 0.25 GeV/c (run spec config/runs/r89.json) (2026-10-10): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5150000000,
+   "raw_first": 20329800,
+   "raw_last": 20330311,
+   "run": "r89_pairs_step_minimum",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R90 the R89 contract (the baryon-resonance pairs and the minimum continuation-step momentum 0.25 GeV/c) with the isospin mixture of the non-diffractive baryonic lines, generated at the R89 optimum with the fixes of the physics review of 2026-10-10 (run spec config/runs/r90.json) (2026-10-10): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5200000000,
+   "raw_first": 20330400,
+   "raw_last": 20330911,
+   "run": "r90_nd_isospin_mixture",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R91 the R90 contract (the isospin mixture of the non-diffractive baryonic lines) with the leading-meson split, generated at the R90 optimum (run spec config/runs/r91.json) (2026-10-11): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5250000000,
+   "raw_first": 20331000,
+   "raw_last": 20331511,
+   "run": "r91_meson_split",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R92 the R91 contract (the leading-meson split) with the light scalar mesons f0(980) and a0(980), generated at the R91 optimum (run spec config/runs/r92.json) (2026-10-12): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5300000000,
+   "raw_first": 20331600,
+   "raw_last": 20332111,
+   "run": "r92_light_scalars",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R93 the R92 contract (the light scalar mesons) with the (N, Kbar*(892)) pairs of the strange baryonic lines, generated at the R92 optimum (run spec config/runs/r93.json) (2026-10-12): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5350000000,
+   "raw_first": 20332200,
+   "raw_last": 20332711,
+   "run": "r93_nucleon_kstar",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R94 the R93 contract (the (N, Kbar*(892)) pairs of the strange baryonic lines) with the low-mass non-diffractive lines through the N* and Delta records, generated at the R93 optimum (run spec config/runs/r94.json) (2026-10-12): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5400000000,
+   "raw_first": 20332800,
+   "raw_last": 20333311,
+   "run": "r94_nd_duality",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R95 the R94 contract (the low-mass non-diffractive lines through the N* and Delta records) with the low-mass record kind of the non-diffractive lines dropped (w_excited fixed at 1), generated at the R94 optimum (run spec config/runs/r95.json) (2026-10-13): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5450000000,
+   "raw_first": 20333400,
+   "raw_last": 20333911,
+   "run": "r95_no_low_mass_kind",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R96 the R95 contract (the low-mass non-diffractive lines through the N* and Delta records, no low-mass record kind) with the vector-to-pseudoscalar weight r_V free, generated at the R95 optimum (run spec config/runs/r96.json) (2026-10-13): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5500000000,
+   "raw_first": 20334000,
+   "raw_last": 20334511,
+   "run": "r96_free_rv",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R97 the R96 contract (the low-mass non-diffractive lines through the N* and Delta records, no low-mass record kind, r_V free) with the intact proton's vertex factor of the single-diffraction classes free, generated at the R96 optimum with that factor and the two exponents set by judgment (run spec config/runs/r97.json) (2026-10-15): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5550000000,
+   "raw_first": 20334600,
+   "raw_last": 20335111,
+   "run": "r97_intact_vertex",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R98 the R97 contract with the completion kernel (the PDG hyperons, the eta'(958), the (Delta, I = 0 meson) pairs, the charged scalar partners, the f0(500) line shape, the diffractive I = 1/2 records), generated at the R97 optimum with assoc_norm by judgment (run spec config/runs/r98.json) (2026-10-15): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5600000000,
+   "raw_first": 20335200,
+   "raw_last": 20335711,
+   "run": "r98_completion",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R99 the R98 contract (the completion kernel) with the S = -2 baryons (the Xi0, Xi- and Xi(1530) with their (Xi, K) classes) on the code of the external review of 2026-10-16, generated at the R98 optimum (run spec config/runs/r99.json) (2026-10-16): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5650000000,
+   "raw_first": 20335800,
+   "raw_last": 20336311,
+   "run": "r99_xi_review",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R100 the R99 contract (the S = -2 baryons) with the PDG 2024 meson tables and the N* range rule on the code of the external review of R99, generated at the R99 optimum (run spec config/runs/r100.json) (2026-10-17): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5700000000,
+   "raw_first": 20336400,
+   "raw_last": 20336911,
+   "run": "r100_pdg_tables",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R101 (diagnostic) the R100 contract (the PDG tables) with the omega, rho, eta'(958) and Lambda(1520)/Sigma(1385) channel factors free, generated at the R100 optimum (run spec config/runs/r101.json) (2026-10-18): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5750000000,
+   "raw_first": 20337000,
+   "raw_last": 20337511,
+   "run": "r101_factors_free",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R102 the R100 contract (the PDG tables) with the duality picks on the records' own line shapes (TopologyNominalParams.duality_line_shapes), generated at the R100 optimum (run spec config/runs/r102.json) (2026-10-18): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5800000000,
+   "raw_first": 20337600,
+   "raw_last": 20338111,
+   "run": "r102_duality_shapes",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R103 the R102 contract (the duality line shapes) with the redraw on the records' own line shapes (TopologyNominalParams.duality_redraw_shapes), generated at the R102 optimum (run spec config/runs/r103.json) (2026-10-20): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5850000000,
+   "raw_first": 20338200,
+   "raw_last": 20338711,
+   "run": "r103_redraw_shapes",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R104 the R103 contract (the redraw on the records' own line shapes) with the measured Dalitz distributions of the omega, eta and eta' three-body decays (KernelConfig.dalitz_matrix_elements), generated at the R103 optimum (run spec config/runs/r104.json) (2026-10-20): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5900000000,
+   "raw_first": 20338800,
+   "raw_last": 20339311,
+   "run": "r104_dalitz",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R105 the R104 contract (the measured Dalitz distributions) with the completions of 2026-10-21 (KernelConfig.pdg_nucleon_resonances, axial_isoscalars, associated_kstar_pairs), generated at the R104 optimum (run spec config/runs/r105.json) (2026-10-21): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 5950000000,
+   "raw_first": 20339400,
+   "raw_last": 20339911,
+   "run": "r105_completions",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R106 the R105 contract (the completions of 2026-10-21) with the baryon table corrections of 2026-10-21 (KernelConfig.baryon_table_corrections, baryon_pdg_widths, the Lambda(1520) dipion revision of the committed catalog), generated at the R105 optimum (run spec config/runs/r106.json) (2026-10-21): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6000000000,
+   "raw_first": 20340000,
+   "raw_last": 20340511,
+   "run": "r106_baryon_tables",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R107 the R106 contract (the baryon table corrections) with the baryon-pair creation step at L = 0 (KernelConfig.baryon_pair_s_wave), generated at the R106 optimum (run spec config/runs/r107.json) (2026-10-22): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6050000000,
+   "raw_first": 20340600,
+   "raw_last": 20341111,
+   "run": "r107_pair_s_wave",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R108 the systematics run of the R107 model (the R107 contract unchanged, six systematic variants refitted on its sample), generated at the R107 optimum (run spec config/runs/r108.json) (2026-10-22): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6100000000,
+   "raw_first": 20341200,
+   "raw_last": 20341711,
+   "run": "r108_systematics",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R109 the R108 contract with the single-diffraction anchor applied in its window (the measured 4.9 +- 0.8 mb below M^2/s = 0.05), generated at the R108 optimum (run spec config/runs/r109.json) (2026-10-23): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6150000000,
+   "raw_first": 20341800,
+   "raw_last": 20342311,
+   "run": "r109_sd_window",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R110 the R109 model regenerated at the R109 optimum, the replica check of R109 (run spec config/runs/r110.json) (2026-10-23): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6200000000,
+   "raw_first": 20342400,
+   "raw_last": 20342911,
+   "run": "r110_sd_window_replica",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R111 the R109 contract with the coherence region of diffraction (the single- and double-diffraction excited masses below M^2/s = 0.1), generated at the R110 optimum (run spec config/runs/r111.json) (2026-10-23): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6250000000,
+   "raw_first": 20343000,
+   "raw_last": 20343511,
+   "run": "r111_coherence",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R112 the R111 contract with the leading-proton tail of the single-diffraction classes beyond the coherence region (the share free), generated at the R111 optimum (run spec config/runs/r112.json) (2026-10-24): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6300000000,
+   "raw_first": 20343600,
+   "raw_last": 20344111,
+   "run": "r112_sd_tail",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R113 the R112 contract (the leading-proton tail of single diffraction, the share free) on a new seed block, generated at the R111 optimum (run spec config/runs/r113.json) (2026-10-24; R112 stopped on the tail events' missing slope factor): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6350000000,
+   "raw_first": 20344200,
+   "raw_last": 20344711,
+   "run": "r113_sd_tail",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R114 the R113 model (the leading-proton tail of single diffraction, the share free) regenerated at the R113 optimum on a new seed block, the replica check of R113 (run spec config/runs/r114.json) (2026-10-24): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6400000000,
+   "raw_first": 20344800,
+   "raw_last": 20345311,
+   "run": "r114_sd_tail_replica",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R115 the R114 contract with the intact proton's two-slope transfer in the single-diffraction classes (exp(B t) above |t| = 1 GeV^2, the continuous slope 0.4 B below it), generated at the R114 optimum (run spec config/runs/r115.json) (2026-10-24): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6450000000,
+   "raw_first": 20345400,
+   "raw_last": 20345911,
+   "run": "r115_intact_t_break",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R116 the R115 contract with r_BBbar on the baryon-pair steps that continue only (the floor's direct pairs at their bare two-body weight; spec flavor_bbar_scope = continuation), generated at the R115 optimum (run spec config/runs/r116.json) (2026-10-25): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6500000000,
+   "raw_first": 20346000,
+   "raw_last": 20346511,
+   "run": "r116_bbar_scope",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R117 the R116 model (r_BBbar on the baryon-pair steps that continue) regenerated at the R116 optimum on a new seed block, the replica check of R116 (run spec config/runs/r117.json) (2026-10-25): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6550000000,
+   "raw_first": 20346600,
+   "raw_last": 20347111,
+   "run": "r117_bbar_scope_replica",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R118 the R117 contract with the leading-proton tail's smooth upper edge (topology sd_tail [0.1, 0.89, 1, 7, xi_c, w] in place of the wall at xi = 0.5), generated at the R117 optimum (run spec config/runs/r118.json) (2026-10-25): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6600000000,
+   "raw_first": 20347200,
+   "raw_last": 20347711,
+   "run": "r118_tail_edge",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R119 the R118 model (the leading-proton tail's smooth upper edge) regenerated at the R118 optimum on a new seed block, the replica check of R118 (run spec config/runs/r119.json) (2026-10-26): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6650000000,
+   "raw_first": 20347800,
+   "raw_last": 20348311,
+   "run": "r119_tail_edge_replica",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R120 the R119 model with the diffractive mass law's epsilon held at the triple-Pomeron value 0.10, generated at the R119 optimum with epsilon there (run spec config/runs/r120.json) (2026-10-26): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6700000000,
+   "raw_first": 20348400,
+   "raw_last": 20348911,
+   "run": "r120_epsilon_fixed",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R121 the R120 contract with the one-pion-exchange component of single diffraction (its share free beside the tail) and its excited systems hadronized two-sided, generated at the R120 optimum (run spec config/runs/r121.json) (2026-10-26): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6750000000,
+   "raw_first": 20349000,
+   "raw_last": 20349511,
+   "run": "r121_one_pion_exchange",
+   "status": "reserved"
+  },
+  {
+   "master_seed": 20261002,
+   "note": "R122 the R121 contract with the one-pion exchange's law at the fixed pion term of Appleby et al. 2016 (the proton's Dirac form factor, alpha' 0.93, the Regge sigma_pi+p), generated at the R121 optimum with the share there (run spec config/runs/r122.json) (2026-10-27): 4 generations x 128 seeded slots (nd0 shares the nd seeds; the nd slots are not generated)",
+   "partition_base": 6800000000,
+   "raw_first": 20349600,
+   "raw_last": 20350111,
+   "run": "r122_ope_proton_form_factor",
+   "status": "reserved"
+  }
+ ],
+ "label": "seed_ledger",
+ "purpose": "Consumed and reserved raw replica-seed blocks and event-index partitions of the staged runs; run_contract.check_seed_disjointness refuses a run whose block or partition overlaps another run's entry. Kernel-layer substreams are keyed on the master seed, so distinct masters are disjoint by construction; the raw blocks are the legacy event-layer seeds. Historic entries are transcribed from the round records and cards.",
+ "updated": "2026-10-27"
+}

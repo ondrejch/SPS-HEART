@@ -1,0 +1,15 @@
+  Delta(1232)    decays/event 0.6409  radiative bound 0.00417
+  N(1440)        decays/event 0.1711  radiative bound 0.00008
+  N(1520)        decays/event 0.1547  radiative bound 0.00082
+  N(1680)        decays/event 0.1224  radiative bound 0.00039
+  Delta(1600)    decays/event 0.1038  radiative bound 0.00004
+  N(1535)        decays/event 0.0901  radiative bound 0.00027
+  Delta(1700)    decays/event 0.0887  radiative bound 0.00053
+  N(1720)        decays/event 0.0792  radiative bound 0.00020
+  N(1650)        decays/event 0.0545  radiative bound 0.00011
+  Sigma(1385)    decays/event 0.0395  radiative bound 0.00055
+  N(1675)        decays/event 0.0241  radiative bound 0.00004
+  Sigma(1775)    decays/event 0.0205  radiative bound 0.00006
+  Lambda(1520)   decays/event 0.0179  radiative bound 0.00018
+  Sigma(1915)    decays/event 0.0174  radiative bound 0.00005
+baryon-resonance decays per event 1.824 (particles and antiparticles); radiative decays bound 0.0080

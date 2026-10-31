@@ -1,0 +1,3 @@
+# Ship the license text in source distributions (the wheel picks
+# LICENSE up through the default license_files globs).
+include LICENSE

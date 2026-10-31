@@ -1,0 +1,15 @@
+{
+  "note": "Fixture constants for the offline mini-pipeline smoke run: round-number absolute-yield anchors at the integrated-yield scale of the committed reduced NA49 p+Pb pion tables. Not measured values; regenerate via make_fixture.py.",
+  "sigmas": {
+    "pi+": 6.5,
+    "pi-": 6.0
+  },
+  "targets": {
+    "pi+": 65.0,
+    "pi-": 60.0
+  },
+  "window": {
+    "xf_max": 0.4,
+    "xf_min": 0.0
+  }
+}

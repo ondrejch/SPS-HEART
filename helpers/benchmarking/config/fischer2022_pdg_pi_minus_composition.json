@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "source_title": "PDG-chain composition prior derived from Fischer 2022 Table 9 resonance list",
+    "derived_from": "helpers/benchmarking/config/fischer2022_table9_pi_minus.json",
+    "derivation_run": "/home/o/NA49/2026/01-NA49-res/dev/00runs/table9_pdg_yield_compare_2026-03-30/fischer2022_table9_pi_minus_yield_check.json",
+    "notes": [
+      "Rows/total_yield match Fischer Table 9 list.",
+      "table_branching_fraction and table_pi_minus_yield fields replaced by PDG-chain cascade expectations.",
+      "Format intentionally kept identical to Table-9 JSON so prior loader can reuse it."
+    ],
+    "runtime_pdg_id_mapping": {
+      "12114": "12112"
+    },
+    "runtime_pdg_id_note": "Historical/source-table identifier 12114 maps to runtime N*(1440)0 PDG 12112; the legacy alias is retired from the runtime decay library since 2026-08-23."
+  },
+  "rows": [
+    {
+      "name": "Delta0(1232)",
+      "pdg_id": 2114,
+      "sector": "baryon",
+      "total_yield": 0.123,
+      "table_branching_fraction": 0.3333,
+      "table_pi_minus_yield": 0.040995899999999995
+    },
+    {
+      "name": "Delta-(1232)",
+      "pdg_id": 1114,
+      "sector": "baryon",
+      "total_yield": 0.0584,
+      "table_branching_fraction": 1.0,
+      "table_pi_minus_yield": 0.0584
+    },
+    {
+      "name": "N*(1440)",
+      "pdg_id": 12114,
+      "sector": "baryon",
+      "total_yield": 0.157,
+      "table_branching_fraction": 0.6853648516666667,
+      "table_pi_minus_yield": 0.10760228171166668
+    },
+    {
+      "name": "N*(1520)",
+      "pdg_id": 2116,
+      "sector": "baryon",
+      "total_yield": 0.0848,
+      "table_branching_fraction": 0.69839692,
+      "table_pi_minus_yield": 0.059224058816
+    },
+    {
+      "name": "N*(1680)",
+      "pdg_id": 22112,
+      "sector": "baryon",
+      "total_yield": 0.0716,
+      "table_branching_fraction": 0.6859314633333333,
+      "table_pi_minus_yield": 0.049112692774666664
+    },
+    {
+      "name": "eta(548)",
+      "pdg_id": 221,
+      "sector": "meson",
+      "total_yield": 0.316,
+      "table_branching_fraction": 0.2729999999999999,
+      "table_pi_minus_yield": 0.08626799999999997
+    },
+    {
+      "name": "rho0(770)",
+      "pdg_id": 113,
+      "sector": "meson",
+      "total_yield": 0.837,
+      "table_branching_fraction": 1.0,
+      "table_pi_minus_yield": 0.837
+    },
+    {
+      "name": "rho-(770)",
+      "pdg_id": -213,
+      "sector": "meson",
+      "total_yield": 0.286,
+      "table_branching_fraction": 1.0,
+      "table_pi_minus_yield": 0.286
+    },
+    {
+      "name": "omega(782)",
+      "pdg_id": 223,
+      "sector": "meson",
+      "total_yield": 0.333,
+      "table_branching_fraction": 0.9159095497678175,
+      "table_pi_minus_yield": 0.30499788007268325
+    },
+    {
+      "name": "f2(1270)",
+      "pdg_id": 225,
+      "sector": "meson",
+      "total_yield": 0.0709,
+      "table_branching_fraction": 0.6321709786276715,
+      "table_pi_minus_yield": 0.04482092238470191
+    },
+    {
+      "name": "rho3^0(1690)",
+      "pdg_id": 117,
+      "sector": "meson",
+      "total_yield": 0.0566,
+      "table_branching_fraction": 0.8504791639903309,
+      "table_pi_minus_yield": 0.048137120681852726
+    },
+    {
+      "name": "rho3-(1690)",
+      "pdg_id": -217,
+      "sector": "meson",
+      "total_yield": 0.0397,
+      "table_branching_fraction": 1.2061928145016694,
+      "table_pi_minus_yield": 0.04788585473571627
+    },
+    {
+      "name": "f4(2050)",
+      "pdg_id": 229,
+      "sector": "meson",
+      "total_yield": 0.0159,
+      "table_branching_fraction": 0.6399101919135458,
+      "table_pi_minus_yield": 0.01017457205142538
+    }
+  ],
+  "totals": {
+    "baryon_total_yield": 0.495,
+    "meson_total_yield": 1.955,
+    "table_pi_minus_from_baryons": 0.3153349333023333,
+    "table_pi_minus_from_mesons": 1.6652843499263794,
+    "table_pi_minus_total": 1.9806192832287128,
+    "inclusive_pi_minus_total": 2.36,
+    "fraction_from_listed_decays_percent": 83.92454589952175
+  }
+}

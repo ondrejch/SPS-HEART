@@ -1,0 +1,64 @@
+{
+ "label": "eta_prime",
+ "source": "PDG 2025 (pdglive, eta'(958) summary; S. Navas et al., Phys. Rev. D 110, 030001 (2024) and 2025 update)",
+ "accessed_on": "2026-10-15",
+ "record": {
+  "pdg_id": 331,
+  "name": "eta'(958)",
+  "isospin": 0.0,
+  "spin": 0.0,
+  "parity": "-",
+  "pole_mass": 0.95778,
+  "nominal_width": 0.000188,
+  "modes": [
+   {
+    "daughters": [
+     221,
+     211,
+     -211
+    ],
+    "fraction": 0.425,
+    "L": 0,
+    "three_body": true
+   },
+   {
+    "daughters": [
+     113,
+     22
+    ],
+    "fraction": 0.295,
+    "L": 1,
+    "three_body": false
+   },
+   {
+    "daughters": [
+     221,
+     111,
+     111
+    ],
+    "fraction": 0.224,
+    "L": 0,
+    "three_body": true
+   },
+   {
+    "daughters": [
+     223,
+     22
+    ],
+    "fraction": 0.0252,
+    "L": 1,
+    "three_body": false
+   },
+   {
+    "daughters": [
+     22,
+     22
+    ],
+    "fraction": 0.0231,
+    "L": 0,
+    "three_body": false
+   }
+  ]
+ },
+ "rule": "the eta'(958) at its PDG 2025 mass and width, its five leading modes (eta pi+ pi- 42.5%, rho0 gamma 29.5% for the pi+ pi- gamma mode, eta pi0 pi0 22.4%, omega gamma 2.52%, gamma gamma 2.31%) normalized over these; the eta's record as the template (I = 0, J^P = 0-); beside every continuum class with an eta the classes with the eta' in its place, each eta replaced and both in a class of two"
+}

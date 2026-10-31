@@ -1,0 +1,154 @@
+{
+  "baryon_nucleus": {
+    "frozen_pp_parameters": {
+      "continuum": {
+        "decay_hypothesis": "H3",
+        "match_mass": 2.4,
+        "max_pions": 12,
+        "pair_strength": 0.015,
+        "pair_threshold_power": 2.0,
+        "pion_multiplicity_slope": 1.15,
+        "strange_lambda_strength": 0.1,
+        "strange_pair_strength": 0.05,
+        "strange_sigma_strength": 0.05,
+        "strange_threshold_power": 1.5
+      },
+      "regge": {
+        "alpha_exc0": 0.5,
+        "alpha_p0": 1.0808,
+        "alpha_p_prime": 0.25,
+        "edge_power": 2.0,
+        "effective_transfer_slope": 7.3489827740435505,
+        "grid_size": 96,
+        "s0": 1.0,
+        "transfer_slope": 4.5
+      }
+    },
+    "nucleus": {
+      "A": 208,
+      "Z": 82,
+      "diffuseness_fm": 0.546,
+      "name": "Pb208",
+      "profile": "woods_saxon",
+      "quad_alpha": 0.0,
+      "radius_fm": 6.62,
+      "sigma_nn_inel_mb": 31.7
+    },
+    "status": "passed",
+    "summary": {
+      "continuum_source_fraction": 0.49572649572649574,
+      "max_conservation_residual": 4.768506231444185e-13,
+      "mean_abs_t": 2.0106020471334958,
+      "mean_final_multiplicity": 29.7,
+      "mean_source_mass": 4.418287812549622,
+      "mean_target_wounds": 4.85,
+      "n_events": 20.0,
+      "pair_source_fraction": 0.0,
+      "std_source_mass": 4.578682543026206,
+      "strange_source_fraction": 0.06837606837606838
+    }
+  },
+  "configuration": {
+    "continuum_initial": {
+      "decay_hypothesis": "H3",
+      "match_mass": 2.4,
+      "max_pions": 12,
+      "pair_strength": 0.015,
+      "pair_threshold_power": 2.0,
+      "pion_multiplicity_slope": 1.15,
+      "strange_lambda_strength": 0.1,
+      "strange_pair_strength": 0.05,
+      "strange_sigma_strength": 0.05,
+      "strange_threshold_power": 1.5
+    },
+    "regge_initial": {
+      "alpha_exc0": 0.5,
+      "alpha_p0": 1.0808,
+      "alpha_p_prime": 0.25,
+      "edge_power": 2.0,
+      "effective_transfer_slope": 7.3489827740435505,
+      "grid_size": 96,
+      "s0": 1.0,
+      "transfer_slope": 4.5
+    },
+    "simple": {
+      "edge_power": 1.5,
+      "grid_size": 96,
+      "mass_scale": 0.65,
+      "transfer_slope": 5.5
+    }
+  },
+  "configuration_hash": "6e4ca867c461db9435d28cbc007e22d439176dbb4df74d3ef4512f9184e185ed",
+  "regge_fit": {
+    "fit": {
+      "objective": "binned",
+      "performed": false,
+      "reason": "fit disabled or no parameters/targets supplied"
+    },
+    "parameters": {
+      "continuum": {
+        "decay_hypothesis": "H3",
+        "match_mass": 2.4,
+        "max_pions": 12,
+        "pair_strength": 0.015,
+        "pair_threshold_power": 2.0,
+        "pion_multiplicity_slope": 1.15,
+        "strange_lambda_strength": 0.1,
+        "strange_pair_strength": 0.05,
+        "strange_sigma_strength": 0.05,
+        "strange_threshold_power": 1.5
+      },
+      "regge": {
+        "alpha_exc0": 0.5,
+        "alpha_p0": 1.0808,
+        "alpha_p_prime": 0.25,
+        "edge_power": 2.0,
+        "effective_transfer_slope": 7.3489827740435505,
+        "grid_size": 96,
+        "s0": 1.0,
+        "transfer_slope": 4.5
+      }
+    },
+    "status": "passed",
+    "summary": {
+      "continuum_source_fraction": 0.625,
+      "max_conservation_residual": 4.31998267448969e-15,
+      "mean_abs_t": 1.5456148901537758,
+      "mean_final_multiplicity": 10.3,
+      "mean_source_mass": 3.984928821014609,
+      "mean_target_wounds": 1.0,
+      "n_events": 20.0,
+      "pair_source_fraction": 0.0,
+      "std_source_mass": 2.1302068003901447,
+      "strange_source_fraction": 0.075
+    }
+  },
+  "seed": 20260831,
+  "simple_excitation": {
+    "parameters": {
+      "edge_power": 1.5,
+      "grid_size": 96,
+      "mass_scale": 0.65,
+      "transfer_slope": 5.5
+    },
+    "status": "passed",
+    "summary": {
+      "continuum_source_fraction": 0.125,
+      "max_conservation_residual": 3.291415371039764e-15,
+      "mean_abs_t": 0.1668736367863518,
+      "mean_final_multiplicity": 6.0,
+      "mean_source_mass": 1.9035908334542218,
+      "mean_target_wounds": 1.0,
+      "n_events": 20.0,
+      "pair_source_fraction": 0.0,
+      "std_source_mass": 0.62703874566617,
+      "strange_source_fraction": 0.0
+    }
+  },
+  "stage_order": [
+    "simple_excitation",
+    "regge_fit",
+    "baryon_nucleus"
+  ],
+  "through": "baryon_nucleus"
+}

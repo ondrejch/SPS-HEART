@@ -1,0 +1,51 @@
+# Python byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# pytest cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Generated output (not part of the source tree)
+*.npz
+*.pdf
+*.ps
+*.root
+
+# Exception: the committed mini-pipeline smoke fixture redistributes its
+# synthetic component arrays on purpose (regeneration is deterministic, but
+# the committed arrays keep the smoke run offline, fast, and byte-stable).
+!sps_resonances_paper/mini_pipeline/fixture/**/*.npz

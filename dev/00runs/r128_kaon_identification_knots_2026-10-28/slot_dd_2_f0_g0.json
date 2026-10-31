@@ -1,0 +1,53 @@
+{
+ "arrays_file": "slot_dd_2_f0_g0.npz",
+ "arrays_sha256": "c75553c93ab2d79f5cd9b48814d9fc77e560b460a9b39425da5e941882bfc12b",
+ "b_sd": 5.638470919704211,
+ "card": "TASK-20261028-r128-kaon-identification",
+ "class_label": "dd",
+ "conservation": {
+  "events": 100000,
+  "tolerance": 1e-09,
+  "violations": 0,
+  "worst_closure_relative": 4.1733142961099557e-14,
+  "worst_mass_shell_relative": 5.184741524999481e-14
+ },
+ "continuation_floor": 2.0,
+ "driver": "helpers/benchmarking/run_engine.py",
+ "driver_sha256": "cc92db8ad6bb7f243be06b708937d63e5566a94b4b8499694b6abf8171a2ea8e",
+ "epsilon": 0.1,
+ "epsilon_nd": 0.2515309094218961,
+ "event_rolling_sha256": "45a2166d6545d46f9280fe5beaef46185afcb1f36a177856abb958a6f0067f16",
+ "flavor_generation": {
+  "assoc_norm": 0.8981113519182624,
+  "gamma_s_had": 0.3065623848183708,
+  "r_bbar": 3.0555827851600545,
+  "r_v": 0.6407577848688467
+ },
+ "floor_index": 0,
+ "generation": 0,
+ "informative_vertices": 243893,
+ "intact_vertex_factor": 1.754947253119391,
+ "isovector_generation_fraction": 0.2,
+ "n_events": 100000,
+ "nd_central": true,
+ "partition_base": 7106600000,
+ "pre_registration_sha256": "651092016e5ad9c207b329c864cc8824562acde5bc04f34b6395288c370636df",
+ "replica": 2,
+ "run": "r128_kaon_identification_knots_2026-10-28",
+ "run_dir": "/home/ondrejch/NA49/2026/01-NA49-res/dev/00runs/r128_kaon_identification_knots_2026-10-28",
+ "schema": "na49_mixing.run_engine.slot/1",
+ "sd_ope_share": 0.35475112890362037,
+ "sd_tail_share": 0.16972980653407704,
+ "seed": 20353266,
+ "slot": 66,
+ "track_species": [
+  "pi_minus",
+  "pi_plus",
+  "k_plus",
+  "k_minus",
+  "proton",
+  "antiproton"
+ ],
+ "tracks": 525808,
+ "written_utc": "2026-10-29T03:05:02Z"
+}

@@ -1,0 +1,174 @@
+submitted ryb125: 20261028T153411Z-67f2c921
+finished in 574 s
+kernel options: (the spec); events {'nd0': 280000, 'sd_projectile': 40000, 'sd_target': 40000, 'dd': 40000}
+  rho0           0.3200 per event   NA27 0.385 +- 0.018
+  rho+           0.3579 per event   
+  rho-           0.2566 per event   
+  omega          0.4276 per event   NA27 0.390 +- 0.024
+  eta            0.3975 per event   NA27 0.30 +- 0.02
+  eta'           0.0406 per event   
+  phi            0.0162 per event   NA61 0.01256 +- 0.0005
+  K*0            0.0816 per event   NA61 0.0784 +- 0.006
+  K*0bar         0.0458 per event   
+  K*+            0.0992 per event   
+  K*-            0.0336 per event   
+  Delta++        0.1715 per event   
+  Delta+         0.2969 per event   
+  Delta0         0.1118 per event   
+  Delta-         0.0436 per event   
+  Sigma(1385)+   0.0188 per event   
+  Sigma(1385)-   0.0066 per event   
+  Lambda(1520)   0.0190 per event   
+  f2(1270)       0.1112 per event   
+  f1(1285)       0.1213 per event   
+  h1(1170)       0.1253 per event   
+  f0(500)        0.1160 per event   
+  f0(980)        0.0699 per event   
+  rho0/omega     0.748   (NA27 0.99 +- 0.08; NA60 p+A 1.00 +- 0.06)
+  (rho+ + rho-)/2rho0 0.960
+  K*(892)0 and anti-K*(892)0 by the emitting vertex's siblings, per inelastic event
+      313 cascade, sibling mesonic_charged [c]           0.0143
+      313 cascade, sibling mesonic_neutral [c]           0.0133
+      313 cascade, sibling mesonic_strange_qm1 [c]       0.0051
+      313 cascade, sibling baryonic_strange_q1 [f]       0.0049
+      313 cascade, with a kaon [c]                       0.0045
+      313 cascade, sibling mesonic_charged [f]           0.0036
+      313 other                                          0.0035
+      313 cascade, with a kaon [f]                       0.0030
+      313 cascade, sibling mesonic_strange [c]           0.0029
+      313 cascade, sibling mesonic_neutral [f]           0.0028
+      313 cascade, with catalog:223 [c]                  0.0028
+      313 cascade, with catalog:223 [f]                  0.0025
+      313 cascade, with catalog:213 [c]                  0.0023
+      313 cascade, with catalog:213 [f]                  0.0022
+      313 cascade, with a hyperon [f]                    0.0017
+      313 cascade, sibling baryonic_strange_q1 [c]       0.0016
+      313 cascade, with catalog:211 [f]                  0.0016
+      313 cascade, with catalog:221 [c]                  0.0016
+      313 cascade, with catalog:211 [c]                  0.0015
+      313 cascade, with catalog:221 [f]                  0.0014
+      313 cascade, with catalog:113 [c]                  0.0009
+      313 cascade, with catalog:113 [f]                  0.0009
+      313 cascade, sibling mesonic_strange_qm1 [f]       0.0008
+      313 cascade, sibling mesonic_strange [f]           0.0006
+      313 cascade, with catalog:111 [c]                  0.0006
+      313 cascade, with catalog:111 [f]                  0.0005
+      313 cascade, with a hyperon [c]                    0.0002
+      313 cascade, sibling baryonic_strange [c]          0.0001
+      313 cascade, sibling baryonic_strange [f]          0.0001
+      313 with a nucleon or Delta                        0.0001
+      313 cascade, with a nucleon or Delta [c]           0.0000
+      313 cascade, sibling baryonic_strange_qm1 [c]      0.0000
+      313 cascade, sibling baryonic_strange_qm1 [f]      0.0000
+      313 cascade, sibling anti_baryonic_np [c]          0.0000
+      313 cascade, with a nucleon or Delta [f]           0.0000
+     -313 cascade, sibling mesonic_antistrange_q1 [c]    0.0097
+     -313 cascade, with a kaon [c]                       0.0058
+     -313 cascade, with a kaon [f]                       0.0044
+     -313 cascade, sibling mesonic_neutral [c]           0.0044
+     -313 with a nucleon or Delta                        0.0037
+     -313 cascade, sibling mesonic_antistrange [c]       0.0028
+     -313 cascade, sibling mesonic_anticharged [c]       0.0021
+     -313 cascade, sibling mesonic_antistrange_q1 [f]    0.0020
+     -313 cascade, with catalog:223 [c]                  0.0016
+     -313 cascade, with a nucleon or Delta [f]           0.0014
+     -313 other                                          0.0011
+     -313 cascade, with catalog:-213 [c]                 0.0009
+     -313 cascade, with catalog:221 [c]                  0.0008
+     -313 cascade, with catalog:223 [f]                  0.0007
+     -313 cascade, sibling mesonic_antistrange [f]       0.0006
+     -313 cascade, with catalog:-211 [c]                 0.0005
+     -313 cascade, with catalog:113 [c]                  0.0005
+     -313 cascade, sibling mesonic_neutral [f]           0.0004
+     -313 cascade, with catalog:221 [f]                  0.0003
+     -313 cascade, with catalog:111 [c]                  0.0003
+     -313 cascade, with catalog:-213 [f]                 0.0003
+     -313 cascade, sibling mesonic_anticharged [f]       0.0002
+     -313 cascade, with catalog:113 [f]                  0.0002
+     -313 cascade, with catalog:-211 [f]                 0.0002
+     -313 cascade, with catalog:111 [f]                  0.0002
+     -313 cascade, with a nucleon or Delta [c]           0.0002
+     -313 cascade, sibling baryonic_np_q0 [f]            0.0001
+     -313 cascade, sibling baryonic_np [f]               0.0001
+     -313 cascade, sibling baryonic_np [c]               0.0001
+     -313 cascade, sibling baryonic_np_q0 [c]            0.0001
+     -313 cascade, with a hyperon [c]                    0.0001
+     -313 cascade, sibling anti_baryonic_strange_q1 [c]  0.0001
+     -313 cascade, sibling anti_baryonic_strange [c]     0.0001
+     -313 cascade, sibling anti_baryonic_strange_qm1 [c] 0.0000
+     -313 cascade, with a hyperon [f]                    0.0000
+     -313 cascade, sibling anti_baryonic_strange_q1 [f]  0.0000
+     -313 cascade, sibling anti_baryonic_strange [f]     0.0000
+     -313 cascade, sibling anti_baryonic_strange_qm1 [f] 0.0000
+  the strange continuum states made per inelastic event (s-bar: mesonic_antistrange; s: mesonic_strange)
+    mesonic_antistrange    0.3540
+    mesonic_strange        0.0808
+  their largest origins (family | parent | sibling)
+    mesonic_antistrange  | mesonic_antistrange_q1     | catalog:223                    0.0272
+    mesonic_antistrange  | mesonic_antistrange_q1     | catalog:211                    0.0217
+    mesonic_antistrange  | mesonic_antistrange_q1     | catalog:213                    0.0177
+    mesonic_antistrange  | mesonic_antistrange        | catalog:223                    0.0164
+    mesonic_antistrange  | mesonic_antistrange        | catalog:-211                   0.0135
+    mesonic_strange      | mesonic_charged            | catalog:323                    0.0123
+    mesonic_antistrange  | mesonic_charged            | catalog:-313                   0.0116
+    mesonic_antistrange  | baryonic_np                | catalog:3126                   0.0110
+    mesonic_antistrange  | baryonic_np                | catalog:13126                  0.0109
+    mesonic_antistrange  | mesonic_antistrange        | catalog:-213                   0.0108
+    mesonic_antistrange  | mesonic_antistrange_q1     | catalog:111                    0.0107
+    mesonic_antistrange  | baryonic_np                | catalog:3226                   0.0094
+    mesonic_antistrange  | mesonic_antistrange_q1     | catalog:113                    0.0091
+    mesonic_strange      | mesonic_charged            | catalog:321                    0.0091
+    mesonic_antistrange  | mesonic_charged            | catalog:-311                   0.0090
+    mesonic_antistrange  | baryonic_np                | catalog:13226                  0.0089
+    mesonic_antistrange  | baryonic_np                | catalog:102134                 0.0083
+    mesonic_antistrange  | baryonic_np                | catalog:3216                   0.0079
+    mesonic_antistrange  | baryonic_np                | catalog:3224                   0.0077
+    mesonic_antistrange  | baryonic_np                | catalog:13216                  0.0076
+    mesonic_antistrange  | baryonic_np                | catalog:13124                  0.0075
+    mesonic_antistrange  | baryonic_np                | catalog:23124                  0.0068
+    mesonic_antistrange  | mesonic_antistrange        | catalog:111                    0.0067
+    mesonic_antistrange  | baryonic_np                | catalog:3122                   0.0066
+  mass distributions per inelastic event in 0.25 GeV bins (SM: a strange continuum state at its creation, beside a hyperon Y or otherwise; CM: the state that emits a K*(892), by its family)
+    CM|-313|anti_baryonic_np                 total 0.0002, mean 3.49 GeV | 
+    CM|-313|baryonic_strange                 total 0.0020, mean 2.52 GeV | 2.00:0.0015
+    CM|-313|mesonic_charged                  total 0.0175, mean 4.47 GeV | 2.00:0.0052 3.00:0.0012 3.25:0.0009 3.50:0.0007 3.75:0.0006 4.00:0.0006 4.50:0.0006
+    CM|-313|mesonic_neutral                  total 0.0078, mean 3.55 GeV | 2.00:0.0040 3.00:0.0005
+    CM|-313|mesonic_strange                  total 0.0135, mean 3.94 GeV | 2.00:0.0060 3.50:0.0005
+    CM|313|anti_baryonic_strange             total 0.0000, mean 2.52 GeV | 
+    CM|313|baryonic_np                       total 0.0086, mean 4.47 GeV | 2.00:0.0016 3.00:0.0015 3.25:0.0011 3.50:0.0007
+    CM|313|mesonic_anticharged               total 0.0091, mean 4.37 GeV | 2.00:0.0030 3.00:0.0005 3.25:0.0005
+    CM|313|mesonic_antistrange               total 0.0526, mean 4.78 GeV | 2.00:0.0173 2.25:0.0014 3.00:0.0020 3.25:0.0020 3.50:0.0019 3.75:0.0017 4.00:0.0016 4.25:0.0015 4.50:0.0015 4.75:0.0013 5.00:0.0012 5.25:0.0012 5.50:0.0012 5.75:0.0010 6.00:0.0010 6.25:0.0010 6.50:0.0009 6.75:0.0009 7.00:0.0008 7.25:0.0009 7.50:0.0008 7.75:0.0007 8.00:0.0008 8.25:0.0007 8.50:0.0007 8.75:0.0006 9.00:0.0006 9.25:0.0006 9.50:0.0006
+    CM|313|mesonic_neutral                   total 0.0078, mean 3.57 GeV | 2.00:0.0039 3.00:0.0006
+    SM|mesonic_antistrange|Y                 total 0.1586, mean 4.86 GeV | 2.00:0.0287 2.25:0.0139 2.50:0.0102 2.75:0.0084 3.00:0.0075 3.25:0.0065 3.50:0.0054 3.75:0.0047 4.00:0.0041 4.25:0.0039 4.50:0.0039 4.75:0.0034 5.00:0.0034 5.25:0.0031 5.50:0.0031 5.75:0.0027 6.00:0.0024 6.25:0.0024 6.50:0.0024 6.75:0.0023 7.00:0.0021 7.25:0.0021 7.50:0.0020 7.75:0.0021 8.00:0.0020 8.25:0.0020 8.50:0.0020 8.75:0.0018 9.00:0.0018 9.25:0.0017 9.50:0.0016 9.75:0.0015 10.00:0.0014 10.25:0.0014 10.50:0.0014 10.75:0.0013 11.00:0.0012 11.25:0.0011 11.50:0.0010 11.75:0.0008 12.00:0.0008 12.25:0.0008 12.50:0.0006
+    SM|mesonic_antistrange|other             total 0.1953, mean 4.13 GeV | 2.00:0.0639 2.25:0.0168 2.50:0.0090 2.75:0.0074 3.00:0.0067 3.25:0.0059 3.50:0.0059 3.75:0.0054 4.00:0.0049 4.25:0.0048 4.50:0.0043 4.75:0.0041 5.00:0.0040 5.25:0.0037 5.50:0.0035 5.75:0.0034 6.00:0.0030 6.25:0.0031 6.50:0.0029 6.75:0.0028 7.00:0.0025 7.25:0.0027 7.50:0.0025 7.75:0.0022 8.00:0.0021 8.25:0.0021 8.50:0.0018 8.75:0.0016 9.00:0.0017 9.25:0.0014 9.50:0.0015 9.75:0.0012 10.00:0.0011 10.25:0.0009 10.50:0.0009 10.75:0.0008 11.00:0.0006 11.25:0.0006
+    SM|mesonic_strange|Y                     total 0.0036, mean 4.14 GeV | 2.00:0.0006
+    SM|mesonic_strange|other                 total 0.0773, mean 3.80 GeV | 2.00:0.0272 2.25:0.0067 2.50:0.0039 2.75:0.0032 3.00:0.0027 3.25:0.0026 3.50:0.0025 3.75:0.0022 4.00:0.0020 4.25:0.0020 4.50:0.0019 4.75:0.0017 5.00:0.0015 5.25:0.0016 5.50:0.0015 5.75:0.0014 6.00:0.0013 6.25:0.0011 6.50:0.0011 6.75:0.0011 7.00:0.0009 7.25:0.0008 7.50:0.0007 7.75:0.0007 8.00:0.0006 8.25:0.0006 8.50:0.0005 8.75:0.0005
+  the largest single origins (state | vertex parent | siblings)
+      313 | mesonic_antistrange_q1   | mesonic_charged [c]                0.0143
+      313 | mesonic_antistrange      | mesonic_neutral [c]                0.0133
+     -313 | mesonic_charged          | mesonic_antistrange_q1 [c]         0.0097
+      313 | mesonic_anticharged      | mesonic_strange_qm1 [c]            0.0051
+      313 | baryonic_np              | baryonic_strange_q1 [f]            0.0049
+     -313 | mesonic_strange          | mesonic_neutral [c]                0.0044
+      313 | mesonic_antistrange_q1   | mesonic_charged [f]                0.0036
+      313 | mesonic_neutral          | mesonic_strange [c]                0.0029
+      313 | mesonic_antistrange      | mesonic_neutral [f]                0.0028
+     -313 | mesonic_neutral          | mesonic_antistrange [c]            0.0028
+      313 | mesonic_antistrange      | catalog:223 [c]                    0.0028
+      313 | mesonic_antistrange      | catalog:223 [f]                    0.0025
+      313 | mesonic_antistrange_q1   | catalog:213 [c]                    0.0023
+      313 | mesonic_antistrange_q1   | catalog:213 [f]                    0.0022
+     -313 | mesonic_strange_qm1      | mesonic_anticharged [c]            0.0021
+     -313 | mesonic_charged          | mesonic_antistrange_q1 [f]         0.0020
+     -313 | mesonic_charged          | catalog:323 [c]                    0.0019
+     -313 | mesonic_strange          | catalog:223 [c]                    0.0016
+      313 | baryonic_np              | baryonic_strange_q1 [c]            0.0016
+      313 | mesonic_antistrange_q1   | catalog:211 [f]                    0.0016
+      313 | mesonic_antistrange      | catalog:221 [c]                    0.0016
+     -313 | mesonic_charged          | catalog:323 [f]                    0.0015
+      313 | mesonic_antistrange_q1   | catalog:211 [c]                    0.0015
+     -313 | mesonic_charged          | catalog:321 [c]                    0.0015
+  dn/dy per inelastic event, p_T < 1.5 GeV/c (model / NA49 Table IV)
+      313 0.0277/0.0241  0.0278/0.0272  0.0267/0.0232  0.0253/0.0192  0.0230/0.0180  0.0201/0.0173  0.0160/0.0136  0.0127/0.0113  0.0095/0.0095  0.0066/0.0062
+     -313 0.0184/0.0188  0.0174/0.0179  0.0167/0.0176  0.0149/0.0159  0.0127/0.0146  0.0104/0.0115  0.0083/0.0094  0.0062/0.0079  0.0040/0.0048  0.0025/0.0026
+      333 0.0058  0.0055  0.0053  0.0051  0.0049  0.0042  0.0032  0.0025  0.0016  0.0010

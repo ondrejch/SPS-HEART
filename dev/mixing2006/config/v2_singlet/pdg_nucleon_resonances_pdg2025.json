@@ -1,0 +1,754 @@
+{
+ "label": "pdg_nucleon_resonances",
+ "source": "PDG 2025 summary tables, N and Delta baryons (S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update; rpp2025-tab-baryons-N.pdf and rpp2025-tab-baryons-Delta.pdf, created 2025-05-30); .collab/sources/pdg/rpp2025-tab-baryons-N.txt",
+ "accessed_on": "2026-10-21",
+ "rule": "the PDG 2025 N and Delta resonances of three and four stars between N(1720) and the 2.0 GeV continuation floor that the catalog lacks, at their Breit-Wigner masses and widths; each mode at its PDG range (the Npipi total replaced by its listed Delta pi, N rho and N sigma parts, a mode listed only as seen left out), the fractions at one common position inside the ranges (the N* range rule); the partial wave the PDG names, else the lowest the J^P allow; the charge splits by isospin Clebsch-Gordan coefficients; Delta(1930) left out (the PDG lists its N pi alone); private pdg ids (the catalog's legacy numbering holds some of the PDG codes); beside every (N*, pi) class of a non-strange baryonic line the classes of the new states with a pion at every charge the line allows",
+ "multiplets": [
+  {
+   "name": "N(1675)",
+   "I": 0.5,
+   "J": 2.5,
+   "P": "-",
+   "stars": 4,
+   "pole_mass": 1.675,
+   "nominal_width": 0.145,
+   "pdg_ids": {
+    "1": 9121675,
+    "0": 9111675
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "38-42 %",
+     "L": 2
+    },
+    {
+     "kind": "Neta",
+     "pdg_range": "<1 %",
+     "L": 2
+    },
+    {
+     "kind": "LK",
+     "pdg_range": "<0.04 %",
+     "L": 2
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "23-37 %",
+     "L": 2,
+     "note": "D-wave"
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "0.1-0.9 %",
+     "L": 2,
+     "note": "S=3/2 D-wave"
+    },
+    {
+     "kind": "Nsigma",
+     "pdg_range": "3-7 %",
+     "L": 3
+    }
+   ]
+  },
+  {
+   "name": "N(1700)",
+   "I": 0.5,
+   "J": 1.5,
+   "P": "-",
+   "stars": 3,
+   "pole_mass": 1.72,
+   "nominal_width": 0.2,
+   "pdg_ids": {
+    "1": 9121700,
+    "0": 9111700
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "7-17 %",
+     "L": 2
+    },
+    {
+     "kind": "Neta",
+     "pdg_range": "1-2 %",
+     "L": 2
+    },
+    {
+     "kind": "Nomega",
+     "pdg_range": "10-34 %",
+     "L": 0
+    },
+    {
+     "kind": "LK",
+     "pdg_range": "1-2 %",
+     "L": 2
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "55-85 %",
+     "L": 0,
+     "note": "S-wave 50-80, D-wave 4-14"
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "32-44 %",
+     "L": 0,
+     "note": "S=3/2 S-wave"
+    },
+    {
+     "kind": "Nsigma",
+     "pdg_range": "2-14 %",
+     "L": 1
+    },
+    {
+     "kind": "N1440pi",
+     "pdg_range": "3-11 %",
+     "L": 2
+    },
+    {
+     "kind": "N1520pi",
+     "pdg_range": "<4 %",
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "N(1710)",
+   "I": 0.5,
+   "J": 0.5,
+   "P": "+",
+   "stars": 4,
+   "pole_mass": 1.71,
+   "nominal_width": 0.14,
+   "pdg_ids": {
+    "1": 9121710,
+    "0": 9111710
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "5-20 %",
+     "L": 1
+    },
+    {
+     "kind": "Neta",
+     "pdg_range": "10-50 %",
+     "L": 1
+    },
+    {
+     "kind": "Nomega",
+     "pdg_range": "1-5 %",
+     "L": 1
+    },
+    {
+     "kind": "LK",
+     "pdg_range": "5-25 %",
+     "L": 1
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "3-9 %",
+     "L": 1,
+     "note": "P-wave"
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "11-23 %",
+     "L": 1,
+     "note": "S=1/2 P-wave"
+    },
+    {
+     "kind": "Nsigma",
+     "pdg_range": "<16 %",
+     "L": 0
+    },
+    {
+     "kind": "N1535pi",
+     "pdg_range": "9-21 %",
+     "L": 0
+    }
+   ],
+   "omitted": "Sigma K (seen, no fraction)"
+  },
+  {
+   "name": "N(1875)",
+   "I": 0.5,
+   "J": 1.5,
+   "P": "-",
+   "stars": 3,
+   "pole_mass": 1.875,
+   "nominal_width": 0.2,
+   "pdg_ids": {
+    "1": 9121875,
+    "0": 9111875
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "3-11 %",
+     "L": 2
+    },
+    {
+     "kind": "Neta",
+     "pdg_range": "3-16 %",
+     "L": 2
+    },
+    {
+     "kind": "Nomega",
+     "pdg_range": "15-25 %",
+     "L": 0
+    },
+    {
+     "kind": "LK",
+     "pdg_range": "1-2 %",
+     "L": 2
+    },
+    {
+     "kind": "SK",
+     "pdg_range": "0.3-1.1 %",
+     "L": 2
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "4-44 %",
+     "L": 0,
+     "note": "S-wave 2-21, D-wave 2-23"
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "36-56 %",
+     "L": 0,
+     "note": "S=3/2 S-wave"
+    },
+    {
+     "kind": "Nsigma",
+     "pdg_range": "16-60 %",
+     "L": 1
+    },
+    {
+     "kind": "N1440pi",
+     "pdg_range": "2-8 %",
+     "L": 2
+    },
+    {
+     "kind": "N1520pi",
+     "pdg_range": "<2 %",
+     "L": 1
+    },
+    {
+     "kind": "LKstar",
+     "pdg_range": "<0.2 %",
+     "L": 0
+    }
+   ]
+  },
+  {
+   "name": "N(1880)",
+   "I": 0.5,
+   "J": 0.5,
+   "P": "+",
+   "stars": 3,
+   "pole_mass": 1.88,
+   "nominal_width": 0.3,
+   "pdg_ids": {
+    "1": 9121880,
+    "0": 9111880
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "3-31 %",
+     "L": 1
+    },
+    {
+     "kind": "Neta",
+     "pdg_range": "1-55 %",
+     "L": 1
+    },
+    {
+     "kind": "Nomega",
+     "pdg_range": "12-28 %",
+     "L": 1
+    },
+    {
+     "kind": "LK",
+     "pdg_range": "1-3 %",
+     "L": 1
+    },
+    {
+     "kind": "SK",
+     "pdg_range": "10-24 %",
+     "L": 1
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "5-42 %",
+     "L": 1
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "19-45 %",
+     "L": 1,
+     "note": "S=1/2 P-wave"
+    },
+    {
+     "kind": "Nsigma",
+     "pdg_range": "8-40 %",
+     "L": 0
+    },
+    {
+     "kind": "N1535pi",
+     "pdg_range": "4-12 %",
+     "L": 0
+    },
+    {
+     "kind": "Na0",
+     "pdg_range": "1-5 %",
+     "L": 0
+    },
+    {
+     "kind": "LKstar",
+     "pdg_range": "0.5-1.1 %",
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "N(1895)",
+   "I": 0.5,
+   "J": 0.5,
+   "P": "-",
+   "stars": 4,
+   "pole_mass": 1.895,
+   "nominal_width": 0.12,
+   "pdg_ids": {
+    "1": 9121895,
+    "0": 9111895
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "2-18 %",
+     "L": 0
+    },
+    {
+     "kind": "Neta",
+     "pdg_range": "15-45 %",
+     "L": 0
+    },
+    {
+     "kind": "Netap",
+     "pdg_range": "10-40 %",
+     "L": 0
+    },
+    {
+     "kind": "Nomega",
+     "pdg_range": "16-40 %",
+     "L": 0
+    },
+    {
+     "kind": "LK",
+     "pdg_range": "3-23 %",
+     "L": 0
+    },
+    {
+     "kind": "SK",
+     "pdg_range": "6-20 %",
+     "L": 0
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "3-11 %",
+     "L": 2,
+     "note": "D-wave"
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "14-50 %",
+     "L": 2,
+     "note": "S=1/2 S-wave <18, S=3/2 D-wave 14-32"
+    },
+    {
+     "kind": "Nsigma",
+     "pdg_range": "<13 %",
+     "L": 1
+    },
+    {
+     "kind": "N1440pi",
+     "pdg_range": "2-12 %",
+     "L": 0
+    },
+    {
+     "kind": "LKstar",
+     "pdg_range": "4-9 %",
+     "L": 0
+    }
+   ]
+  },
+  {
+   "name": "N(1900)",
+   "I": 0.5,
+   "J": 1.5,
+   "P": "+",
+   "stars": 4,
+   "pole_mass": 1.92,
+   "nominal_width": 0.2,
+   "pdg_ids": {
+    "1": 9121900,
+    "0": 9111900
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "1-20 %",
+     "L": 1
+    },
+    {
+     "kind": "Neta",
+     "pdg_range": "2-14 %",
+     "L": 1
+    },
+    {
+     "kind": "Netap",
+     "pdg_range": "4-8 %",
+     "L": 1
+    },
+    {
+     "kind": "Nomega",
+     "pdg_range": "7-13 %",
+     "L": 1
+    },
+    {
+     "kind": "LK",
+     "pdg_range": "2-20 %",
+     "L": 1
+    },
+    {
+     "kind": "SK",
+     "pdg_range": "3-7 %",
+     "L": 1
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "30-70 %",
+     "L": 1,
+     "note": "P-wave 9-25, F-wave 21-45"
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "25-40 %",
+     "L": 1,
+     "note": "S=1/2"
+    },
+    {
+     "kind": "Nsigma",
+     "pdg_range": "1-7 %",
+     "L": 2
+    },
+    {
+     "kind": "N1520pi",
+     "pdg_range": "7-23 %",
+     "L": 0
+    },
+    {
+     "kind": "N1535pi",
+     "pdg_range": "4-10 %",
+     "L": 2
+    },
+    {
+     "kind": "LKstar",
+     "pdg_range": "<0.2 %",
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "Delta(1620)",
+   "I": 1.5,
+   "J": 0.5,
+   "P": "-",
+   "stars": 4,
+   "pole_mass": 1.61,
+   "nominal_width": 0.13,
+   "pdg_ids": {
+    "2": 9241620,
+    "1": 9231620,
+    "0": 9221620,
+    "-1": 9211620
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "25-35 %",
+     "L": 0
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "44-72 %",
+     "L": 2,
+     "note": "D-wave"
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "23-32 %",
+     "L": 0,
+     "note": "S=1/2 S-wave"
+    },
+    {
+     "kind": "N1440pi",
+     "pdg_range": "<9 %",
+     "L": 0
+    }
+   ]
+  },
+  {
+   "name": "Delta(1900)",
+   "I": 1.5,
+   "J": 0.5,
+   "P": "-",
+   "stars": 3,
+   "pole_mass": 1.86,
+   "nominal_width": 0.25,
+   "pdg_ids": {
+    "2": 9241900,
+    "1": 9231900,
+    "0": 9221900,
+    "-1": 9211900
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "4-12 %",
+     "L": 0
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "30-70 %",
+     "L": 2,
+     "note": "D-wave"
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "22-60 %",
+     "L": 0,
+     "note": "S=1/2 S-wave 11-35, S=3/2 D-wave 11-25"
+    },
+    {
+     "kind": "N1440pi",
+     "pdg_range": "3-32 %",
+     "L": 0
+    },
+    {
+     "kind": "N1520pi",
+     "pdg_range": "2-10 %",
+     "L": 1
+    },
+    {
+     "kind": "Deta",
+     "pdg_range": "<2 %",
+     "L": 2
+    }
+   ],
+   "omitted": "Sigma K (seen, no fraction)"
+  },
+  {
+   "name": "Delta(1905)",
+   "I": 1.5,
+   "J": 2.5,
+   "P": "+",
+   "stars": 4,
+   "pole_mass": 1.88,
+   "nominal_width": 0.33,
+   "pdg_ids": {
+    "2": 9241905,
+    "1": 9231905,
+    "0": 9221905,
+    "-1": 9211905
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "9-15 %",
+     "L": 3
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "48-100 %",
+     "L": 1,
+     "note": ">48 %: P-wave 8-43, F-wave 40-58"
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "17-35 %",
+     "L": 1,
+     "note": "S=3/2 P-wave"
+    },
+    {
+     "kind": "N1535pi",
+     "pdg_range": "<1 %",
+     "L": 2
+    },
+    {
+     "kind": "N1680pi",
+     "pdg_range": "5-15 %",
+     "L": 1,
+     "note": "P-wave"
+    },
+    {
+     "kind": "Deta",
+     "pdg_range": "2-6 %",
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "Delta(1910)",
+   "I": 1.5,
+   "J": 0.5,
+   "P": "+",
+   "stars": 4,
+   "pole_mass": 1.9,
+   "nominal_width": 0.3,
+   "pdg_ids": {
+    "2": 9241910,
+    "1": 9231910,
+    "0": 9221910,
+    "-1": 9211910
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "10-30 %",
+     "L": 1
+    },
+    {
+     "kind": "SK",
+     "pdg_range": "4-14 %",
+     "L": 1
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "34-66 %",
+     "L": 1
+    },
+    {
+     "kind": "N1440pi",
+     "pdg_range": "3-45 %",
+     "L": 1
+    },
+    {
+     "kind": "Deta",
+     "pdg_range": "5-13 %",
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "Delta(1920)",
+   "I": 1.5,
+   "J": 1.5,
+   "P": "+",
+   "stars": 3,
+   "pole_mass": 1.92,
+   "nominal_width": 0.3,
+   "pdg_ids": {
+    "2": 9241920,
+    "1": 9231920,
+    "0": 9221920,
+    "-1": 9211920
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "5-20 %",
+     "L": 1
+    },
+    {
+     "kind": "SK",
+     "pdg_range": "2-6 %",
+     "L": 1
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "46-100 %",
+     "L": 1,
+     "note": ">46 %: P-wave 2-28, F-wave 44-72"
+    },
+    {
+     "kind": "N1440pi",
+     "pdg_range": "4-86 %",
+     "L": 1,
+     "note": "P-wave"
+    },
+    {
+     "kind": "N1520pi",
+     "pdg_range": "<5 %",
+     "L": 0,
+     "note": "S-wave"
+    },
+    {
+     "kind": "N1535pi",
+     "pdg_range": "<2 %",
+     "L": 2
+    },
+    {
+     "kind": "Deta",
+     "pdg_range": "5-17 %",
+     "L": 1
+    }
+   ],
+   "omitted": "N a0(980) (seen, no fraction)"
+  },
+  {
+   "name": "Delta(1950)",
+   "I": 1.5,
+   "J": 3.5,
+   "P": "+",
+   "stars": 4,
+   "pole_mass": 1.93,
+   "nominal_width": 0.285,
+   "pdg_ids": {
+    "2": 9241950,
+    "1": 9231950,
+    "0": 9221950,
+    "-1": 9211950
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "35-45 %",
+     "L": 3
+    },
+    {
+     "kind": "SK",
+     "pdg_range": "0.3-0.5 %",
+     "L": 3
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "1-9 %",
+     "L": 3,
+     "note": "F-wave"
+    },
+    {
+     "kind": "N1680pi",
+     "pdg_range": "3-9 %",
+     "L": 1,
+     "note": "P-wave"
+    },
+    {
+     "kind": "Deta",
+     "pdg_range": "<0.6 %",
+     "L": 3
+    },
+    {
+     "kind": "Npipi",
+     "pdg_range": "33-59 %",
+     "L": 0,
+     "note": "the N pi pi total 37-77 % less its listed resonant parts (Delta pi 1-9, N(1680) pi 3-9), as three-body N pi pi"
+    }
+   ]
+  }
+ ]
+}

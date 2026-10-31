@@ -1,0 +1,18 @@
+{
+  "label": "na49_pp_total_yields",
+  "purpose": "NA49 p+p total multiplicities per inelastic event at 158 GeV/c, the reference of the total-yield readout of the topology and flavor runs (a diagnostic, never a fit statistic).",
+  "beam_momentum_gev_c": 158.0,
+  "sqrt_s_gev": 17.27,
+  "yields_per_inelastic_event": {
+    "pi_plus": {"value": 3.018, "source": "spshadrons.web.cern.ch/ppdata.html, 'Total multiplicities of: pi+ 3.018 / inelastic event'; pp-pi.pdf section 9.3 Total Pion Multiplicity"},
+    "pi_minus": {"value": 2.360, "source": "spshadrons.web.cern.ch/ppdata.html; pp-pi.pdf section 9.3"},
+    "k_plus": {"value": 0.2267, "source": "spshadrons.web.cern.ch/ppdata.html, 'Total multiplicities of: K+ 0.2267 / inelastic event'"},
+    "k_minus": {"value": 0.1303, "source": "spshadrons.web.cern.ch/ppdata.html"},
+    "proton": {"value": 1.1623, "source": "spshadrons.web.cern.ch/ppdata.html, 'Total multiplicities of: p 1.1623 / inelastic event'"},
+    "antiproton": {"value": 0.0386, "source": "spshadrons.web.cern.ch/ppdata.html"},
+    "charged_multiplicity": {"value": 6.936, "source": "sum of the six charged species above (pi+-, K+-, p, pbar); other charged hadrons (Sigma+-, ...) are not included", "derived": true}
+  },
+  "feed_down_convention": "as published: pions feed-down subtracted (K0S, Lambda, Sigma+-, anti-Lambda), protons and antiprotons corrected for weak hyperon feed-down, kaons without weak feed-down (pp-pi.pdf, pp-proton.pdf section 6.4, pp-kaon.pdf)",
+  "uncertainty_note": "the papers quote total-yield uncertainties at the few-percent level; the readout compares ratios and does not use them as a likelihood term",
+  "recorded": "2026-09-28"
+}

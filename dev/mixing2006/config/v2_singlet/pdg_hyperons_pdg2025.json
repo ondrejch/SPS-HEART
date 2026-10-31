@@ -1,0 +1,557 @@
+{
+ "label": "pdg_hyperons",
+ "source": "PDG 2025 summary tables (pdg.lbl.gov rpp2025-tab-baryons-Lambda and rpp2025-tab-baryons-Sigma; S. Navas et al., Phys. Rev. D 110, 030001 (2024) and 2025 update)",
+ "accessed_on": "2026-10-11",
+ "rule": "Every Lambda and Sigma resonance of the summary tables between the catalog's Sigma(1385) and Lambda(1520) and the 2.0 GeV continuation floor, at its listed mass and width (the 'approximately' values); each mode at the table's approximate value where it prints one (Sigma(1660) and Sigma(1910) -> N Kbar), else at the midpoint of its listed range, the 'seen' modes and the upper limits dropped, Lambda pi pi and Sigma pi pi as three-body modes, the fractions normalized over the kept modes; the charge members of a two-body mode at their isospin Clebsch-Gordan shares; L the lowest wave the parities and the J^P allow (the listed wave where the table names it; a mode listed in two waves enters once, at the sum of their fractions and at the wave of the larger one, since a decay class carries one orbital angular momentum). The line shape runs from the lightest threshold to the pole plus five widths, as the committed Lambda(1520).",
+ "records": [
+  {
+   "name": "Lambda(1405)",
+   "pdg_ids": [
+    13122
+   ],
+   "isospin": 0.0,
+   "spin": 0.5,
+   "parity": "-",
+   "pole_mass": 1.4051,
+   "nominal_width": 0.0505,
+   "modes": [
+    {
+     "kind": "Sig pi",
+     "fraction": 1.0,
+     "L": 0
+    }
+   ]
+  },
+  {
+   "name": "Lambda(1600)",
+   "pdg_ids": [
+    23122
+   ],
+   "isospin": 0.0,
+   "spin": 0.5,
+   "parity": "+",
+   "pole_mass": 1.6,
+   "nominal_width": 0.2,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.225,
+     "L": 1
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.35,
+     "L": 1
+    },
+    {
+     "kind": "Lam sigma",
+     "fraction": 0.19,
+     "L": 0
+    },
+    {
+     "kind": "S1385 pi",
+     "fraction": 0.09,
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "Lambda(1670)",
+   "pdg_ids": [
+    33122
+   ],
+   "isospin": 0.0,
+   "spin": 0.5,
+   "parity": "-",
+   "pole_mass": 1.674,
+   "nominal_width": 0.03,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.25,
+     "L": 0
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.4,
+     "L": 0
+    },
+    {
+     "kind": "Lam eta",
+     "fraction": 0.175,
+     "L": 0
+    },
+    {
+     "kind": "S1385 pi",
+     "fraction": 0.06,
+     "L": 2
+    },
+    {
+     "kind": "Lam sigma",
+     "fraction": 0.2,
+     "L": 1
+    },
+    {
+     "kind": "N Kbs",
+     "fraction": 0.05,
+     "L": 2
+    }
+   ]
+  },
+  {
+   "name": "Lambda(1690)",
+   "pdg_ids": [
+    13124
+   ],
+   "isospin": 0.0,
+   "spin": 1.5,
+   "parity": "-",
+   "pole_mass": 1.69,
+   "nominal_width": 0.07,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.25,
+     "L": 2
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.3,
+     "L": 2
+    },
+    {
+     "kind": "Lam sigma",
+     "fraction": 0.05,
+     "L": 1
+    },
+    {
+     "kind": "Lam pi pi",
+     "fraction": 0.25,
+     "L": 1
+    },
+    {
+     "kind": "Sig pi pi",
+     "fraction": 0.2,
+     "L": 1
+    },
+    {
+     "kind": "S1385 pi",
+     "fraction": 0.12,
+     "L": 0
+    }
+   ]
+  },
+  {
+   "name": "Lambda(1800)",
+   "pdg_ids": [
+    43122
+   ],
+   "isospin": 0.0,
+   "spin": 0.5,
+   "parity": "-",
+   "pole_mass": 1.8,
+   "nominal_width": 0.2,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.325,
+     "L": 0
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.27,
+     "L": 0
+    },
+    {
+     "kind": "Lam sigma",
+     "fraction": 0.15,
+     "L": 1
+    },
+    {
+     "kind": "S1385 pi",
+     "fraction": 0.09,
+     "L": 2
+    },
+    {
+     "kind": "Lam eta",
+     "fraction": 0.055,
+     "L": 0
+    }
+   ]
+  },
+  {
+   "name": "Lambda(1810)",
+   "pdg_ids": [
+    53122
+   ],
+   "isospin": 0.0,
+   "spin": 0.5,
+   "parity": "+",
+   "pole_mass": 1.79,
+   "nominal_width": 0.11,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.2,
+     "L": 1
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.16,
+     "L": 1
+    },
+    {
+     "kind": "S1385 pi",
+     "fraction": 0.4,
+     "L": 1
+    },
+    {
+     "kind": "N Kbs",
+     "fraction": 0.45,
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "Lambda(1820)",
+   "pdg_ids": [
+    3126
+   ],
+   "isospin": 0.0,
+   "spin": 2.5,
+   "parity": "+",
+   "pole_mass": 1.82,
+   "nominal_width": 0.08,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.6,
+     "L": 3
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.11,
+     "L": 3
+    },
+    {
+     "kind": "S1385 pi",
+     "fraction": 0.075,
+     "L": 1
+    },
+    {
+     "kind": "N Kbs",
+     "fraction": 0.03,
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "Lambda(1830)",
+   "pdg_ids": [
+    13126
+   ],
+   "isospin": 0.0,
+   "spin": 2.5,
+   "parity": "-",
+   "pole_mass": 1.825,
+   "nominal_width": 0.09,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.06,
+     "L": 2
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.55,
+     "L": 2
+    },
+    {
+     "kind": "S1385 pi",
+     "fraction": 0.4,
+     "L": 2
+    }
+   ]
+  },
+  {
+   "name": "Lambda(1890)",
+   "pdg_ids": [
+    23124
+   ],
+   "isospin": 0.0,
+   "spin": 1.5,
+   "parity": "+",
+   "pole_mass": 1.89,
+   "nominal_width": 0.12,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.3,
+     "L": 1
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.065,
+     "L": 1
+    },
+    {
+     "kind": "S1385 pi",
+     "fraction": 0.1,
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "Sigma(1660)",
+   "pdg_ids": [
+    13222,
+    13212,
+    13112
+   ],
+   "isospin": 1.0,
+   "spin": 0.5,
+   "parity": "+",
+   "pole_mass": 1.66,
+   "nominal_width": 0.2,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.1,
+     "L": 1
+    },
+    {
+     "kind": "Lam pi",
+     "fraction": 0.35,
+     "L": 1
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.37,
+     "L": 1
+    },
+    {
+     "kind": "Sig sigma",
+     "fraction": 0.2,
+     "L": 0
+    },
+    {
+     "kind": "L1405 pi",
+     "fraction": 0.04,
+     "L": 0
+    }
+   ]
+  },
+  {
+   "name": "Sigma(1670)",
+   "pdg_ids": [
+    13224,
+    13214,
+    13114
+   ],
+   "isospin": 1.0,
+   "spin": 1.5,
+   "parity": "-",
+   "pole_mass": 1.675,
+   "nominal_width": 0.07,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.09,
+     "L": 2
+    },
+    {
+     "kind": "Lam pi",
+     "fraction": 0.1,
+     "L": 2
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.45,
+     "L": 2
+    },
+    {
+     "kind": "Sig sigma",
+     "fraction": 0.07,
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "Sigma(1750)",
+   "pdg_ids": [
+    23222,
+    23212,
+    23112
+   ],
+   "isospin": 1.0,
+   "spin": 0.5,
+   "parity": "-",
+   "pole_mass": 1.75,
+   "nominal_width": 0.15,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.09,
+     "L": 0
+    },
+    {
+     "kind": "Lam pi",
+     "fraction": 0.14,
+     "L": 0
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.16,
+     "L": 0
+    },
+    {
+     "kind": "Sig eta",
+     "fraction": 0.35,
+     "L": 0
+    },
+    {
+     "kind": "L1520 pi",
+     "fraction": 0.02,
+     "L": 1
+    },
+    {
+     "kind": "N Kbs",
+     "fraction": 0.08,
+     "L": 0
+    }
+   ]
+  },
+  {
+   "name": "Sigma(1775)",
+   "pdg_ids": [
+    3226,
+    3216,
+    3116
+   ],
+   "isospin": 1.0,
+   "spin": 2.5,
+   "parity": "-",
+   "pole_mass": 1.775,
+   "nominal_width": 0.12,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.4,
+     "L": 2
+    },
+    {
+     "kind": "Lam pi",
+     "fraction": 0.17,
+     "L": 2
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.035,
+     "L": 2
+    },
+    {
+     "kind": "S1385 pi",
+     "fraction": 0.1,
+     "L": 2
+    },
+    {
+     "kind": "L1520 pi",
+     "fraction": 0.2,
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "Sigma(1910)",
+   "pdg_ids": [
+    23224,
+    23214,
+    23114
+   ],
+   "isospin": 1.0,
+   "spin": 1.5,
+   "parity": "-",
+   "pole_mass": 1.91,
+   "nominal_width": 0.22,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.02,
+     "L": 2
+    },
+    {
+     "kind": "Lam pi",
+     "fraction": 0.06,
+     "L": 2
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.86,
+     "L": 2
+    },
+    {
+     "kind": "N Kbs",
+     "fraction": 0.01,
+     "L": 2
+    },
+    {
+     "kind": "Delta Kb",
+     "fraction": 0.03,
+     "L": 0
+    }
+   ]
+  },
+  {
+   "name": "Sigma(1915)",
+   "pdg_ids": [
+    13226,
+    13216,
+    13116
+   ],
+   "isospin": 1.0,
+   "spin": 2.5,
+   "parity": "+",
+   "pole_mass": 1.915,
+   "nominal_width": 0.12,
+   "modes": [
+    {
+     "kind": "N Kb",
+     "fraction": 0.1,
+     "L": 3
+    },
+    {
+     "kind": "Lam pi",
+     "fraction": 0.06,
+     "L": 3
+    },
+    {
+     "kind": "Sig pi",
+     "fraction": 0.1,
+     "L": 3
+    },
+    {
+     "kind": "S1385 pi",
+     "fraction": 0.06,
+     "L": 3
+    },
+    {
+     "kind": "L1520 pi",
+     "fraction": 0.08,
+     "L": 2
+    },
+    {
+     "kind": "N Kbs",
+     "fraction": 0.1,
+     "L": 3
+    },
+    {
+     "kind": "Delta Kb",
+     "fraction": 0.21,
+     "L": 1
+    }
+   ]
+  }
+ ],
+ "classes_rule": "(Lambda*, K) and (Sigma*, K) at the non-strange baryonic families of the matching charge (the I = 3/2 families carry no Lambda*), (Sigma*, pi) and (Lambda*, pi) at the strange baryonic families, as the committed Lambda(1520) and Sigma(1385); the conjugate towers conjugate them",
+ "revised": "2026-10-16 (the external review of 2026-10-16, M2 and L1, and its verification): the Delta Kbar of Sigma(1910) (3.0%, S wave) and Sigma(1915) (P wave 16% and F wave 5%, at L = 1) and the N Kbar*(892) of Lambda(1670) (5%, D wave) restored; Sigma(1915) -> Sigma(1385) pi at its larger wave, F (L = 3); 2026-10-16 (the R99 review, M1 and M2): Sigma(1660) -> Lambda(1405) pi in the S wave (1/2+ -> 1/2- 0-: the intrinsic parities are positive, so L is even), and the rule names the approximate values of the mode table"
+}

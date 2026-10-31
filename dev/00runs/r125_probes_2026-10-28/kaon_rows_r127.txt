@@ -1,0 +1,13 @@
+r128_kaon_identification_knots_2026-10-28: bare model/data by x_F row (p_T <= 0.6 / 0.6-1.0 / all) and K+/pi+ model vs data
+x_F 0.000:  k_plu 1.00/0.89/0.99  pi_pl 0.94/1.07/0.94  proto 0.91/0.97/0.92  k_min 1.00/0.96/1.00  K+/pi+ model 0.063 data 0.059 ratio 1.05
+x_F 0.010:  k_plu 0.98/nan/0.98  pi_pl 0.94/1.05/0.94  proto nan/nan/nan  k_min 0.99/nan/0.99  K+/pi+ model 0.060 data 0.058 ratio 1.04
+x_F 0.025:  k_plu 0.97/1.04/0.97  pi_pl nan/nan/1.05  proto 0.97/0.99/0.97  k_min 0.96/0.98/0.96  K+/pi+ model 0.198 data 0.253 ratio 0.78
+x_F 0.050:  k_plu 0.99/1.04/0.99  pi_pl 0.97/1.11/0.98  proto 1.04/1.08/1.04  k_min 0.99/1.04/0.99  K+/pi+ model 0.076 data 0.075 ratio 1.01
+x_F 0.075:  k_plu 1.02/1.02/1.02  pi_pl 0.96/1.09/0.98  proto 1.09/1.07/1.09  k_min 0.97/1.09/0.98  K+/pi+ model 0.131 data 0.123 ratio 1.06
+x_F 0.100:  k_plu 1.02/1.08/1.02  pi_pl 1.05/1.06/1.05  proto 1.09/1.10/1.09  k_min 0.95/1.03/0.95  K+/pi+ model 0.084 data 0.086 ratio 0.98
+x_F 0.125:  k_plu 1.03/1.07/1.03  pi_pl nan/nan/nan  proto 1.09/1.06/1.09  k_min 0.95/1.00/0.95
+x_F 0.150:  k_plu 1.05/1.04/1.05  pi_pl 1.06/1.00/1.06  proto 1.12/1.03/1.11  k_min 0.99/1.04/0.99  K+/pi+ model 0.083 data 0.084 ratio 0.99
+x_F 0.200:  k_plu 1.01/1.04/1.01  pi_pl 1.03/0.97/1.03  proto 1.09/0.99/1.08  k_min 0.99/1.06/1.00  K+/pi+ model 0.088 data 0.090 ratio 0.98
+x_F 0.250:  k_plu 0.95/0.95/0.95  pi_pl 0.97/0.95/0.97  proto 1.10/0.98/1.09  k_min 0.95/1.16/0.97  K+/pi+ model 0.087 data 0.091 ratio 0.96
+x_F 0.300:  k_plu 0.85/0.90/0.85  pi_pl 1.00/0.97/1.00  proto 1.08/0.93/1.07  k_min 0.80/1.15/0.84  K+/pi+ model 0.085 data 0.103 ratio 0.83
+x_F 0.400:  k_plu 0.75/0.74/0.75  pi_pl nan/nan/nan  proto 1.05/0.87/1.03  k_min 0.53/1.13/0.60

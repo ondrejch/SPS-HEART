@@ -1,0 +1,50 @@
+{
+  "label": "external_cross_sections",
+  "purpose": "External p+p cross sections at the NA49 beam momentum, used only as Gaussian nuisance anchors on the topology fractions (plan section 5.4 form; review record .collab/reviews/fable-speedup-2026-09-28.md, Section 4, run R51b). They are inputs with quoted uncertainties, never fit parameters.",
+  "beam_momentum_gev_c": 158.0,
+  "sqrt_s_gev": 17.27,
+  "sigma_inel_mb": {
+    "value": 31.78,
+    "uncertainty": 0.0,
+    "provenance": "house value of the NA49 p+p analyses at 158 GeV/c (inelastic normalization of the invariant cross sections); treated as exact in the fraction conversion"
+  },
+  "sigma_sd_total_mb": {
+    "value": 6.5,
+    "uncertainty": 1.5,
+    "definition": "single diffraction dissociation, both hemispheres summed (projectile plus target dissociation), M^2/s < 0.05",
+    "provenance": [
+      "K. Goulianos, hep-ph/0407035, Fig. 1: the compilation of total single-diffraction cross sections for xi < 0.05 (Cool et al., Phys. Rev. Lett. 47, 701 (1981), at 100 and 200 GeV/c; Albrow et al. and Armitage et al., ISR), with the plateau ('knee at 22 GeV') at about 7 mb",
+      "ISR small-angle review, arXiv:1206.3954: single diffraction 5.4 +- 1.0 mb at sqrt(s) = 23 GeV and 5.0 +- 1.0 mb at sqrt(s) = 31 GeV",
+      "the central value 6.5 mb with the 1.5 mb width covers both the 7 mb plateau reading and the 5.4 +- 1.0 mb ISR point; the figure values were read from a compilation, not from the original tables, so the width is deliberately generous"
+    ],
+    "applied_by": "R51 to R108: the run engine applied this value to the whole single-diffraction class, whose masses run to M^2/s = 0.89 (80% of it below 0.05 at epsilon = 0.56); superseded from R109 by sigma_sd_window_mb (the data audit of 2026-10-22, _knowledge/evidence/systematics-r108-2026-10-23.md)"
+  },
+  "sigma_sd_window_mb": {
+    "value": 4.9,
+    "uncertainty": 0.8,
+    "xi_max": 0.05,
+    "definition": "single diffraction dissociation, both hemispheres summed, M^2/s < 0.05, at the NA49 energy; the run engine (single_diffraction_window 0.05, from R109) applies it to the class's masses below the edge and takes the class share as this value over the class's window fraction at the fitted epsilon",
+    "provenance": [
+      "K. Goulianos and J. Montanha, Phys. Rev. D 59, 114017 (1999), Table 7: Schamberger et al. 4.87, 4.96 and 4.94 +- 0.08 mb at sqrt(s) = 16.2, 17.6 and 19.1 GeV (normalization about 10%); Cool et al. 3.94 +- 0.20 mb at 14 GeV and 4.46 +- 0.25 mb at 20 GeV; the ISR 6.07 +- 0.17 and 6.5 +- 0.2 mb at 23 GeV",
+      "the central value is the Schamberger reading at sqrt(s) = 17.3 GeV; the 0.8 mb width covers the Cool et al. reading (about 4.2 mb) and the ISR normalization (the Fermilab and ISR data differ by 15-20% where they overlap, about 5.8 mb at this energy)",
+      "the data audit of 2026-10-22 (_knowledge/evidence/data-audit-2026-10-22.md), verified against the table"
+    ]
+  },
+  "sigma_dd_mb": {
+    "value": 1.5,
+    "uncertainty": 1.0,
+    "definition": "double diffraction dissociation, central rapidity gap of at least 3 units (the CDF definition)",
+    "provenance": [
+      "no direct measurement exists at sqrt(s) = 17 GeV; the renormalized-gap prediction band of K. Goulianos, hep-ph/0407035, Fig. 5, and the UA5 and CDF points at 200 to 1800 GeV bracket the low-energy value between about 1 mb (rapidity-gap estimate) and about 3 mb (Regge-model value quoted near sqrt(s) = 30 GeV)",
+      "the central value 1.5 mb with a 1.0 mb width is a prior band, not a measurement"
+    ]
+  },
+  "fractions_of_inelastic": {
+    "f_sd_total": {"value": 0.2045, "uncertainty": 0.0472, "note": "sigma_sd_total / sigma_inel; shared equally by sd_projectile and sd_target by beam-target symmetry"},
+    "f_dd": {"value": 0.0472, "uncertainty": 0.0315, "note": "sigma_dd / sigma_inel"},
+    "f_nd": {"value": 0.7483, "uncertainty": null, "note": "1 - f_sd_total - f_dd at the central values; fixed by the sum rule, never a separate nuisance"},
+    "f_sd_window": {"value": 0.15418502202643172, "uncertainty": 0.025173064820641914, "xi_max": 0.05, "note": "sigma_sd_window / sigma_inel: the measured share of the single-diffraction class below M^2/s = 0.05 (from R109)"}
+  },
+  "recorded": "2026-09-28; sigma_sd_window_mb 2026-10-23",
+  "recorded_by": "Claude Fable 5.1 session (review follow-up); values to be confirmed against the original publications by the plan owner"
+}

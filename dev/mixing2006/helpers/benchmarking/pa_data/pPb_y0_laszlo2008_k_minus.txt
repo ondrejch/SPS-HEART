@@ -1,0 +1,30 @@
+# NA49 p+Pb invariant yield at y = 0, flat format
+# species: k_minus
+# quantity: (1/(2 pi pT)) d2n/(dy dpT) at y = 0 [1/(GeV/c)^2], per event
+# system: p+Pb, 158 GeV/c beam momentum (sqrt(s)_NN = 17.3 GeV quoted in the source), NA49
+# sample: full p+Pb dataset with varied centrality trigger settings (source Section 3.2.2); NOT minimum bias;
+#         <N_W> = 5.58 +- 1, <N_BC> = 4.58 +- 1 (source Table 8, semi-empirical averages over the full dataset)
+# source: A. Laszlo, PhD thesis, Eotvos Lorand University Budapest (2007, posted 2008), Table 12,
+#         https://teo.elte.hu/minosites/ertekezes2008/laszlo_a.pdf (text layer of PDF page 129, parsed by word position;
+#         the source prints (mantissa +- error) x 10^exponent; both are scaled here)
+# errors: as printed in the source, absolute
+# columns: pT[GeV/c]  pT_halfwidth[GeV/c]  value  abs_error
+# conversion date: 2026-09-29
+0.35 0.05 0.108 0.003
+0.45 0.05 0.0828 0.0028
+0.55 0.05 0.0491 0.0016
+0.65 0.05 0.0326 0.0012
+0.75 0.05 0.0219 0.0008
+0.85 0.05 0.0129 0.0005
+0.95 0.05 0.00888 0.00039
+1.05 0.05 0.00584 0.00031
+1.15 0.05 0.00385 0.00022
+1.25 0.05 0.00254 0.00016
+1.35 0.05 0.00155 0.00012
+1.45 0.05 0.0012 0.00009
+1.55 0.05 0.000683 0.000067
+1.65 0.05 0.000402 0.00005
+1.75 0.05 0.000335 0.000041
+1.85 0.05 0.000149 0.000026
+1.95 0.05 0.000109 0.000024
+2.10 0.10 0.0000567 0.000013

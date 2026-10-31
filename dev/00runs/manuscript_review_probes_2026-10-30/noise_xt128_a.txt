@@ -1,0 +1,37 @@
+jackknife over 32 batches; chi2 (sigma) [Monte Carlo bias]
+
+yields fixed
+                                gen_bc128a                    gen_xt128a
+proton               1266 ( 68.2) [+108.5]         1267 ( 67.8) [+108.4]
+pi_plus               739 ( 43.6) [+125.3]          741 ( 46.1) [+125.4]
+pi_minus             1006 ( 49.2) [+211.1]         1005 ( 48.3) [+209.7]
+k_plus                375 ( 32.0) [ +70.8]          380 ( 32.2) [ +71.1]
+k_minus               537 ( 59.0) [+144.0]          517 ( 57.2) [+143.9]
+antiproton            278 ( 41.8) [+136.1]          274 ( 39.4) [+134.6]
+total                4202 (104.9) [+795.6]         4184 (103.8) [+793.0]
+Delta chi2 against the first run (paired jackknife sigma) {bias-corrected Delta}
+proton                +2 (  5.7) {     +2}
+pi_plus               +1 (  7.5) {     +1}
+pi_minus              -1 (  8.1) {     +1}
+k_plus                +5 (  3.6) {     +5}
+k_minus              -20 (  9.6) {    -20}
+antiproton            -4 (  5.3) {     -3}
+total                -17 ( 16.8) {    -15}
+
+normalizations fitted
+                                gen_bc128a                    gen_xt128a
+proton               1236 ( 65.4) [+103.9]         1238 ( 65.3) [+104.0]
+pi_plus               733 ( 42.5) [+122.9]          734 ( 45.0) [+123.1]
+pi_minus              997 ( 49.1) [+215.3]          995 ( 48.1) [+214.2]
+k_plus                373 ( 31.9) [ +71.5]          379 ( 32.2) [ +71.3]
+k_minus               537 ( 59.0) [+143.3]          517 ( 57.2) [+143.2]
+antiproton            274 ( 41.1) [+130.7]          271 ( 38.6) [+129.6]
+total                4150 (101.5) [+787.5]         4135 (100.5) [+785.3]
+Delta chi2 against the first run (paired jackknife sigma) {bias-corrected Delta}
+proton                +2 (  5.4) {     +2}
+pi_plus               +2 (  7.4) {     +2}
+pi_minus              -2 (  8.4) {     -1}
+k_plus                +6 (  3.6) {     +7}
+k_minus              -20 (  9.6) {    -20}
+antiproton            -4 (  5.2) {     -2}
+total                -15 ( 17.0) {    -13}

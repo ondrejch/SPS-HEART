@@ -1,0 +1,21 @@
+# NA49 p+Pb pi production, pT-integrated quantities, flat format
+# charge: pi-; sample: minimum bias p+Pb interactions
+# system: p+Pb, 158 GeV/c beam momentum (sqrt(s)_NN = 17.2 GeV), NA49
+# feed-down correction: applied (feed-down subtracted data)
+# source: O. Chvala, PhD thesis, Charles University Prague (2006), Tab. 'tabptimb' via datables/int.111.tex
+# thesis column semantics (header above \input of int.111.tex in phdthesis.tex):
+#   xF | dn/dxF, Delta[%] | <pT> [GeV/c], Delta[%] | <pT^2> [(GeV/c)^2], Delta[%]
+#   per charge (pi+ block then pi- block); Delta = statistical error in %
+# errors below converted to absolute: abs = value * pct / 100
+# columns: xF  dn/dxF  err_abs  mean_pT[GeV/c]  err_abs  mean_pT2[(GeV/c)^2]  err_abs
+# conversion date: 2026-08-25 by helpers/benchmarking/pa_data/convert_ictables.py
+# note: dn/dxF is the per-event pT-integrated density of the thesis (dimension c); it is NOT divided by sigma_inel
+0.000 37.7 0.8294 0.2578 0.0087652 0.1040 0.01456
+0.050 11.45 0.1145 0.363 0.002904 0.1923 0.003846
+0.100 4.11 0.05754 0.429 0.006864 0.2558 0.0120226
+0.150 1.748 0.024472 0.469 0.006566 0.2999 0.0116961
+0.200 0.833 0.017493 0.493 0.010353 0.330 0.01881
+0.250 0.431 0.013361 0.554 0.014958 0.410 0.02911
+0.300 0.2289 0.0141918 0.568 0.026696 0.437 0.05244
+0.350 0.1163 0.0087225 0.603 0.034371 0.512 0.06144
+0.400 0.0807 0.0073437 0.607 0.055844 0.524 0.12052

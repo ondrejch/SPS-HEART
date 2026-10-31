@@ -1,0 +1,54 @@
+The pT integrated cross sections F (xF = 0) in mb for K^+ , K^- and K^0_S for different sqrt(s) in p+p collisions. 
+The values in brackets for K^0_S are derived from the cross sections and yields for the charged kaons under the assumption F(0)_{K^0_S} = 0.5( F(0)_{K^+} + F(0)_{K^-} ).
+
+ reference  sqrt(s) [GeV]  F(0)_{K^+}  F(0)_{K^-}  F(0)_{K^0_S}
+    [2]         2.9          0.042               
+    [6]         4.9                                    0.120 
+    [8]         6.1                                    0.185 
+    [6]         6.8                                    0.206 
+    [9]         6.84         0.440        0.120       (0.280)
+   [10]         7.8                                    0.300 
+   [11]        11.5          0.549        0.322       (0.435)
+   [12]        11.5                                    0.375 
+   [14]        13.9                                    0.505 
+   [15]        16.7                                    0.490 
+   [16]        17.2          0.672        0.477       (0.575)
+   [17]        19.7                                    0.590  
+   [18]        23.0          0.718        0.547       (0.633) 
+   [19]        23.8                                    0.670  
+   [21]        25.7                                    0.670 
+   [23]        27.6                                    0.680 
+   [18]        31.0          0.767        0.614       (0.691)
+   [18]        45.0          0.861        0.714       (0.788)
+   [18]        52.0          0.907        0.766       (0.837)
+   [18]        63.0          0.959        0.811       (0.885)
+   [18]       200.0          1.361        1.192       (1.277)
+   [24]       200.0                                    1.680
+   [24]       546.0                                    2.306
+
+
+2. W. J. Hogan, P. A. Piroue and A. J. S. Smith, Phys. Rev. 166 (1968) 1472
+   J. T. Reed et al., Phys. Rev. 168 (1968) 1495
+6. V. Blobel et al., Nucl. Phys. B69 (1974) 454
+8. H. Boggild et al., Nucl. Phys. B57 (1973) 77
+9. J. V. Allaby et al., CERN 70-12 (1970)
+10. M. Yu. Bogolyubsky et al., Sov. J. Nucl. Phys. 50 (1989) 424, Yad. Fiz. 50 (1989) 683
+11. V. V. Abramov et al., Nucl. Phys. B173 (1980) 348
+13. M. Alston-Garnjost et al., Phys. Rev. Lett. 35 (1975) 142
+14. J. W. Chapman et al., Phys. Lett. B47 (1973) 465
+15. D. Brick et al., Nucl. Phys. B164 (1980) 1
+16. T. Anticic et al., arXiv:1004.1889v1 [hep-ex]
+17. K. Jaeger et al., Phys. Rev. D11 (1975) 2405
+18. M. G. Albrow et al., Phys. Lett. B42 (1972) 279
+    M. G. Albrow et al., Nucl. Phys. B140 (1978) 189
+    M. G. Albrow et al., Nucl. Phys. B51 (1973) 388
+    M. G. Albrow et al., Nucl. Phys. B73 (1974) 40
+    P. Capiluppi et al., Nucl. Phys. B70 (1974) 1
+    P. Capiluppi et al., Nucl. Phys. B79 (1974) 189
+    B. Alper et al., Nucl. Phys. B100 (1975) 237
+    K. Guettler et al., Nucl. Phys B116 (1976) 77
+19. A. Sheng et al., Phys. Rev. D11 (1975) 1733
+21. J. L. Bailly et al., Z. Phys. C31 (1986) 367
+23. H. Kichimi et al., Phys. Rev. D20 (1979) 37
+    T. Okusawa et al., Europhys. Lett. 5 (1988) 509
+24. R. E. Ansorge et al., Phys. Lett. B199 (1987) 311

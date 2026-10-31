@@ -1,0 +1,45 @@
+records: 280
+
+neutral non-strange mesons:
+       111 pi0            m 0.135  channels  0  radiative []
+   9000221 f0(500)        m 0.475  channels  2  radiative []
+       310 K0S            m 0.498  channels  0  radiative []
+       130 K0L            m 0.498  channels  0  radiative []
+       221 eta            m 0.548  channels  4  radiative [((211, -211, 22), 0.0428), ((22, 22), 0.3936)]
+       113 rho0           m 0.775  channels  1  radiative []
+       223 omega          m 0.783  channels  3  radiative [((111, 22), 0.08427533306419056)]
+       377 eta-prime(958) m 0.958  channels  7  radiative [((113, 22), 0.2948), ((223, 22), 0.0252), ((22, 22), 0.02307)]
+       331 eta'(958)      m 0.958  channels  5  radiative [((113, 22), 0.2972891262722967), ((223, 22), 0.02539554570190467), ((22, 22), 0.023279250226745943)]
+   9000111 a0(980)0       m 0.980  channels  3  radiative []
+   9010221 f0(980)        m 0.990  channels  4  radiative []
+       333 phi(1020)      m 1.019  channels  6  radiative [((221, 22), 0.013049016559512945)]
+     10223 h1(1170)       m 1.166  channels  3  radiative []
+     10113 b1(1235)0      m 1.230  channels  1  radiative []
+     20113 a1(1260)0      m 1.230  channels  2  radiative []
+       225 f2(1270)       m 1.276  channels  7  radiative []
+     20223 f1(1285)       m 1.282  channels 13  radiative [((113, 22), 0.061122244488977955)]
+       115 a2(1320)0      m 1.318  channels  6  radiative []
+    100223 omega(1420)    m 1.410  channels  3  radiative []
+    100113 rho(1450)0     m 1.465  channels  1  radiative []
+     30223 omega(1650)    m 1.670  channels  3  radiative []
+       117 rho3(1690)0    m 1.689  channels  5  radiative []
+     30113 rho(1700)0     m 1.720  channels  1  radiative []
+       229 f4(2050)       m 2.018  channels  5  radiative []
+
+all radiative channels:
+  omega          -> (111, 22)  BR 0.0843
+  eta            -> (211, -211, 22)  BR 0.0428
+  eta            -> (22, 22)  BR 0.3936
+  eta-prime(958) -> (113, 22)  BR 0.2948
+  eta-prime(958) -> (223, 22)  BR 0.0252
+  eta-prime(958) -> (22, 22)  BR 0.0231
+  phi(1020)      -> (221, 22)  BR 0.0130
+  eta'(958)      -> (113, 22)  BR 0.2973
+  eta'(958)      -> (223, 22)  BR 0.0254
+  eta'(958)      -> (22, 22)  BR 0.0233
+  f1(1285)       -> (113, 22)  BR 0.0611
+
+baryon records with channels: 190  with a radiative channel: []
+decayable baryons, BR sums < 0.999:
+
+stable states: [-3322, -3312, -3222, -3212, -3122, -3112, -2212, -2112, -321, -311, -211, 22, 111, 130, 211, 310, 311, 321, 2112, 2212, 3112, 3122, 3212, 3222, 3312, 3322]

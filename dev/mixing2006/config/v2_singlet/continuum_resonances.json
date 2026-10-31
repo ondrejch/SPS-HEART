@@ -1,0 +1,1128 @@
+{
+  "schema_version": 1,
+  "label": "r3_continuum_families",
+  "recorded_on": "2026-09-17",
+  "provenance_discipline": "plan section 8.2; every physics field carries a provenance entry (the Round 2 catalog provenance discipline)",
+  "plan_reference": "color_neutral_soft_exchange_implementation_plan_v2.md sections 9.1-9.2 (plan section 22 tasks 18 and 19); task cards TASK-20260917-r3-baryonic-continuum-spectral-family and TASK-20260917-r3-mesonic-continuum-spectral-family; round 3 index items 2-4, 9 and 10",
+  "decay_routing": "a continuum source decays through the Round 2 recursive catalog kernel (ResonanceDecayer of na49_mixing/resonance_decay.py) over the family's allowed hadronic decay classes, unmodified (round 3 index item 10); the family record is stamped state_type = continuum_resonance (the Round 1 card-4 stamp of na49_mixing/state_validation.py)",
+  "catalog_reference": {
+    "path": "config/v2_singlet/resonance_catalog.json",
+    "sha256": "cf9e79b99199c509f2e83def0a99c215f73ca7761f9f87fb01d1f779b80e32f3",
+    "role": "quantum numbers of the allowed-decay-class resolution and the decay kernel daughters"
+  },
+  "families": [
+    {
+      "family_id": "baryonic_np",
+      "qn": [
+        1,
+        1,
+        0
+      ],
+      "state_type": "continuum_resonance",
+      "m_min": 2.680194110727528,
+      "t_h": 0.165,
+      "b_power": 0.0,
+      "n_norm": 4.188698227099897e-13,
+      "ramp_width": 0.5,
+      "nominal_width": 0.5,
+      "m_max": 5.0,
+      "allowed_decay_classes": [
+        "(2212,111)",
+        "(2112,211)",
+        "(2224,-211)",
+        "(2214,111)",
+        "(2114,211)",
+        "(3122,321)",
+        "(3212,321)",
+        "(3222,311)",
+        "(3224,311)",
+        "(3214,321)",
+        "(102134,321)",
+        "(2212,113)",
+        "(2112,213)",
+        "(2212,223)",
+        "(2212,221)",
+        "(12212,111)",
+        "(12112,211)",
+        "(2216,111)",
+        "(2116,211)",
+        "(102212,111)",
+        "(102112,211)",
+        "(122212,111)",
+        "(122112,211)",
+        "(22212,111)",
+        "(22112,211)",
+        "(212214,111)",
+        "(212114,211)",
+        "(202224,-211)",
+        "(202214,111)",
+        "(202114,211)",
+        "(122224,-211)",
+        "(122214,111)",
+        "(122114,211)",
+        "(2224,-213)",
+        "(2214,113)",
+        "(2114,213)",
+        "(12212,113)",
+        "(12112,213)",
+        "(2216,113)",
+        "(2116,213)",
+        "(12212,223)"
+      ],
+      "active": true,
+      "field_provenance": {
+        "qn": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4; plan section 22 task 18), with TASK-20260917-round3-index item 1",
+          "section_or_table": "objective: the baryonic N*_cont-like family (B, Q, S) = (1, 1, 0) (the index item 1 baryonic transition window)",
+          "field": "qn",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            1,
+            1,
+            0
+          ],
+          "transcriber": "na49-res r3 card 4"
+        },
+        "state_type": {
+          "document": "na49_mixing/state_validation.py (Round 1 card 4, TASK-20260911-r1-allowed-state-type-validation)",
+          "section_or_table": "the closed STATE_TYPES set: continuum_resonance, the source state whose mass comes from a continuum draw",
+          "field": "state_type",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": "continuum_resonance",
+          "transcriber": "na49-res r3 card 4"
+        },
+        "m_min": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4), with TASK-20260917-round3-index item 3",
+          "section_or_table": "index item 3: m_min,a = B = 2.680194110727528 GeV, the M8-frozen continuum.match_mass of config/v2_singlet/legacy_v1_manifest.json (frozen_fit_outputs.m8_frozen_pp_parameters); no continuum strength below the catalog-completeness boundary (plan section 9.3)",
+          "field": "m_min",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 2.680194110727528,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "t_h": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: T_H = 165 MeV, the conventional light-hadron Hagedorn scale, the one common baryonic continuum scale shared by both baryonic families (plan section 9.2: one common baryonic continuum scale; no separate fitted T_H per sector)",
+          "field": "t_h",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.165,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "b_power": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: power b_a = 0 for every family (the exponential density of states is the simplest member of the plan section 9.2 minimal-form class)",
+          "field": "b_power",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.0,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "n_norm": {
+          "document": "derived value (not a transcribed input): na49_mixing/spectral_density.py unit normalization on the fixed 10,001-node reference quadrature (SPECTRAL_QUADRATURE_NODES of na49_mixing/resonance_decay)",
+          "section_or_table": "plan section 8.2 use normalized spectral functions; N_a fixed by unit normalization of the family over its support [m_min, m_max] (plan section 9.2); the recorded value is verified against the recomputation at load time",
+          "field": "n_norm",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 4.188698227099897e-13,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "ramp_width": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: S_a(M) is a smoothstep ramp of width W = 0.5 GeV from 0 at the family minimum mass to 1 at m_min + W, C^1 continuous at both ends (plan section 9.2 fixed smooth-matching parameters)",
+          "field": "ramp_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "nominal_width": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4)",
+          "section_or_table": "pre-registered minimal choice: a family-level constant nominal width, documented metadata of the family record; the plan fixes no continuum width law and the width does not alter the spectral density (the continuum is a density of states, not a line shape)",
+          "field": "nominal_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "m_max": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4)",
+          "section_or_table": "deterministic-test contract: the support upper end is the config's m_max, pre-registered 5.0 GeV, recorded per family (the normalization quadrature and the inverse-CDF draw run on [m_min, m_max])",
+          "field": "m_max",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 5.0,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "allowed_decay_classes": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4), resolved against the committed catalog config/v2_singlet/resonance_catalog.json (sha256 cf9e79b99199c509f2e83def0a99c215f73ca7761f9f87fb01d1f779b80e32f3); extended on 2026-09-28 by the Round 6 flavor channels of plan section 12.3-12.4 (tasks 41 (K Sigma(1385) and K Lambda(1520) associated channels feeding the K Lambda / K Sigma lineage) and 42 (excited-hyperon feed-down)): ['(3224,311)', '(3214,321)', '(102134,321)'], each conserving the family (B, Q, S) with every daughter a committed catalog record and the daughter pole-mass sum below m_min; extended on 2026-09-29 by TASK-20260929-r5-gate5-followup-cascade-multiplicity (Block B stage 1, the heavier direct channels of established catalog states, unit couplings times phase space and spin as for the existing pool): ['(2212,113)', '(2112,213)', '(2212,223)', '(2212,221)', '(12212,111)', '(12112,211)', '(2216,111)', '(2116,211)', '(102212,111)', '(102112,211)', '(122212,111)', '(122112,211)', '(22212,111)', '(22112,211)', '(212214,111)', '(212114,211)', '(202224,-211)', '(202214,111)', '(202114,211)', '(122224,-211)', '(122214,111)', '(122114,211)', '(2224,-213)', '(2214,113)', '(2114,213)', '(12212,113)', '(12112,213)', '(2216,113)', '(2116,213)', '(12212,223)'], each conserving the family (B, Q, S) with every daughter a committed catalog record and the daughter pole-mass sum below m_min",
+          "section_or_table": "plan section 9.1: the catalog multiplet classes open at the source mass that conserve the family (B, Q, S) = (1, 1, 0) at the vertex, declared as the catalog's multiplet-class keys (daughter flavor pairs). Card-named resolution: N-pi (2212,111) p pi0 and (2112,211) n pi+; N-pi-pi via cascade, the Delta-pi classes (2224,-211) Delta++ pi-, (2214,111) Delta+ pi0, (2114,211) Delta0 pi+; K-Lambda (3122,321) K+ Lambda (the K0 Lambda isospin partner carries Q = 0 and is excluded by the vertex charge audit); K-Sigma (3212,321) K+ Sigma0 and (3222,311) K0 Sigma+ (the K+ Sigma+ and K+ Sigma- partners carry Q = 2 and Q = 0). Every class is kinematically open across the family support (highest daughter pole-mass sum 1.686 GeV < m_min)",
+          "field": "allowed_decay_classes",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            "(2212,111)",
+            "(2112,211)",
+            "(2224,-211)",
+            "(2214,111)",
+            "(2114,211)",
+            "(3122,321)",
+            "(3212,321)",
+            "(3222,311)",
+            "(3224,311)",
+            "(3214,321)",
+            "(102134,321)",
+            "(2212,113)",
+            "(2112,213)",
+            "(2212,223)",
+            "(2212,221)",
+            "(12212,111)",
+            "(12112,211)",
+            "(2216,111)",
+            "(2116,211)",
+            "(102212,111)",
+            "(102112,211)",
+            "(122212,111)",
+            "(122112,211)",
+            "(22212,111)",
+            "(22112,211)",
+            "(212214,111)",
+            "(212114,211)",
+            "(202224,-211)",
+            "(202214,111)",
+            "(202114,211)",
+            "(122224,-211)",
+            "(122214,111)",
+            "(122114,211)",
+            "(2224,-213)",
+            "(2214,113)",
+            "(2114,213)",
+            "(12212,113)",
+            "(12112,213)",
+            "(2216,113)",
+            "(2116,213)",
+            "(12212,223)"
+          ],
+          "transcriber": "na49-res r3 card 4"
+        },
+        "active": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4)",
+          "section_or_table": "both baryonic families are active for Round 3 (the config loads with exactly the two baryonic families active)",
+          "field": "active",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": true,
+          "transcriber": "na49-res r3 card 4"
+        }
+      }
+    },
+    {
+      "family_id": "baryonic_strange",
+      "qn": [
+        1,
+        0,
+        -1
+      ],
+      "state_type": "continuum_resonance",
+      "m_min": 2.680194110727528,
+      "t_h": 0.165,
+      "b_power": 0.0,
+      "n_norm": 4.188698227099897e-13,
+      "ramp_width": 0.5,
+      "nominal_width": 0.5,
+      "m_max": 5.0,
+      "allowed_decay_classes": [
+        "(3122,111)",
+        "(3212,111)",
+        "(3112,211)",
+        "(3222,-211)",
+        "(2212,-321)",
+        "(2112,-311)",
+        "(3114,211)",
+        "(3214,111)",
+        "(3224,-211)",
+        "(102134,111)"
+      ],
+      "active": true,
+      "field_provenance": {
+        "qn": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4; plan section 22 task 18), with TASK-20260917-round3-index item 1",
+          "section_or_table": "objective: the strange baryonic family (B, Q, S) = (1, 0, -1) (Lambda-like; the index item 1 strange baryonic transition window; plan section 9.1: strange baryonic continuum states with B = 1, S != 0 where needed)",
+          "field": "qn",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            1,
+            0,
+            -1
+          ],
+          "transcriber": "na49-res r3 card 4"
+        },
+        "state_type": {
+          "document": "na49_mixing/state_validation.py (Round 1 card 4, TASK-20260911-r1-allowed-state-type-validation)",
+          "section_or_table": "the closed STATE_TYPES set: continuum_resonance, the source state whose mass comes from a continuum draw",
+          "field": "state_type",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": "continuum_resonance",
+          "transcriber": "na49-res r3 card 4"
+        },
+        "m_min": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4), with TASK-20260917-round3-index item 3",
+          "section_or_table": "index item 3: m_min,a = B = 2.680194110727528 GeV, the M8-frozen continuum.match_mass of config/v2_singlet/legacy_v1_manifest.json (frozen_fit_outputs.m8_frozen_pp_parameters); no continuum strength below the catalog-completeness boundary (plan section 9.3)",
+          "field": "m_min",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 2.680194110727528,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "t_h": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: T_H = 165 MeV, the one common baryonic continuum scale shared by both baryonic families (plan section 9.2: no separate fitted T_H per sector); the mesonic scale of card 5 is a distinct named value",
+          "field": "t_h",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.165,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "b_power": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: power b_a = 0 for every family (the exponential density of states is the simplest member of the plan section 9.2 minimal-form class)",
+          "field": "b_power",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.0,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "n_norm": {
+          "document": "derived value (not a transcribed input): na49_mixing/spectral_density.py unit normalization on the fixed 10,001-node reference quadrature (SPECTRAL_QUADRATURE_NODES of na49_mixing/resonance_decay)",
+          "section_or_table": "plan section 8.2 use normalized spectral functions; N_a fixed by unit normalization of the family over its support [m_min, m_max] (plan section 9.2); identical to the baryonic_np value because the two families share every density parameter; the recorded value is verified against the recomputation at load time",
+          "field": "n_norm",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 4.188698227099897e-13,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "ramp_width": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: S_a(M) is a smoothstep ramp of width W = 0.5 GeV from 0 at the family minimum mass to 1 at m_min + W, C^1 continuous at both ends (plan section 9.2 fixed smooth-matching parameters)",
+          "field": "ramp_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "nominal_width": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4)",
+          "section_or_table": "pre-registered minimal choice: a family-level constant nominal width, documented metadata of the family record; the plan fixes no continuum width law and the width does not alter the spectral density (the continuum is a density of states, not a line shape)",
+          "field": "nominal_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "m_max": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4)",
+          "section_or_table": "deterministic-test contract: the support upper end is the config's m_max, pre-registered 5.0 GeV, recorded per family (the normalization quadrature and the inverse-CDF draw run on [m_min, m_max])",
+          "field": "m_max",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 5.0,
+          "transcriber": "na49-res r3 card 4"
+        },
+        "allowed_decay_classes": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4), resolved against the committed catalog config/v2_singlet/resonance_catalog.json (sha256 cf9e79b99199c509f2e83def0a99c215f73ca7761f9f87fb01d1f779b80e32f3); extended on 2026-09-28 by the Round 6 flavor channels of plan section 12.3-12.4 (task 42 (excited-hyperon feed-down: Sigma(1385) pi and Lambda(1520) pi)): ['(3114,211)', '(3214,111)', '(3224,-211)', '(102134,111)'], each conserving the family (B, Q, S) with every daughter a committed catalog record and the daughter pole-mass sum below m_min",
+          "section_or_table": "plan section 9.1: the catalog multiplet classes open at the source mass that conserve the family (B, Q, S) = (1, 0, -1) at the vertex, declared as the catalog's multiplet-class keys (daughter flavor pairs). Card-named resolution: the card names the K-Lambda, K-Sigma, and N-pi classes for the strange family; every charge state of those classes carries total S = 0 (K+Lambda, K+Sigma, N pi all sum S = 0 against the catalog records), so none conserves S = -1 at the vertex and the allowed set resolves to the strangeness-conserving catalog classes of the established S = -1 baryon spectrum, all recorded channels of the Lambda(1520) and Sigma(1385) records: the Lambda-pi class (3122,111) Lambda pi0 and the Sigma-pi classes (3212,111) Sigma0 pi0, (3112,211) Sigma- pi+, (3222,-211) Sigma+ pi- (the strangeness on the baryon daughter, the N-pi analogue with the strangeness carried by the hyperon), and the N-anti-K class (2212,-321) p K- and (2112,-311) n Kbar0 (the strangeness on the anti-kaon daughter, the associated-production partner). Every class is kinematically open across the family support (highest daughter pole-mass sum 1.432 GeV < m_min)",
+          "field": "allowed_decay_classes",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            "(3122,111)",
+            "(3212,111)",
+            "(3112,211)",
+            "(3222,-211)",
+            "(2212,-321)",
+            "(2112,-311)"
+          ],
+          "transcriber": "na49-res r3 card 4"
+        },
+        "active": {
+          "document": "TASK-20260917-r3-baryonic-continuum-spectral-family (Round 3 card 4)",
+          "section_or_table": "both baryonic families are active for Round 3 (the config loads with exactly the two baryonic families active)",
+          "field": "active",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": true,
+          "transcriber": "na49-res r3 card 4"
+        }
+      }
+    },
+    {
+      "family_id": "mesonic_neutral",
+      "qn": [
+        0,
+        0,
+        0
+      ],
+      "state_type": "continuum_resonance",
+      "m_min": 2.680194110727528,
+      "t_h": 0.165,
+      "b_power": 0.0,
+      "n_norm": 4.188698227099897e-13,
+      "ramp_width": 0.5,
+      "nominal_width": 0.5,
+      "m_max": 5.0,
+      "allowed_decay_classes": [
+        "(211,-211)",
+        "(111,111)",
+        "(321,-321)",
+        "(310,130)",
+        "(113,111)",
+        "(213,-211)",
+        "(-213,211)",
+        "(223,111)",
+        "(221,111)",
+        "(221,221)",
+        "(323,-321)",
+        "(-323,321)",
+        "(313,-311)",
+        "(-313,311)",
+        "(333,111)",
+        "(333,221)",
+        "(2212,-2212)",
+        "(2112,-2112)",
+        "(113,113)",
+        "(213,-213)",
+        "(223,223)",
+        "(113,223)",
+        "(221,223)",
+        "(225,111)",
+        "(115,111)",
+        "(215,-211)",
+        "(-215,211)",
+        "(20113,111)",
+        "(20213,-211)",
+        "(-20213,211)",
+        "(10113,111)",
+        "(10213,-211)",
+        "(-10213,211)",
+        "(323,-323)",
+        "(313,-313)",
+        "(100113,111)",
+        "(100213,-211)",
+        "(-100213,211)",
+        "(100223,111)",
+        "(113,225)",
+        "(223,225)"
+      ],
+      "active": true,
+      "field_provenance": {
+        "qn": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 1",
+          "section_or_table": "objective: the activated neutral mesonic family (B, Q, S) = (0, 0, 0) (plan section 9.1: neutral mesonic continuum states with B = Q = S = 0)",
+          "field": "qn",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            0,
+            0,
+            0
+          ],
+          "transcriber": "na49-res r3 card 5"
+        },
+        "state_type": {
+          "document": "na49_mixing/state_validation.py (Round 1 card 4, TASK-20260911-r1-allowed-state-type-validation)",
+          "section_or_table": "the closed STATE_TYPES set: continuum_resonance, the source state whose mass comes from a continuum draw",
+          "field": "state_type",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": "continuum_resonance",
+          "transcriber": "na49-res r3 card 5"
+        },
+        "m_min": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 3",
+          "section_or_table": "index item 3: m_min,a = B = 2.680194110727528 GeV, the M8-frozen continuum.match_mass of config/v2_singlet/legacy_v1_manifest.json (frozen_fit_outputs.m8_frozen_pp_parameters); no continuum strength below the catalog-completeness boundary (plan section 9.3)",
+          "field": "m_min",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 2.680194110727528,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "t_h": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: T_H = 165 MeV, the conventional light-hadron Hagedorn scale, the one common mesonic continuum scale fixed and shared by every activated mesonic family (plan section 9.2: one common mesonic continuum scale; no separate fitted T_H per sector); a distinct named scale from the card-4 baryonic continuum scale, pre-registered to the same conventional value",
+          "field": "t_h",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.165,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "b_power": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: power b_a = 0 for every family (the exponential density of states is the simplest member of the plan section 9.2 minimal-form class)",
+          "field": "b_power",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.0,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "n_norm": {
+          "document": "derived value (not a transcribed input): na49_mixing/spectral_density.py unit normalization on the fixed 10,001-node reference quadrature (SPECTRAL_QUADRATURE_NODES of na49_mixing/resonance_decay)",
+          "section_or_table": "plan section 8.2 use normalized spectral functions; N_a fixed by unit normalization of the family over its support [m_min, m_max] (plan section 9.2); identical to the card-4 baryonic value because the density parameters are shared; the recorded value is verified against the recomputation at load time",
+          "field": "n_norm",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 4.188698227099897e-13,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "ramp_width": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: S_a(M) is a smoothstep ramp of width W = 0.5 GeV from 0 at the family minimum mass to 1 at m_min + W, C^1 continuous at both ends (plan section 9.2 fixed smooth-matching parameters)",
+          "field": "ramp_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "nominal_width": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "pre-registered minimal choice: a family-level constant nominal width, documented metadata of the family record; the plan fixes no continuum width law and the width does not alter the spectral density (the continuum is a density of states, not a line shape)",
+          "field": "nominal_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "m_max": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "deterministic-test contract: the support upper end is the config's m_max, pre-registered 5.0 GeV, recorded per family (the normalization quadrature and the inverse-CDF draw run on [m_min, m_max])",
+          "field": "m_max",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 5.0,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "allowed_decay_classes": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), resolved against the committed catalog config/v2_singlet/resonance_catalog.json (sha256 cf9e79b99199c509f2e83def0a99c215f73ca7761f9f87fb01d1f779b80e32f3); extended on 2026-09-28 by the Round 6 flavor channels of plan section 12.3-12.4 (tasks 38 (K Kbar neutral partners through the K* K-bar classes), 39 (K* channels), 40 (phi channels), 43 (net-zero baryon-pair channels p pbar and n nbar)): ['(323,-321)', '(-323,321)', '(313,-311)', '(-313,311)', '(333,111)', '(333,221)', '(2212,-2212)', '(2112,-2112)'], each conserving the family (B, Q, S) with every daughter a committed catalog record and the daughter pole-mass sum below m_min; extended on 2026-09-29 by TASK-20260929-r5-gate5-followup-cascade-multiplicity (Block B stage 1, the heavier direct channels of established catalog states, unit couplings times phase space and spin as for the existing pool): ['(113,113)', '(213,-213)', '(223,223)', '(113,223)', '(221,223)', '(225,111)', '(115,111)', '(215,-211)', '(-215,211)', '(20113,111)', '(20213,-211)', '(-20213,211)', '(10113,111)', '(10213,-211)', '(-10213,211)', '(323,-323)', '(313,-313)', '(100113,111)', '(100213,-211)', '(-100213,211)', '(100223,111)', '(113,225)', '(223,225)'], each conserving the family (B, Q, S) with every daughter a committed catalog record and the daughter pole-mass sum below m_min",
+          "section_or_table": "plan section 9.1: the catalog multiplet classes open at the source mass that conserve the family (B, Q, S) = (0, 0, 0) at the vertex, declared as the catalog's multiplet-class keys (daughter flavor pairs in the recorded channel order; round 3 index item 10: the open catalog multiplet classes that conserve the source (B, Q, S)). Resolution rule (the card-4 pattern): every two-body multiplet class recorded in the committed catalog whose daughter quantum numbers sum to (0, 0, 0) and whose daughter pole-mass sum lies below m_min (open across the family support), with the charge-conjugate partners the catalog records. Card-named resolution: the pi-pi classes (211,-211) pi+ pi- and (111,111) pi0 pi0 (the two-pion system of total isospin I = 0, 1, 2; recorded channels of rho(770)0, rho(1450)0, rho(1700)0, omega(782), f2(1270), rho3(1690)0, f4(2050) and of f2(1270)/f4(2050)); the K-Kbar classes (321,-321) K+ K- and (310,130) K0S K0L (the neutral (K0, Kbar0) flavor pair in its weak-eigenstate recorded form, the card-2 _concrete_pair convention; recorded channels of phi(1020), f2(1270), rho3(1690)0, f4(2050)); and the scalar/tensor and other neutral meson classes (113,111) rho(770)0 pi0 with (213,-211) rho(770)+ pi- and its recorded charge-conjugate partner (-213,211) rho(770)- pi+ (recorded channels of omega(1420), omega(1650), a1(1260)0, a2(1320)0), (223,111) omega(782) pi0 (recorded channels of b1(1235)0, rho3(1690)0), (221,111) eta pi0 (recorded channel of a2(1320)0), and (221,221) eta eta (recorded channel of f4(2050)). Every class is kinematically open across the family support (highest daughter pole-mass sum 1.095724 GeV < m_min)",
+          "field": "allowed_decay_classes",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            "(211,-211)",
+            "(111,111)",
+            "(321,-321)",
+            "(310,130)",
+            "(113,111)",
+            "(213,-211)",
+            "(-213,211)",
+            "(223,111)",
+            "(221,111)",
+            "(221,221)",
+            "(323,-321)",
+            "(-323,321)",
+            "(313,-311)",
+            "(-313,311)",
+            "(333,111)",
+            "(333,221)",
+            "(2212,-2212)",
+            "(2112,-2112)",
+            "(113,113)",
+            "(213,-213)",
+            "(223,223)",
+            "(113,223)",
+            "(221,223)",
+            "(225,111)",
+            "(115,111)",
+            "(215,-211)",
+            "(-215,211)",
+            "(20113,111)",
+            "(20213,-211)",
+            "(-20213,211)",
+            "(10113,111)",
+            "(10213,-211)",
+            "(-10213,211)",
+            "(323,-323)",
+            "(313,-313)",
+            "(100113,111)",
+            "(100213,-211)",
+            "(-100213,211)",
+            "(100223,111)",
+            "(113,225)",
+            "(223,225)"
+          ],
+          "transcriber": "na49-res r3 card 5"
+        },
+        "active": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "the neutral mesonic family is active for Round 3 (the config loads with exactly three active families: the two card-4 baryonic families and the neutral mesonic family); the charged and strange mesonic families are declared with active = false and never sampled (round 3 index item 9)",
+          "field": "active",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": true,
+          "transcriber": "na49-res r3 card 5"
+        }
+      }
+    },
+    {
+      "family_id": "mesonic_charged",
+      "qn": [
+        0,
+        1,
+        0
+      ],
+      "state_type": "continuum_resonance",
+      "m_min": 2.680194110727528,
+      "t_h": 0.165,
+      "b_power": 0.0,
+      "n_norm": 4.188698227099897e-13,
+      "ramp_width": 0.5,
+      "nominal_width": 0.5,
+      "m_max": 5.0,
+      "allowed_decay_classes": [
+        "(211,111)",
+        "(223,211)",
+        "(213,111)",
+        "(113,211)",
+        "(221,211)",
+        "(-311,321)",
+        "(323,-311)",
+        "(321,-313)"
+      ],
+      "active": false,
+      "field_provenance": {
+        "qn": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 9",
+          "section_or_table": "objective: the declared charged mesonic family (B, Q, S) = (0, +1, 0) (the card's rho-like charged family; plan section 9.1: charged or strange mesonic continuum states only when created by an explicit non-vacuum exchange or an allowed parent decay; round 3 index item 9: declared, not activated)",
+          "field": "qn",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            0,
+            1,
+            0
+          ],
+          "transcriber": "na49-res r3 card 5"
+        },
+        "state_type": {
+          "document": "na49_mixing/state_validation.py (Round 1 card 4, TASK-20260911-r1-allowed-state-type-validation)",
+          "section_or_table": "the closed STATE_TYPES set: continuum_resonance, the source state whose mass comes from a continuum draw",
+          "field": "state_type",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": "continuum_resonance",
+          "transcriber": "na49-res r3 card 5"
+        },
+        "m_min": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 3",
+          "section_or_table": "index item 3: m_min,a = B = 2.680194110727528 GeV, the M8-frozen continuum.match_mass of config/v2_singlet/legacy_v1_manifest.json (frozen_fit_outputs.m8_frozen_pp_parameters); no continuum strength below the catalog-completeness boundary (plan section 9.3)",
+          "field": "m_min",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 2.680194110727528,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "t_h": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: T_H = 165 MeV, the conventional light-hadron Hagedorn scale, the one common mesonic continuum scale fixed and shared by every activated mesonic family (plan section 9.2: one common mesonic continuum scale; no separate fitted T_H per sector); a distinct named scale from the card-4 baryonic continuum scale, pre-registered to the same conventional value",
+          "field": "t_h",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.165,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "b_power": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: power b_a = 0 for every family (the exponential density of states is the simplest member of the plan section 9.2 minimal-form class)",
+          "field": "b_power",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.0,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "n_norm": {
+          "document": "derived value (not a transcribed input): na49_mixing/spectral_density.py unit normalization on the fixed 10,001-node reference quadrature (SPECTRAL_QUADRATURE_NODES of na49_mixing/resonance_decay)",
+          "section_or_table": "plan section 8.2 use normalized spectral functions; N_a fixed by unit normalization of the family over its support [m_min, m_max] (plan section 9.2); identical to the card-4 baryonic value because the density parameters are shared; the recorded value is verified against the recomputation at load time; the family is declared only and never sampled in Round 3, the normalization is recorded for schema completeness",
+          "field": "n_norm",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 4.188698227099897e-13,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "ramp_width": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: S_a(M) is a smoothstep ramp of width W = 0.5 GeV from 0 at the family minimum mass to 1 at m_min + W, C^1 continuous at both ends (plan section 9.2 fixed smooth-matching parameters)",
+          "field": "ramp_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "nominal_width": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "pre-registered minimal choice: a family-level constant nominal width, documented metadata of the family record; the plan fixes no continuum width law and the width does not alter the spectral density (the continuum is a density of states, not a line shape)",
+          "field": "nominal_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "m_max": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "deterministic-test contract: the support upper end is the config's m_max, pre-registered 5.0 GeV, recorded per family (the normalization quadrature and the inverse-CDF draw run on [m_min, m_max])",
+          "field": "m_max",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 5.0,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "allowed_decay_classes": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), resolved against the committed catalog config/v2_singlet/resonance_catalog.json (sha256 cf9e79b99199c509f2e83def0a99c215f73ca7761f9f87fb01d1f779b80e32f3); extended on 2026-09-28 by the Round 6 flavor channels of plan section 12.3-12.4 (task 39 (K* K-bar charge partners)): ['(323,-311)', '(321,-313)'], each conserving the family (B, Q, S) with every daughter a committed catalog record and the daughter pole-mass sum below m_min",
+          "section_or_table": "the analog conserving resolution for the declared charged family (never sampled in Round 3): every two-body multiplet class recorded in the committed catalog whose daughter quantum numbers sum to (0, +1, 0) and whose daughter pole-mass sum lies below m_min, with the charge-conjugate partners recorded on the conjugate family: the charged pi-pi state (211,111) pi+ pi0 (recorded channels of rho(770)+, rho(1450)+, rho(1700)+, rho3(1690)+), the omega-pi class (223,211) omega(782) pi+ (recorded channels of b1(1235)+, rho3(1690)+), the rho-pi classes (213,111) rho(770)+ pi0 and (113,211) rho(770)0 pi+ (recorded channels of a1(1260)+ and a2(1320)+), the eta-pi class (221,211) eta pi+ (recorded channel of a2(1320)+), and the charged K-Kbar state (-311,321) Kbar0 K+ (recorded channel of rho3(1690)+). Every class is kinematically open across the family support (highest daughter pole-mass sum 0.991288 GeV < m_min)",
+          "field": "allowed_decay_classes",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            "(211,111)",
+            "(223,211)",
+            "(213,111)",
+            "(113,211)",
+            "(221,211)",
+            "(-311,321)"
+          ],
+          "transcriber": "na49-res r3 card 5"
+        },
+        "active": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "declared, not activated (round 3 index item 9; plan section 9.1: charged or strange mesonic continuum states only when created by an explicit non-vacuum exchange or an allowed parent decay; the Round 3 p+p topology is the neutral two-source exchange, so the family is never sampled by R30-R32 and enters the final state only as decay daughters of catalog states, which the Round 2 kernel already handles); activating it is out of scope for Round 3",
+          "field": "active",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": false,
+          "transcriber": "na49-res r3 card 5"
+        }
+      }
+    },
+    {
+      "family_id": "mesonic_anticharged",
+      "qn": [
+        0,
+        -1,
+        0
+      ],
+      "state_type": "continuum_resonance",
+      "m_min": 2.680194110727528,
+      "t_h": 0.165,
+      "b_power": 0.0,
+      "n_norm": 4.188698227099897e-13,
+      "ramp_width": 0.5,
+      "nominal_width": 0.5,
+      "m_max": 5.0,
+      "allowed_decay_classes": [
+        "(-211,111)",
+        "(223,-211)",
+        "(-213,111)",
+        "(113,-211)",
+        "(221,-211)",
+        "(311,-321)",
+        "(-323,311)",
+        "(-321,313)"
+      ],
+      "active": false,
+      "field_provenance": {
+        "qn": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 9",
+          "section_or_table": "objective: the charge-conjugate charged mesonic family (B, Q, S) = (0, -1, 0) (the card's rho-like charged family, conjugate charge state; round 3 index item 9: declared, not activated)",
+          "field": "qn",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            0,
+            -1,
+            0
+          ],
+          "transcriber": "na49-res r3 card 5"
+        },
+        "state_type": {
+          "document": "na49_mixing/state_validation.py (Round 1 card 4, TASK-20260911-r1-allowed-state-type-validation)",
+          "section_or_table": "the closed STATE_TYPES set: continuum_resonance, the source state whose mass comes from a continuum draw",
+          "field": "state_type",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": "continuum_resonance",
+          "transcriber": "na49-res r3 card 5"
+        },
+        "m_min": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 3",
+          "section_or_table": "index item 3: m_min,a = B = 2.680194110727528 GeV, the M8-frozen continuum.match_mass of config/v2_singlet/legacy_v1_manifest.json (frozen_fit_outputs.m8_frozen_pp_parameters); no continuum strength below the catalog-completeness boundary (plan section 9.3)",
+          "field": "m_min",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 2.680194110727528,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "t_h": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: T_H = 165 MeV, the conventional light-hadron Hagedorn scale, the one common mesonic continuum scale fixed and shared by every activated mesonic family (plan section 9.2: one common mesonic continuum scale; no separate fitted T_H per sector); a distinct named scale from the card-4 baryonic continuum scale, pre-registered to the same conventional value",
+          "field": "t_h",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.165,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "b_power": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: power b_a = 0 for every family (the exponential density of states is the simplest member of the plan section 9.2 minimal-form class)",
+          "field": "b_power",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.0,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "n_norm": {
+          "document": "derived value (not a transcribed input): na49_mixing/spectral_density.py unit normalization on the fixed 10,001-node reference quadrature (SPECTRAL_QUADRATURE_NODES of na49_mixing/resonance_decay)",
+          "section_or_table": "plan section 8.2 use normalized spectral functions; N_a fixed by unit normalization of the family over its support [m_min, m_max] (plan section 9.2); identical to the card-4 baryonic value because the density parameters are shared; the recorded value is verified against the recomputation at load time; the family is declared only and never sampled in Round 3, the normalization is recorded for schema completeness",
+          "field": "n_norm",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 4.188698227099897e-13,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "ramp_width": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: S_a(M) is a smoothstep ramp of width W = 0.5 GeV from 0 at the family minimum mass to 1 at m_min + W, C^1 continuous at both ends (plan section 9.2 fixed smooth-matching parameters)",
+          "field": "ramp_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "nominal_width": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "pre-registered minimal choice: a family-level constant nominal width, documented metadata of the family record; the plan fixes no continuum width law and the width does not alter the spectral density (the continuum is a density of states, not a line shape)",
+          "field": "nominal_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "m_max": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "deterministic-test contract: the support upper end is the config's m_max, pre-registered 5.0 GeV, recorded per family (the normalization quadrature and the inverse-CDF draw run on [m_min, m_max])",
+          "field": "m_max",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 5.0,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "allowed_decay_classes": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), resolved against the committed catalog config/v2_singlet/resonance_catalog.json (sha256 cf9e79b99199c509f2e83def0a99c215f73ca7761f9f87fb01d1f779b80e32f3); extended on 2026-09-28 by the Round 6 flavor channels of plan section 12.3-12.4 (task 39 (K* K-bar charge partners)): ['(-323,311)', '(-321,313)'], each conserving the family (B, Q, S) with every daughter a committed catalog record and the daughter pole-mass sum below m_min",
+          "section_or_table": "the analog conserving resolution for the declared charge-conjugate charged family (never sampled in Round 3): every two-body multiplet class recorded in the committed catalog whose daughter quantum numbers sum to (0, -1, 0) and whose daughter pole-mass sum lies below m_min, the charge conjugates of the (0, +1, 0) set: the charged pi-pi state (-211,111) pi- pi0 (recorded channels of rho(770)-, rho(1450)-, rho(1700)-, rho3(1690)-), the omega-pi class (223,-211) omega(782) pi- (recorded channels of b1(1235)-, rho3(1690)-), the rho-pi classes (-213,111) rho(770)- pi0 and (113,-211) rho(770)0 pi- (recorded channels of a1(1260)- and a2(1320)-), the eta-pi class (221,-211) eta pi- (recorded channel of a2(1320)-), and the charged K-Kbar state (311,-321) K0 K- (recorded channel of rho3(1690)-). Every class is kinematically open across the family support (highest daughter pole-mass sum 0.991288 GeV < m_min)",
+          "field": "allowed_decay_classes",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            "(-211,111)",
+            "(223,-211)",
+            "(-213,111)",
+            "(113,-211)",
+            "(221,-211)",
+            "(311,-321)"
+          ],
+          "transcriber": "na49-res r3 card 5"
+        },
+        "active": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "declared, not activated (round 3 index item 9; plan section 9.1: charged or strange mesonic continuum states only when created by an explicit non-vacuum exchange or an allowed parent decay; the Round 3 p+p topology is the neutral two-source exchange, so the family is never sampled by R30-R32 and enters the final state only as decay daughters of catalog states, which the Round 2 kernel already handles); activating it is out of scope for Round 3",
+          "field": "active",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": false,
+          "transcriber": "na49-res r3 card 5"
+        }
+      }
+    },
+    {
+      "family_id": "mesonic_strange",
+      "qn": [
+        0,
+        0,
+        -1
+      ],
+      "state_type": "continuum_resonance",
+      "m_min": 2.680194110727528,
+      "t_h": 0.165,
+      "b_power": 0.0,
+      "n_norm": 4.188698227099897e-13,
+      "ramp_width": 0.5,
+      "nominal_width": 0.5,
+      "m_max": 5.0,
+      "allowed_decay_classes": [
+        "(-321,211)",
+        "(-311,111)",
+        "(213,-321)",
+        "(113,-311)",
+        "(-323,211)",
+        "(-313,111)",
+        "(223,-311)"
+      ],
+      "active": false,
+      "field_provenance": {
+        "qn": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 9",
+          "section_or_table": "objective: the declared strange mesonic family (B, Q, S) = (0, 0, -1) (the card's K-like strange family, the Kbar0-like neutral strange sector; plan section 9.1: charged or strange mesonic continuum states only when created by an explicit non-vacuum exchange or an allowed parent decay; round 3 index item 9: declared, not activated)",
+          "field": "qn",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            0,
+            0,
+            -1
+          ],
+          "transcriber": "na49-res r3 card 5"
+        },
+        "state_type": {
+          "document": "na49_mixing/state_validation.py (Round 1 card 4, TASK-20260911-r1-allowed-state-type-validation)",
+          "section_or_table": "the closed STATE_TYPES set: continuum_resonance, the source state whose mass comes from a continuum draw",
+          "field": "state_type",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": "continuum_resonance",
+          "transcriber": "na49-res r3 card 5"
+        },
+        "m_min": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 3",
+          "section_or_table": "index item 3: m_min,a = B = 2.680194110727528 GeV, the M8-frozen continuum.match_mass of config/v2_singlet/legacy_v1_manifest.json (frozen_fit_outputs.m8_frozen_pp_parameters); no continuum strength below the catalog-completeness boundary (plan section 9.3)",
+          "field": "m_min",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 2.680194110727528,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "t_h": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: T_H = 165 MeV, the conventional light-hadron Hagedorn scale, the one common mesonic continuum scale fixed and shared by every activated mesonic family (plan section 9.2: one common mesonic continuum scale; no separate fitted T_H per sector); a distinct named scale from the card-4 baryonic continuum scale, pre-registered to the same conventional value",
+          "field": "t_h",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.165,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "b_power": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: power b_a = 0 for every family (the exponential density of states is the simplest member of the plan section 9.2 minimal-form class)",
+          "field": "b_power",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.0,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "n_norm": {
+          "document": "derived value (not a transcribed input): na49_mixing/spectral_density.py unit normalization on the fixed 10,001-node reference quadrature (SPECTRAL_QUADRATURE_NODES of na49_mixing/resonance_decay)",
+          "section_or_table": "plan section 8.2 use normalized spectral functions; N_a fixed by unit normalization of the family over its support [m_min, m_max] (plan section 9.2); identical to the card-4 baryonic value because the density parameters are shared; the recorded value is verified against the recomputation at load time; the family is declared only and never sampled in Round 3, the normalization is recorded for schema completeness",
+          "field": "n_norm",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 4.188698227099897e-13,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "ramp_width": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: S_a(M) is a smoothstep ramp of width W = 0.5 GeV from 0 at the family minimum mass to 1 at m_min + W, C^1 continuous at both ends (plan section 9.2 fixed smooth-matching parameters)",
+          "field": "ramp_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "nominal_width": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "pre-registered minimal choice: a family-level constant nominal width, documented metadata of the family record; the plan fixes no continuum width law and the width does not alter the spectral density (the continuum is a density of states, not a line shape)",
+          "field": "nominal_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "m_max": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "deterministic-test contract: the support upper end is the config's m_max, pre-registered 5.0 GeV, recorded per family (the normalization quadrature and the inverse-CDF draw run on [m_min, m_max])",
+          "field": "m_max",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 5.0,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "allowed_decay_classes": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), resolved against the committed catalog config/v2_singlet/resonance_catalog.json (sha256 cf9e79b99199c509f2e83def0a99c215f73ca7761f9f87fb01d1f779b80e32f3)",
+          "section_or_table": "the analog conserving resolution for the declared strange family (never sampled in Round 3): every two-body multiplet class recorded in the committed catalog whose daughter quantum numbers sum to (0, 0, -1) and whose daughter pole-mass sum lies below m_min (the strangeness on the kaon or kaon-resonance daughter; all seven are recorded channels of the established S = -1 meson spectrum, the aK*(892)0, aK1(1270)0 and aK2*(1430)0 records): the K-pi classes (-321,211) K- pi+ and (-311,111) Kbar0 pi0, the rho-K classes (213,-321) rho(770)+ K- and (113,-311) rho(770)0 Kbar0, the K*-pi classes (-323,211) K*(892)- pi+ and (-313,111) K*(892)0bar pi0, and the omega-K class (223,-311) omega(782) Kbar0. Every class is kinematically open across the family support (highest daughter pole-mass sum 1.280261 GeV < m_min)",
+          "field": "allowed_decay_classes",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            "(-321,211)",
+            "(-311,111)",
+            "(213,-321)",
+            "(113,-311)",
+            "(-323,211)",
+            "(-313,111)",
+            "(223,-311)"
+          ],
+          "transcriber": "na49-res r3 card 5"
+        },
+        "active": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "declared, not activated (round 3 index item 9; plan section 9.1: charged or strange mesonic continuum states only when created by an explicit non-vacuum exchange or an allowed parent decay; the Round 3 p+p topology is the neutral two-source exchange, so the family is never sampled by R30-R32 and enters the final state only as decay daughters of catalog states, which the Round 2 kernel already handles); activating it is out of scope for Round 3",
+          "field": "active",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": false,
+          "transcriber": "na49-res r3 card 5"
+        }
+      }
+    },
+    {
+      "family_id": "mesonic_antistrange",
+      "qn": [
+        0,
+        0,
+        1
+      ],
+      "state_type": "continuum_resonance",
+      "m_min": 2.680194110727528,
+      "t_h": 0.165,
+      "b_power": 0.0,
+      "n_norm": 4.188698227099897e-13,
+      "ramp_width": 0.5,
+      "nominal_width": 0.5,
+      "m_max": 5.0,
+      "allowed_decay_classes": [
+        "(321,-211)",
+        "(311,111)",
+        "(-213,321)",
+        "(113,311)",
+        "(323,-211)",
+        "(313,111)",
+        "(223,311)"
+      ],
+      "active": false,
+      "field_provenance": {
+        "qn": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 9",
+          "section_or_table": "objective: the charge-conjugate strange mesonic family (B, Q, S) = (0, 0, +1) (the card's K-like strange family, the K0-like neutral strange sector; round 3 index item 9: declared, not activated)",
+          "field": "qn",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            0,
+            0,
+            1
+          ],
+          "transcriber": "na49-res r3 card 5"
+        },
+        "state_type": {
+          "document": "na49_mixing/state_validation.py (Round 1 card 4, TASK-20260911-r1-allowed-state-type-validation)",
+          "section_or_table": "the closed STATE_TYPES set: continuum_resonance, the source state whose mass comes from a continuum draw",
+          "field": "state_type",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": "continuum_resonance",
+          "transcriber": "na49-res r3 card 5"
+        },
+        "m_min": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 3",
+          "section_or_table": "index item 3: m_min,a = B = 2.680194110727528 GeV, the M8-frozen continuum.match_mass of config/v2_singlet/legacy_v1_manifest.json (frozen_fit_outputs.m8_frozen_pp_parameters); no continuum strength below the catalog-completeness boundary (plan section 9.3)",
+          "field": "m_min",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 2.680194110727528,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "t_h": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: T_H = 165 MeV, the conventional light-hadron Hagedorn scale, the one common mesonic continuum scale fixed and shared by every activated mesonic family (plan section 9.2: one common mesonic continuum scale; no separate fitted T_H per sector); a distinct named scale from the card-4 baryonic continuum scale, pre-registered to the same conventional value",
+          "field": "t_h",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.165,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "b_power": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: power b_a = 0 for every family (the exponential density of states is the simplest member of the plan section 9.2 minimal-form class)",
+          "field": "b_power",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.0,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "n_norm": {
+          "document": "derived value (not a transcribed input): na49_mixing/spectral_density.py unit normalization on the fixed 10,001-node reference quadrature (SPECTRAL_QUADRATURE_NODES of na49_mixing/resonance_decay)",
+          "section_or_table": "plan section 8.2 use normalized spectral functions; N_a fixed by unit normalization of the family over its support [m_min, m_max] (plan section 9.2); identical to the card-4 baryonic value because the density parameters are shared; the recorded value is verified against the recomputation at load time; the family is declared only and never sampled in Round 3, the normalization is recorded for schema completeness",
+          "field": "n_norm",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 4.188698227099897e-13,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "ramp_width": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), with TASK-20260917-round3-index item 2",
+          "section_or_table": "index item 2: S_a(M) is a smoothstep ramp of width W = 0.5 GeV from 0 at the family minimum mass to 1 at m_min + W, C^1 continuous at both ends (plan section 9.2 fixed smooth-matching parameters)",
+          "field": "ramp_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "nominal_width": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "pre-registered minimal choice: a family-level constant nominal width, documented metadata of the family record; the plan fixes no continuum width law and the width does not alter the spectral density (the continuum is a density of states, not a line shape)",
+          "field": "nominal_width",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 0.5,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "m_max": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "deterministic-test contract: the support upper end is the config's m_max, pre-registered 5.0 GeV, recorded per family (the normalization quadrature and the inverse-CDF draw run on [m_min, m_max])",
+          "field": "m_max",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": 5.0,
+          "transcriber": "na49-res r3 card 5"
+        },
+        "allowed_decay_classes": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5), resolved against the committed catalog config/v2_singlet/resonance_catalog.json (sha256 cf9e79b99199c509f2e83def0a99c215f73ca7761f9f87fb01d1f779b80e32f3)",
+          "section_or_table": "the analog conserving resolution for the declared charge-conjugate strange family (never sampled in Round 3): every two-body multiplet class recorded in the committed catalog whose daughter quantum numbers sum to (0, 0, +1) and whose daughter pole-mass sum lies below m_min (the strangeness on the kaon or kaon-resonance daughter; all seven are recorded channels of the established S = +1 meson spectrum, the K*(892)0, K1(1270)0 and K2*(1430)0 records), the charge conjugates of the (0, 0, -1) set: the K-pi classes (321,-211) K+ pi- and (311,111) K0 pi0, the rho-K classes (-213,321) rho(770)- K+ and (113,311) rho(770)0 K0, the K*-pi classes (323,-211) K*(892)+ pi- and (313,111) K*(892)0 pi0, and the omega-K class (223,311) omega(782) K0. Every class is kinematically open across the family support (highest daughter pole-mass sum 1.280261 GeV < m_min)",
+          "field": "allowed_decay_classes",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": [
+            "(321,-211)",
+            "(311,111)",
+            "(-213,321)",
+            "(113,311)",
+            "(323,-211)",
+            "(313,111)",
+            "(223,311)"
+          ],
+          "transcriber": "na49-res r3 card 5"
+        },
+        "active": {
+          "document": "TASK-20260917-r3-mesonic-continuum-spectral-family (Round 3 card 5)",
+          "section_or_table": "declared, not activated (round 3 index item 9; plan section 9.1: charged or strange mesonic continuum states only when created by an explicit non-vacuum exchange or an allowed parent decay; the Round 3 p+p topology is the neutral two-source exchange, so the family is never sampled by R30-R32 and enters the final state only as decay daughters of catalog states, which the Round 2 kernel already handles); activating it is out of scope for Round 3",
+          "field": "active",
+          "accessed_on": "2026-09-17",
+          "transcribed_value": false,
+          "transcriber": "na49-res r3 card 5"
+        }
+      }
+    }
+  ],
+  "round6_flavor_channels": {
+    "recorded_on": "2026-09-28",
+    "plan_reference": "plan section 12.3 (required strange channels) and 12.4 (required baryon-pair channels); plan section 22 tasks 38-43",
+    "note": "the classes are the channel basis of the Round 6 flavor weights (na49_mixing/flavor_weights.py, task 37); the weights default to the identity, so the Round 3-5 enumerations are unchanged until a flavor point is supplied"
+  },
+  "block_b_heavy_direct_channels": {
+    "recorded_on": "2026-09-29",
+    "card": "TASK-20260929-r5-gate5-followup-cascade-multiplicity",
+    "plan_reference": "plan section 10.6 (cascade termination) and section 13.1 Block B (continuum multiplicity)",
+    "evidence": "in-memory probe .collab/tooling/probe_block_b.py (2026-09-29): the frozen direct pool yields about half the universal hadron count per unit source mass; these channels add 0.6 to 1.4 charged hadrons per decay and dilute the strange share of the baryonic pool",
+    "couplings": "unit couplings times two-body phase space and (2J+1) spin factors, as for the existing pool; the r_V flavor weight acts on the vector-meson channels",
+    "added": {
+      "baryonic_np": [
+        "(2212,113)",
+        "(2112,213)",
+        "(2212,223)",
+        "(2212,221)",
+        "(12212,111)",
+        "(12112,211)",
+        "(2216,111)",
+        "(2116,211)",
+        "(102212,111)",
+        "(102112,211)",
+        "(122212,111)",
+        "(122112,211)",
+        "(22212,111)",
+        "(22112,211)",
+        "(212214,111)",
+        "(212114,211)",
+        "(202224,-211)",
+        "(202214,111)",
+        "(202114,211)",
+        "(122224,-211)",
+        "(122214,111)",
+        "(122114,211)",
+        "(2224,-213)",
+        "(2214,113)",
+        "(2114,213)",
+        "(12212,113)",
+        "(12112,213)",
+        "(2216,113)",
+        "(2116,213)",
+        "(12212,223)"
+      ],
+      "mesonic_neutral": [
+        "(113,113)",
+        "(213,-213)",
+        "(223,223)",
+        "(113,223)",
+        "(221,223)",
+        "(225,111)",
+        "(115,111)",
+        "(215,-211)",
+        "(-215,211)",
+        "(20113,111)",
+        "(20213,-211)",
+        "(-20213,211)",
+        "(10113,111)",
+        "(10213,-211)",
+        "(-10213,211)",
+        "(323,-323)",
+        "(313,-313)",
+        "(100113,111)",
+        "(100213,-211)",
+        "(-100213,211)",
+        "(100223,111)",
+        "(113,225)",
+        "(223,225)"
+      ]
+    }
+  },
+  "isospin_rule": {
+    "rule": "minimal_abs_i3",
+    "statement": "every continuum family carries the smallest isospin compatible with its charge, I = |I3| with 2 I3 = 2Q - B - S; the continuum and direct vertices weight each channel by the Clebsch-Gordan share |<I_b I3_b; I_c I3_c | I I3>|^2 (both orderings summed for two members of one multiplet), the Round 2 kernel's convention",
+    "physics": "systems excited by an isospin-zero (colorless, neutral) exchange keep the isospin of the excited hadron: I = 1/2 for an excited nucleon (p pi0 : n pi+ = 1 : 2), I = 0 for a central mesonic system (pi+ pi- : pi0 pi0 = 2 : 1; omega pi0, eta pi0, f2 pi0 and rho0 omega forbidden)",
+    "evidence": "census at the sealed R51f optimum (2026-09-30): with unit couplings the neutral pions are 43% of all pions against one third, and the NA49 neutron dN/dx_F is exceeded by 30 to 55% at x_F 0.3 to 0.6 (_knowledge/evidence/topology-multiplicity-deficit-2026-09-28.md)",
+    "decided": "plan owner, 2026-09-30 ('go' on the proposed assignment)",
+    "card": "TASK-20260930-r5-gate5-followup-final-state-isospin"
+  }
+}

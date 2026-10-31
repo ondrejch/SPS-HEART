@@ -1,0 +1,37 @@
+jackknife over 32 batches; chi2 (sigma) [Monte Carlo bias]
+
+yields fixed
+                                gen_bc125a                    gen_ek125a
+proton               1256 ( 56.3) [+109.9]         1210 ( 61.3) [+107.3]
+pi_plus               732 ( 35.3) [+123.1]          670 ( 36.0) [+124.3]
+pi_minus             1019 ( 55.5) [+229.5]         1036 ( 63.7) [+212.2]
+k_plus                338 ( 28.9) [ +74.6]          413 ( 32.1) [ +75.1]
+k_minus               521 ( 56.8) [+146.6]          537 ( 59.7) [+147.0]
+antiproton            256 ( 35.8) [+137.9]          282 ( 32.1) [+139.1]
+total                4122 ( 96.9) [+821.6]         4149 ( 97.7) [+805.0]
+Delta chi2 against the first run (paired jackknife sigma) {bias-corrected Delta}
+proton               -45 ( 25.1) {    -43}
+pi_plus              -62 ( 28.5) {    -63}
+pi_minus             +17 ( 79.2) {    +34}
+k_plus               +75 ( 31.8) {    +74}
+k_minus              +16 ( 57.6) {    +16}
+antiproton           +26 ( 38.7) {    +25}
+total                +27 (104.7) {    +44}
+
+normalizations fitted
+                                gen_bc125a                    gen_ek125a
+proton               1238 ( 54.1) [+106.2]         1209 ( 60.7) [+105.9]
+pi_plus               725 ( 33.7) [+120.5]          669 ( 35.7) [+123.2]
+pi_minus             1011 ( 56.2) [+233.9]         1017 ( 65.4) [+218.5]
+k_plus                335 ( 29.0) [ +72.6]          317 ( 26.1) [ +67.1]
+k_minus               518 ( 57.5) [+148.7]          533 ( 59.5) [+142.9]
+antiproton            247 ( 35.1) [+130.4]          278 ( 31.5) [+133.6]
+total                4073 ( 95.8) [+812.4]         4023 (100.3) [+791.3]
+Delta chi2 against the first run (paired jackknife sigma) {bias-corrected Delta}
+proton               -29 ( 23.9) {    -29}
+pi_plus              -55 ( 28.0) {    -58}
+pi_minus              +6 ( 80.4) {    +21}
+k_plus               -17 ( 25.0) {    -12}
+k_minus              +16 ( 58.0) {    +22}
+antiproton           +31 ( 37.9) {    +27}
+total                -50 (104.0) {    -29}

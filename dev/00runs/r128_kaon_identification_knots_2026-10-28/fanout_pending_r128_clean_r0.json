@@ -1,0 +1,27 @@
+{
+ "batches": [
+  {
+   "batch": "7a587c67bbef80e4ca64",
+   "missing": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "namespace": "clean"
+  },
+  {
+   "batch": "7a1f312afec889e679f4",
+   "missing": [
+    0
+   ],
+   "namespace": "clean"
+  }
+ ],
+ "key": "r128_clean_r0",
+ "schema": "na49_mixing.fit_fanout.pending/1"
+}

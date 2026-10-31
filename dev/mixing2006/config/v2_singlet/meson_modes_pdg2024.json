@@ -1,0 +1,606 @@
+{
+ "label": "pdg_meson_modes",
+ "source": "PDG 2024 summary tables (pdg.lbl.gov/2024/tables/rpp2024-tab-mesons-light.pdf and rpp2024-tab-mesons-strange.pdf; S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024))",
+ "accessed_on": "2026-10-16",
+ "reason": "The committed catalog cites the PDG 2024 tables, but its meson records carry an older edition and keep only the two-body modes with catalog daughters, renormalized over them. The R99 review of 2026-10-16 (H1, H2, M3) and its verification found the f2(1270) without its 4pi modes (10.5%), the a2(1320) without omega pi pi (10.6%) and K Kbar (4.9%), the K1(1270) at the old mass and without K0*(1430) pi (28%) and K f0(1370) (3%), the K2*(1430) without K*(892) pi pi (13.4%) and at one mass and width for both charges, the rho0 at the charged width, and the omega and phi at older fractions.",
+ "rule": "Each record at its PDG 2024 width and at the mass of the vendored PDG table, which the catalog's validation pins every record to (the table predates 2024: K1(1270) at 1272 MeV against 1253 +- 7, K2*(1430) at 1425.6 MeV for both charges against 1427.3 and 1432.4, f2(1270) 1275.5 against 1275.4, a2(1320) 1318.3 against 1318.2, omega 782.65 against 782.66; an open item of the catalog); every hadronic and radiative mode of at least 1% of the state at its central value, the fractions normalized over the kept modes; the charge members of a mode at their isospin Clebsch-Gordan shares; a four-body mode through its quasi-three-body form: the f2(1270) 4pi as rho pi pi in the rho-rho charge pattern (pi+ pi- 2pi0 as rho+- pi-+ pi0, 2pi+ 2pi- as rho0 pi+ pi-); a mode through a state absent from the catalog as its three-body final state at the isospin shares of the chain (K0*(1430) pi and K f0(1370) as K pi pi); the K*(892) pi pi of the K2*(1430) with the dipion at I = 0 (a judgment: the table names no isospin); two-body modes at the lowest wave the spins and parities allow, three-body modes at L = 0 as the committed omega. The line shape runs from the lightest threshold to the committed upper edge shifted by the change of the pole mass. The antiparticles of the strange mesons are the charge conjugates.",
+ "records": [
+  {
+   "name": "rho0",
+   "pdg_id": 113,
+   "pole_mass": 0.77526,
+   "nominal_width": 0.1474,
+   "channels": [
+    {
+     "daughters": [
+      211,
+      -211
+     ],
+     "fraction": 1.0,
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "omega",
+   "pdg_id": 223,
+   "pole_mass": 0.78265,
+   "nominal_width": 0.00868,
+   "channels": [
+    {
+     "daughters": [
+      211,
+      -211,
+      111
+     ],
+     "fraction": 0.892,
+     "L": 0
+    },
+    {
+     "daughters": [
+      111,
+      22
+     ],
+     "fraction": 0.0835,
+     "L": 1
+    },
+    {
+     "daughters": [
+      211,
+      -211
+     ],
+     "fraction": 0.0153,
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "phi(1020)",
+   "pdg_id": 333,
+   "pole_mass": 1.019461,
+   "nominal_width": 0.004249,
+   "channels": [
+    {
+     "daughters": [
+      321,
+      -321
+     ],
+     "fraction": 0.491,
+     "L": 1
+    },
+    {
+     "daughters": [
+      310,
+      130
+     ],
+     "fraction": 0.339,
+     "L": 1
+    },
+    {
+     "daughters": [
+      213,
+      -211
+     ],
+     "fraction": 0.05133333333333333,
+     "L": 1
+    },
+    {
+     "daughters": [
+      113,
+      111
+     ],
+     "fraction": 0.05133333333333333,
+     "L": 1
+    },
+    {
+     "daughters": [
+      -213,
+      211
+     ],
+     "fraction": 0.05133333333333333,
+     "L": 1
+    },
+    {
+     "daughters": [
+      221,
+      22
+     ],
+     "fraction": 0.01301,
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "f2(1270)",
+   "pdg_id": 225,
+   "pole_mass": 1.2755,
+   "nominal_width": 0.1866,
+   "channels": [
+    {
+     "daughters": [
+      211,
+      -211
+     ],
+     "fraction": 0.562,
+     "L": 2
+    },
+    {
+     "daughters": [
+      111,
+      111
+     ],
+     "fraction": 0.281,
+     "L": 2
+    },
+    {
+     "daughters": [
+      213,
+      -211,
+      111
+     ],
+     "fraction": 0.0385,
+     "L": 0
+    },
+    {
+     "daughters": [
+      -213,
+      211,
+      111
+     ],
+     "fraction": 0.0385,
+     "L": 0
+    },
+    {
+     "daughters": [
+      321,
+      -321
+     ],
+     "fraction": 0.023,
+     "L": 2
+    },
+    {
+     "daughters": [
+      310,
+      130
+     ],
+     "fraction": 0.023,
+     "L": 2
+    },
+    {
+     "daughters": [
+      113,
+      211,
+      -211
+     ],
+     "fraction": 0.028,
+     "L": 0
+    }
+   ]
+  },
+  {
+   "name": "a2(1320)0",
+   "pdg_id": 115,
+   "pole_mass": 1.3183,
+   "nominal_width": 0.107,
+   "channels": [
+    {
+     "daughters": [
+      213,
+      -211
+     ],
+     "fraction": 0.3505,
+     "L": 2
+    },
+    {
+     "daughters": [
+      -213,
+      211
+     ],
+     "fraction": 0.3505,
+     "L": 2
+    },
+    {
+     "daughters": [
+      221,
+      111
+     ],
+     "fraction": 0.145,
+     "L": 2
+    },
+    {
+     "daughters": [
+      223,
+      211,
+      -211
+     ],
+     "fraction": 0.106,
+     "L": 0
+    },
+    {
+     "daughters": [
+      321,
+      -321
+     ],
+     "fraction": 0.0245,
+     "L": 2
+    },
+    {
+     "daughters": [
+      311,
+      -311
+     ],
+     "fraction": 0.0245,
+     "L": 2
+    }
+   ]
+  },
+  {
+   "name": "a2(1320)+",
+   "pdg_id": 215,
+   "conjugate_id": -215,
+   "pole_mass": 1.3183,
+   "nominal_width": 0.107,
+   "channels": [
+    {
+     "daughters": [
+      213,
+      111
+     ],
+     "fraction": 0.3505,
+     "L": 2
+    },
+    {
+     "daughters": [
+      113,
+      211
+     ],
+     "fraction": 0.3505,
+     "L": 2
+    },
+    {
+     "daughters": [
+      221,
+      211
+     ],
+     "fraction": 0.145,
+     "L": 2
+    },
+    {
+     "daughters": [
+      223,
+      211,
+      111
+     ],
+     "fraction": 0.106,
+     "L": 0
+    },
+    {
+     "daughters": [
+      321,
+      -311
+     ],
+     "fraction": 0.049,
+     "L": 2
+    }
+   ]
+  },
+  {
+   "name": "K1(1270)+",
+   "pdg_id": 10323,
+   "conjugate_id": -10323,
+   "pole_mass": 1.272,
+   "nominal_width": 0.09,
+   "channels": [
+    {
+     "daughters": [
+      213,
+      311
+     ],
+     "fraction": 0.25333333333333335,
+     "L": 0
+    },
+    {
+     "daughters": [
+      113,
+      321
+     ],
+     "fraction": 0.12666666666666668,
+     "L": 0
+    },
+    {
+     "daughters": [
+      321,
+      211,
+      -211
+     ],
+     "fraction": 0.14444444444444446,
+     "L": 0
+    },
+    {
+     "daughters": [
+      311,
+      211,
+      111
+     ],
+     "fraction": 0.12444444444444445,
+     "L": 0
+    },
+    {
+     "daughters": [
+      321,
+      111,
+      111
+     ],
+     "fraction": 0.041111111111111105,
+     "L": 0
+    },
+    {
+     "daughters": [
+      313,
+      211
+     ],
+     "fraction": 0.14,
+     "L": 0
+    },
+    {
+     "daughters": [
+      323,
+      111
+     ],
+     "fraction": 0.07,
+     "L": 0
+    },
+    {
+     "daughters": [
+      223,
+      321
+     ],
+     "fraction": 0.11,
+     "L": 0
+    }
+   ]
+  },
+  {
+   "name": "K1(1270)0",
+   "pdg_id": 10313,
+   "conjugate_id": -10313,
+   "pole_mass": 1.272,
+   "nominal_width": 0.09,
+   "channels": [
+    {
+     "daughters": [
+      -213,
+      321
+     ],
+     "fraction": 0.25333333333333335,
+     "L": 0
+    },
+    {
+     "daughters": [
+      113,
+      311
+     ],
+     "fraction": 0.12666666666666668,
+     "L": 0
+    },
+    {
+     "daughters": [
+      311,
+      211,
+      -211
+     ],
+     "fraction": 0.14444444444444446,
+     "L": 0
+    },
+    {
+     "daughters": [
+      321,
+      -211,
+      111
+     ],
+     "fraction": 0.12444444444444445,
+     "L": 0
+    },
+    {
+     "daughters": [
+      311,
+      111,
+      111
+     ],
+     "fraction": 0.041111111111111105,
+     "L": 0
+    },
+    {
+     "daughters": [
+      323,
+      -211
+     ],
+     "fraction": 0.14,
+     "L": 0
+    },
+    {
+     "daughters": [
+      313,
+      111
+     ],
+     "fraction": 0.07,
+     "L": 0
+    },
+    {
+     "daughters": [
+      223,
+      311
+     ],
+     "fraction": 0.11,
+     "L": 0
+    }
+   ]
+  },
+  {
+   "name": "K2*(1430)+",
+   "pdg_id": 325,
+   "conjugate_id": -325,
+   "pole_mass": 1.4256,
+   "nominal_width": 0.1,
+   "channels": [
+    {
+     "daughters": [
+      311,
+      211
+     ],
+     "fraction": 0.33266666666666667,
+     "L": 2
+    },
+    {
+     "daughters": [
+      321,
+      111
+     ],
+     "fraction": 0.16633333333333333,
+     "L": 2
+    },
+    {
+     "daughters": [
+      313,
+      211
+     ],
+     "fraction": 0.16466666666666666,
+     "L": 2
+    },
+    {
+     "daughters": [
+      323,
+      111
+     ],
+     "fraction": 0.08233333333333333,
+     "L": 2
+    },
+    {
+     "daughters": [
+      323,
+      211,
+      -211
+     ],
+     "fraction": 0.08933333333333333,
+     "L": 0
+    },
+    {
+     "daughters": [
+      323,
+      111,
+      111
+     ],
+     "fraction": 0.04466666666666667,
+     "L": 0
+    },
+    {
+     "daughters": [
+      213,
+      311
+     ],
+     "fraction": 0.058,
+     "L": 2
+    },
+    {
+     "daughters": [
+      113,
+      321
+     ],
+     "fraction": 0.029,
+     "L": 2
+    },
+    {
+     "daughters": [
+      223,
+      321
+     ],
+     "fraction": 0.029,
+     "L": 2
+    }
+   ]
+  },
+  {
+   "name": "K2*(1430)0",
+   "pdg_id": 315,
+   "conjugate_id": -315,
+   "pole_mass": 1.4256,
+   "nominal_width": 0.109,
+   "channels": [
+    {
+     "daughters": [
+      321,
+      -211
+     ],
+     "fraction": 0.33266666666666667,
+     "L": 2
+    },
+    {
+     "daughters": [
+      311,
+      111
+     ],
+     "fraction": 0.16633333333333333,
+     "L": 2
+    },
+    {
+     "daughters": [
+      323,
+      -211
+     ],
+     "fraction": 0.16466666666666666,
+     "L": 2
+    },
+    {
+     "daughters": [
+      313,
+      111
+     ],
+     "fraction": 0.08233333333333333,
+     "L": 2
+    },
+    {
+     "daughters": [
+      313,
+      211,
+      -211
+     ],
+     "fraction": 0.08933333333333333,
+     "L": 0
+    },
+    {
+     "daughters": [
+      313,
+      111,
+      111
+     ],
+     "fraction": 0.04466666666666667,
+     "L": 0
+    },
+    {
+     "daughters": [
+      -213,
+      321
+     ],
+     "fraction": 0.058,
+     "L": 2
+    },
+    {
+     "daughters": [
+      113,
+      311
+     ],
+     "fraction": 0.029,
+     "L": 2
+    },
+    {
+     "daughters": [
+      223,
+      311
+     ],
+     "fraction": 0.029,
+     "L": 2
+    }
+   ]
+  }
+ ]
+}

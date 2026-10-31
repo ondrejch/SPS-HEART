@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "name": "table9_branching_fit_bounds_pdg2025",
+    "version": "2026-03-29",
+    "notes": [
+      "Bounds define the feasible fit region for branch knobs in the current soft-cascade model.",
+      "N* ranges follow PDG ranges used in the project notes.",
+      "rho3/f4 ranges are broad PDG-informed envelopes for robustness studies."
+    ]
+  },
+  "sources": {
+    "pdg_2025_mesons": "https://pdg.lbl.gov/2025/tables/rpp2025-tab-mesons-light.pdf",
+    "pdg_2025_baryons_n": "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-N.pdf",
+    "fischer_2022_table9": "https://doi.org/10.1140/epjc/s10052-022-10855-7"
+  },
+  "parameters": [
+    {
+      "name": "n1440_br_npi",
+      "initial": 0.65,
+      "min": 0.55,
+      "max": 0.75,
+      "description": "N(1440) -> N pi"
+    },
+    {
+      "name": "n1440_br_deltapi",
+      "initial": 0.165,
+      "min": 0.06,
+      "max": 0.27,
+      "description": "N(1440) -> Delta pi"
+    },
+    {
+      "name": "n1520_br_npi",
+      "initial": 0.60,
+      "min": 0.55,
+      "max": 0.65,
+      "description": "N(1520) -> N pi"
+    },
+    {
+      "name": "n1520_br_deltapi",
+      "initial": 0.28,
+      "min": 0.22,
+      "max": 0.34,
+      "description": "N(1520) -> Delta pi"
+    },
+    {
+      "name": "n1680_br_npi",
+      "initial": 0.65,
+      "min": 0.60,
+      "max": 0.70,
+      "description": "N(1680) -> N pi"
+    },
+    {
+      "name": "n1680_br_deltapi",
+      "initial": 0.17,
+      "min": 0.11,
+      "max": 0.23,
+      "description": "N(1680) -> Delta pi"
+    },
+    {
+      "name": "rho3_br_pipi",
+      "initial": 0.236,
+      "min": 0.08,
+      "max": 0.40,
+      "description": "rho3 -> pi pi (raw subset branch)"
+    },
+    {
+      "name": "rho3_br_omegapi",
+      "initial": 0.16,
+      "min": 0.0,
+      "max": 0.35,
+      "description": "rho3 -> omega pi (raw subset branch)"
+    },
+    {
+      "name": "rho3_br_kkpi",
+      "initial": 0.038,
+      "min": 0.0,
+      "max": 0.12,
+      "description": "rho3 -> K K pi (raw subset branch)"
+    },
+    {
+      "name": "rho3_br_kk",
+      "initial": 0.0158,
+      "min": 0.0,
+      "max": 0.08,
+      "description": "rho3 -> K K (raw subset branch)"
+    },
+    {
+      "name": "f4_br_pipi",
+      "initial": 0.17,
+      "min": 0.05,
+      "max": 0.35,
+      "description": "f4 -> pi pi (raw subset branch)"
+    },
+    {
+      "name": "f4_br_kk",
+      "initial": 0.0068,
+      "min": 0.0,
+      "max": 0.08,
+      "description": "f4 -> K K (raw subset branch)"
+    },
+    {
+      "name": "f4_br_etaeta",
+      "initial": 0.0021,
+      "min": 0.0,
+      "max": 0.05,
+      "description": "f4 -> eta eta (raw subset branch)"
+    }
+  ],
+  "constraints": [
+    {
+      "type": "sum_leq",
+      "name": "n1440_sum_leq_1",
+      "params": ["n1440_br_npi", "n1440_br_deltapi"],
+      "rhs": 1.0
+    },
+    {
+      "type": "sum_leq",
+      "name": "n1520_sum_leq_1",
+      "params": ["n1520_br_npi", "n1520_br_deltapi"],
+      "rhs": 1.0
+    },
+    {
+      "type": "sum_leq",
+      "name": "n1680_sum_leq_1",
+      "params": ["n1680_br_npi", "n1680_br_deltapi"],
+      "rhs": 1.0
+    },
+    {
+      "type": "sum_leq",
+      "name": "rho3_sum_leq_1",
+      "params": ["rho3_br_pipi", "rho3_br_omegapi", "rho3_br_kkpi", "rho3_br_kk"],
+      "rhs": 1.0
+    },
+    {
+      "type": "sum_leq",
+      "name": "f4_sum_leq_1",
+      "params": ["f4_br_pipi", "f4_br_kk", "f4_br_etaeta"],
+      "rhs": 1.0
+    }
+  ],
+  "objective": {
+    "type": "relative_sse",
+    "epsilon": 1e-12
+  }
+}

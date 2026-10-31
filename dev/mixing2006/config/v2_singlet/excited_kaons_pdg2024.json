@@ -1,0 +1,1056 @@
+{
+ "label": "excited_kaons",
+ "source": "PDG 2024 (S. Navas et al., Phys. Rev. D 110, 030001 (2024)), pdgLive nodes M094 K*(1410), M019 K0*(1430), M064 K1(1400), M095 K*(1680)",
+ "accessed_on": "2026-10-28",
+ "rule": "the strange mesons between the K1(1270)/K2*(1430) and 2.0 GeV that the committed catalog lacks (the register's item 1): K*(1410) (1-), K0*(1430) (0+), K1(1400) (1+) and K*(1680) (1-) at their PDG 2024 masses and widths, every mode with a measured fraction, the K pi, K* pi and K rho charge states split 2/3 : 1/3 by the isospin Clebsch-Gordan factors of an I = 1/2 state, normalized; K*(1410): K* pi as the remainder after K pi 6.6% and K rho at half its 7% limit; K1(1400): K f0(1370) left out (no record); K phi and K eta' (seen, no fraction) left out; the K1(1270)+ record as the template with the spin and parity set per state; the classes beside every baryon-kaon class of the baryonic families (the associated (Y, K) pairs of the non-strange lines, the (N, Kbar) pairs of the strange lines, the conjugate towers) with each excited kaon of the kaon's charge in its place",
+ "records": [
+  {
+   "pdg_id": 100323,
+   "name": "K*(1410)+",
+   "Q": 1,
+   "S": 1,
+   "isospin3": 1,
+   "spin": 1.0,
+   "parity": "-",
+   "pole_mass": 1.414,
+   "nominal_width": 0.232,
+   "modes": [
+    {
+     "daughters": [
+      313,
+      211
+     ],
+     "fraction": 0.599333,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi > 40% (CL 95%): the remainder after K pi and K rho; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      323,
+      111
+     ],
+     "fraction": 0.299667,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi > 40% (CL 95%): the remainder after K pi and K rho; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      311,
+      211
+     ],
+     "fraction": 0.044,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (6.6 +- 1.3)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      321,
+      111
+     ],
+     "fraction": 0.022,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (6.6 +- 1.3)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      311,
+      213
+     ],
+     "fraction": 0.023333,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho < 7% (CL 95%): half the limit; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      321,
+      113
+     ],
+     "fraction": 0.011667,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho < 7% (CL 95%): half the limit; the neutral-partner state, 1/3"
+    }
+   ]
+  },
+  {
+   "pdg_id": -100323,
+   "name": "K*(1410)-",
+   "Q": -1,
+   "S": -1,
+   "isospin3": -1,
+   "spin": 1.0,
+   "parity": "-",
+   "pole_mass": 1.414,
+   "nominal_width": 0.232,
+   "modes": [
+    {
+     "daughters": [
+      -313,
+      -211
+     ],
+     "fraction": 0.599333,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi > 40% (CL 95%): the remainder after K pi and K rho; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -323,
+      111
+     ],
+     "fraction": 0.299667,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi > 40% (CL 95%): the remainder after K pi and K rho; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -311,
+      -211
+     ],
+     "fraction": 0.044,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (6.6 +- 1.3)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -321,
+      111
+     ],
+     "fraction": 0.022,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (6.6 +- 1.3)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -311,
+      -213
+     ],
+     "fraction": 0.023333,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho < 7% (CL 95%): half the limit; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -321,
+      113
+     ],
+     "fraction": 0.011667,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho < 7% (CL 95%): half the limit; the neutral-partner state, 1/3"
+    }
+   ]
+  },
+  {
+   "pdg_id": 100313,
+   "name": "K*(1410)0",
+   "Q": 0,
+   "S": 1,
+   "isospin3": -1,
+   "spin": 1.0,
+   "parity": "-",
+   "pole_mass": 1.414,
+   "nominal_width": 0.232,
+   "modes": [
+    {
+     "daughters": [
+      323,
+      -211
+     ],
+     "fraction": 0.599333,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi > 40% (CL 95%): the remainder after K pi and K rho; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      313,
+      111
+     ],
+     "fraction": 0.299667,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi > 40% (CL 95%): the remainder after K pi and K rho; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      321,
+      -211
+     ],
+     "fraction": 0.044,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (6.6 +- 1.3)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      311,
+      111
+     ],
+     "fraction": 0.022,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (6.6 +- 1.3)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      321,
+      -213
+     ],
+     "fraction": 0.023333,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho < 7% (CL 95%): half the limit; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      311,
+      113
+     ],
+     "fraction": 0.011667,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho < 7% (CL 95%): half the limit; the neutral-partner state, 1/3"
+    }
+   ]
+  },
+  {
+   "pdg_id": -100313,
+   "name": "aK*(1410)0",
+   "Q": 0,
+   "S": -1,
+   "isospin3": 1,
+   "spin": 1.0,
+   "parity": "-",
+   "pole_mass": 1.414,
+   "nominal_width": 0.232,
+   "modes": [
+    {
+     "daughters": [
+      -323,
+      211
+     ],
+     "fraction": 0.599333,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi > 40% (CL 95%): the remainder after K pi and K rho; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -313,
+      111
+     ],
+     "fraction": 0.299667,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi > 40% (CL 95%): the remainder after K pi and K rho; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -321,
+      211
+     ],
+     "fraction": 0.044,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (6.6 +- 1.3)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -311,
+      111
+     ],
+     "fraction": 0.022,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (6.6 +- 1.3)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -321,
+      213
+     ],
+     "fraction": 0.023333,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho < 7% (CL 95%): half the limit; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -311,
+      113
+     ],
+     "fraction": 0.011667,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho < 7% (CL 95%): half the limit; the neutral-partner state, 1/3"
+    }
+   ]
+  },
+  {
+   "pdg_id": 10321,
+   "name": "K0*(1430)+",
+   "Q": 1,
+   "S": 1,
+   "isospin3": 1,
+   "spin": 0.0,
+   "parity": "+",
+   "pole_mass": 1.425,
+   "nominal_width": 0.27,
+   "modes": [
+    {
+     "daughters": [
+      311,
+      211
+     ],
+     "fraction": 0.610236,
+     "L": 0,
+     "three_body": false,
+     "note": "K pi (93 +- 10)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      321,
+      111
+     ],
+     "fraction": 0.305118,
+     "L": 0,
+     "three_body": false,
+     "note": "K pi (93 +- 10)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      321,
+      221
+     ],
+     "fraction": 0.084646,
+     "L": 0,
+     "three_body": false,
+     "note": "K eta (8.6 +2.7 -3.4)%; K eta'(958) seen, no fraction"
+    }
+   ]
+  },
+  {
+   "pdg_id": -10321,
+   "name": "K0*(1430)-",
+   "Q": -1,
+   "S": -1,
+   "isospin3": -1,
+   "spin": 0.0,
+   "parity": "+",
+   "pole_mass": 1.425,
+   "nominal_width": 0.27,
+   "modes": [
+    {
+     "daughters": [
+      -311,
+      -211
+     ],
+     "fraction": 0.610236,
+     "L": 0,
+     "three_body": false,
+     "note": "K pi (93 +- 10)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -321,
+      111
+     ],
+     "fraction": 0.305118,
+     "L": 0,
+     "three_body": false,
+     "note": "K pi (93 +- 10)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -321,
+      221
+     ],
+     "fraction": 0.084646,
+     "L": 0,
+     "three_body": false,
+     "note": "K eta (8.6 +2.7 -3.4)%; K eta'(958) seen, no fraction"
+    }
+   ]
+  },
+  {
+   "pdg_id": 10311,
+   "name": "K0*(1430)0",
+   "Q": 0,
+   "S": 1,
+   "isospin3": -1,
+   "spin": 0.0,
+   "parity": "+",
+   "pole_mass": 1.425,
+   "nominal_width": 0.27,
+   "modes": [
+    {
+     "daughters": [
+      321,
+      -211
+     ],
+     "fraction": 0.610236,
+     "L": 0,
+     "three_body": false,
+     "note": "K pi (93 +- 10)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      311,
+      111
+     ],
+     "fraction": 0.305118,
+     "L": 0,
+     "three_body": false,
+     "note": "K pi (93 +- 10)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      311,
+      221
+     ],
+     "fraction": 0.084646,
+     "L": 0,
+     "three_body": false,
+     "note": "K eta (8.6 +2.7 -3.4)%; K eta'(958) seen, no fraction"
+    }
+   ]
+  },
+  {
+   "pdg_id": -10311,
+   "name": "aK0*(1430)0",
+   "Q": 0,
+   "S": -1,
+   "isospin3": 1,
+   "spin": 0.0,
+   "parity": "+",
+   "pole_mass": 1.425,
+   "nominal_width": 0.27,
+   "modes": [
+    {
+     "daughters": [
+      -321,
+      211
+     ],
+     "fraction": 0.610236,
+     "L": 0,
+     "three_body": false,
+     "note": "K pi (93 +- 10)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -311,
+      111
+     ],
+     "fraction": 0.305118,
+     "L": 0,
+     "three_body": false,
+     "note": "K pi (93 +- 10)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -311,
+      221
+     ],
+     "fraction": 0.084646,
+     "L": 0,
+     "three_body": false,
+     "note": "K eta (8.6 +2.7 -3.4)%; K eta'(958) seen, no fraction"
+    }
+   ]
+  },
+  {
+   "pdg_id": 20323,
+   "name": "K1(1400)+",
+   "Q": 1,
+   "S": 1,
+   "isospin3": 1,
+   "spin": 1.0,
+   "parity": "+",
+   "pole_mass": 1.403,
+   "nominal_width": 0.174,
+   "modes": [
+    {
+     "daughters": [
+      313,
+      211
+     ],
+     "fraction": 0.639456,
+     "L": 0,
+     "three_body": false,
+     "note": "K*(892) pi (94 +- 6)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      323,
+      111
+     ],
+     "fraction": 0.319728,
+     "L": 0,
+     "three_body": false,
+     "note": "K*(892) pi (94 +- 6)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      311,
+      213
+     ],
+     "fraction": 0.020408,
+     "L": 0,
+     "three_body": false,
+     "note": "K rho (3.0 +- 3.0)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      321,
+      113
+     ],
+     "fraction": 0.010204,
+     "L": 0,
+     "three_body": false,
+     "note": "K rho (3.0 +- 3.0)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      321,
+      223
+     ],
+     "fraction": 0.010204,
+     "L": 0,
+     "three_body": false,
+     "note": "K omega (1.0 +- 1.0)%; K f0(1370) (2.0 +- 2.0)% has no catalog record and is left out"
+    }
+   ]
+  },
+  {
+   "pdg_id": -20323,
+   "name": "K1(1400)-",
+   "Q": -1,
+   "S": -1,
+   "isospin3": -1,
+   "spin": 1.0,
+   "parity": "+",
+   "pole_mass": 1.403,
+   "nominal_width": 0.174,
+   "modes": [
+    {
+     "daughters": [
+      -313,
+      -211
+     ],
+     "fraction": 0.639456,
+     "L": 0,
+     "three_body": false,
+     "note": "K*(892) pi (94 +- 6)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -323,
+      111
+     ],
+     "fraction": 0.319728,
+     "L": 0,
+     "three_body": false,
+     "note": "K*(892) pi (94 +- 6)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -311,
+      -213
+     ],
+     "fraction": 0.020408,
+     "L": 0,
+     "three_body": false,
+     "note": "K rho (3.0 +- 3.0)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -321,
+      113
+     ],
+     "fraction": 0.010204,
+     "L": 0,
+     "three_body": false,
+     "note": "K rho (3.0 +- 3.0)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -321,
+      223
+     ],
+     "fraction": 0.010204,
+     "L": 0,
+     "three_body": false,
+     "note": "K omega (1.0 +- 1.0)%; K f0(1370) (2.0 +- 2.0)% has no catalog record and is left out"
+    }
+   ]
+  },
+  {
+   "pdg_id": 20313,
+   "name": "K1(1400)0",
+   "Q": 0,
+   "S": 1,
+   "isospin3": -1,
+   "spin": 1.0,
+   "parity": "+",
+   "pole_mass": 1.403,
+   "nominal_width": 0.174,
+   "modes": [
+    {
+     "daughters": [
+      323,
+      -211
+     ],
+     "fraction": 0.639456,
+     "L": 0,
+     "three_body": false,
+     "note": "K*(892) pi (94 +- 6)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      313,
+      111
+     ],
+     "fraction": 0.319728,
+     "L": 0,
+     "three_body": false,
+     "note": "K*(892) pi (94 +- 6)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      321,
+      -213
+     ],
+     "fraction": 0.020408,
+     "L": 0,
+     "three_body": false,
+     "note": "K rho (3.0 +- 3.0)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      311,
+      113
+     ],
+     "fraction": 0.010204,
+     "L": 0,
+     "three_body": false,
+     "note": "K rho (3.0 +- 3.0)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      311,
+      223
+     ],
+     "fraction": 0.010204,
+     "L": 0,
+     "three_body": false,
+     "note": "K omega (1.0 +- 1.0)%; K f0(1370) (2.0 +- 2.0)% has no catalog record and is left out"
+    }
+   ]
+  },
+  {
+   "pdg_id": -20313,
+   "name": "aK1(1400)0",
+   "Q": 0,
+   "S": -1,
+   "isospin3": 1,
+   "spin": 1.0,
+   "parity": "+",
+   "pole_mass": 1.403,
+   "nominal_width": 0.174,
+   "modes": [
+    {
+     "daughters": [
+      -323,
+      211
+     ],
+     "fraction": 0.639456,
+     "L": 0,
+     "three_body": false,
+     "note": "K*(892) pi (94 +- 6)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -313,
+      111
+     ],
+     "fraction": 0.319728,
+     "L": 0,
+     "three_body": false,
+     "note": "K*(892) pi (94 +- 6)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -321,
+      213
+     ],
+     "fraction": 0.020408,
+     "L": 0,
+     "three_body": false,
+     "note": "K rho (3.0 +- 3.0)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -311,
+      113
+     ],
+     "fraction": 0.010204,
+     "L": 0,
+     "three_body": false,
+     "note": "K rho (3.0 +- 3.0)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -311,
+      223
+     ],
+     "fraction": 0.010204,
+     "L": 0,
+     "three_body": false,
+     "note": "K omega (1.0 +- 1.0)%; K f0(1370) (2.0 +- 2.0)% has no catalog record and is left out"
+    }
+   ]
+  },
+  {
+   "pdg_id": 30323,
+   "name": "K*(1680)+",
+   "Q": 1,
+   "S": 1,
+   "isospin3": 1,
+   "spin": 1.0,
+   "parity": "-",
+   "pole_mass": 1.718,
+   "nominal_width": 0.32,
+   "modes": [
+    {
+     "daughters": [
+      311,
+      211
+     ],
+     "fraction": 0.254438,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (38.7 +- 2.5)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      321,
+      111
+     ],
+     "fraction": 0.127219,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (38.7 +- 2.5)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      311,
+      213
+     ],
+     "fraction": 0.206443,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho (31.4 +5.0 -2.1)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      321,
+      113
+     ],
+     "fraction": 0.103222,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho (31.4 +5.0 -2.1)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      313,
+      211
+     ],
+     "fraction": 0.196581,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi (29.9 +2.2 -5.0)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      323,
+      111
+     ],
+     "fraction": 0.098291,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi (29.9 +2.2 -5.0)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      321,
+      221
+     ],
+     "fraction": 0.013807,
+     "L": 1,
+     "three_body": false,
+     "note": "K eta (1.4 +1.0 -0.8)%; K phi seen, no fraction"
+    }
+   ]
+  },
+  {
+   "pdg_id": -30323,
+   "name": "K*(1680)-",
+   "Q": -1,
+   "S": -1,
+   "isospin3": -1,
+   "spin": 1.0,
+   "parity": "-",
+   "pole_mass": 1.718,
+   "nominal_width": 0.32,
+   "modes": [
+    {
+     "daughters": [
+      -311,
+      -211
+     ],
+     "fraction": 0.254438,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (38.7 +- 2.5)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -321,
+      111
+     ],
+     "fraction": 0.127219,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (38.7 +- 2.5)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -311,
+      -213
+     ],
+     "fraction": 0.206443,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho (31.4 +5.0 -2.1)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -321,
+      113
+     ],
+     "fraction": 0.103222,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho (31.4 +5.0 -2.1)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -313,
+      -211
+     ],
+     "fraction": 0.196581,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi (29.9 +2.2 -5.0)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -323,
+      111
+     ],
+     "fraction": 0.098291,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi (29.9 +2.2 -5.0)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -321,
+      221
+     ],
+     "fraction": 0.013807,
+     "L": 1,
+     "three_body": false,
+     "note": "K eta (1.4 +1.0 -0.8)%; K phi seen, no fraction"
+    }
+   ]
+  },
+  {
+   "pdg_id": 30313,
+   "name": "K*(1680)0",
+   "Q": 0,
+   "S": 1,
+   "isospin3": -1,
+   "spin": 1.0,
+   "parity": "-",
+   "pole_mass": 1.718,
+   "nominal_width": 0.32,
+   "modes": [
+    {
+     "daughters": [
+      321,
+      -211
+     ],
+     "fraction": 0.254438,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (38.7 +- 2.5)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      311,
+      111
+     ],
+     "fraction": 0.127219,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (38.7 +- 2.5)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      321,
+      -213
+     ],
+     "fraction": 0.206443,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho (31.4 +5.0 -2.1)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      311,
+      113
+     ],
+     "fraction": 0.103222,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho (31.4 +5.0 -2.1)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      323,
+      -211
+     ],
+     "fraction": 0.196581,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi (29.9 +2.2 -5.0)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      313,
+      111
+     ],
+     "fraction": 0.098291,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi (29.9 +2.2 -5.0)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      311,
+      221
+     ],
+     "fraction": 0.013807,
+     "L": 1,
+     "three_body": false,
+     "note": "K eta (1.4 +1.0 -0.8)%; K phi seen, no fraction"
+    }
+   ]
+  },
+  {
+   "pdg_id": -30313,
+   "name": "aK*(1680)0",
+   "Q": 0,
+   "S": -1,
+   "isospin3": 1,
+   "spin": 1.0,
+   "parity": "-",
+   "pole_mass": 1.718,
+   "nominal_width": 0.32,
+   "modes": [
+    {
+     "daughters": [
+      -321,
+      211
+     ],
+     "fraction": 0.254438,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (38.7 +- 2.5)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -311,
+      111
+     ],
+     "fraction": 0.127219,
+     "L": 1,
+     "three_body": false,
+     "note": "K pi (38.7 +- 2.5)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -321,
+      213
+     ],
+     "fraction": 0.206443,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho (31.4 +5.0 -2.1)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -311,
+      113
+     ],
+     "fraction": 0.103222,
+     "L": 1,
+     "three_body": false,
+     "note": "K rho (31.4 +5.0 -2.1)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -323,
+      211
+     ],
+     "fraction": 0.196581,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi (29.9 +2.2 -5.0)%; the charged-partner state, 2/3"
+    },
+    {
+     "daughters": [
+      -313,
+      111
+     ],
+     "fraction": 0.098291,
+     "L": 1,
+     "three_body": false,
+     "note": "K*(892) pi (29.9 +2.2 -5.0)%; the neutral-partner state, 1/3"
+    },
+    {
+     "daughters": [
+      -311,
+      221
+     ],
+     "fraction": 0.013807,
+     "L": 1,
+     "three_body": false,
+     "note": "K eta (1.4 +1.0 -0.8)%; K phi seen, no fraction"
+    }
+   ]
+  }
+ ]
+}

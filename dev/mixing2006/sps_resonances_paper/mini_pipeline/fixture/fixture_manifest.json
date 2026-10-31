@@ -1,0 +1,24 @@
+{
+  "cache_bytes": 553994,
+  "component_cache_seed": 20260849,
+  "data_system": "pPb",
+  "decay_lib_version": "2026-09-03.3",
+  "events_per_component": 40,
+  "fragmentation_mode": "both",
+  "generator": "sps_resonances_paper/mini_pipeline/make_fixture.py",
+  "max_decay_passes": 8,
+  "n_cache_files": 43,
+  "nucleus": {
+    "A": 208,
+    "Z": 82,
+    "diffuseness_fm": 0.546,
+    "name": "Pb208",
+    "profile": "woods_saxon",
+    "quad_alpha": 0.0,
+    "radius_fm": 6.62,
+    "sigma_nn_inel_mb": 31.7
+  },
+  "regge_tower_disabled": true,
+  "smoke_seed": 20260830,
+  "weak_feed_policy": "primary_only"
+}

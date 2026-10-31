@@ -1,0 +1,222 @@
+{
+  "$schema_version": 1,
+  "description": "Reference environment and downloaded inputs for the sps_resonances_paper pipeline. Stages 00 and 02 verify every fetch against the sha256 values recorded here.",
+  "recorded_on": "2026-08-31",
+  "python": {
+    "implementation": "CPython",
+    "version": "3.12.3",
+    "provenance": "version field of pyvenv.cfg in the reference virtualenv dev/mixing2006/.venv-sps-resonances-paper (untracked); that virtualenv was created from /usr/bin/python3.12 on the authoring machine"
+  },
+  "python_packages": {
+    "provenance": "exact versions of the distributions installed in the reference virtualenv dev/mixing2006/.venv-sps-resonances-paper, read from the *.dist-info metadata of its site-packages directory",
+    "packages": {
+      "pip": "26.2.1",
+      "numpy": "2.5.2",
+      "scipy": "1.18.1",
+      "matplotlib": "3.11.1",
+      "pythia8mc": "8.317.2",
+      "pytest": "9.1.1",
+      "pytest-cov": "7.1.0",
+      "coverage": "7.15.4",
+      "contourpy": "1.3.3",
+      "cycler": "0.12.1",
+      "fonttools": "4.63.0",
+      "iniconfig": "2.3.0",
+      "kiwisolver": "1.5.0",
+      "packaging": "26.3",
+      "pillow": "12.3.0",
+      "pluggy": "1.6.0",
+      "pyparsing": "3.3.2",
+      "python-dateutil": "2.9.0.post0",
+      "pygments": "2.21.0",
+      "six": "1.17.0"
+    },
+    "editable_install": {
+      "name": "na49-mixing",
+      "version": "0.1.0",
+      "provenance": "built from the dev/mixing2006 source tree itself, so its version follows the checkout and is not pinned here"
+    },
+    "not_installed": {
+      "h5py": "optional hdf5 extra declared in pyproject.toml (h5py>=3.8); not installed in the reference environment"
+    }
+  },
+  "downloads": {
+    "sps_web": {
+      "base_url": "https://spshadrons.web.cern.ch/",
+      "provenance": "sha256 values computed on 2026-08-30 from the local SPS HADRONS mirror at the repository root (spshadrons.web.cern.ch/); the nested tree reaches the same files through the untracked symlink dev/mixing2006/spshadrons.web.cern.ch -> that mirror. The hashes identify the mirror contents, not a fresh verification against the live spshadrons.web.cern.ch server.",
+      "artifacts": [
+        {
+          "path": "index.html",
+          "url": "https://spshadrons.web.cern.ch/index.html",
+          "sha256": "7a07f42e59cd8e8f72d76167b74f2b094cb9bcba616d371084644426479dc703"
+        },
+        {
+          "path": "docs.html",
+          "url": "https://spshadrons.web.cern.ch/docs.html",
+          "sha256": "8ed79e42be53ea52dddd8d1379e2ff9878f5b70aabf62230341d8d9c474ff1d8"
+        },
+        {
+          "path": "ppdata.html",
+          "url": "https://spshadrons.web.cern.ch/ppdata.html",
+          "sha256": "66955b40fa12197734d67d8142870badf23433a0dec1ad5ccd1814d3a63b3e11"
+        },
+        {
+          "path": "pp_piminus.html",
+          "url": "https://spshadrons.web.cern.ch/pp_piminus.html",
+          "sha256": "8d0548ec10f0aa5cd260500daca9af5ee9ba2274d5845904547b00484d6af3f7"
+        },
+        {
+          "path": "pp_kaon_sdep.html",
+          "url": "https://spshadrons.web.cern.ch/pp_kaon_sdep.html",
+          "sha256": "86b1d9e072b60bfa1641b823816ed16cadfa893080fa079e46ab59650dead82e"
+        },
+        {
+          "path": "data/xsect_piminus.txt",
+          "url": "https://spshadrons.web.cern.ch/data/xsect_piminus.txt",
+          "sha256": "5125e5e91137976b8c6f1f433f6c036a0be62812df47d32568a14f349f0424ab"
+        },
+        {
+          "path": "data/xsect_piplus.txt",
+          "url": "https://spshadrons.web.cern.ch/data/xsect_piplus.txt",
+          "sha256": "cafbc73a343c4b99abbea025cc9f9e643cd41a355fd18c938f4a4b2d2690c7e2"
+        },
+        {
+          "path": "data/xsect_kaplus_pp.txt",
+          "url": "https://spshadrons.web.cern.ch/data/xsect_kaplus_pp.txt",
+          "sha256": "bf06556559ac9dfb888a1290745ceecffbf62bb997d69e524903e5097c723d61"
+        },
+        {
+          "path": "data/xsect_kaminus_pp.txt",
+          "url": "https://spshadrons.web.cern.ch/data/xsect_kaminus_pp.txt",
+          "sha256": "3e61302092968b1bee892a24169721c69856d346d453b7afb2b622923974ce29"
+        },
+        {
+          "path": "data/xsect_proton_pp.txt",
+          "url": "https://spshadrons.web.cern.ch/data/xsect_proton_pp.txt",
+          "sha256": "15ef78378675c95e3b424c6bba51df794408c6fa5a25e7a30e688f89c76a839d"
+        },
+        {
+          "path": "data/xsect_antiproton_pp.txt",
+          "url": "https://spshadrons.web.cern.ch/data/xsect_antiproton_pp.txt",
+          "sha256": "056d34c07cefaa8d8bb33372c880e01c20cf403a6ce3fca6fbe3d223e017c2b1"
+        },
+        {
+          "path": "data/xsect_ptintegrated_piminus.txt",
+          "url": "https://spshadrons.web.cern.ch/data/xsect_ptintegrated_piminus.txt",
+          "sha256": "9ec1b2131881fefca52db066eb94efda64ff9adfe3507f3a274a633363d187a2"
+        },
+        {
+          "path": "data/xsect_ptintegrated_piplus.txt",
+          "url": "https://spshadrons.web.cern.ch/data/xsect_ptintegrated_piplus.txt",
+          "sha256": "18aca240e02a89fc5f7a14c27c07842fb8a2994e648fbd750c8d6aa030122dec"
+        },
+        {
+          "path": "data/xsect_ptintegrated_kaplus_pp.txt",
+          "url": "https://spshadrons.web.cern.ch/data/xsect_ptintegrated_kaplus_pp.txt",
+          "sha256": "58b8139995dcc3ed10ca1278504c223492b1c14ed9b714fe82c136cbe4b3b38d"
+        },
+        {
+          "path": "data/xsect_ptintegrated_kaminus_pp.txt",
+          "url": "https://spshadrons.web.cern.ch/data/xsect_ptintegrated_kaminus_pp.txt",
+          "sha256": "52c0cc4b355c92637f127dd4144a2c56975e7210dc6b5426be7706b9a85a36cd"
+        },
+        {
+          "path": "data/xsect_ptintegrated_proton_pp.txt",
+          "url": "https://spshadrons.web.cern.ch/data/xsect_ptintegrated_proton_pp.txt",
+          "sha256": "db9812d9eef8551065c9408d7dd6882854b45ef3ba3c557483447c5dbd663e8c"
+        },
+        {
+          "path": "data/xsect_ptintegrated_antiproton_pp.txt",
+          "url": "https://spshadrons.web.cern.ch/data/xsect_ptintegrated_antiproton_pp.txt",
+          "sha256": "ee5a638504ed0fdeb088210ab9d0527da1c6b2537f1156d7a1399daace288330"
+        },
+        {
+          "path": "doc/pp-pi.pdf",
+          "url": "https://spshadrons.web.cern.ch/doc/pp-pi.pdf",
+          "sha256": "285aa188bf77e82fe6039d4d29e0a50e3b063c64e3a52c45f8fba975c8674acd"
+        },
+        {
+          "path": "doc/pp-proton.pdf",
+          "url": "https://spshadrons.web.cern.ch/doc/pp-proton.pdf",
+          "sha256": "d441eccda54e8caff0b819d2e7b31dd223f3e12ecdb90db9f10c7910dc09ee96"
+        },
+        {
+          "path": "doc/pp-kaon.pdf",
+          "url": "https://spshadrons.web.cern.ch/doc/pp-kaon.pdf",
+          "sha256": "d7c91b147a7d8b85d466b7d6fe3a23ecb2352d790bce4319418b3062b65e63f9"
+        },
+        {
+          "path": "doc/pppiminus.pdf",
+          "url": "https://spshadrons.web.cern.ch/doc/pppiminus.pdf",
+          "sha256": "32b4670167febcc2b341b8f26db411f09caeaae8890c92bdad03b30df5770974"
+        }
+      ]
+    },
+    "hepmc2_source_tarball": {
+      "url": "https://hepmc.web.cern.ch/hepmc/releases/hepmc2.06.11.tgz",
+      "sha256": "86b66ea0278f803cde5774de8bd187dd42c870367f1cbf6cdaec8dc7cf6afc10",
+      "notes": "Recorded 2026-08-31 from a verified download of the URL above (the tarball unpacks the HepMC-2.06.11 source tree). 02-build_external_generators/run.sh installs the archive only after this hash matches, and records a build-source receipt for the unpacked tree in reference mode."
+    },
+    "urqmd_source_tarball": {
+      "version": "4.0",
+      "default_location": "external/dist/urqmd-4.0.tar.gz (override with URQMD_TARBALL, or supply an unpacked tree with URQMD_SOURCE_DIR)",
+      "sha256": "TODO_user_supplied_tarball",
+      "notes": "UrQMD is not redistributed by this repository and is never downloaded by the pipeline. The user supplies the tarball and records its sha256 here; 02-build_external_generators/run.sh verifies the tarball against this value whenever a 64-hex sha256 is recorded. An unpacked tree (URQMD_SOURCE_DIR or an existing external/urqmd-4.0) is accepted in reference mode only through a build-source receipt: stage 02 writes one when it extracts the verified tarball, and a user-supplied tree must be attested once with URQMD_ATTEST_TREE=1, which records the deterministic tree digest (tree_sha256 in common.sh). While this field holds the marker, reference mode (BOOTSTRAP_REPRO_LOCK not 1) treats the pin as unresolved: preflight records a FAIL, run_full.sh stops before stage 02, and stage 02 refuses the unverified tarball; BOOTSTRAP_REPRO_LOCK=1 keeps the bootstrap warning-and-continue behavior."
+    }
+  },
+  "generators": {
+    "crmc": {
+      "git_url": "https://github.com/alisw/crmc.git",
+      "tag_reference": "v1.7.0-alice1",
+      "pinned_commit": "4a41dd6ebdffe66e7ce46c1e2724470d5b4bb5b9",
+      "notes": "Recorded 2026-08-31: the tag v1.7.0-alice1 is a lightweight tag that points directly at this commit (verified with git ls-remote plus an object-type check, so no tag-object peeling was needed). 02-build_external_generators/run.sh fetches exactly this commit and verifies git rev-parse HEAD against it; an existing checkout without .git metadata is refused in reference mode. CRMC_COMMIT overrides the recorded pin, explicitly breaks reproducibility, and is refused outside bootstrap mode (BOOTSTRAP_REPRO_LOCK=1).",
+      "cmake_options": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_INSTALL_PREFIX=<crmc source tree>/install",
+        "-DHEPMC_ROOT_DIR=<EXTERNAL_ROOT>/hepmc2-install",
+        "-D__SIBYLL__=OFF",
+        "-DCMAKE_DISABLE_FIND_PACKAGE_Root=TRUE"
+      ]
+    },
+    "hepmc2": {
+      "version": "2.06.11",
+      "cmake_options": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_INSTALL_PREFIX=<EXTERNAL_ROOT>/hepmc2-install"
+      ]
+    },
+    "urqmd": {
+      "version": "4.0",
+      "build_command": "make -C urqmd-4.0 -j<MAKE_JOBS>"
+    },
+    "build_parallelism": "cmake --build ... --parallel <MAKE_JOBS> and make -j<MAKE_JOBS> use the local CPU count; build parallelism is machine-dependent and deliberately not part of this manifest"
+  },
+  "source_repository": {
+    "outer_head": "2557ee7c5635e68cb2ab2c008c451411d6df8370",
+    "dev_mixing2006_head": "e4c4db6103a8712cd522ad675b2a0ae55c1727ff",
+    "notes": "Heads of the two source trees (monorepo root and dev/mixing2006) that this manifest was written against, refreshed at release time so they agree with the Repository state section of the matching archive's MANIFEST.txt. The release archives are working-tree snapshots, so the recorded heads identify the committed baseline of the archive; any uncommitted changes carried by a snapshot are listed in that archive's MANIFEST.txt."
+  },
+  "analysis": {
+    "random_seeds": {
+      "URQMD_SEED_BASE": 410000,
+      "EPOS_SEED_BASE": 510000,
+      "PYTHIA_SEED_BASE": 610000,
+      "provenance": "defaults defined in sps_resonances_paper/common.sh; stage scripts and benchmark drivers derive their generator seeds from these bases"
+    },
+    "configuration_files": [
+      {
+        "path": "helpers/benchmarking/config/fischer2022_table9_pi_minus.json",
+        "sha256": "a19e18b37c2c77b08589347a6e0e09d42d6f3e40f4ba291587e81991d4b827b3"
+      },
+      {
+        "path": "helpers/benchmarking/config/fischer2022_pdg_pi_minus_composition.json",
+        "sha256": "2dab9241f92877aca0351f12f670f4d663c4e434422ac0a1db315dc0cf626373"
+      },
+      {
+        "path": "helpers/benchmarking/config/constrained_refit_table9_strange_absyield_defaults.json",
+        "sha256": "99ab41f3e100f3b88254aa958355d32d0de2484a1f397c0868f62a8fe0e1283d"
+      }
+    ],
+    "configuration_notes": "sha256 values cover the committed configuration JSON files referenced from sps_resonances_paper/common.sh (copies under dev/mixing2006/helpers/benchmarking/config, the tree the paper pipeline runs in). Each benchmark run records its own configuration digests in the run's provenance output; the values here identify the reference configuration files this manifest was written against."
+  }
+}

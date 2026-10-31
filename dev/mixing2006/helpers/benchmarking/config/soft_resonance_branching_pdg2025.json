@@ -1,0 +1,248 @@
+{
+  "metadata": {
+    "name": "soft_resonance_branching_pdg2025_subset",
+    "version": "2026-08-23.4-r2",
+    "scope": "Branching constants used by the NA49 soft-resonance cascade subset for pi/K/p benchmarking.",
+    "notes": [
+      "Values are anchored to PDG 2025 summary/listing tables where available.",
+      "When only a subset of channels is represented in code, listed channels are renormalized to unity.",
+      "N* baryon states use representative central values from PDG ranges plus isospin-CG charge splitting.",
+      "An effective high-mass N* tower is included to model unresolved Regge-like stacking and multi-step cascade feed-down.",
+      "-1114 is exclusively the physical anti-Delta- (charge +1) since 2026-08-23; the legacy matter alias was removed."
+    ]
+  },
+  "sources": {
+    "pdg_2025_mesons": "https://pdg.lbl.gov/2025/tables/rpp2025-tab-mesons-light.pdf",
+    "pdg_2025_baryons_n": "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-N.pdf",
+    "pdg_2025_f2_listing": "https://pdg.lbl.gov/2025/listings/rpp2025-list-f2-1270.pdf",
+    "fischer_2022_table9_context": "https://doi.org/10.1140/epjc/s10052-022-10855-7"
+  },
+  "assumptions": {
+    "delta_family": {
+      "2224": {
+        "name": "Delta++(1232)",
+        "channels": [
+          { "probability": 1.0, "daughters": [2212, 211] }
+        ]
+      },
+      "2214": {
+        "name": "Delta+(1232)",
+        "channels": [
+          { "probability": 0.6667, "daughters": [2212, 111] },
+          { "probability": 0.3333, "daughters": [2112, 211] }
+        ]
+      },
+      "2114": {
+        "name": "Delta0(1232)",
+        "channels": [
+          { "probability": 0.3333, "daughters": [2212, -211] },
+          { "probability": 0.6667, "daughters": [2112, 111] }
+        ]
+      },
+      "1114": {
+        "name": "Delta-(1232)",
+        "channels": [
+          { "probability": 1.0, "daughters": [2112, -211] }
+        ]
+      },
+      "-1114": {
+        "name": "aDelta-(1232)",
+        "channels": [
+          { "probability": 1.0, "daughters": [-2112, 211] }
+        ]
+      }
+    },
+    "nstar_family": {
+      "N1440": {
+        "br_n_pi": 0.65,
+        "br_delta_pi": 0.165,
+        "residual_to_n_pi": 0.185,
+        "pdg_ids": [12112, 12212]
+      },
+      "N1520": {
+        "br_n_pi": 0.60,
+        "br_delta_pi": 0.28,
+        "residual_to_n_pi": 0.12,
+        "pdg_ids": [2116, 2216]
+      },
+      "N1680": {
+        "br_n_pi": 0.65,
+        "br_delta_pi": 0.17,
+        "residual_to_n_pi": 0.18,
+        "pdg_ids": [22112, 22212]
+      },
+      "effective_high_mass_tower": {
+        "enabled_by_default": true,
+        "levels": [
+          {
+            "name": "N_eff(1900)",
+            "pdg_ids": [9911201, 9912201],
+            "mass_GeV": 1.90,
+            "width_GeV": 0.25,
+            "branches": {
+              "Npi": 0.12,
+              "Delta_pi": 0.35,
+              "Nrho": 0.28,
+              "Neta": 0.05,
+              "LambdaK": 0.05,
+              "N1720_pi": 0.15
+            }
+          },
+          {
+            "name": "N_eff(2100)",
+            "pdg_ids": [9921201, 9922201],
+            "mass_GeV": 2.10,
+            "width_GeV": 0.30,
+            "branches": {
+              "Npi": 0.08,
+              "Delta_pi": 0.30,
+              "Nrho": 0.22,
+              "Neta": 0.05,
+              "LambdaK": 0.05,
+              "N_eff1900_pi": 0.30
+            }
+          },
+          {
+            "name": "N_eff(2300)",
+            "pdg_ids": [9931201, 9932201],
+            "mass_GeV": 2.30,
+            "width_GeV": 0.35,
+            "branches": {
+              "Npi": 0.06,
+              "Delta_pi": 0.22,
+              "Nrho": 0.17,
+              "Neta": 0.05,
+              "LambdaK": 0.05,
+              "N_eff2100_pi": 0.45
+            }
+          }
+        ],
+        "comment": "Tower branch knobs are exposed via branching_overrides with keys nstar_eff_l{1,2,3}_*."
+      },
+      "charge_split_rule": "Npi channels split by isospin-CG factors; Delta pi channels split by 0.50/0.33/0.17 for allowed charge states."
+    },
+    "mesons": {
+      "113": {
+        "name": "rho0(770)",
+        "channels": [
+          { "probability": 1.0, "daughters": [211, -211] }
+        ]
+      },
+      "-213": {
+        "name": "rho-(770)",
+        "channels": [
+          { "probability": 1.0, "daughters": [-211, 111] }
+        ]
+      },
+      "213": {
+        "name": "rho+(770)",
+        "channels": [
+          { "probability": 1.0, "daughters": [211, 111] }
+        ]
+      },
+      "223": {
+        "name": "omega(782)",
+        "raw_branching_subset": {
+          "pi+_pi-_pi0": 0.892,
+          "pi0_gamma": 0.0833,
+          "pi+_pi-": 0.0153
+        },
+        "effective_probabilities_after_subset_normalization": {
+          "pi+_pi-_pi0": 0.9004643650,
+          "pi0_gamma": 0.0840904502,
+          "pi+_pi-": 0.0154451847
+        }
+      },
+      "221": {
+        "name": "eta(548)",
+        "channels": [
+          { "probability": 0.2302, "daughters": [211, -211, 111] },
+          { "probability": 0.3256, "daughters": [111, 111, 111] },
+          { "probability": 0.0428, "daughters": [211, -211, 22] },
+          { "probability": 0.3936, "daughters": [22, 22] }
+        ]
+      },
+      "225": {
+        "name": "f2(1270)",
+        "raw_branching_subset": {
+          "pi_pi_total": 0.843,
+          "K_K_total": 0.046
+        },
+        "effective_probabilities_after_subset_normalization": {
+          "pi+_pi-": 0.6321709786,
+          "pi0_pi0": 0.3160854893,
+          "K+_K-": 0.0258717660,
+          "K0S_K0L": 0.0258717660
+        }
+      },
+      "117_-217_217": {
+        "name": "rho3(1690) charge states",
+        "raw_branching_subset": {
+          "pi_pi": 0.236,
+          "omega_pi": 0.16,
+          "K_K_pi": 0.038,
+          "K_K": 0.0158
+        },
+        "effective_probabilities_after_subset_normalization": {
+          "pi_pi": 0.5246776345,
+          "omega_pi": 0.3557136505,
+          "K_K_pi": 0.0844819920,
+          "K_K": 0.0351267230
+        },
+        "pdg_ids": [117, -217, 217]
+      },
+      "229": {
+        "name": "f4(2050)",
+        "raw_branching_subset": {
+          "pi_pi_total": 0.17,
+          "K_K_total": 0.0068,
+          "eta_eta": 0.0021
+        },
+        "effective_probabilities_after_subset_normalization": {
+          "pi+_pi-": 0.6335010248,
+          "pi0_pi0": 0.3167505124,
+          "K+_K-": 0.0190050307,
+          "K0S_K0L": 0.0190050307,
+          "eta_eta": 0.0117384013
+        }
+      }
+    },
+    "kaon_resonances": {
+      "323": {
+        "name": "K*(892)+",
+        "channels": [
+          { "probability": 0.667, "daughters": [311, 211] },
+          { "probability": 0.333, "daughters": [321, 111] }
+        ]
+      },
+      "-323": {
+        "name": "K*(892)-",
+        "channels": [
+          { "probability": 0.667, "daughters": [-311, -211] },
+          { "probability": 0.333, "daughters": [-321, 111] }
+        ]
+      },
+      "313": {
+        "name": "K*(892)0",
+        "channels": [
+          { "probability": 0.667, "daughters": [321, -211] },
+          { "probability": 0.333, "daughters": [311, 111] }
+        ]
+      },
+      "-313": {
+        "name": "anti-K*(892)0",
+        "channels": [
+          { "probability": 0.667, "daughters": [-321, 211] },
+          { "probability": 0.333, "daughters": [-311, 111] }
+        ]
+      },
+      "333": {
+        "name": "phi(1020)",
+        "channels": [
+          { "probability": 0.492, "daughters": [321, -321] },
+          { "probability": 0.508, "daughters": [310, 130] }
+        ]
+      }
+    }
+  }
+}

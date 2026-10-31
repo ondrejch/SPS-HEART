@@ -1,0 +1,136 @@
+{
+ "label": "baryon_table_corrections",
+ "source": "PDG 2025 summary tables, N and Delta baryons (S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update; rpp2025-tab-baryons-N.pdf and rpp2025-tab-baryons-Delta.pdf, created 2025-05-30); .collab/sources/pdg/rpp2025-tab-baryons-N.txt",
+ "accessed_on": "2026-10-21",
+ "reason": "The Gemini review of 2026-10-21 (.collab/, gap B3) found two committed baryon tables the PDG updates of R84 and R100 left at the legacy Round 2 transcription. The Delta(1600) and Delta(1700) carry N pi, Delta pi and N rho only (the Delta(1600) N rho at 27%, a mode the PDG 2025 table does not list; its N(1440) pi of 17-27% absent; the Delta(1700) without N(1520) pi, N(1535) pi and Delta eta). The Lambda(1520) Lambda pi pi isospin, a transcription error, is a revision of the committed catalog (helpers/benchmarking/catalog_dipion_isospin_revision.py).",
+ "rule": "the decay tables only, at the committed masses and widths (the N* tables of R84 and R100 keep theirs; the widths are KernelConfig.baryon_pdg_widths, the masses an open item of the catalog's edition); each Delta mode at its PDG range (the N pi pi total replaced by its listed Delta pi and N rho parts), the fractions at one common position inside the ranges (the N* range rule); the partial wave the PDG names, else the lowest the J^P allow; the charge splits by isospin Clebsch-Gordan coefficients",
+ "delta_tables": [
+  {
+   "name": "Delta(1600)",
+   "I": 1.5,
+   "J": 1.5,
+   "P": "+",
+   "pdg_ids": {
+    "2": 202224,
+    "1": 202214,
+    "0": 202114,
+    "-1": 201114
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "8-24 %",
+     "L": 1
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "58-82 %",
+     "L": 1,
+     "note": "P-wave 72-82%"
+    },
+    {
+     "kind": "N1440pi",
+     "pdg_range": "17-27 %",
+     "L": 1
+    }
+   ]
+  },
+  {
+   "name": "Delta(1700)",
+   "I": 1.5,
+   "J": 1.5,
+   "P": "-",
+   "pdg_ids": {
+    "2": 122224,
+    "1": 122214,
+    "0": 122114,
+    "-1": 121114
+   },
+   "modes": [
+    {
+     "kind": "Npi",
+     "pdg_range": "10-20 %",
+     "L": 2
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "9-70 %",
+     "L": 0,
+     "note": "S-wave 5-54%, D-wave 4-16%"
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "22-32 %",
+     "L": 0,
+     "note": "S=3/2 S-wave"
+    },
+    {
+     "kind": "N1520pi",
+     "pdg_range": "1-5 %",
+     "L": 1,
+     "note": "P-wave"
+    },
+    {
+     "kind": "N1535pi",
+     "pdg_range": "0.5-1.5 %",
+     "L": 1
+    },
+    {
+     "kind": "Deta",
+     "pdg_range": "3-7 %",
+     "L": 0
+    }
+   ]
+  }
+ ],
+ "widths_rule": "KernelConfig.baryon_pdg_widths: the committed N* and Delta records whose Breit-Wigner widths differ from the PDG 2025 estimates (the values the PDG 2025 N and Delta records of KernelConfig.pdg_nucleon_resonances carry) at those estimates, the masses kept (the catalog's validation pins them to the vendored table); each support's upper edge at five widths above the pole, the committed records' rule",
+ "widths": [
+  {
+   "name": "N(1440)",
+   "pdg_ids": [
+    12212,
+    12112
+   ],
+   "nominal_width": 0.35,
+   "pdg_range": "250 to 450 (~350) MeV"
+  },
+  {
+   "name": "N(1520)",
+   "pdg_ids": [
+    2216,
+    2116
+   ],
+   "nominal_width": 0.11,
+   "pdg_range": "100 to 120 (~110) MeV"
+  },
+  {
+   "name": "N(1680)",
+   "pdg_ids": [
+    22212,
+    22112
+   ],
+   "nominal_width": 0.12,
+   "pdg_range": "115 to 130 (~120) MeV"
+  },
+  {
+   "name": "N(1720)",
+   "pdg_ids": [
+    212214,
+    212114
+   ],
+   "nominal_width": 0.25,
+   "pdg_range": "150 to 400 (~250) MeV"
+  },
+  {
+   "name": "Delta(1600)",
+   "pdg_ids": [
+    202224,
+    202214,
+    202114,
+    201114
+   ],
+   "nominal_width": 0.25,
+   "pdg_range": "200 to 300 (~250) MeV"
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+# NA49 p+Pb invariant inclusive yields, central collisions, flat format
+# species: p
+# quantity: E d3N/dp3 [c^3/GeV^2] per event (the source table prints the value x 10^3; divided by 10^3 here)
+# system: p+Pb, 158 GeV/c beam momentum, NA49
+# sample: central p+Pb, nu-bar ~ 6.2 (source Table 5.3 caption); the most central of the source's four grey-proton
+#         classes (nu-bar = 3.1, 4.6, 5.5, 6.2, source Fig. 5.3); the class cut N_CD >= 10 is quoted from the 2026-09-29
+#         literature survey and was not re-read from the thesis text
+# source: B. Boimska, PhD thesis, Soltan Institute Warsaw (2004), CERN-THESIS-2004-035, Appendix C.2, Table C.6
+#         (scanned PDF page 121; https://inspirehep.net/files/1e05d7fb4b59f324f0fe6c00761bb55f)
+# transcription: by eye from the scan, 2026-09-29; second read of a zoomed render agreed in every cell; automated checks
+#         (falling in pT and in xF, wide bins between their narrow neighbours) pass
+# errors: as printed in the source (absolute); the survey reports them as statistical only (not re-read here)
+# feed-down: not stated on the table pages (the survey reports no feed-down correction; not re-read here)
+# bins: xF ranges as printed; 0.0-0.1 and 0.1-0.3 are wider bins used at high pT; pT is the column label of the source
+# columns: xF_low  xF_high  pT[GeV/c]  value  abs_error
+0.0 0.05 0.125 0.203 0.008
+0.0 0.05 0.300 0.174 0.005
+0.0 0.05 0.490 0.117 0.003
+0.0 0.05 0.690 0.0675 0.0014
+0.0 0.05 0.890 0.0356 0.001
+0.0 0.05 1.085 0.0183 0.0006
+0.0 0.05 1.425 0.00477 0.00018
+0.0 0.1 1.085 0.0164 0.0005
+0.0 0.1 1.350 0.00575 0.00018
+0.0 0.1 1.790 0.00101 0.00006
+0.05 0.1 0.125 0.181 0.008
+0.05 0.1 0.300 0.136 0.004
+0.05 0.1 0.490 0.0897 0.0029
+0.05 0.1 0.690 0.0547 0.0013
+0.05 0.1 0.890 0.0287 0.0009
+0.05 0.1 1.085 0.0142 0.0006
+0.05 0.1 1.425 0.0039 0.00017
+0.1 0.15 0.125 0.151 0.008
+0.1 0.15 0.300 0.111 0.005
+0.1 0.15 0.490 0.0813 0.003
+0.1 0.15 0.690 0.0465 0.0011
+0.1 0.15 0.890 0.0251 0.0008
+0.1 0.15 1.085 0.0126 0.0005
+0.1 0.15 1.425 0.00275 0.00013
+0.15 0.2 0.125 0.118 0.008
+0.15 0.2 0.300 0.102 0.005
+0.15 0.2 0.490 0.0709 0.0031
+0.15 0.2 0.690 0.0361 0.0011
+0.15 0.2 0.890 0.0195 0.0007
+0.1 0.3 1.085 0.009 0.0002
+0.1 0.3 1.350 0.0036 0.0001
+0.1 0.3 1.790 0.00059 0.00003
+0.2 0.3 0.125 0.0864 0.0038
+0.2 0.3 0.300 0.0689 0.0022
+0.2 0.3 0.490 0.048 0.0016
+0.2 0.3 0.690 0.028 0.0007
+0.2 0.3 0.890 0.0157 0.0005
+0.2 0.3 1.255 0.0034 0.0001
+0.3 0.45 0.125 0.0408 0.0022
+0.3 0.45 0.300 0.0372 0.0014
+0.3 0.45 0.490 0.0269 0.001
+0.3 0.45 0.690 0.0157 0.0005
+0.3 0.45 0.890 0.00805 0.00031
+0.3 0.45 1.085 0.00487 0.00022
+0.3 0.45 1.350 0.00176 0.00009
+0.3 0.45 1.790 0.00032 0.00003

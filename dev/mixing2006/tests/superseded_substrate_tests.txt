@@ -1,0 +1,162 @@
+# Tests sealed under the pre-2026-09-28 kernels (review record
+# .collab/reviews/fable-speedup-2026-09-28.md, Section 8; corrections
+# FAB-03 geometric mass grid, FAB-07 lowest-threshold support, FAB-08
+# L=2 barrier, FAB-09 one-power spectral function).
+#
+# Each entry reproduces sealed behavior or asserts that the tree equals a
+# sealed substrate: the Round 3 to 5 run drivers' hermetic smoke modes
+# (the byte-frozen drivers refuse on substrate drift) and the run
+# registers' substrate-versus-disk checks. The sealed archives under
+# dev/00runs/ stay valid records of the old kernels; these tests turn
+# green again only through a re-seal under the corrected kernels, at
+# which point the strict xfail fails the run and the entry is removed.
+#
+# Implementation-file entries (sealed references inside otherwise live
+# files): test_branching_weight_calibration.py reproduces the sealed R3
+# calibration expectation files and pre-registration; test_threshold_metric.py
+# compares with the sealed R21/R22 archives and the card-9 driver table, and
+# test_lambda1520_record_content_kallen_match holds a Monte Carlo reference
+# computed under the old barrier factor (recomputation deferred).
+#
+# Block B stage 1 channel pool (2026-09-29, card
+# TASK-20260929-r5-gate5-followup-cascade-multiplicity): the sealed
+# Round 3 analytic engine (na49_mixing/threshold_metric.py) exceeds its
+# per-species node bound on the heavier resonance-pair classes (Delta rho,
+# N* rho, rho rho). The engine and the R31/R3 drivers stay byte-frozen;
+# the topology fits from R51c onward generate through the Monte Carlo cascade
+# and never call the engine. The two entries so marked are
+# test_staged_r31_matching_scan.py::test_analytic_engine_determinism and
+# test_staged_r3_se_audit.py::test_smoke_aggregate_reeval_flow.
+#
+# The same change moves the continuum-config digest (242f906c... to
+# a252eca4...), which the sealed Round 3 and Round 4 audit and run-register
+# surfaces pin as their substrate: the R4 builder-blend and strange-sector
+# audits (byte-stability and the blend-path zero-draw fixture) and the
+# R32 register's dual-tree substrate check.
+#
+# Block B stage 2 mechanism (2026-09-30): the optional continuation floor
+# changes spectral_density.py (561c65ee... to 11af9726...), which the
+# sealed R4 routing-formulation audit pins as its card-6 surface.
+#
+# The R32 driver's hermetic smoke (2026-10-28): the byte-frozen driver
+# accumulates feed-down for the six hadron species only, and the current
+# kernel's radiative decays emit photons into the final state, so the
+# smoke stops on the species key 'gamma'. The sealed R32 archives stay the
+# record of the run.
+#
+# One node id or test file path per line, relative to dev/mixing2006.
+tests/test_audit_r4_builder_blend_path.py::test_isolation_spy_and_static
+tests/test_audit_r4_builder_blend_path.py::test_pinned_surface_byte_stability
+tests/test_audit_r4_routing_formulation.py::test_audit_run_artifact_pins
+tests/test_audit_r4_routing_formulation.py::test_card6_surface_byte_stability
+tests/test_audit_r4_routing_formulation.py::test_finding_narrative
+tests/test_audit_r4_routing_formulation.py::test_module_contract_pins
+tests/test_audit_r4_strange_sector_families.py::test_audit_run_artifact_pins
+tests/test_audit_r4_strange_sector_families.py::test_committed_strange_family_complete_and_conservative
+tests/test_audit_r4_strange_sector_families.py::test_config_surface_byte_stability
+tests/test_audit_r4_strange_sector_families.py::test_module_contract_pins
+tests/test_branching_weight_calibration.py::test_expectation_files_match_recomputation
+tests/test_branching_weight_calibration.py::test_expectation_recomputation_reproducible_named_state
+tests/test_branching_weight_calibration.py::test_no_catalog_change
+tests/test_branching_weight_calibration.py::test_run_pre_registration_contract
+tests/test_r31_resume_contract_pins.py::test_provenance_resume_block
+tests/test_r32_blend_contract_pins.py::test_blend_none_pinned_stream_digest
+tests/test_r3_engine_fix_contract_pins.py::test_deep_level_quadrature_noop_catalog_content
+tests/test_r3_engine_fix_contract_pins.py::test_provenance_structure
+tests/test_r4_audit_blend_path_contract_pins.py::test_sealed_run_dir_prereg_provenance_pins
+tests/test_r4_audit_blend_path_contract_pins.py::test_sealed_run_dir_verdict_pins
+tests/test_r4_audit_blend_path_contract_pins.py::test_surface_byte_stability
+tests/test_r4_audit_blend_path_contract_pins.py::test_zero_draw_measurement_path_ta_fixture
+tests/test_r4_audit_routing_contract_pins.py::test_card6_surface_and_builder_byte_stability
+tests/test_r4_audit_routing_contract_pins.py::test_sealed_run_dir_verdict_pins
+tests/test_r4_audit_strange_sector_contract_pins.py::test_sealed_run_dir_class_pair_pins
+tests/test_r4_audit_strange_sector_contract_pins.py::test_sealed_run_dir_config_sanity_pins
+tests/test_r4_audit_strange_sector_contract_pins.py::test_sealed_run_dir_prereg_provenance_pins
+tests/test_r4_audit_strange_sector_contract_pins.py::test_sealed_run_dir_verdict_pins
+tests/test_r4_audit_strange_sector_contract_pins.py::test_surface_byte_stability
+tests/test_staged_r20_unit_grid_card10_pins.py::test_pre_registration_is_deterministic
+tests/test_staged_r23_resonance_ablation_pins.py::test_bit_identity_report_structure
+tests/test_staged_r23_resonance_ablation_pins.py::test_comparison_report_structure
+tests/test_staged_r23_resonance_ablation_pins.py::test_pre_registration_structure
+tests/test_staged_r30_spectral_normalization_pins.py::test_family_integrals_structure
+tests/test_staged_r30_spectral_normalization_pins.py::test_pre_registration_structure
+tests/test_staged_r30_spectral_normalization_pins.py::test_provenance_structure
+tests/test_staged_r32_spectral_systematic.py::test_builder_blend_none_byte_identity
+tests/test_staged_r32_spectral_systematic.py::test_smoke_contract
+tests/test_staged_r32_spectral_systematic.py::test_smoke_determinism
+tests/test_staged_r32_spectral_systematic.py::test_variant_and_statistics_pins
+tests/test_staged_r32_spectral_systematic_pins.py::test_dual_tree_driver_bit_identity
+tests/test_staged_r32_spectral_systematic_pins.py::test_provenance_hashes
+tests/test_staged_r3_branching_weight_calibration_pins.py::test_pre_registration_structure
+tests/test_staged_r3_branching_weight_calibration_pins.py::test_provenance_structure
+tests/test_staged_r3_branching_weight_calibration_pins.py::test_sigma_table_structure
+tests/test_staged_r3_feeddown_lineage_convention_pins.py::test_provenance_structure
+tests/test_staged_r31_matching_scan.py::test_analytic_engine_determinism
+tests/test_staged_r3_se_audit.py::test_reduced_scale_replica_reproduction
+tests/test_staged_r3_se_audit.py::test_smoke_aggregate_reeval_flow
+tests/test_staged_r3_se_audit_pins.py::test_pre_registration_structure
+tests/test_staged_r3_se_audit_pins.py::test_provenance_structure
+tests/test_staged_r3_threshold_metric_engine_fix_pins.py::test_provenance_structure
+tests/test_staged_r3_threshold_metric_reregistration_pins.py::test_provenance_structure
+tests/test_staged_r40_alignment_scan.py::test_smoke_determinism
+tests/test_staged_r40_alignment_scan.py::test_smoke_record_contract
+tests/test_staged_r40_alignment_scan_contract_pins.py::test_driver_identity_constants
+tests/test_staged_r40_alignment_scan_contract_pins.py::test_frozen_substrate_stability
+tests/test_staged_r40_alignment_scan_contract_pins.py::test_pre_registration_on_disk
+tests/test_staged_r40_alignment_scan_contract_pins.py::test_provenance_on_disk
+tests/test_staged_r41_nonstrange_pilot_fit_contract_pins.py::test_driver_identity_constants
+tests/test_staged_r41_nonstrange_pilot_fit_contract_pins.py::test_frozen_substrate_stability
+tests/test_staged_r41_nonstrange_pilot_fit_contract_pins.py::test_pre_registration_on_disk
+tests/test_staged_r41_nonstrange_pilot_fit_contract_pins.py::test_provenance_on_disk
+tests/test_staged_r42_recoil_decay_separation_contract_pins.py::test_driver_identity_constants
+tests/test_staged_r42_recoil_decay_separation_contract_pins.py::test_frozen_substrate_stability
+tests/test_staged_r42_recoil_decay_separation_contract_pins.py::test_pre_registration_on_disk
+tests/test_staged_r42_recoil_decay_separation_contract_pins.py::test_provenance_on_disk
+tests/test_staged_r43_cascade_ablation_contract_pins.py::test_driver_identity_constants
+tests/test_staged_r43_cascade_ablation_contract_pins.py::test_frozen_substrate_stability
+tests/test_staged_r43_cascade_ablation_contract_pins.py::test_pre_registration_on_disk
+tests/test_staged_r43_cascade_ablation_contract_pins.py::test_provenance_on_disk
+tests/test_staged_r44_frozen_nonstrange_validation.py::test_frozen_parameter_repoint_pins
+tests/test_staged_r44_frozen_nonstrange_validation.py::test_superseded_constants_retained
+tests/test_staged_r45_simplified_alignment_freeze.py::test_no_optimizer_pin
+tests/test_staged_r45_simplified_alignment_freeze.py::test_run_identity_constants
+tests/test_staged_r45_simplified_alignment_freeze_contract_pins.py::test_driver_identity_constants
+tests/test_staged_r45_simplified_alignment_freeze_contract_pins.py::test_no_optimizer_and_ramp_pin
+tests/test_staged_r45_simplified_alignment_freeze_contract_pins.py::test_provenance_on_disk
+tests/test_staged_r46_simplified_recoil_decay_profile_contract_pins.py::test_driver_identity_constants
+tests/test_staged_r50_pure_topology_templates_contract_pins.py::test_pre_registration_on_disk
+tests/test_staged_r50_pure_topology_templates_contract_pins.py::test_provenance_on_disk
+tests/test_staged_r51_topology_fraction_fit_contract_pins.py::test_driver_identity_constants
+tests/test_staged_r51_topology_fraction_fit_contract_pins.py::test_pre_registration_on_disk
+tests/test_staged_r51_topology_fraction_fit_contract_pins.py::test_provenance_on_disk
+tests/test_staged_r52_central_excitation_necessity_contract_pins.py::test_clean_environment_and_provenance_records
+tests/test_staged_r52_central_excitation_necessity_contract_pins.py::test_driver_identity_constants
+tests/test_staged_r52_central_excitation_necessity_contract_pins.py::test_pre_registration_on_disk
+tests/test_staged_r53_multiple_neutral_excitation.py::test_smoke_conservation_and_count_census
+tests/test_staged_r53_multiple_neutral_excitation.py::test_smoke_conservation_contract
+tests/test_staged_r53_multiple_neutral_excitation.py::test_smoke_records_carry_multi_block
+tests/test_staged_r53_multiple_neutral_excitation_contract_pins.py::test_driver_identity_constants
+tests/test_staged_r53_multiple_neutral_excitation_contract_pins.py::test_fit_report_record
+tests/test_staged_r53_multiple_neutral_excitation_contract_pins.py::test_pre_registration_on_disk
+tests/test_staged_r53_multiple_neutral_excitation_contract_pins.py::test_provenance_record
+tests/test_staged_r54_local_ledger_audit.py::test_smoke_audit_report_structure
+tests/test_staged_r54_local_ledger_audit.py::test_smoke_end_to_end
+tests/test_staged_r55_frozen_topology_validation.py::test_smoke_end_to_end
+tests/test_staged_r55_frozen_topology_validation.py::test_smoke_validation_report_structure
+tests/test_staged_source_grid.py::test_charge_balance
+tests/test_staged_source_grid.py::test_degenerate_window
+tests/test_staged_source_grid.py::test_open_set
+tests/test_staged_source_grid.py::test_smoke_determinism
+tests/test_staged_source_grid_card9_pins.py::test_charge_balance_on_full_grids
+tests/test_staged_source_grid_card9_pins.py::test_delta_plus_split_two_thirds_to_one_third
+tests/test_staged_source_grid_card9_pins.py::test_grids_are_pre_registered
+tests/test_staged_source_grid_card9_pins.py::test_no_gate_or_seal_files
+tests/test_staged_source_grid_card9_pins.py::test_pre_registration_and_provenance_fields
+tests/test_staged_source_grid_card9_pins.py::test_seed_map_and_closed_labels
+tests/test_staged_source_grid_card9_pins.py::test_t1_statistics_and_points_enforcement
+tests/test_staged_source_grid_r21_pins.py::test_pre_registration_structure
+tests/test_staged_source_grid_r22_pins.py::test_pre_registration_structure
+tests/test_threshold_metric.py::test_card9_driver_new_run_metric_is_reregistered
+tests/test_threshold_metric.py::test_card9_driver_table_matches_sealed_reference
+tests/test_threshold_metric.py::test_lambda1520_record_content_kallen_match
+tests/test_threshold_metric.py::test_sealed_archive_engine_exact_on_first_pairs

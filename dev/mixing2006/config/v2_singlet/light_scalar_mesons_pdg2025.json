@@ -1,0 +1,83 @@
+{
+  "label": "light_scalar_mesons_pdg2025",
+  "schema_version": 1,
+  "recorded_on": "2026-10-11",
+  "purpose": "The kernel option KernelConfig.light_scalar_mesons (2026-10-11): the f0(980) record, the three a0(980) charge states and their classes in the neutral mesonic family and the non-strange baryonic family. Diagnosis: _knowledge/evidence/fixed-kernel-residual-mechanisms-2026-10-03.md (the probes at the R91 optimum: the kaon-pair states). The committed catalog carries no light meson below the phi(1020) that decays into K Kbar, and in the committed kernel a non-strange baryonic vertex opens no kaon-pair channel.",
+  "fraction_rule": "each mode enters at the PDG value (a ratio quoted only as a spread of measurements at the midpoint of the spread); the fractions of a record are normalized to unity; each mode is split over the charge states by its isospin Clebsch-Gordan share (pi pi of I = 0: pi+ pi- : pi0 pi0 = 2 : 1; K Kbar of a neutral state: K+ K- : K0 K0bar = 1 : 1); the neutral kaons are K0 and K0bar, as in the K*(892) tables; the orbital L is 0 (S-wave, J^P = 0+); each line shape runs from its lightest threshold to the pole plus five widths, as the committed f2(1270) and a2(1320) records",
+  "source": "https://pdg.lbl.gov/2025/listings/rpp2025-list-f0-980.pdf and rpp2025-list-a0-980.pdf (S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update; created 2025-12-02)",
+  "records": [
+    {
+      "pdg_id": 9010221,
+      "name": "f0(980)",
+      "Q": 0,
+      "isospin": 0.0,
+      "isospin3": 0,
+      "spin": 0.0,
+      "parity": "+",
+      "pole_mass": 0.990,
+      "nominal_width": 0.055,
+      "pdg": "MASS 990 +- 20 MeV OUR ESTIMATE; WIDTH 10 to 100 MeV OUR ESTIMATE; Gamma(pi pi)/[Gamma(pi pi) + Gamma(K Kbar)] 0.52 +- 0.12 (AUBERT 06O), 0.75 (ABLIKIM 05Q), 0.84 +- 0.02 (ANISOVICH 02D), ~0.68 (OLLER 99B), 0.67 +- 0.09 (LOVERRE 80), 0.81 (CASON 78), no average",
+      "rule": "pole_mass: the estimate; nominal_width: the midpoint of the estimate's range; pi pi : K Kbar = 0.68 : 0.32, the midpoint of the measured 0.52-0.84",
+      "modes": [
+        {"kind": "pipi_I0", "fraction": 0.68},
+        {"kind": "KKbar_neutral", "fraction": 0.32}
+      ]
+    },
+    {
+      "pdg_id": 9000111,
+      "name": "a0(980)0",
+      "Q": 0,
+      "isospin": 1.0,
+      "isospin3": 0,
+      "spin": 0.0,
+      "parity": "+",
+      "pole_mass": 0.980,
+      "nominal_width": 0.075,
+      "pdg": "MASS 980 +- 20 MeV OUR ESTIMATE; WIDTH 50 to 100 MeV OUR ESTIMATE; Gamma(K Kbar)/Gamma(eta pi) 0.172 +- 0.019 OUR AVERAGE",
+      "rule": "pole_mass: the estimate; nominal_width: the midpoint of the estimate's range; eta pi : K Kbar = 1 : 0.172",
+      "modes": [
+        {"kind": "etapi", "fraction": 1.0},
+        {"kind": "KKbar_neutral", "fraction": 0.172}
+      ]
+    },
+    {
+      "pdg_id": 9000211,
+      "name": "a0(980)+",
+      "Q": 1,
+      "isospin": 1.0,
+      "isospin3": 2,
+      "spin": 0.0,
+      "parity": "+",
+      "pole_mass": 0.980,
+      "nominal_width": 0.075,
+      "pdg": "as a0(980)0",
+      "rule": "as a0(980)0",
+      "modes": [
+        {"kind": "etapi", "fraction": 1.0},
+        {"kind": "KKbar_charged", "fraction": 0.172}
+      ]
+    },
+    {
+      "pdg_id": -9000211,
+      "name": "a0(980)-",
+      "Q": -1,
+      "isospin": 1.0,
+      "isospin3": -2,
+      "spin": 0.0,
+      "parity": "+",
+      "pole_mass": 0.980,
+      "nominal_width": 0.075,
+      "pdg": "as a0(980)0",
+      "rule": "the charge conjugate of a0(980)+",
+      "modes": [
+        {"kind": "etapi", "fraction": 1.0},
+        {"kind": "KKbar_charged", "fraction": 0.172}
+      ]
+    }
+  ],
+  "classes": {
+    "mesonic_neutral": ["(223,9010221)", "(9000111,111)", "(9000211,-211)", "(-9000211,211)"],
+    "baryonic_np": ["(2212,9010221)"],
+    "rule": "the I = 0 neutral mesonic family takes the scalar pairs of isospin 0, (omega, f0), (a0 0, pi0), (a0 +, pi-) and (a0 -, pi+), beside the f2(1270), a2(1320) and phi classes; the committed baryonic_np family takes (N, f0(980)) beside the (N, f0(500)) class of the isoscalar dipion; the isospin completion rotates it to the charge partners, the I = 3/2 families take it at Clebsch-Gordan weight 0, and the conjugate towers carry its conjugate"
+  }
+}

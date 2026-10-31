@@ -1,0 +1,14 @@
+{
+ "label": "xi_baryons",
+ "source": "PDG 2025 summary tables (pdg.lbl.gov rpp2025-tab-baryons-Xi; S. Navas et al., Phys. Rev. D 110, 030001 (2024) and 2025 update)",
+ "accessed_on": "2026-10-16",
+ "rule": "The S = -2 baryons of the summary tables with measured decays: the Xi0 and Xi- (weak decays; stable here, as the feed-down corrected NA49 tables count the Lambda and Sigma) and the Xi(1530) at its listed mass and width, decaying to Xi pi (100%) at the isospin Clebsch-Gordan shares in the P wave, its line shape from the lightest threshold to the pole plus five widths. The Xi resonances above Xi(1530) list no branching fractions and stay out. The classes (Xi, K) and (Xi(1530), K) join the strange baryonic families of the matching charge.",
+ "records": [
+  {"name": "Xi0", "pdg_id": 3322, "isospin3x2": 1, "spin": 0.5, "parity": "+", "pole_mass": 1.31486, "nominal_width": 0.0, "stable": true},
+  {"name": "Xi-", "pdg_id": 3312, "isospin3x2": -1, "spin": 0.5, "parity": "+", "pole_mass": 1.32171, "nominal_width": 0.0, "stable": true},
+  {"name": "Xi(1530)0", "pdg_id": 3324, "isospin3x2": 1, "spin": 1.5, "parity": "+", "pole_mass": 1.5318, "nominal_width": 0.0091, "stable": false,
+   "channels": [{"daughters": [3312, 211], "fraction": 0.6666666666666666, "L": 1}, {"daughters": [3322, 111], "fraction": 0.3333333333333333, "L": 1}]},
+  {"name": "Xi(1530)-", "pdg_id": 3314, "isospin3x2": -1, "spin": 1.5, "parity": "+", "pole_mass": 1.535, "nominal_width": 0.0099, "stable": false,
+   "channels": [{"daughters": [3322, -211], "fraction": 0.6666666666666666, "L": 1}, {"daughters": [3312, 111], "fraction": 0.3333333333333333, "L": 1}]}
+ ]
+}

@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "source_title": "Eur. Phys. J. C (2022) 82:875, Table 9",
+    "doi": "10.1140/epjc/s10052-022-10855-7",
+    "notes": [
+      "All yields are per inelastic event.",
+      "Values transcribed from local text extraction anchors in notes/more_docs/raw_text."
+    ],
+    "runtime_pdg_id_mapping": {
+      "12114": "12112"
+    },
+    "runtime_pdg_id_note": "Historical/source-table identifier 12114 maps to runtime N*(1440)0 PDG 12112; the legacy alias is retired from the runtime decay library since 2026-08-23."
+  },
+  "rows": [
+    {
+      "name": "Delta0(1232)",
+      "pdg_id": 2114,
+      "sector": "baryon",
+      "total_yield": 0.123,
+      "table_branching_fraction": 0.333,
+      "table_pi_minus_yield": 0.041
+    },
+    {
+      "name": "Delta-(1232)",
+      "pdg_id": 1114,
+      "sector": "baryon",
+      "total_yield": 0.0584,
+      "table_branching_fraction": 1.0,
+      "table_pi_minus_yield": 0.0584
+    },
+    {
+      "name": "N*(1440)",
+      "pdg_id": 12114,
+      "sector": "baryon",
+      "total_yield": 0.157,
+      "table_branching_fraction": 0.43,
+      "table_pi_minus_yield": 0.0675
+    },
+    {
+      "name": "N*(1520)",
+      "pdg_id": 2116,
+      "sector": "baryon",
+      "total_yield": 0.0848,
+      "table_branching_fraction": 0.4,
+      "table_pi_minus_yield": 0.0339
+    },
+    {
+      "name": "N*(1680)",
+      "pdg_id": 22112,
+      "sector": "baryon",
+      "total_yield": 0.0716,
+      "table_branching_fraction": 0.43,
+      "table_pi_minus_yield": 0.0308
+    },
+    {
+      "name": "eta(548)",
+      "pdg_id": 221,
+      "sector": "meson",
+      "total_yield": 0.316,
+      "table_branching_fraction": 0.273,
+      "table_pi_minus_yield": 0.0862
+    },
+    {
+      "name": "rho0(770)",
+      "pdg_id": 113,
+      "sector": "meson",
+      "total_yield": 0.837,
+      "table_branching_fraction": 1.0,
+      "table_pi_minus_yield": 0.837
+    },
+    {
+      "name": "rho-(770)",
+      "pdg_id": -213,
+      "sector": "meson",
+      "total_yield": 0.286,
+      "table_branching_fraction": 1.0,
+      "table_pi_minus_yield": 0.286
+    },
+    {
+      "name": "omega(782)",
+      "pdg_id": 223,
+      "sector": "meson",
+      "total_yield": 0.333,
+      "table_branching_fraction": 0.907,
+      "table_pi_minus_yield": 0.302
+    },
+    {
+      "name": "f2(1270)",
+      "pdg_id": 225,
+      "sector": "meson",
+      "total_yield": 0.0709,
+      "table_branching_fraction": 0.62,
+      "table_pi_minus_yield": 0.044
+    },
+    {
+      "name": "rho3^0(1690)",
+      "pdg_id": 117,
+      "sector": "meson",
+      "total_yield": 0.0566,
+      "table_branching_fraction": 0.236,
+      "table_pi_minus_yield": 0.0134
+    },
+    {
+      "name": "rho3-(1690)",
+      "pdg_id": -217,
+      "sector": "meson",
+      "total_yield": 0.0397,
+      "table_branching_fraction": 0.236,
+      "table_pi_minus_yield": 0.0094
+    },
+    {
+      "name": "f4(2050)",
+      "pdg_id": 229,
+      "sector": "meson",
+      "total_yield": 0.0159,
+      "table_branching_fraction": 0.113,
+      "table_pi_minus_yield": 0.0018
+    }
+  ],
+  "totals": {
+    "baryon_total_yield": 0.495,
+    "meson_total_yield": 1.955,
+    "table_pi_minus_from_baryons": 0.232,
+    "table_pi_minus_from_mesons": 1.579,
+    "table_pi_minus_total": 1.811,
+    "inclusive_pi_minus_total": 2.36,
+    "fraction_from_listed_decays_percent": 76.7
+  }
+}

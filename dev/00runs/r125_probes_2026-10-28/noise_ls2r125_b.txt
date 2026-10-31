@@ -1,0 +1,37 @@
+jackknife over 32 batches; chi2 (sigma) [Monte Carlo bias]
+
+yields fixed
+                                gen_bc125b                  gen_ls2r125b
+proton               1235 ( 62.8) [+110.5]         1403 ( 54.3) [+109.7]
+pi_plus               630 ( 30.7) [+120.1]          695 ( 43.3) [+115.7]
+pi_minus             1168 ( 88.7) [+217.7]         1113 ( 88.7) [+223.5]
+k_plus                332 ( 25.7) [ +71.1]          405 ( 29.8) [ +70.8]
+k_minus               488 ( 58.4) [+148.5]          596 ( 40.6) [+127.7]
+antiproton            289 ( 33.9) [+134.6]          339 ( 46.0) [+146.3]
+total                4143 (126.3) [+802.3]         4551 (133.8) [+793.6]
+Delta chi2 against the first run (paired jackknife sigma) {bias-corrected Delta}
+proton              +167 ( 63.6) {   +168}
+pi_plus              +66 ( 49.4) {    +70}
+pi_minus             -55 ( 49.3) {    -61}
+k_plus               +73 ( 25.2) {    +73}
+k_minus             +108 ( 60.0) {   +129}
+antiproton           +49 ( 56.6) {    +37}
+total               +407 (126.2) {   +416}
+
+normalizations fitted
+                                gen_bc125b                  gen_ls2r125b
+proton               1215 ( 60.3) [+106.7]         1317 ( 48.4) [+102.6]
+pi_plus               625 ( 30.3) [+118.1]          673 ( 43.4) [+111.8]
+pi_minus             1157 ( 91.2) [+222.1]         1113 ( 88.4) [+222.4]
+k_plus                324 ( 24.5) [ +68.2]          390 ( 30.6) [ +73.3]
+k_minus               482 ( 59.7) [+151.8]          593 ( 41.5) [+129.4]
+antiproton            259 ( 32.4) [+122.2]          242 ( 34.4) [+124.2]
+total                4062 (126.8) [+789.2]         4327 (121.4) [+763.7]
+Delta chi2 against the first run (paired jackknife sigma) {bias-corrected Delta}
+proton              +102 ( 57.8) {   +106}
+pi_plus              +48 ( 48.3) {    +54}
+pi_minus             -45 ( 50.9) {    -45}
+k_plus               +66 ( 23.9) {    +61}
+k_minus             +111 ( 60.8) {   +134}
+antiproton           -17 ( 45.8) {    -19}
+total               +265 (113.8) {   +291}

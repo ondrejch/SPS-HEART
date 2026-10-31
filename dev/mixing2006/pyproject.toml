@@ -1,0 +1,99 @@
+[build-system]
+requires = ["setuptools>=67", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "na49-mixing"
+version = "0.2.0"
+description = "NA49 resonance analysis framework — Python port (no ROOT required)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "GPL-2.0-or-later" }
+keywords = ["nuclear physics", "heavy-ion", "resonance", "Monte Carlo", "NA49"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+hdf5 = ["h5py>=3.8"]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov",
+]
+
+[project.scripts]
+na49-generate = "na49_mixing._cli:generate_main"
+na49-staged-excitation = "na49_mixing.staged_evaluation:main"
+
+[tool.setuptools]
+license-files = ["LICENSE"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["na49_mixing*", "helpers*"]
+
+[tool.setuptools.package-data]
+na49_mixing = ["generators/**/*.gen"]
+helpers.benchmarking = ["config/*.json", "pa_data/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v -m 'not external_data'"
+markers = [
+    "external_data: test reads NA49/SPS tables under spshadrons.web.cern.ch/ (deselected by the helpers gate and by the nested default run so hermetic archive checkouts stay green)",
+]
+
+[tool.mypy]
+# Type-check target for ``mypy na49_mixing``. Defaults only; no strictness
+# flags whose outcome hinges on third-party stub releases.
+files = ["na49_mixing"]
+# Keep the incremental cache inside the run-artifact area instead of a new
+# top-level ``.mypy_cache`` directory next to the package sources.
+cache_dir = "00runs/tmp/review3_p8/mypy_cache"
+
+[[tool.mypy.overrides]]
+# h5py ships neither inline typing nor stubs; it is an optional HDF5 backend
+# used by ``na49_mixing.data_io``.
+module = "h5py"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+# The installed SciPy build carries no py.typed marker; fits.py imports
+# ``scipy.optimize`` lazily for L-BFGS-B minimization. Scoped to this one
+# submodule so future typed usage of other SciPy modules stays checked.
+module = "scipy.optimize"
+ignore_missing_imports = true
+
+[tool.coverage.run]
+# Measured tree for pytest-cov runs (pytest --cov=na49_mixing). Parallel mode
+# keeps the quick-start smoke test's subprocess measurements as separate data
+# files so they combine instead of clobbering each other; a bare
+# coverage run therefore needs coverage combine before coverage report.
+source = ['na49_mixing']
+parallel = true
+
+[tool.coverage.paths]
+# tests/test_readme_quickstart_smoke.py copies na49_mixing/ into
+# dev/00runs/tmp/review3_p2/smoke_sandbox/ and runs the documented commands
+# there under its own PYTHONPATH. Without these aliases, subprocess coverage
+# counts the sandbox copy and the canonical package as two source trees and
+# doubles the statement totals. At combine time both fold back onto the
+# canonical package directory.
+source = [
+    'na49_mixing/',
+    '*/dev/mixing2006/na49_mixing/',
+    '*/00runs/tmp/review3_p2/smoke_sandbox/na49_mixing/',
+]

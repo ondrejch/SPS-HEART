@@ -1,0 +1,185 @@
+{
+  "seed": 20260831,
+  "through": "baryon_nucleus",
+  "events_per_stage": 100,
+  "beam_momentum": 158.0,
+  "simple": {
+    "mass_scale": 0.65,
+    "edge_power": 1.5,
+    "transfer_slope": 5.5,
+    "grid_size": 96
+  },
+  "regge": {
+    "alpha_p0": 1.0808,
+    "alpha_p_prime": 0.25,
+    "alpha_exc0": 0.5,
+    "transfer_slope": 4.5,
+    "edge_power": 2.0,
+    "s0": 1.0,
+    "grid_size": 96,
+    "effective_transfer_slope": 7.3489827740435505
+  },
+  "continuum": {
+    "match_mass": 2.4,
+    "pion_multiplicity_slope": 1.15,
+    "strange_lambda_strength": 0.1,
+    "strange_sigma_strength": 0.05,
+    "strange_pair_strength": 0.05,
+    "strange_threshold_power": 1.5,
+    "pair_strength": 0.015,
+    "pair_threshold_power": 2.0,
+    "max_pions": 12
+  },
+  "fit": {
+    "enabled": true,
+    "objective": "binned",
+    "events_per_evaluation": 2000,
+    "max_iterations": 100,
+    "mc_replicas": {
+      "count": 8,
+      "events_per_replica": 2000,
+      "seed_offset": 40000,
+      "seed_rule": "replica k (k = 0..K-1) is generated from seed = seed + seed_offset + k, i.e. 20260831 + 40000 + k = 20300831 + k; the M8 offset 40000 is distinct from the M4 fit substream offset 10000 (20270831), the M5 audit offset 20000 (20280831) and the M7 comparison offset 30000 (20290831)"
+    },
+    "parameters": [
+      "regge.alpha_exc0",
+      "regge.effective_transfer_slope",
+      "regge.edge_power",
+      "continuum.match_mass",
+      "continuum.pion_multiplicity_slope",
+      "continuum.strange_lambda_strength",
+      "continuum.strange_sigma_strength",
+      "continuum.strange_pair_strength",
+      "continuum.pair_strength",
+      "continuum.pair_threshold_power"
+    ],
+    "bounds": {
+      "regge.alpha_exc0": [
+        0.0,
+        1.2
+      ],
+      "regge.effective_transfer_slope": [
+        5.07,
+        10.2
+      ],
+      "regge.edge_power": [
+        0.25,
+        6.0
+      ],
+      "continuum.match_mass": [
+        1.5,
+        4.0
+      ],
+      "continuum.pion_multiplicity_slope": [
+        0.0,
+        4.0
+      ],
+      "continuum.strange_lambda_strength": [
+        0.0,
+        0.5
+      ],
+      "continuum.strange_sigma_strength": [
+        0.0,
+        0.5
+      ],
+      "continuum.strange_pair_strength": [
+        0.0,
+        0.5
+      ],
+      "continuum.pair_strength": [
+        0.0,
+        0.15
+      ],
+      "continuum.pair_threshold_power": [
+        0.0,
+        6.0
+      ]
+    },
+    "binned": {
+      "sigma_inel_mb": 31.78,
+      "window": {
+        "xf_min": 0.0,
+        "xf_max": 0.4,
+        "pt_min": 0.05,
+        "pt_max": 1.5
+      },
+      "sigma_fallback": "poisson_data_content",
+      "tables": [
+        {
+          "species": "pi_minus",
+          "pdg": -211,
+          "mass_gev": 0.1395699,
+          "path": "spshadrons.web.cern.ch/data/xsect_piminus.txt",
+          "normalization": "f"
+        },
+        {
+          "species": "pi_plus",
+          "pdg": 211,
+          "mass_gev": 0.1395699,
+          "path": "spshadrons.web.cern.ch/data/xsect_piplus.txt",
+          "normalization": "f"
+        },
+        {
+          "species": "k_plus",
+          "pdg": 321,
+          "mass_gev": 0.493677,
+          "path": "spshadrons.web.cern.ch/data/xsect_kaplus_pp.txt",
+          "normalization": "f"
+        },
+        {
+          "species": "k_minus",
+          "pdg": -321,
+          "mass_gev": 0.493677,
+          "path": "spshadrons.web.cern.ch/data/xsect_kaminus_pp.txt",
+          "normalization": "f"
+        },
+        {
+          "species": "proton",
+          "pdg": 2212,
+          "mass_gev": 0.93827231,
+          "path": "spshadrons.web.cern.ch/data/xsect_proton_pp.txt",
+          "normalization": "f"
+        },
+        {
+          "species": "antiproton",
+          "pdg": -2212,
+          "mass_gev": 0.93827231,
+          "path": "spshadrons.web.cern.ch/data/xsect_antiproton_pp.txt",
+          "normalization": "f"
+        }
+      ]
+    },
+    "targets": {
+      "mean_source_mass": {
+        "value": 4.08,
+        "sigma": 0.23
+      },
+      "mean_abs_t": {
+        "value": 1.63,
+        "sigma": 0.44
+      },
+      "strange_source_fraction": {
+        "value": 0.069,
+        "sigma": 0.028
+      },
+      "pair_source_fraction": {
+        "value": 0.004,
+        "sigma": 0.007
+      }
+    }
+  },
+  "nucleus": {
+    "name": "Pb208",
+    "A": 208,
+    "Z": 82,
+    "profile": "woods_saxon",
+    "radius_fm": 6.62,
+    "diffuseness_fm": 0.546,
+    "quad_alpha": 0.0,
+    "sigma_nn_inel_mb": 31.7
+  },
+  "pA": {
+    "glauber_dr_fm": 0.05,
+    "max_event_attempts": 100
+  }
+}

@@ -1,0 +1,306 @@
+{
+ "label": "isoscalar_dipion_pdg2025",
+ "schema_version": 1,
+ "recorded_on": "2026-10-08",
+ "purpose": "The kernel option KernelConfig.isoscalar_dipion (2026-10-08): the f0(500) record, the six N* multiplets at the PDG 2025 hadronic decay modes, and the (N, f0(500)) class of the baryonic continuum's direct pool. Diagnosis: _knowledge/evidence/fixed-kernel-residual-mechanisms-2026-10-03.md (the forward charge budget; the isoscalar dipion). The committed catalog folds the PDG N sigma width into N pi (decays.build_soft_resonance_decays, residual_to_n_pi) and carries no f0(500).",
+ "fraction_rule": "each listed hadronic mode whose daughters are catalog records enters at the midpoint of its PDG range, a mode quoted as an upper limit at half the limit; the most specific sub-modes of N pi pi are used (Delta pi, N rho, N sigma); the fractions of a multiplet are normalized to unity; each mode is split over the charge states by its isospin Clebsch-Gordan share (N pi, N rho, N*pi: 1/3 and 2/3; Delta pi: 1/2, 1/3, 1/6; the isoscalar partners eta, omega, sigma and Lambda K keep the nucleon's charge); the orbital L is the dominant partial wave (PDG), else the lowest allowed by J and parity",
+ "f0_500": {
+  "pdg_id": 9000221,
+  "name": "f0(500)",
+  "isospin": 0.0,
+  "spin": 0.0,
+  "parity": "+",
+  "pole_mass": 0.475,
+  "nominal_width": 0.55,
+  "m_up": 1.0,
+  "pdg": "Mass (T-matrix pole sqrt(s)) = (400-550) - i(200-350) MeV; Breit-Wigner mass 400-800 MeV, width 100-800 MeV; decay modes pi pi seen, gamma gamma seen",
+  "rule": "pole_mass: the midpoint of the pole's real part (475 MeV); nominal_width: twice the midpoint of its imaginary part (550 MeV); support from the pi0 pi0 threshold to 1.0 GeV (below the f0(980)); decays pi+ pi- : pi0 pi0 = 2 : 1 (I = 0) in an S-wave; gamma gamma omitted",
+  "source": "https://pdg.lbl.gov/2025/tables/rpp2025-tab-mesons-light.pdf (S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update)"
+ },
+ "nstar": [
+  {
+   "multiplet": "N(1440) 1/2+",
+   "pdg_ids": [
+    12212,
+    12112
+   ],
+   "source": "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-N.pdf (S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update; created 2025-05-30)",
+   "channels": [
+    {
+     "kind": "Npi",
+     "pdg_range": "55-75 %",
+     "fraction": 0.65,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "Neta",
+     "pdg_range": "<1 %",
+     "fraction": 0.005,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "6-27 % (P-wave)",
+     "fraction": 0.165,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "Nsigma",
+     "pdg_range": "11-23 %",
+     "fraction": 0.17,
+     "orbital_angular_momentum": 0
+    }
+   ]
+  },
+  {
+   "multiplet": "N(1520) 3/2-",
+   "pdg_ids": [
+    2216,
+    2116
+   ],
+   "source": "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-N.pdf (S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update; created 2025-05-30)",
+   "channels": [
+    {
+     "kind": "Npi",
+     "pdg_range": "55-65 %",
+     "fraction": 0.6,
+     "orbital_angular_momentum": 2
+    },
+    {
+     "kind": "Neta",
+     "pdg_range": "0.07-0.09 %",
+     "fraction": 0.0008,
+     "orbital_angular_momentum": 2
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "22-34 % (S-wave 15-23, D-wave 7-11)",
+     "fraction": 0.28,
+     "orbital_angular_momentum": 0
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "10-16 % (S=3/2 S-wave)",
+     "fraction": 0.13,
+     "orbital_angular_momentum": 0
+    },
+    {
+     "kind": "Nsigma",
+     "pdg_range": "<10 %",
+     "fraction": 0.05,
+     "orbital_angular_momentum": 1
+    }
+   ]
+  },
+  {
+   "multiplet": "N(1535) 1/2-",
+   "pdg_ids": [
+    102212,
+    102112
+   ],
+   "source": "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-N.pdf (S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update; created 2025-05-30)",
+   "channels": [
+    {
+     "kind": "Npi",
+     "pdg_range": "32-52 %",
+     "fraction": 0.42,
+     "orbital_angular_momentum": 0
+    },
+    {
+     "kind": "Neta",
+     "pdg_range": "30-55 %",
+     "fraction": 0.425,
+     "orbital_angular_momentum": 0
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "1-4 % (D-wave)",
+     "fraction": 0.025,
+     "orbital_angular_momentum": 2
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "2-17 % (S=1/2 S-wave 2-16)",
+     "fraction": 0.095,
+     "orbital_angular_momentum": 0
+    },
+    {
+     "kind": "Nsigma",
+     "pdg_range": "2-10 %",
+     "fraction": 0.06,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "N1440pi",
+     "pdg_range": "5-12 %",
+     "fraction": 0.085,
+     "orbital_angular_momentum": 0,
+     "note": "the N(1440) daughter is the catalog record 12212/12112"
+    }
+   ]
+  },
+  {
+   "multiplet": "N(1650) 1/2-",
+   "pdg_ids": [
+    122212,
+    122112
+   ],
+   "source": "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-N.pdf (S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update; created 2025-05-30)",
+   "channels": [
+    {
+     "kind": "Npi",
+     "pdg_range": "50-70 %",
+     "fraction": 0.6,
+     "orbital_angular_momentum": 0
+    },
+    {
+     "kind": "Neta",
+     "pdg_range": "15-35 %",
+     "fraction": 0.25,
+     "orbital_angular_momentum": 0
+    },
+    {
+     "kind": "LK",
+     "pdg_range": "5-15 %",
+     "fraction": 0.1,
+     "orbital_angular_momentum": 0
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "6-18 % (D-wave)",
+     "fraction": 0.12,
+     "orbital_angular_momentum": 2
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "12-22 % (S=3/2 D-wave 12-18)",
+     "fraction": 0.17,
+     "orbital_angular_momentum": 2
+    },
+    {
+     "kind": "Nsigma",
+     "pdg_range": "2-18 %",
+     "fraction": 0.1,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "N1440pi",
+     "pdg_range": "6-26 %",
+     "fraction": 0.16,
+     "orbital_angular_momentum": 0
+    }
+   ]
+  },
+  {
+   "multiplet": "N(1680) 5/2+",
+   "pdg_ids": [
+    22212,
+    22112
+   ],
+   "source": "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-N.pdf (S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update; created 2025-05-30)",
+   "channels": [
+    {
+     "kind": "Npi",
+     "pdg_range": "60-70 %",
+     "fraction": 0.65,
+     "orbital_angular_momentum": 3
+    },
+    {
+     "kind": "Neta",
+     "pdg_range": "<1 %",
+     "fraction": 0.005,
+     "orbital_angular_momentum": 3
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "11-23 % (P-wave 4-10, F-wave 1-13)",
+     "fraction": 0.17,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "8-11 % (S=3/2 P-wave 6-8)",
+     "fraction": 0.095,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "Nsigma",
+     "pdg_range": "9-19 %",
+     "fraction": 0.14,
+     "orbital_angular_momentum": 2
+    }
+   ]
+  },
+  {
+   "multiplet": "N(1720) 3/2+",
+   "pdg_ids": [
+    212214,
+    212114
+   ],
+   "source": "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-N.pdf (S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update; created 2025-05-30)",
+   "channels": [
+    {
+     "kind": "Npi",
+     "pdg_range": "8-14 %",
+     "fraction": 0.11,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "Neta",
+     "pdg_range": "1-5 %",
+     "fraction": 0.03,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "Nomega",
+     "pdg_range": "12-40 %",
+     "fraction": 0.26,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "LK",
+     "pdg_range": "4-19 %",
+     "fraction": 0.115,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "Dpi",
+     "pdg_range": "47-89 % (P-wave 47-77)",
+     "fraction": 0.68,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "Nrho",
+     "pdg_range": "1-2 % (S=1/2 P-wave)",
+     "fraction": 0.015,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "Nsigma",
+     "pdg_range": "2-14 %",
+     "fraction": 0.08,
+     "orbital_angular_momentum": 2
+    },
+    {
+     "kind": "N1440pi",
+     "pdg_range": "<2 %",
+     "fraction": 0.01,
+     "orbital_angular_momentum": 1
+    },
+    {
+     "kind": "N1520pi",
+     "pdg_range": "1-5 % (S-wave)",
+     "fraction": 0.03,
+     "orbital_angular_momentum": 0,
+     "note": "the N(1520) daughter is the catalog record 2216/2116"
+    }
+   ]
+  }
+ ],
+ "floor_classes": {
+  "baryonic_np": [
+   "(2212,9000221)"
+  ],
+  "rule": "the (N, f0(500)) class joins the direct pool of the committed baryonic_np family; the isospin completion rotates it to the charge partners, and the I = 3/2 families take it at Clebsch-Gordan weight 0"
+ }
+}

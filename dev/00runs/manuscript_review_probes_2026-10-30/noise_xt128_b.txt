@@ -1,0 +1,37 @@
+jackknife over 32 batches; chi2 (sigma) [Monte Carlo bias]
+
+yields fixed
+                                gen_bc128b                    gen_xt128b
+proton               1300 ( 69.0) [+112.1]         1297 ( 70.0) [+111.9]
+pi_plus               657 ( 31.5) [+113.4]          655 ( 30.5) [+113.4]
+pi_minus             1144 ( 87.0) [+205.5]         1145 ( 86.4) [+206.9]
+k_plus                322 ( 27.3) [ +75.0]          325 ( 28.1) [ +74.9]
+k_minus               578 ( 53.0) [+136.6]          569 ( 50.0) [+135.4]
+antiproton            303 ( 38.3) [+137.6]          310 ( 37.0) [+138.7]
+total                4304 (126.9) [+780.1]         4302 (124.2) [+781.3]
+Delta chi2 against the first run (paired jackknife sigma) {bias-corrected Delta}
+proton                -3 (  4.0) {     -3}
+pi_plus               -2 (  5.4) {     -2}
+pi_minus              +2 (  7.6) {     +0}
+k_plus                +4 (  3.5) {     +4}
+k_minus               -8 (  8.3) {     -7}
+antiproton            +6 (  6.2) {     +5}
+total                 -2 ( 15.4) {     -3}
+
+normalizations fitted
+                                gen_bc128b                    gen_xt128b
+proton               1262 ( 64.9) [+107.0]         1262 ( 66.0) [+107.0]
+pi_plus               651 ( 30.9) [+111.1]          649 ( 30.0) [+111.2]
+pi_minus             1136 ( 87.5) [+209.0]         1138 ( 86.8) [+210.5]
+k_plus                321 ( 27.4) [ +75.3]          325 ( 28.1) [ +74.8]
+k_minus               578 ( 53.1) [+136.8]          569 ( 50.2) [+136.2]
+antiproton            281 ( 34.1) [+126.7]          287 ( 32.4) [+127.6]
+total                4229 (125.0) [+765.9]         4229 (122.8) [+767.3]
+Delta chi2 against the first run (paired jackknife sigma) {bias-corrected Delta}
+proton                -0 (  3.8) {     -0}
+pi_plus               -2 (  5.3) {     -2}
+pi_minus              +2 (  7.9) {     +0}
+k_plus                +5 (  3.6) {     +5}
+k_minus               -9 (  8.2) {     -8}
+antiproton            +6 (  5.7) {     +5}
+total                 +1 ( 15.0) {     -1}

@@ -1,0 +1,37 @@
+jackknife over 32 batches; chi2 (sigma) [Monte Carlo bias]
+
+yields fixed
+                                gen_bc125a                    gen_ls125a
+proton               1256 ( 56.3) [+109.9]         1575 ( 81.8) [+114.0]
+pi_plus               732 ( 35.3) [+123.1]          712 ( 42.8) [+126.5]
+pi_minus             1019 ( 55.5) [+229.5]         1041 ( 54.9) [+234.7]
+k_plus                338 ( 28.9) [ +74.6]          488 ( 35.4) [ +68.6]
+k_minus               521 ( 56.8) [+146.6]          570 ( 44.5) [+126.7]
+antiproton            256 ( 35.8) [+137.9]          266 ( 34.7) [+141.1]
+total                4122 ( 96.9) [+821.6]         4651 (116.1) [+811.7]
+Delta chi2 against the first run (paired jackknife sigma) {bias-corrected Delta}
+proton              +319 ( 58.0) {   +315}
+pi_plus              -20 ( 36.6) {    -24}
+pi_minus             +21 ( 35.8) {    +16}
+k_plus              +149 ( 25.2) {   +155}
+k_minus              +49 ( 39.8) {    +69}
+antiproton           +10 ( 22.0) {     +7}
+total               +529 (109.8) {   +539}
+
+normalizations fitted
+                                gen_bc125a                    gen_ls125a
+proton               1238 ( 54.1) [+106.2]         1475 ( 73.2) [+105.8]
+pi_plus               725 ( 33.7) [+120.5]          683 ( 39.2) [+121.6]
+pi_minus             1011 ( 56.2) [+233.9]         1040 ( 54.8) [+234.0]
+k_plus                335 ( 29.0) [ +72.6]          384 ( 30.3) [ +76.5]
+k_minus               518 ( 57.5) [+148.7]          516 ( 42.5) [+137.3]
+antiproton            247 ( 35.1) [+130.4]          235 ( 29.8) [+128.0]
+total                4073 ( 95.8) [+812.4]         4333 (107.6) [+803.2]
+Delta chi2 against the first run (paired jackknife sigma) {bias-corrected Delta}
+proton              +236 ( 51.3) {   +237}
+pi_plus              -42 ( 35.7) {    -43}
+pi_minus             +30 ( 37.3) {    +30}
+k_plus               +49 ( 16.6) {    +45}
+k_minus               -1 ( 40.2) {    +10}
+antiproton           -12 ( 19.3) {    -10}
+total               +260 (107.6) {   +269}
