@@ -1,5 +1,7 @@
 # SPS-HEART
 
+![HEART model logo](assets/logo/heart_logo.png)
+
 Private snapshot of the files that reproduce the HEART paper.
 Assembled by `helpers/publishing/sync_sps_heart.py` from the
 development checkout. Re-run that script to refresh this tree.
