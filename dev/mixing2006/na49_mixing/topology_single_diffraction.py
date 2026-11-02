@@ -169,6 +169,9 @@ from .topology_mass_laws import (
     draw_t,
     draw_t_window,
     draw_t_window_break,
+    draw_marginal_pomeron,
+    draw_t_pomeron,
+    pomeron_gap_log,
     pp_t_window,
     sd_limits,
     t_range,
@@ -294,6 +297,10 @@ class SDEvent:
     (:func:`~na49_mixing.topology_mass_laws.vertex_slope_factor`; ``None``
     for the single slope), with the intact proton's term f under
     ``intact_vertex_factor`` (2026-10-15).
+    ``pomeron`` (2026-11-01) is ``True`` for an event drawn from the
+    Pomeron's shrinkage law under ``pomeron_slope`` (the coherence-region
+    vacuum events), ``False`` for the other events of such a run and ``None``
+    without the option.
     """
 
     class_label: str
@@ -310,6 +317,7 @@ class SDEvent:
     slope_factor: float | None = None
     tail: bool | None = None
     ope: bool | None = None
+    pomeron: bool | None = None
 
 
 # ----------------------------------------------------------------------
@@ -847,6 +855,8 @@ def generate_sd(
     t_break: "tuple[float, float] | None" = None,
     ope_component: "tuple[float, ...] | None" = None,
     two_sided: "tuple | None" = None,
+    pomeron_slope: float | None = None,
+    pomeron_linear_t: float | None = None,
 ) -> SDEvent:
     """One single-diffraction event of the side *side*.
 
@@ -952,6 +962,19 @@ def generate_sd(
     decayed through the cascade.  Four more uniforms on ``decay_kinematics``
     for a split event; every other event is unchanged.
 
+    *pomeron_slope* (2026-11-01) alpha'_P [GeV^-2] draws the coherence-region
+    vacuum events (not the tail, the one-pion exchange or an isovector
+    exchange) from the triple-Pomeron law at fixed transfer,
+    ``xi^(-1 - eps - 2 alpha' t)`` times the vertex law: ``(M^2, t)`` from
+    ``(M^2)^(-1-eps) h_{B+c}(t) / Z_B`` with ``c = 2 alpha' ln(s m_p^2 / (M^2
+    m_rem^2))`` (:func:`~na49_mixing.topology_mass_laws.draw_marginal_pomeron`,
+    :func:`~na49_mixing.topology_mass_laws.draw_t_pomeron`; the section "The
+    Pomeron's shrinkage" of that module).  Same draw budget (2 + 1 uniforms);
+    needs *exact_range*.  The event records ``pomeron``.  ``None`` gives the
+    committed event.  *pomeron_linear_t* t_lin holds the slope alpha' down to
+    ``t = -t_lin`` and the exponent constant below it (the committed slope
+    below the break, which must equal t_lin for the intact proton).
+
     ``ValueError`` on a side outside :data:`SDSIDES`, a weights mapping
     outside the card-3 kinds, or an unknown catalog/family surface
     (checked, never repaired).
@@ -1050,6 +1073,14 @@ def generate_sd(
         m_edge = line_mass_threshold(fams, catalog, excited_line if isovector else None)
         m2_min = m_edge * m_edge
     mass_params = params
+    # the Pomeron's shrinkage (2026-11-01): the coherence-region vacuum events
+    pomeron = pomeron_slope is not None and not isovector and tail is None and not is_ope
+    if pomeron and not exact_range:
+        raise ValueError("generate_sd: the Pomeron's shrinkage needs the exact transfer window")
+    pomeron_proton = remnant.pdg_id == PROTON_PDG_ID
+    pomeron_f_term = (0.5 * (float(intact_vertex_factor) - 1.0)
+                      if (slope_mass_exponent is not None and intact_vertex_factor is not None and pomeron_proton) else 0.0)
+    pomeron_t_break = t_break if (t_break is not None and pomeron_proton) else None
     if tail is not None:
         # the leading-proton tail beyond the coherence region (2026-10-23, a probe
         # form of the reggeized pion exchange): the excited mass on
@@ -1067,6 +1098,11 @@ def generate_sd(
         m2_max = min(m2_max, ope_vals[2] * SQRT_S * SQRT_S)
         m2_excitation, transfer = draw_ope(m2_min, m2_max, remnant.mass * remnant.mass, SQRT_S * SQRT_S,
                                            ope_law, rng_exchange_kinematics)
+    elif pomeron:
+        # the shrinkage law's marginal (M^2)^(-1-eps) Z_{B+c} / Z_B on the same 2 uniforms
+        m2_excitation = draw_marginal_pomeron(m2_min, m2_max, params.epsilon, params.b_sd, remnant.mass,
+                                              slope_mass_exponent, pomeron_f_term, float(pomeron_slope),
+                                              pomeron_t_break, rng_exchange_kinematics, t_lin=pomeron_linear_t)
     elif tail_edge is not None:
         # the tail's smooth upper edge in place of the wall at xi_hi (2026-10-25)
         m2_excitation = draw_marginal_edge(m2_min, m2_max, mass_params, SQRT_S * SQRT_S, tail_edge[0], tail_edge[1],
@@ -1107,7 +1143,12 @@ def generate_sd(
                 # M1, and M4 of the R99 review)
                 slope_factor += 0.5 * (float(intact_vertex_factor) - 1.0)
             t_params = MassLawParams(epsilon=params.epsilon, b_sd=params.b_sd * slope_factor)
-        if t_break is not None and remnant.pdg_id == PROTON_PDG_ID:
+        if pomeron:
+            # the shrinkage law's vertex law: every slope raised by c = 2 alpha' L (2026-11-01), the same 1 uniform
+            c_shrink = 2.0 * float(pomeron_slope) * float(pomeron_gap_log(m2_excitation, remnant.mass * remnant.mass))
+            transfer = draw_t_pomeron(t_lo, t_hi, float(t_params.b_sd), c_shrink, pomeron_t_break, rng_exchange_kinematics,
+                                      t_lin=pomeron_linear_t)
+        elif t_break is not None and remnant.pdg_id == PROTON_PDG_ID:
             # the intact proton's two-slope transfer (2026-10-24): exp(B t) above
             # -t_b and the slope rho B below it, one uniform as draw_t_window; the
             # reweighting selects the same events by the remnant mass
@@ -1265,6 +1306,7 @@ def generate_sd(
         slope_factor=slope_factor,
         tail=is_tail,
         ope=is_ope,
+        pomeron=(bool(pomeron) if pomeron_slope is not None else None),
     )
 
 

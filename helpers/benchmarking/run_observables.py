@@ -315,6 +315,7 @@ def shape_arrays(event) -> dict:
         if ope is not None:
             out["ope"] = 1.0 if ope else 0.0
         _slope_factor(event, out)
+        _pomeron(event, out)
         return out
     if label == "dd":
         out = {"m12": float(event.m1) ** 2, "m22": float(event.m2) ** 2, "t1": float(event.t1), "t2": float(event.t2)}
@@ -322,6 +323,7 @@ def shape_arrays(event) -> dict:
         if edges is not None:
             out["m_lo1"], out["m_lo2"] = float(edges[0]), float(edges[1])
         _slope_factor(event, out)
+        _pomeron(event, out)
         return out
     if label == "nd":
         # the remnant kinds and excitation windows (2026-09-29): the exponent
@@ -351,6 +353,15 @@ def _slope_factor(event, out: dict) -> None:
     factor = getattr(event, "slope_factor", None)
     if factor is not None:
         out["slope_factor"] = float(factor)
+
+
+def _pomeron(event, out: dict) -> None:
+    """1 for an event drawn from the Pomeron's shrinkage law under the topology
+    option diffractive_pomeron_slope (2026-11-01), 0 for the other events of
+    such a run; absent without the option."""
+    flag = getattr(event, "pomeron", None)
+    if flag is not None:
+        out["pomeron"] = 1.0 if flag else 0.0
 
 
 def strange_counts(finals: Iterable) -> dict:

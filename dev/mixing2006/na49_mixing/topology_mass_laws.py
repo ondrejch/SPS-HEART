@@ -837,6 +837,8 @@ def draw_joint_dd_exact(
     params: MassLawParams,
     rng: np.random.Generator,
     slope_mass_exponent: float | None = None,
+    pomeron_slope: float | None = None,
+    pomeron_linear_t: float | None = None,
 ) -> tuple[float, float, float, float]:
     """The double-excitation draw with the exact transfer window
     (2026-10-05): the masses as in :func:`draw_joint_dd` (2 + 2 uniforms per
@@ -845,7 +847,12 @@ def draw_joint_dd_exact(
     Returns ``(M_1^2, M_2^2, t, t)``: ``t_1 = t_2`` by momentum conservation.
     Exactly 5 uniforms per accepted draw.  *slope_mass_exponent* (2026-10-08)
     draws the transfer at the pair's factorized vertex slope
-    (:func:`vertex_slope_factor`)."""
+    (:func:`vertex_slope_factor`).  *pomeron_slope* (2026-11-01) alpha'
+    draws the Pomeron's shrinkage law (the section "The Pomeron's shrinkage"):
+    a pair that passes the closure is kept with the probability
+    ``R = Z_{B+c} / Z_B <= 1`` on one more uniform (a rejected pair starts a
+    new attempt), and the transfer follows the slope ``B + c``
+    (*pomeron_linear_t*: down to ``-t_lin``, the slope ``B`` below it)."""
     if not isinstance(params, MassLawParams):
         raise ValueError(f"draw_joint_dd_exact: expected MassLawParams, got {type(params)!r}")
     root_s = float(sqrt_s)
@@ -858,6 +865,17 @@ def draw_joint_dd_exact(
             if slope_mass_exponent is not None:
                 factor = vertex_slope_factor(math.sqrt(m2_1), math.sqrt(m2_2), slope_mass_exponent)
                 t_params = MassLawParams(epsilon=params.epsilon, b_sd=params.b_sd * factor)
+            if pomeron_slope is not None:
+                big_b = float(t_params.b_sd)
+                c = 2.0 * float(pomeron_slope) * float(pomeron_gap_log(m2_1, m2_2))
+                lo_a, hi_a = np.asarray([t_lo]), np.asarray([t_hi])
+                s1, s2, tx = _pomeron_slopes(big_b, c, None, pomeron_linear_t)
+                log_r = float(_log_pw_norm(s1, s2, lo_a, hi_a, tx)[0]
+                              - _log_t_window_norm_slopes(np.asarray([big_b]), lo_a, hi_a)[0])
+                if rng.random() >= math.exp(min(log_r, 0.0)):
+                    continue
+                t = draw_t_pomeron(t_lo, t_hi, big_b, c, None, rng, t_lin=pomeron_linear_t)
+                return (m2_1, m2_2, t, t)
             t = draw_t_window(t_lo, t_hi, t_params, rng)
             return (m2_1, m2_2, t, t)
     raise PhaseSpaceRejectionExceeded(
@@ -1152,6 +1170,7 @@ def log_density_ratio(
     intact_factor: "tuple[float, float] | None" = None,
     xi_max: "float | None" = None,
     t_break: "tuple[float, float] | None" = None,
+    pomeron: "tuple | None" = None,
 ) -> np.ndarray:
     """The per-event ``log rho_c(event; eps, b_sd) - log rho_c(event; eps0, b_sd0)``
     of one topology class, the exact importance weight of the class mass
@@ -1187,7 +1206,27 @@ def log_density_ratio(
     ends at ``xi_max s``, and the double-diffraction joint mass is then the
     product of the two marginal masses (the closure never binds at
     ``xi_max <= 0.25``).
+    *pomeron* ``(alpha', kappa, f)`` (2026-11-01) is the Pomeron's shrinkage
+    of the diffractive classes (``TopologyNominalParams.diffractive_pomeron_slope``,
+    the section "The Pomeron's shrinkage" below): the events whose array
+    ``pomeron`` is 1 take the ratio of the shrinkage law's densities, kappa the
+    vertex exponent and f the intact proton's vertex factor when it is fixed
+    (``None`` when absent or reweighted by *intact_factor*); every other event
+    keeps the committed ratio.  alpha' is the same at both points.
     """
+    if pomeron is not None and cls in ("sd_projectile", "sd_target", "dd") and "pomeron" in arrays:
+        shr = np.asarray(arrays["pomeron"], dtype=float) > 0.5
+        base = log_density_ratio(cls, arrays, eps, b_sd, eps0=eps0, b_sd0=b_sd0, sqrt_s=sqrt_s, exact_range=exact_range,
+                                 central_law=central_law, eps_c=eps_c, eps_c0=eps_c0, intact_factor=intact_factor,
+                                 xi_max=xi_max, t_break=t_break)
+        if not np.any(shr):
+            return base
+        if not exact_range:
+            raise ValueError("log_density_ratio: the Pomeron's shrinkage is defined on the exact transfer window only")
+        out = np.array(base, dtype=float, copy=True)
+        out[shr] = _pomeron_log_ratio(cls, arrays, shr, float(eps), float(b_sd), float(eps0), float(b_sd0), tuple(pomeron),
+                                      intact_factor, xi_max, t_break if cls != "dd" else None, float(sqrt_s))
+        return out
     if central_law not in ("committed", "power"):
         raise ValueError(f"log_density_ratio: unknown central law {central_law!r}")
     if central_law == "power" and (eps_c is None or eps_c0 is None):
@@ -1468,3 +1507,312 @@ def _excited_remnant_terms(out, arrays, m1, m2, eps, eps0):
                                    - log_power_integral_vec(eps0, a2[shaped], e2))
             out[excited] += law + (log_power_integral_vec(eps0, a2, c2) - log_power_integral_vec(eps, a2, c2))
     return out
+
+
+# ----------------------------------------------------------------------
+# The Pomeron's shrinkage in the diffractive classes (2026-11-01)
+# ----------------------------------------------------------------------
+# The triple-Pomeron term of the triple-Regge expansion at fixed transfer is
+# d^2 sigma / dxi dt = G(t) s^eps xi^(-1 - eps - 2 alpha'_P t): the pure power
+# (M^2)^(-1-eps) is its t = 0 form, and at t < 0 the factor xi^(-2 alpha' t) =
+# exp(2 alpha' t ln(1/xi)) steepens the transfer law at small xi (the shrinkage
+# of the diffraction peak, slope B + 2 alpha' ln(1/xi)).  The committed law
+# draws M^2 from (M^2)^(-1-eps) and t from the vertex law h_B(t) normalized
+# per mass, the zero-transfer form.  Under the option
+# ``diffractive_pomeron_slope`` alpha' the vacuum events of the coherence
+# region carry that law times the Regge factor:
+#
+#     p(M^2, t)  ~  (M^2)^(-1-eps) h_{B + c}(t) / Z_B(M^2),   c = 2 alpha' L,
+#
+# with L = ln(s m_p^2 / (M_1^2 M_2^2)) the rapidity gap of the 2 -> 2 final
+# state (ln(1/xi) for an intact proton, clipped at zero where the two
+# double-diffraction systems leave no gap), h_{B+c} the vertex law with every
+# slope raised by c (the intact proton's two slopes B and rho B become B + c
+# and rho B + c) and Z_B the vertex law's committed normalization on the
+# event's transfer window.  The mass marginal gains the factor
+# R(M^2) = Z_{B+c} / Z_B <= 1, and at alpha' = 0 the law is the committed one.
+# The option ``diffractive_pomeron_linear_t`` t_lin holds the slope alpha'
+# down to t = -t_lin and the exponent constant below it (the factor
+# xi^(-2 alpha' max(t, -t_lin))): the raised slope B + c above -t_lin, the
+# committed slope below (rho B for the intact proton, whose break t_b must then
+# equal t_lin; B for every other vertex law).
+
+#: The Gauss-Legendre orders of the shrinkage law's mass normalization (single
+#: diffraction in ln M^2, double diffraction in ln M_1^2 and ln M_2^2).
+_POMERON_GL_ORDER: int = 256
+_POMERON_GL_ORDER_DD: int = 96
+_POMERON_GRID_CACHE: dict = {}
+_POMERON_GRID_CACHE_MAX: int = 64
+
+
+def pomeron_gap_log(m2_1, m2_2, sqrt_s: float = PINNED_SQRT_S_EXACT) -> np.ndarray:
+    """``L = max(0, ln(s m_p^2 / (M_1^2 M_2^2)))`` elementwise: the rapidity
+    gap of a diffractive 2 -> 2 final state with the outgoing masses squared
+    *m2_1*, *m2_2* [GeV^2] (``ln(s / M^2)`` for single diffraction with an
+    intact proton), zero where the two systems leave no gap."""
+    a = np.asarray(m2_1, dtype=float)
+    b = np.asarray(m2_2, dtype=float)
+    s = float(sqrt_s) * float(sqrt_s)
+    return np.maximum(np.log(s * PROTON_MASS * PROTON_MASS / (a * b)), 0.0)
+
+
+def _log_pw_norm(s1, s2, t_lo, t_hi, t_b) -> np.ndarray:
+    """``log`` of the integral on ``[t_lo, t_hi]`` of the vertex law with the
+    slope *s1* above ``-t_b`` and the continuous slope *s2* below it
+    (``exp(-s1 t_b + s2 (t + t_b))``); *t_b* ``None`` is the single slope *s1*.
+    Elementwise; the slopes positive."""
+    s1, s2, lo, hi = np.broadcast_arrays(*(np.asarray(v, dtype=float) for v in (s1, s2, t_lo, t_hi)))
+    if t_b is None:
+        return _log_t_window_norm_slopes(s1, lo, hi)
+    tb = float(t_b)
+    xb = -tb
+    a = np.maximum(lo, xb)
+    c = np.minimum(hi, xb)
+    upper = np.where(hi > a, _log_t_window_norm_slopes(s1, a, hi), -np.inf)
+    lower = np.where(c > lo, -s1 * tb + _log_t_window_norm_slopes(s2, lo - xb, c - xb), -np.inf)
+    return np.logaddexp(upper, lower)
+
+
+def _log_pw_density(t, s1, s2, t_b) -> np.ndarray:
+    """The vertex law's unnormalized ``log`` density at *t* (see :func:`_log_pw_norm`)."""
+    t, s1, s2 = np.broadcast_arrays(*(np.asarray(v, dtype=float) for v in (t, s1, s2)))
+    if t_b is None:
+        return s1 * t
+    tb = float(t_b)
+    return np.where(t >= -tb, s1 * t, -s1 * tb + s2 * (t + tb))
+
+
+def _pomeron_slopes(big_b, c, t_break, t_lin):
+    """``(s1, s2, t_x)`` of the shrinkage law's vertex law at the committed
+    slope *big_b* and the raise *c*: above ``-t_x`` the slope *s1*, below it
+    the continuous slope *s2* (``t_x`` ``None``: the single slope *s1*).  The
+    committed law's break *t_break* ``(t_b, rho)`` and the linear range *t_lin*
+    (``None``: the raise applies at every t) set the pieces; a break and a
+    linear range must coincide."""
+    if t_lin is None:
+        if t_break is None:
+            return big_b + c, big_b + c, None
+        return big_b + c, float(t_break[1]) * big_b + c, float(t_break[0])
+    if t_break is None:
+        return big_b + c, big_b, float(t_lin)
+    if float(t_break[0]) != float(t_lin):
+        raise ValueError(f"the Pomeron's linear range {t_lin!r} must equal the transfer break {t_break!r}")
+    return big_b + c, float(t_break[1]) * big_b, float(t_lin)
+
+
+def _sd_slope_factors(m2, m_rem: float, kappa, f_term: float) -> np.ndarray:
+    """The factorized vertex slope factor of single-diffraction masses squared
+    *m2* beside the remnant *m_rem* (:func:`vertex_slope_factor` elementwise
+    plus the intact proton's term *f_term*); *kappa* ``None`` is the single
+    slope (factor 1)."""
+    m2 = np.asarray(m2, dtype=float)
+    if kappa is None:
+        return np.ones(m2.shape)
+    k = float(kappa)
+    r1 = PROTON_MASS / np.maximum(np.sqrt(m2), PROTON_MASS)
+    r2 = PROTON_MASS / max(float(m_rem), PROTON_MASS)
+    return 0.5 * (np.power(r1, k) + math.pow(r2, k)) + float(f_term)
+
+
+def sd_pomeron_log_factor(m2, m_rem: float, b: float, kappa, f_term: float, alpha: float,
+                          t_break=None, sqrt_s: float = PINNED_SQRT_S_EXACT, t_lin=None) -> np.ndarray:
+    """``log R(M^2) = log Z_{B+c} - log Z_B`` of the single-diffraction
+    shrinkage law (the module section above) at the masses squared *m2* beside
+    the remnant *m_rem*: the vertex slope ``B = b`` times the slope factor
+    (:func:`_sd_slope_factors`), ``c = 2 alpha' ln(s m_p^2 / (M^2 m_rem^2))``,
+    the intact proton's two slopes under *t_break* ``(t_b, rho)``, the
+    linear range *t_lin* (:func:`_pomeron_slopes`)."""
+    m2 = np.asarray(m2, dtype=float)
+    mr2 = float(m_rem) * float(m_rem)
+    big_b = float(b) * _sd_slope_factors(m2, m_rem, kappa, f_term)
+    c = 2.0 * float(alpha) * pomeron_gap_log(m2, mr2, sqrt_s)
+    rho, tb = (1.0, None) if t_break is None else (float(t_break[1]), float(t_break[0]))
+    lo, hi = pp_t_window_vec(m2, np.full(m2.shape, mr2), sqrt_s)
+    s1, s2, tx = _pomeron_slopes(big_b, c, t_break, t_lin)
+    return _log_pw_norm(s1, s2, lo, hi, tx) - _log_pw_norm(big_b, rho * big_b, lo, hi, tb)
+
+
+def draw_marginal_pomeron(m2_min: float, m2_max: float, epsilon: float, b: float, m_rem: float, kappa, f_term: float,
+                          alpha: float, t_break, rng: np.random.Generator, t_lin=None) -> float:
+    """One ``M^2`` draw of the single-diffraction shrinkage law's marginal
+    ``(M^2)^(-1-eps) R(M^2)`` on ``[m2_min, m2_max]``: the geometric 4096-point
+    grid of :func:`draw_marginal` (uniform in ``ln M^2``, trapezoid cells, the
+    grid cached per parameter point), exactly 2 uniforms from *rng*."""
+    key = (float(m2_min), float(m2_max), float(epsilon), float(b), float(m_rem),
+           None if kappa is None else float(kappa), float(f_term), float(alpha),
+           None if t_break is None else (float(t_break[0]), float(t_break[1])),
+           None if t_lin is None else float(t_lin))
+    hit = _POMERON_GRID_CACHE.get(key)
+    if hit is None:
+        lo, hi = key[0], key[1]
+        if not (math.isfinite(lo) and math.isfinite(hi)) or not hi > lo > 0.0:
+            raise ValueError(f"draw_marginal_pomeron: the window must satisfy 0 < m2_min < m2_max, got ({m2_min!r}, {m2_max!r})")
+        ys = np.linspace(math.log(lo), math.log(hi), _MARGINAL_GRID_POINTS)
+        g = np.exp(-float(epsilon) * ys + sd_pomeron_log_factor(np.exp(ys), m_rem, b, kappa, f_term, alpha, t_break,
+                                                                t_lin=t_lin))
+        cell = 0.5 * (g[1:] + g[:-1]) * (ys[1:] - ys[:-1])
+        total = float(cell.sum())
+        if not (math.isfinite(total) and total > 0.0):
+            raise ValueError(f"draw_marginal_pomeron: the marginal carries no mass on ({m2_min!r}, {m2_max!r})")
+        if len(_POMERON_GRID_CACHE) >= _POMERON_GRID_CACHE_MAX:
+            _POMERON_GRID_CACHE.clear()
+        hit = (ys, np.cumsum(cell) / total)
+        _POMERON_GRID_CACHE[key] = hit
+    ys, cdf = hit
+    idx = int(np.searchsorted(cdf, rng.random(), side="right"))
+    if idx >= cdf.size:
+        idx = cdf.size - 1
+    y_value = ys[idx] + rng.random() * (ys[idx + 1] - ys[idx])
+    return float(min(max(math.exp(y_value), key[0]), key[1]))
+
+
+def draw_t_pomeron(t_lo: float, t_hi: float, big_b: float, c: float, t_break, rng: np.random.Generator,
+                   t_lin=None) -> float:
+    """One t draw of the shrinkage law's vertex law on ``[t_lo, t_hi]``: the
+    slope ``B + c``, under *t_break* ``(t_b, rho)`` the two slopes ``B + c``
+    and ``rho B + c`` continuous at ``-t_b``, under the linear range *t_lin*
+    the committed slope below ``-t_lin`` (:func:`_pomeron_slopes`); exactly 1
+    uniform (the inverse CDF of :func:`draw_t_window` /
+    :func:`draw_t_window_break`)."""
+    if t_break is not None:
+        _validated_t_break(t_break)
+    s1, s2, tx = _pomeron_slopes(float(big_b), float(c), t_break, t_lin)
+    params = MassLawParams(epsilon=0.0, b_sd=s1)
+    if tx is None:
+        return draw_t_window(t_lo, t_hi, params, rng)
+    return draw_t_window_break(t_lo, t_hi, params, (tx, s2 / s1), rng)
+
+
+def _gl_nodes(order: int, a: float, b: float) -> tuple[np.ndarray, np.ndarray]:
+    x, w = np.polynomial.legendre.leggauss(int(order))
+    half = 0.5 * (b - a)
+    return 0.5 * (b + a) + half * x, half * w
+
+
+def log_sd_pomeron_mass_norm(epsilon: float, b: float, kappa, f_term: float, alpha: float, t_break,
+                             m2_low: float, m2_max: float, m_rem: float, sqrt_s: float = PINNED_SQRT_S_EXACT,
+                             t_lin=None) -> float:
+    """``log`` of the single-diffraction shrinkage law's mass normalization
+    ``int (M^2)^(-1-eps) R(M^2) dM^2`` on ``[m2_low, m2_max]`` (Gauss-Legendre
+    in ``ln M^2``, order :data:`_POMERON_GL_ORDER`)."""
+    ys, ws = _gl_nodes(_POMERON_GL_ORDER, math.log(float(m2_low)), math.log(float(m2_max)))
+    log_g = -float(epsilon) * ys + sd_pomeron_log_factor(np.exp(ys), m_rem, b, kappa, f_term, alpha, t_break, sqrt_s,
+                                                         t_lin=t_lin)
+    peak = float(np.max(log_g))
+    return peak + math.log(float(np.sum(ws * np.exp(log_g - peak))))
+
+
+def dd_pomeron_log_factor(m2_1, m2_2, b: float, kappa, alpha: float, sqrt_s: float = PINNED_SQRT_S_EXACT,
+                          t_lin=None) -> np.ndarray:
+    """``log R = log Z_{B+c} - log Z_B`` of the double-diffraction shrinkage law
+    at the masses squared *m2_1*, *m2_2* (one slope ``B = b`` times the pair's
+    factorized vertex slope factor, ``c = 2 alpha' L``)."""
+    a = np.asarray(m2_1, dtype=float)
+    d = np.asarray(m2_2, dtype=float)
+    a, d = np.broadcast_arrays(a, d)
+    if kappa is None:
+        factor = np.ones(a.shape)
+    else:
+        k = float(kappa)
+        factor = 0.5 * (np.power(PROTON_MASS / np.maximum(np.sqrt(a), PROTON_MASS), k)
+                        + np.power(PROTON_MASS / np.maximum(np.sqrt(d), PROTON_MASS), k))
+    big_b = float(b) * factor
+    c = 2.0 * float(alpha) * pomeron_gap_log(a, d, sqrt_s)
+    lo, hi = pp_t_window_vec(a, d, sqrt_s)
+    s1, s2, tx = _pomeron_slopes(big_b, c, None, t_lin)
+    return _log_pw_norm(s1, s2, lo, hi, tx) - _log_t_window_norm_slopes(big_b, lo, hi)
+
+
+def log_dd_pomeron_mass_norm(epsilon: float, b: float, kappa, alpha: float, m_lo1: float, m_lo2: float, m2_max: float,
+                             sqrt_s: float = PINNED_SQRT_S_EXACT, t_lin=None) -> float:
+    """``log`` of the double-diffraction shrinkage law's joint mass
+    normalization ``int int (M_1^2 M_2^2)^(-1-eps) R dM_1^2 dM_2^2`` on
+    ``[m_lo1^2, m2_max] x [m_lo2^2, m2_max]`` (the coherence edge
+    ``m2_max <= 0.25 s`` keeps the closure; Gauss-Legendre in ``ln M_i^2``)."""
+    y1, w1 = _gl_nodes(_POMERON_GL_ORDER_DD, 2.0 * math.log(float(m_lo1)), math.log(float(m2_max)))
+    y2, w2 = _gl_nodes(_POMERON_GL_ORDER_DD, 2.0 * math.log(float(m_lo2)), math.log(float(m2_max)))
+    g1, g2 = np.meshgrid(y1, y2, indexing="ij")
+    log_g = -float(epsilon) * (g1 + g2) + dd_pomeron_log_factor(np.exp(g1), np.exp(g2), b, kappa, alpha, sqrt_s, t_lin)
+    peak = float(np.max(log_g))
+    return peak + math.log(float(np.sum(np.outer(w1, w2) * np.exp(log_g - peak))))
+
+
+def _pomeron_log_ratio(cls: str, arrays: dict, sel: np.ndarray, eps: float, b_sd: float, eps0: float, b0: float,
+                       pomeron: tuple, intact_factor, xi_max, t_break, root_s: float) -> np.ndarray:
+    """The importance weight of the shrinkage law's events *sel* between two
+    parameter points (the trial ``(eps, b_sd)`` and the generation ``(eps0,
+    b0)``; *pomeron* ``(alpha', kappa, f[, t_lin])`` with ``f`` the intact
+    vertex factor when it is fixed, ``None`` without it, and t_lin the linear
+    range, ``None`` or absent for every t)."""
+    alpha, kappa, f_fixed = float(pomeron[0]), pomeron[1], pomeron[2]
+    t_lin = pomeron[3] if len(pomeron) > 3 else None
+    if cls in ("sd_projectile", "sd_target"):
+        m2 = np.asarray(arrays["m2"], dtype=float)[sel]
+        t = np.asarray(arrays["t"], dtype=float)[sel]
+        m_rem = np.asarray(arrays["m_rem"], dtype=float)[sel]
+        factor = np.asarray(arrays["slope_factor"], dtype=float)[sel] if "slope_factor" in arrays else np.ones(m2.shape)
+        intact = m_rem <= PROTON_MASS * (1.0 + 1e-9)
+        if intact_factor is not None:
+            f, f0 = (float(v) for v in intact_factor)
+        else:
+            f = f0 = None if f_fixed is None else float(f_fixed)
+        trial = factor + (0.5 * (f - f0) * intact if (f is not None and f0 is not None) else 0.0)
+        c = 2.0 * alpha * pomeron_gap_log(m2, m_rem * m_rem)
+        t_lo, t_hi = pp_t_window_vec(m2, m_rem * m_rem)
+        out = np.empty(m2.shape)
+        m2_max = (root_s - m_rem) ** 2
+        if xi_max is not None:
+            m2_max = np.minimum(m2_max, float(xi_max) * root_s * root_s)
+        low = (np.asarray(arrays["m2_low"], dtype=float)[sel] if "m2_low" in arrays
+               else np.full(m2.shape, EXCITATION_M_MIN * EXCITATION_M_MIN))
+        # the intact proton's two slopes under t_break, the single slope otherwise
+        groups = ([(intact, (float(t_break[0]), float(t_break[1]))), (~intact, None)] if t_break is not None
+                  else [(np.ones(m2.shape, dtype=bool), None)])
+        for pick, tbr in groups:
+            if not np.any(pick):
+                continue
+            tb, rho = (tbr[0], tbr[1]) if tbr is not None else (None, 1.0)
+            b_t, b_g = b_sd * trial[pick], b0 * factor[pick]
+            ct, tt, lo, hi = c[pick], t[pick], t_lo[pick], t_hi[pick]
+            s1t, s2t, txt = _pomeron_slopes(b_t, ct, tbr, t_lin)
+            s1g, s2g, txg = _pomeron_slopes(b_g, ct, tbr, t_lin)
+            out[pick] = ((_log_pw_density(tt, s1t, s2t, txt) - _log_pw_norm(b_t, rho * b_t, lo, hi, tb))
+                         - (_log_pw_density(tt, s1g, s2g, txg) - _log_pw_norm(b_g, rho * b_g, lo, hi, tb)))
+        out += -(eps - eps0) * np.log(m2)
+        # the mass normalization per (lower edge, remnant, upper edge) group
+        keys = np.stack([low, m_rem, m2_max], axis=1)
+        uniq, inverse = np.unique(keys, axis=0, return_inverse=True)
+        norm = np.empty(len(uniq))
+        for k, (lo2, mr, hi2) in enumerate(uniq):
+            is_p = mr <= PROTON_MASS * (1.0 + 1e-9)
+            tb_g = tuple(t_break) if (t_break is not None and is_p) else None
+            ft = (0.5 * (f - 1.0) if (is_p and f is not None) else 0.0) if kappa is not None else 0.0
+            ft0 = (0.5 * (f0 - 1.0) if (is_p and f0 is not None) else 0.0) if kappa is not None else 0.0
+            # the transfer windows and gaps at the exact sqrt(s), the mass windows at the caller's (as the draws)
+            norm[k] = (log_sd_pomeron_mass_norm(eps, b_sd, kappa, ft, alpha, tb_g, lo2, hi2, mr, t_lin=t_lin)
+                       - log_sd_pomeron_mass_norm(eps0, b0, kappa, ft0, alpha, tb_g, lo2, hi2, mr, t_lin=t_lin))
+        return out - norm[np.asarray(inverse).reshape(-1)]
+    if cls == "dd":
+        if xi_max is None or float(xi_max) > 0.25:
+            raise ValueError("log_density_ratio: the double-diffraction shrinkage law needs the coherence edge xi_max <= 0.25")
+        m12 = np.asarray(arrays["m12"], dtype=float)[sel]
+        m22 = np.asarray(arrays["m22"], dtype=float)[sel]
+        t = np.asarray(arrays["t1"], dtype=float)[sel]
+        factor = np.asarray(arrays["slope_factor"], dtype=float)[sel] if "slope_factor" in arrays else np.ones(m12.shape)
+        c = 2.0 * alpha * pomeron_gap_log(m12, m22)
+        t_lo, t_hi = pp_t_window_vec(m12, m22)
+        b_t, b_g = b_sd * factor, b0 * factor
+        s1t, s2t, txt = _pomeron_slopes(b_t, c, None, t_lin)
+        s1g, s2g, txg = _pomeron_slopes(b_g, c, None, t_lin)
+        out = ((_log_pw_density(t, s1t, s2t, txt) - _log_t_window_norm_slopes(b_t, t_lo, t_hi))
+               - (_log_pw_density(t, s1g, s2g, txg) - _log_t_window_norm_slopes(b_g, t_lo, t_hi))
+               - (eps - eps0) * (np.log(m12) + np.log(m22)))
+        hi2 = min((root_s - PROTON_MASS) ** 2, float(xi_max) * root_s * root_s)
+        lo1 = (np.asarray(arrays["m_lo1"], dtype=float)[sel] if "m_lo1" in arrays else np.full(m12.shape, EXCITATION_M_MIN))
+        lo2 = (np.asarray(arrays["m_lo2"], dtype=float)[sel] if "m_lo2" in arrays else np.full(m12.shape, EXCITATION_M_MIN))
+        keys = np.stack([lo1, lo2], axis=1)
+        uniq, inverse = np.unique(keys, axis=0, return_inverse=True)
+        norm = np.asarray([log_dd_pomeron_mass_norm(eps, b_sd, kappa, alpha, a, d, hi2, t_lin=t_lin)
+                           - log_dd_pomeron_mass_norm(eps0, b0, kappa, alpha, a, d, hi2, t_lin=t_lin) for a, d in uniq])
+        return out - norm[np.asarray(inverse).reshape(-1)]
+    raise ValueError(f"log_density_ratio: the shrinkage law covers the diffractive classes, got {cls!r}")

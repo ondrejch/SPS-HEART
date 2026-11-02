@@ -639,7 +639,8 @@ def test_named_constants_and_record_surface():
     assert tuple(DDEvent.__dataclass_fields__) == (
         "class_label", "m1", "m2", "t1", "t2", "lines", "exchanges",
         "final_state", "gap_size",
-        "exchange_configuration", "line_m_min", "slope_factor")  # Round 8 2026-10-04, default None (the vacuum exchanges);
+        "exchange_configuration", "line_m_min", "slope_factor", "pomeron")  # Round 8 2026-10-04, default None (the vacuum exchanges);
+    # pomeron: 2026-11-01, None without diffractive_pomeron_slope, True for a vacuum event of the Pomeron's shrinkage law
     # line_m_min: 2026-10-06, None = the shared edges (line_thresholds off)
     # slope_factor: 2026-10-08, None = the single transfer slope (transfer_slope_mass_exponent off)
     assert DDEvent.__dataclass_fields__["exchange_configuration"].default is None
@@ -664,7 +665,8 @@ def test_named_constants_and_record_surface():
         "params", "catalog", "fams", "rng_exchange_kinematics",
         "rng_decay_channel", "rng_decay_kinematics", "flavor", "ledger",
         "exchange", "exact_range", "line_thresholds", "slope_mass_exponent", "diffractive_duality",
-        "duality_line_shapes", "xi_max")  # exchange: Round 8 2026-10-04, the drawn exchange configuration (None = vacuum);
+        "duality_line_shapes", "xi_max", "pomeron_slope", "pomeron_linear_t")  # exchange: Round 8 2026-10-04, the drawn exchange configuration (None = vacuum);
+    # pomeron_slope: 2026-11-01, None = the committed draw (no shrinkage);
     # xi_max: 2026-10-23, None = the excited masses up to the kinematic edge (the coherence edge M^2/s otherwise);
     # diffractive_duality: 2026-10-15, None = the continuum cascade of the vacuum systems;
     # duality_line_shapes: 2026-10-18, False = the fixed-width Breit-Wigner pick;

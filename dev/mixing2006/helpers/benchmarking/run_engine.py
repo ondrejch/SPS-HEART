@@ -87,7 +87,8 @@ from na49_mixing.isovector_exchange import ISOVECTOR_CONFIGURATIONS  # noqa: E40
 from na49_mixing.resonance_decay import ResonanceDecayer  # noqa: E402
 from na49_mixing.rng_substreams import derive_substreams  # noqa: E402
 from na49_mixing.spectral_density import families_from_json  # noqa: E402
-from na49_mixing.topology_mass_laws import PROTON_MASS as MASS_LAW_PROTON, log_density_ratio, log_power_integral, sd_limits  # noqa: E402
+from na49_mixing.topology_mass_laws import (PROTON_MASS as MASS_LAW_PROTON, log_density_ratio, log_power_integral,  # noqa: E402
+                                            log_sd_pomeron_mass_norm, sd_limits)
 from na49_mixing.topology_runner import (  # noqa: E402
     NOMINAL_PARAMS,
     TopologyNominalParams,
@@ -191,7 +192,12 @@ TOPOLOGY_KEYS = ("exact_transfer_range", "line_thresholds", "central_recoil", "l
 #: mass below which the diffractive lines decay as I = 1/2 records (2026-10-15);
 #: the coherence edge M^2/s of the diffractive classes' excited masses (2026-10-23)
 TOPOLOGY_NUMERIC_KEYS = ("transfer_slope_mass_exponent", "nd_duality_mass", "nd_duality_shape_mass", "intact_vertex_factor",
-                         "diffractive_duality_mass", "diffractive_xi_max")
+                         "diffractive_duality_mass", "diffractive_xi_max",
+                         # 2026-11-01: alpha'_P of the Pomeron's shrinkage in the diffractive classes' coherence region
+                         # (topology_mass_laws, "The Pomeron's shrinkage"; needs the exact window and the coherence edge)
+                         "diffractive_pomeron_slope",
+                         # 2026-11-01: t_lin, the shrinkage down to t = -t_lin only (the trajectory's linear range)
+                         "diffractive_pomeron_linear_t")
 ISOVECTOR_KEYS = frozenset({"generation_fraction", "own_slope", "texts"})
 EXACT_RANGE = False
 ND_CLASSES = ("nd", "nd0")
@@ -244,6 +250,13 @@ FRACTION_NAMES = ("f_sd_total", "f_dd")
 #: "single_diffraction_window" x applies the measured share f_sd_window to the
 #: class's masses with M^2/s < x, the class share then f_sd_window / F(epsilon)
 SD_WINDOW = None
+#: "single_diffraction_window_counts" (2026-11-01; the review of 2026-11-01, item R6): what the measured window share
+#: counts. "coherence" (the committed reading) anchors the coherence component alone; "intact_protons" anchors every
+#: intact proton below the window edge, as the inclusive p + p -> p + X measurement does: the coherence component and
+#: the neutral pion exchange (p + p -> p + X+), whose in-window share of the exchange is NEUTRAL_OPE_WINDOW (the neutral
+#: fraction times the neutral law's share below the edge, fixed by the exchange's law)
+SD_WINDOW_INTACT = False
+NEUTRAL_OPE_WINDOW = 0.0
 WINDOW_NAME = "f_sd_window"
 WEIGHT_CACHE_ENTRIES = 64
 SE_CACHE_ENTRIES = 512
@@ -400,6 +413,14 @@ def configure(spec_path) -> dict:
         raise ValueError("run spec: transfer_slope_mass_exponent needs exact_transfer_range true")
     if "intact_vertex_factor" in topology and not (topology["intact_vertex_factor"] > 0.0 and "transfer_slope_mass_exponent" in topology):
         raise ValueError("run spec: intact_vertex_factor is a positive factor of the vertex slopes (needs transfer_slope_mass_exponent)")
+    if "diffractive_pomeron_slope" in topology and not (topology.get("exact_transfer_range") and "diffractive_xi_max" in topology):
+        raise ValueError("run spec: diffractive_pomeron_slope needs exact_transfer_range and diffractive_xi_max")
+    if "diffractive_pomeron_linear_t" in topology:
+        t_lin = topology["diffractive_pomeron_linear_t"]
+        if "diffractive_pomeron_slope" not in topology or not t_lin > 0.0:
+            raise ValueError("run spec: diffractive_pomeron_linear_t is a positive |t| beside diffractive_pomeron_slope")
+        if t_break is not None and float(t_break[0]) != float(t_lin):
+            raise ValueError(f"run spec: diffractive_pomeron_linear_t {t_lin!r} must equal the intact proton's break {t_break[0]!r}")
     # (2026-10-07) the exact window applies to the 2 -> 2 classes; the class
     # with the central source keeps its own construction (at rest, or the
     # recoiling Stage B solve under central_recoil) and its committed draw
@@ -426,6 +447,14 @@ def configure(spec_path) -> dict:
     if window is not None and (isinstance(window, bool) or not isinstance(window, (int, float))
                                or not 0.0 < float(window) < 1.0):
         raise ValueError(f"run spec: single_diffraction_window is an M^2/s edge in (0, 1), got {window!r}")
+    counts = spec.get("single_diffraction_window_counts", "coherence")
+    if counts not in ("coherence", "intact_protons"):
+        raise ValueError(f"run spec: single_diffraction_window_counts is 'coherence' or 'intact_protons', got {counts!r}")
+    if counts == "intact_protons":
+        if window is None or ope_law is None:
+            raise ValueError("run spec: single_diffraction_window_counts 'intact_protons' needs the window and the sd_ope law")
+        if tail_law is not None and float(tail_law[0]) < float(window):
+            raise ValueError("run spec: 'intact_protons' counts the tail only above the window (its xi_lo below the window edge)")
     xi_cap = topology.get("diffractive_xi_max")
     if xi_cap is not None:
         if not 0.0 < float(xi_cap) <= 0.25:
@@ -524,6 +553,8 @@ def configure(spec_path) -> dict:
         LEDGER_SSBAR_SCALE=10 if kernel.eta_prime else 2,
         BIN_CENTER=bin_center, FROZEN_REMNANT_WEIGHTS=split,
         SD_WINDOW=None if window is None else float(window),
+        SD_WINDOW_INTACT=(counts == "intact_protons"),
+        NEUTRAL_OPE_WINDOW=(neutral_ope_window_fraction(ope_law, float(window)) if counts == "intact_protons" else 0.0),
     )
     g.update(N_SLOTS=len(CLASS_ORDER) * REPLICAS, SEEDED_SLOTS=(len(CLASS_ORDER) - 1) * REPLICAS)
     g.update(ACTIVE_SLOTS=tuple(s for s in range(N_SLOTS) if slot_class(s) in ACTIVE_CLASSES))
@@ -1355,6 +1386,14 @@ class Templates:
         if T_BREAK is not None and cls in ("sd_projectile", "sd_target"):
             # the intact proton's two-slope transfer (2026-10-24)
             xi = {**xi, "t_break": tuple(T_BREAK)}
+        if "diffractive_pomeron_slope" in TOPOLOGY_OPTIONS and cls in ("sd_projectile", "sd_target", "dd"):
+            # the Pomeron's shrinkage (2026-11-01): (alpha', the vertex exponent, the intact vertex factor when it is not
+            # reweighted: the generation's free value or the fixed option)
+            f_fix = (float(self.point[shape_pos(IVF_NAME)]) if INTACT_FREE
+                     else TOPOLOGY_OPTIONS.get("intact_vertex_factor"))
+            xi = {**xi, "pomeron": (float(TOPOLOGY_OPTIONS["diffractive_pomeron_slope"]),
+                                    TOPOLOGY_OPTIONS.get("transfer_slope_mass_exponent"), f_fix,
+                                    TOPOLOGY_OPTIONS.get("diffractive_pomeron_linear_t"))}
         args = (law, float(eps_c), float(b), float(eps0_c), float(b0), bool(exact), tuple(sorted(central.items())),
                 tuple(sorted((k, tuple(v)) for k, v in intact.items())), tuple(xi.items()))
         memo = self.__dict__.setdefault("_mass_law_memo", {})
@@ -1487,13 +1526,17 @@ def x_from_physical(phys: dict, fc_fixed=None, iv_fixed=None) -> np.ndarray:
     return np.asarray(core, dtype=float)
 
 
-def sd_window_fraction(epsilon: float, xi_max: float) -> float:
+def sd_window_fraction(epsilon: float, xi_max: float, b_sd: "float | None" = None, f_ivf: "float | None" = None) -> float:
     """The share of the single-diffraction class with M^2/s < *xi_max*: the
     class's marginal (M^2)^(-1-epsilon) on its window [EXCITATION_M_MIN^2,
     (sqrt s - m_p)^2] (topology_mass_laws.sd_limits, the proton line; the
     transfer factor is normalized per mass and drops out), the upper edge at
     the coherence edge of the topology option diffractive_xi_max when the
-    spec sets it (2026-10-23)."""
+    spec sets it (2026-10-23).  Under the topology option
+    diffractive_pomeron_slope (2026-11-01) the marginal carries the
+    shrinkage factor Z_{B+c} / Z_B of the intact proton's vertex law, which
+    depends on the vertex slope *b_sd* and the intact vertex factor *f_ivf*
+    (topology_mass_laws.log_sd_pomeron_mass_norm)."""
     lo, hi = sd_limits(MASS_LAW_PROTON, SQRT_S)
     if "diffractive_xi_max" in TOPOLOGY_OPTIONS:
         hi = min(hi, float(TOPOLOGY_OPTIONS["diffractive_xi_max"]) * SQRT_S * SQRT_S)
@@ -1502,18 +1545,50 @@ def sd_window_fraction(epsilon: float, xi_max: float) -> float:
         raise ValueError(f"sd_window_fraction: the window edge {cut!r} GeV^2 lies outside the class window ({lo!r}, {hi!r})")
     if cut == hi:
         return 1.0
+    if "diffractive_pomeron_slope" in TOPOLOGY_OPTIONS:
+        if b_sd is None:
+            raise ValueError("sd_window_fraction: the Pomeron's shrinkage needs the vertex slope b_sd")
+        kappa = TOPOLOGY_OPTIONS.get("transfer_slope_mass_exponent")
+        f = f_ivf if f_ivf is not None else TOPOLOGY_OPTIONS.get("intact_vertex_factor")
+        f_term = 0.5 * (float(f) - 1.0) if (kappa is not None and f is not None) else 0.0
+        args = (float(epsilon), float(b_sd), kappa, f_term, float(TOPOLOGY_OPTIONS["diffractive_pomeron_slope"]),
+                None if T_BREAK is None else tuple(T_BREAK))
+        t_lin = TOPOLOGY_OPTIONS.get("diffractive_pomeron_linear_t")
+        return math.exp(log_sd_pomeron_mass_norm(*args, lo, cut, MASS_LAW_PROTON, t_lin=t_lin)
+                        - log_sd_pomeron_mass_norm(*args, lo, hi, MASS_LAW_PROTON, t_lin=t_lin))
     return math.exp(log_power_integral(epsilon, lo, cut) - log_power_integral(epsilon, lo, hi))
 
 
-def sd_class_share(anchors_: dict, epsilon: float) -> float:
+def neutral_ope_window_fraction(ope_law: tuple, window: float) -> float:
+    """The share of the one-pion exchange that leaves an intact proton below M^2/s = *window* (2026-11-01, review R6):
+    the neutral fraction of the law (topology_single_diffraction._ope_neutral_fraction) times the neutral law's share
+    of its excited masses below the edge, on the window the generator draws (the p pi0 threshold or xi_lo up to xi_hi,
+    the proton remnant).  Zero for the charged exchange alone."""
+    from na49_mixing.one_pion_exchange import ope_component_of, ope_marginal_cells, ope_parts
+    from na49_mixing.topology_mass_laws import EXCITATION_M_MIN
+    from na49_mixing.topology_single_diffraction import SQRT_S as SD_SQRT_S, _ope_neutral_fraction
+    *vals, law = ope_component_of((0.5,) + tuple(ope_law))
+    if law.pion != "isospin":
+        return 0.0
+    f0 = _ope_neutral_fraction(tuple(vals), law)
+    s = float(SD_SQRT_S) ** 2
+    lo = max(float(vals[1]) * s, EXCITATION_M_MIN ** 2)
+    hi = float(vals[2]) * s
+    ys, cell = ope_marginal_cells(lo, hi, MASS_LAW_PROTON ** 2, s, ope_parts(law)[1])
+    cdf = np.concatenate([[0.0], np.cumsum(cell)]) / float(np.sum(cell))
+    return float(f0 * np.interp(math.log(float(window) * s), ys, cdf))
+
+
+def sd_class_share(anchors_: dict, epsilon: float, b_sd: "float | None" = None, f_ivf: "float | None" = None) -> float:
     """The single-diffraction class share of the inelastic cross section:
     the anchor f_sd_total for the whole class, or under the window
     (2026-10-23) the measured window share over the class's window fraction
-    at *epsilon*."""
+    at *epsilon* (and, under the Pomeron's shrinkage, at the vertex slope
+    *b_sd* and the intact vertex factor *f_ivf*)."""
     if WINDOW_NAME not in anchors_:
         return float(anchors_["f_sd_total"]["value"])
     w = anchors_[WINDOW_NAME]
-    return float(w["value"]) / sd_window_fraction(epsilon, w["xi_max"])
+    return float(w["value"]) / sd_window_fraction(epsilon, w["xi_max"], b_sd, f_ivf)
 
 
 def physical_from_x(x, fc_fixed, anchors_: dict, iv_fixed=None) -> dict:
@@ -1529,10 +1604,19 @@ def physical_from_x(x, fc_fixed, anchors_: dict, iv_fixed=None) -> dict:
         if ISOVECTOR_SLOPE:
             values[BIV_NAME] = float(GEN0_SHAPE[shape_pos(BIV_NAME)])  # no isovector event: the slope is inert
     f_central = float(fc_fixed) if fc_fixed is not None else float(x[len(names)])
-    a_sd, a_dd = sd_class_share(anchors_, values["epsilon"]), float(anchors_["f_dd"]["value"])
+    a_sd = sd_class_share(anchors_, values["epsilon"], values["b_sd"], values.get(IVF_NAME))
+    a_dd = float(anchors_["f_dd"]["value"])
     if TAIL_FREE:
         # the anchors constrain the coherence-region part; the tail adds the share s on top (2026-10-23, R112)
-        a_sd = a_sd / (1.0 - float(values[TAIL_NAME]) - (float(values[OPE_NAME]) if OPE_FREE else 0.0))
+        s_rest = 1.0 - float(values[TAIL_NAME]) - (float(values[OPE_NAME]) if OPE_FREE else 0.0)
+        if SD_WINDOW_INTACT and OPE_FREE:
+            # every intact proton below the edge (2026-11-01, review R6): the coherence component's window share and the
+            # neutral pion exchange's, a_sd [s_rest F + s_pi n_0] = the measured window share
+            w_share = float(anchors_[WINDOW_NAME]["value"])
+            frac = w_share / a_sd
+            a_sd = w_share / (s_rest * frac + float(values[OPE_NAME]) * NEUTRAL_OPE_WINDOW)
+        else:
+            a_sd = a_sd / s_rest
     w_exc = values["w_excited"]
     flavor = {n: values[n] for n in FLAVOR_FREE}
     return {"f_sd_total": a_sd, "f_dd": a_dd, "f_nd": 1.0 - a_sd - a_dd, "f_central": f_central,

@@ -766,7 +766,8 @@ def test_closed_sets():
     assert tuple(DDEvent.__dataclass_fields__) == (
         "class_label", "m1", "m2", "t1", "t2", "lines", "exchanges",
         "final_state", "gap_size",
-        "exchange_configuration", "line_m_min", "slope_factor")  # Round 8 2026-10-04, default None (the vacuum exchanges);
+        "exchange_configuration", "line_m_min", "slope_factor", "pomeron")  # Round 8 2026-10-04, default None (the vacuum exchanges);
+    # pomeron: 2026-11-01, None without diffractive_pomeron_slope, True for a vacuum event of the Pomeron's shrinkage law
     # line_m_min: 2026-10-06, None = the shared edges (line_thresholds off)
     # slope_factor: 2026-10-08, None = the single transfer slope (transfer_slope_mass_exponent off)
     assert getattr(FinalHadron, "__dataclass_params__").frozen

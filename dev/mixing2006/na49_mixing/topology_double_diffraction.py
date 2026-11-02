@@ -317,6 +317,7 @@ class DDEvent:
     exchange_configuration: ExchangeConfiguration | None = None
     line_m_min: tuple[float, float] | None = None
     slope_factor: float | None = None
+    pomeron: bool | None = None
 
 
 # ----------------------------------------------------------------------
@@ -742,6 +743,8 @@ def generate_dd(
     diffractive_duality: float | None = None,
     duality_line_shapes: bool = False,
     xi_max: float | None = None,
+    pomeron_slope: float | None = None,
+    pomeron_linear_t: float | None = None,
 ) -> DDEvent:
     """One double-diffraction event.
 
@@ -791,6 +794,14 @@ def generate_dd(
     (:func:`~na49_mixing.topology_mass_laws.draw_joint_dd_exact`; ``t1 =
     t2``, 5 uniforms per accepted draw instead of 6).
 
+    *pomeron_slope* (2026-11-01) alpha'_P [GeV^-2] draws the vacuum events
+    from the Pomeron's shrinkage law (``draw_joint_dd_exact``'s
+    *pomeron_slope*: the pair kept with the probability ``Z_{B+c} / Z_B`` on
+    one more uniform, the transfer at the slope ``B + c``, ``c = 2 alpha'
+    ln(s m_p^2 / (M_1^2 M_2^2))`` clipped at zero); the event records
+    ``pomeron``.  Needs *exact_range*; ``None`` gives the committed event.
+    *pomeron_linear_t* t_lin raises the slope down to ``t = -t_lin`` only.
+
     *line_thresholds* (2026-10-06; code-physics review M-6) starts each
     line's marginal at its own lowest direct threshold
     (:func:`~na49_mixing.isovector_exchange.line_mass_threshold`), recorded
@@ -832,10 +843,14 @@ def generate_dd(
                  line_mass_threshold(fams, catalog, exchange.target if isovector else None))
         m2_min_1, m2_min_2 = edges[0] * edges[0], edges[1] * edges[1]
     slope_factor = None
+    pomeron = pomeron_slope is not None and not isovector
+    if pomeron_slope is not None and not exact_range:
+        raise ValueError("generate_dd: the Pomeron's shrinkage needs the exact transfer window")
     if exact_range:
         m2_1, m2_2, transfer1, transfer2 = draw_joint_dd_exact(
             m2_min_1, m2_max, m2_min_2, m2_max, SQRT_S, params,
-            rng_exchange_kinematics, slope_mass_exponent=slope_mass_exponent)
+            rng_exchange_kinematics, slope_mass_exponent=slope_mass_exponent,
+            pomeron_slope=(float(pomeron_slope) if pomeron else None), pomeron_linear_t=pomeron_linear_t)
         if slope_mass_exponent is not None:
             slope_factor = vertex_slope_factor(math.sqrt(m2_1), math.sqrt(m2_2), slope_mass_exponent)
     else:
@@ -931,4 +946,5 @@ def generate_dd(
         exchange_configuration=exchange,
         line_m_min=edges,
         slope_factor=slope_factor,
+        pomeron=(bool(pomeron) if pomeron_slope is not None else None),
     )

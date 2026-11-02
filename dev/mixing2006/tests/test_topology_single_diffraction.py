@@ -745,7 +745,8 @@ def test_closed_sets():
     assert tuple(SDEvent.__dataclass_fields__) == (
         "class_label", "side", "remnant", "excitation_mass", "t",
         "lines", "exchange", "final_state", "gap_size",
-        "exchange_configuration", "excitation_m_min", "slope_factor", "tail", "ope")  # Round 8 2026-10-04, default None (the vacuum exchange);
+        "exchange_configuration", "excitation_m_min", "slope_factor", "tail", "ope", "pomeron")  # Round 8 2026-10-04, default None (the vacuum exchange);
+    # pomeron: 2026-11-01, None without diffractive_pomeron_slope, True for an event of the Pomeron's shrinkage law;
     # tail: 2026-10-23 (R112), None without the tail component, True / False for a tail / coherence-region event;
     # ope: 2026-10-26, None without the one-pion-exchange component, True for a p + p -> n + X++ event;
     # excitation_m_min: 2026-10-06, None = the shared edge (line_thresholds off)

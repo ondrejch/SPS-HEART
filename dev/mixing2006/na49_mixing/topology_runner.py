@@ -435,6 +435,21 @@ class TopologyNominalParams:
                                          # line opposite, the scope's letters
                                          # o (one-pion exchange), t (tail), c
                                          # (coherence region)
+    diffractive_pomeron_slope: "float | None" = None
+                                         # 2026-11-01: alpha'_P [GeV^-2], the
+                                         # Pomeron's shrinkage in the vacuum
+                                         # events of the diffractive classes'
+                                         # coherence region: the triple-Pomeron
+                                         # law at fixed t, xi^(-1-eps-2 alpha' t)
+                                         # (topology_mass_laws, "The Pomeron's
+                                         # shrinkage"); None = the zero-transfer
+                                         # form with the per-mass vertex law
+    diffractive_pomeron_linear_t: "float | None" = None
+                                         # 2026-11-01: t_lin [GeV^2], the
+                                         # shrinkage down to t = -t_lin only
+                                         # (the trajectory's linear range; the
+                                         # intact proton's break must equal
+                                         # it); None = every t
     intact_t_break: "tuple[float, float] | None" = None
                                          # 2026-10-24: the intact proton's
                                          # two-slope transfer in the single-
@@ -744,6 +759,20 @@ def run_topology(
             raise ValueError(f"run_topology: diffractive_xi_max must be an M^2/s edge in (0, 0.25], got {xi_max!r}")
         if class_label in ("sd_projectile", "sd_target", "dd"):
             options["xi_max"] = float(xi_max)
+    alpha_p = params.diffractive_pomeron_slope if isinstance(params, TopologyNominalParams) else None
+    if alpha_p is not None:
+        # the Pomeron's shrinkage in the diffractive classes (2026-11-01)
+        if isinstance(alpha_p, bool) or not (math.isfinite(float(alpha_p)) and float(alpha_p) >= 0.0) or not exact:
+            raise ValueError(f"run_topology: diffractive_pomeron_slope is a non-negative alpha' on the exact window, "
+                             f"got {alpha_p!r}")
+        if class_label in ("sd_projectile", "sd_target", "dd"):
+            options["pomeron_slope"] = float(alpha_p)
+    t_lin = params.diffractive_pomeron_linear_t if isinstance(params, TopologyNominalParams) else None
+    if t_lin is not None:
+        if alpha_p is None or isinstance(t_lin, bool) or not (math.isfinite(float(t_lin)) and float(t_lin) > 0.0):
+            raise ValueError(f"run_topology: diffractive_pomeron_linear_t is a positive |t| of the Pomeron's shrinkage, got {t_lin!r}")
+        if class_label in ("sd_projectile", "sd_target", "dd"):
+            options["pomeron_linear_t"] = float(t_lin)
     sd_tail = params.sd_tail if isinstance(params, TopologyNominalParams) else None
     if sd_tail is not None:
         # the leading-proton tail of the single-diffraction classes (2026-10-23, R112)
