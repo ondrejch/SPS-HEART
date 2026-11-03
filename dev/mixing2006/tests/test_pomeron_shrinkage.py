@@ -160,6 +160,18 @@ def test_the_refusals():
                             pomeron=(ALPHA, KAPPA, None))
 
 
+def test_a_shrinkage_request_without_the_flag_is_refused():
+    # the second review round of 2026-11-01, C1: the missing flag used to fall back to the committed ratio, 4% off in
+    # the weights at a trial point while exact at the generation point
+    arrays = _sd_sample(10, 0.0808, 5.67, 1.75, 9)
+    kw = dict(eps0=0.0808, b_sd0=5.67, sqrt_s=SQ, exact_range=True, intact_factor=(1.5, 1.75), xi_max=0.1, t_break=BREAK)
+    bare = {k: v for k, v in arrays.items() if k != "pomeron"}
+    with pytest.raises(ValueError, match="no 'pomeron' flag"):
+        T.log_density_ratio("sd_projectile", bare, 0.15, 4.5, pomeron=(ALPHA, KAPPA, None), **kw)
+    # without the request the same events take the committed ratio, as before
+    assert np.all(np.isfinite(T.log_density_ratio("sd_projectile", bare, 0.15, 4.5, **kw)))
+
+
 def test_the_run_spec_option(tmp_path):
     e = _engine()
     spec = json.loads((RUNS / "r132.json").read_text())

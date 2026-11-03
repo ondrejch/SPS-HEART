@@ -1,7 +1,7 @@
 {
- "card": "TASK-20261101-r133-pomeron-shrinkage",
+ "card": "TASK-20261103-r136-fixed-choices",
  "driver": "helpers/benchmarking/run_engine.py",
- "driver_sha256": "1601dd8b60ffca05835adb489cc8334fc5f03f41c6e19151d2eb17b9f9f08535",
+ "driver_sha256": "8d303713d4fe5eef6a0674bd00ccfa8ce3580a7d47f27f418b02b6bebba44cbd",
  "environment": {
   "cpu_count": 64,
   "machine": "x86_64",
@@ -10,8 +10,8 @@
   "python": "3.12.15"
  },
  "frozen_substrate": {
-  "dev/mixing2006/config/runs/r133.json": {
-   "sha256": "019fc4cca61b5ec06d393ad159112f5672b124016f07c814f6af71d3fa2e9ef9",
+  "dev/mixing2006/config/runs/r136.json": {
+   "sha256": "f81341c0bf62cad9b43932e25414111eeee49549e013e63298d6e96c7741ced9",
    "verified": true
   },
   "dev/mixing2006/config/staged_excitation.json": {
@@ -379,7 +379,7 @@
    "verified": true
   },
   "helpers/benchmarking/run_engine.py": {
-   "sha256": "1601dd8b60ffca05835adb489cc8334fc5f03f41c6e19151d2eb17b9f9f08535",
+   "sha256": "8d303713d4fe5eef6a0674bd00ccfa8ce3580a7d47f27f418b02b6bebba44cbd",
    "verified": true
   },
   "helpers/benchmarking/run_observables.py": {
@@ -403,8 +403,8 @@
    "head": ""
   }
  },
- "run": "r133_pomeron_shrinkage_2026-11-01",
- "run_dir": "/home/ondrejch/NA49/2026/01-NA49-res/dev/00runs/r133_pomeron_shrinkage_2026-11-01",
+ "run": "r136_fixed_choices_2026-11-03",
+ "run_dir": "/home/ondrejch/NA49/2026/01-NA49-res/dev/00runs/r136_fixed_choices_2026-11-03",
  "schema": "na49_mixing.run_engine.provenance/1",
- "written_utc": "2026-11-01T15:08:41Z"
+ "written_utc": "2026-11-03T12:14:35Z"
 }

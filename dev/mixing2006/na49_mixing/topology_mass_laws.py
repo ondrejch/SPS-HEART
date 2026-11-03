@@ -1214,7 +1214,13 @@ def log_density_ratio(
     (``None`` when absent or reweighted by *intact_factor*); every other event
     keeps the committed ratio.  alpha' is the same at both points.
     """
-    if pomeron is not None and cls in ("sd_projectile", "sd_target", "dd") and "pomeron" in arrays:
+    if pomeron is not None and cls in ("sd_projectile", "sd_target", "dd") and "pomeron" not in arrays:
+        # a shrinkage request on events without the flag (2026-11-03; the second review round of 2026-11-01, C1): a
+        # sample generated without the option, or a cache that lost the field, would otherwise take the committed
+        # ratio silently; a class with no shrinkage events carries an explicit all-zero flag
+        raise ValueError(f"log_density_ratio: the Pomeron's shrinkage is requested for {cls} but the events carry no "
+                         "'pomeron' flag")
+    if pomeron is not None and cls in ("sd_projectile", "sd_target", "dd"):
         shr = np.asarray(arrays["pomeron"], dtype=float) > 0.5
         base = log_density_ratio(cls, arrays, eps, b_sd, eps0=eps0, b_sd0=b_sd0, sqrt_s=sqrt_s, exact_range=exact_range,
                                  central_law=central_law, eps_c=eps_c, eps_c0=eps_c0, intact_factor=intact_factor,
