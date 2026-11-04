@@ -4291,6 +4291,21 @@
     "helpers/benchmarking/tests/test_stale_prose_numbers.py"
    ],
    "reason": "the stale-number scan's test (helpers/benchmarking/tests/test_stale_prose_numbers.py; the scan itself, helpers/publishing, lies outside the freeze roots)"
+  },
+  {
+   "card": "TASK-20261103-r137-fourteen-parameters",
+   "files": [
+    "dev/mixing2006/config/runs/r137.json",
+    "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_joint_fit.py",
+    "dev/mixing2006/helpers/benchmarking/run_engine.py",
+    "dev/mixing2006/na49_mixing/cascade_decay.py",
+    "dev/mixing2006/na49_mixing/split_reweight.py",
+    "dev/mixing2006/tests/test_r137_spec.py",
+    "dev/mixing2006/tests/test_split_reweight.py",
+    "helpers/benchmarking/orchestrate_gateway_joint_fit.py",
+    "helpers/benchmarking/run_engine.py"
+   ],
+   "reason": "the four leading-split choices as fitted parameters: the cascade's split recorder (no random number; the fixed-seed event digests unchanged), na49_mixing.split_reweight and its tests, the engine wiring (both copies), the R137 spec, its test, the orchestrator entry (both copies)"
   }
  ],
  "frozen_fit_outputs": {
@@ -4533,6 +4548,7 @@
   "dev/mixing2006/config/runs/r134.json": "47a8b53502b4826caa1e1841fcd8526d22c2e248e1338c05f13a471bb9f0543c",
   "dev/mixing2006/config/runs/r135.json": "cb8b5cd5dc392846dbe92ee7d81b8c4ae340dbb144bfc5042057fc637b6c4215",
   "dev/mixing2006/config/runs/r136.json": "f81341c0bf62cad9b43932e25414111eeee49549e013e63298d6e96c7741ced9",
+  "dev/mixing2006/config/runs/r137.json": "6dbc44baf8ab83b4c58935e184df88b9216e2cc7b1e789117040018260b69fd7",
   "dev/mixing2006/config/runs/r74.json": "e208966fdec2cb3ab70301d3f2a24104ddd23406e5ea2b0cdc0ec66c6ce8bd4d",
   "dev/mixing2006/config/runs/r74_engine_replay.json": "1751982f1708299103aa128c6b10d8ba8e981beb7a37d7bdecdb7fa6f4eff7c3",
   "dev/mixing2006/config/runs/r75.json": "dbc4db3a118362502ab0edf245219b8609d4e041f7336ed629d60c734e243dd7",
@@ -4614,7 +4630,7 @@
   "dev/mixing2006/helpers/benchmarking/neutron_falsifier.py": "cd69138832a7e86eb172ad50268318ba0e79cabea689dc25fc07f4634111bb10",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_absyield_prior_scan.py": "9470725a17f272418a6bb127bcf794764df5b96e369252ea2210484704b916bc",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_balanced_reruns.py": "0254f671f3e004a9f9cec4dd95826ea342b1263b6505eba512dff0209f7ef018",
-  "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_joint_fit.py": "d0a9f232dd85330d14ade7591abc2ba460b0c3ff3e11188f47aa97d04adfb632",
+  "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_joint_fit.py": "1a40b59797505d6302460430b70a6756f6ff9201100f496e336cd49066d74404",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_multispecies.py": "5a5461849db516d0dc586d95d72dc06d7c23d2fe5412811d9b8754b8a4be02cb",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_nstar_ladder_dynamic.py": "9d5b5f22f7aebbd46d8389597638f1d93338c4afb4cbb7628c5974e89ce1e3de",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_nstar_ladder_grid.py": "faffde8c054964ba895d5cd4e4f925fd9e4dd59b879c2e3f7715d3f5fb4a5b9f",
@@ -4678,7 +4694,7 @@
   "dev/mixing2006/helpers/benchmarking/rereval_threshold_checks.py": "95f3ac6f0077b69c074eb701265d3a302fff09010f41641baf9c73cb6002b024",
   "dev/mixing2006/helpers/benchmarking/run_constrained_refit.py": "fbb0f9fca1d72cfb915a56f888314299f1cad8227f9764bb53fb660d9922716c",
   "dev/mixing2006/helpers/benchmarking/run_contract.py": "af7f66fdf6d0e91bfc21d39919ea5fdb2a00af89038922bdceb5b366b9067809",
-  "dev/mixing2006/helpers/benchmarking/run_engine.py": "8d303713d4fe5eef6a0674bd00ccfa8ce3580a7d47f27f418b02b6bebba44cbd",
+  "dev/mixing2006/helpers/benchmarking/run_engine.py": "413f8e4050abfe4cd91f856d694b54f550697dc26402618f9eac110687fa4cb6",
   "dev/mixing2006/helpers/benchmarking/run_epos_crmc_to_csv.py": "75855079b40b93ebe4f581e06c632f9881e1f7f2ef2262cad05dba288e25d993",
   "dev/mixing2006/helpers/benchmarking/run_nstar_ladder_grid.py": "019c4f56ce2255029ba64fceb4eb7e4024fe25e365adeceb2e84ddce6026fa0e",
   "dev/mixing2006/helpers/benchmarking/run_nstar_smooth_prior_scan.py": "7dd85b2bed4ff6cda3f98efb8c2fa054c465fe4ac78fd2f1eb96b6766237926b",
@@ -4765,7 +4781,7 @@
   "dev/mixing2006/na49_mixing/cascade_ablation.py": "ed15dcf5c606255b6d020d42569f1fb0c5c8e96b5eaa7030bc649832c143b335",
   "dev/mixing2006/na49_mixing/cascade_alignment.py": "0d0df347222423aaf6f02403e177867b57da588a5e40d641fd7b467e9c4a81f4",
   "dev/mixing2006/na49_mixing/cascade_axes.py": "a7251a6b6c0ed4b9cfc56c0182c28a70efccb7a92a33b756090ff716a3ec3c61",
-  "dev/mixing2006/na49_mixing/cascade_decay.py": "c16b74bc393d1418f8b54a89bafe34013201b8d5d9e134d2b09355dae6df0a8d",
+  "dev/mixing2006/na49_mixing/cascade_decay.py": "197e73edb2dde393fe7312625ae092d6f28ec151845ed6b6d985ec8eaf089cad",
   "dev/mixing2006/na49_mixing/cascade_form_factor.py": "b16077c9e3418b3f19b117aadf6fc8a8e838af5e9d37b1ab0bae89ccfb88f74c",
   "dev/mixing2006/na49_mixing/cascade_termination.py": "276ce201092a7d22fe1aed236b457a1d4402c50db8d9c108267cd612d09e06b4",
   "dev/mixing2006/na49_mixing/channel_partners.py": "0c8888fa6da0861868eff43ea57dbbf9b17cae5b0030a1451dc4eb267b324ba4",
@@ -4866,6 +4882,7 @@
   "dev/mixing2006/na49_mixing/source_event.py": "3b14c82c2ef460f5c2e00456fa89ff55fd045662801c8fb4789d7ad148c706cd",
   "dev/mixing2006/na49_mixing/spectra.py": "4be6bedb40d8118f7d60e35cb96658deb1891de4b980c41a290781c55196c397",
   "dev/mixing2006/na49_mixing/spectral_density.py": "affaf77c89ad624aaeae430d26685c9f4d8ce9a5c2e9818955f40b092d472ef2",
+  "dev/mixing2006/na49_mixing/split_reweight.py": "ee442cbb4dfff54861f78cec56819b677959fdc4c3183e32abcec05608839e6b",
   "dev/mixing2006/na49_mixing/staged_evaluation.py": "30baaa0e65353afb115be85c249ba1b7789d8768783ef439fc83567dec05e179",
   "dev/mixing2006/na49_mixing/state_validation.py": "1132cce01c9ef7f56db78b43dbe8873bc4da4d4ac9bd84da02e4ffab7e4cb3b2",
   "dev/mixing2006/na49_mixing/three_body_endings.py": "71d8c26f3318681fbb3390c77f159afb11a05f6b95422c2a3bac97d2d6d706df",
@@ -5030,6 +5047,7 @@
   "dev/mixing2006/tests/test_r133_spec.py": "2da1facdc4e792c4f001df263b9aaf5d20616969eb207ce67912836b49dd8ccf",
   "dev/mixing2006/tests/test_r135_spec.py": "787e4606ea637e8a31a2db748ab63033470679d97aa87ddabb41e70e261d24ca",
   "dev/mixing2006/tests/test_r136_spec.py": "1519eea5d52b37ef703d4839627f8362c69aeb0dac0f0fe0a9d78dafcaf0dc93",
+  "dev/mixing2006/tests/test_r137_spec.py": "9662876ed6e948518b4c41cb3cc2d5785f3c7fa12c3c4b0b2a4716841cbe9e01",
   "dev/mixing2006/tests/test_r31_resume_contract_pins.py": "9ddf8dba0b75abc25e8f50fc851403e8bf8ac33165aa283293388511bce1fe2f",
   "dev/mixing2006/tests/test_r32_blend_contract_pins.py": "e848b76bd5b4894810aea269a2b5e612b4a3d9d62fe9b3915ee488bfffa125b7",
   "dev/mixing2006/tests/test_r3_engine_fix_contract_pins.py": "5555381a5e1162291c2c4a39654458d46c0770be01b16eebd33471d4253bc5b1",
@@ -5089,6 +5107,7 @@
   "dev/mixing2006/tests/test_spectral_density_independent.py": "2eebf9b714cc1ee9bcf82e08f4f0367c9ce279f16d7da597f2944693414a71af",
   "dev/mixing2006/tests/test_spectral_density_mesonic.py": "a11d16e53c79e584b1de9b7b4d6b910bc699ac44664f90630ae80fe48721d945",
   "dev/mixing2006/tests/test_spectral_density_mesonic_independent.py": "9af6e0e3361185c46af9c50b071b53e8d1e18cf7072688dbf8031b902f9030b4",
+  "dev/mixing2006/tests/test_split_reweight.py": "ba1767c4f73b14da4630bff058d7ec6d6fa95b09c34fb701c52f18e372e671b9",
   "dev/mixing2006/tests/test_staged_fit_allowlist.py": "bece38b3a3cd8686226fa6a696b53c0a3b0ce94d5446aab1761b6632ce4835df",
   "dev/mixing2006/tests/test_staged_fit_binned.py": "2ca35f19a7e26bc7b02c79d92f8fb800a1f540678e18cce612e68816bc2e7c59",
   "dev/mixing2006/tests/test_staged_r20_unit_grid_card10_pins.py": "93a89c1e8e67c094bdd2d49e9cd303c04e8c0451169330e674bca58d0e5ab291",
@@ -5216,7 +5235,7 @@
   "helpers/benchmarking/neutron_falsifier.py": "cd69138832a7e86eb172ad50268318ba0e79cabea689dc25fc07f4634111bb10",
   "helpers/benchmarking/orchestrate_gateway_absyield_prior_scan.py": "418e8d27f48a7542afbee643c4fb1fde53546751050d7f322ef83b13b8c8848a",
   "helpers/benchmarking/orchestrate_gateway_balanced_reruns.py": "a438fb6674ba39a14fc37ba8f54e2bc67cd81fdbedce1eb83558a0daec04cb15",
-  "helpers/benchmarking/orchestrate_gateway_joint_fit.py": "d0a9f232dd85330d14ade7591abc2ba460b0c3ff3e11188f47aa97d04adfb632",
+  "helpers/benchmarking/orchestrate_gateway_joint_fit.py": "1a40b59797505d6302460430b70a6756f6ff9201100f496e336cd49066d74404",
   "helpers/benchmarking/orchestrate_gateway_multispecies.py": "eada9d96c8cd2f028974df17925970e1df0c195143376e59fd060e26c9724004",
   "helpers/benchmarking/orchestrate_gateway_nstar_ladder_dynamic.py": "60d411ddb57b056a43ecdf4e54ef266e8e17bc7774d9c8939a06c11b32170537",
   "helpers/benchmarking/orchestrate_gateway_nstar_ladder_grid.py": "1dd30722d36c89eb3a6532944cb93b0d39559a01982cf2d7f52f1cddc631a970",
@@ -5280,7 +5299,7 @@
   "helpers/benchmarking/rereval_threshold_checks.py": "95f3ac6f0077b69c074eb701265d3a302fff09010f41641baf9c73cb6002b024",
   "helpers/benchmarking/run_constrained_refit.py": "a0131056d745292676a9e696e719c82991de672198817df679ebf643fd51b81b",
   "helpers/benchmarking/run_contract.py": "af7f66fdf6d0e91bfc21d39919ea5fdb2a00af89038922bdceb5b366b9067809",
-  "helpers/benchmarking/run_engine.py": "8d303713d4fe5eef6a0674bd00ccfa8ce3580a7d47f27f418b02b6bebba44cbd",
+  "helpers/benchmarking/run_engine.py": "413f8e4050abfe4cd91f856d694b54f550697dc26402618f9eac110687fa4cb6",
   "helpers/benchmarking/run_epos_crmc_to_csv.py": "4958b9bccf682e925c1924c963e0765bc8d10d5a3aef52e7156d47f7896b567d",
   "helpers/benchmarking/run_nstar_ladder_grid.py": "a0a0ea2405154bed1bdbe8af34879106c02f2ab56d55c21e0f46c24afcc34f52",
   "helpers/benchmarking/run_nstar_smooth_prior_scan.py": "442907a6f38443c92dd200abda9aa3b9bd8fb466c7484c680a6743c6d8ab370f",
@@ -5395,5 +5414,5 @@
   "helpers/benchmarking/tests/test_window_yield_kernel.py": "182cb78cd2d55eaa411b52847d1fa39a7bd799331d5a3b8be22ead6e4d9abf03",
   "helpers/benchmarking/validate_np_scattering.py": "77d3763be583aab30a46ae70bd6ff21a574bb747f5cbf96cd77d6c2287e75b45"
  },
- "inventory_count": 898
+ "inventory_count": 902
 }

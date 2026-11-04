@@ -1257,6 +1257,16 @@ def draw_decay(
     return selected, daughters
 
 
+#: The split recorder (2026-11-03, the fourteen-parameter fit): ``None`` (the default) or a list that
+#: :func:`draw_decay_with_pool` extends with one record per root at which a leading split is eligible. A record holds
+#: ``me`` (the meson split eligible), ``be`` (the baryon split eligible, ``None`` on the meson branch, where it is not
+#: evaluated), ``branch`` (0 the ordinary draw, 1 the baryon split, 2 the meson split), ``f_b`` (the baryon split's share
+#: at this root) and, on a split branch, ``c``, ``kappa`` and ``q``: the directed cosine the law draws, its kappa and the
+#: decay momentum. The recorder draws no random number, so the events are those of the recorder off; the fit reweights
+#: the split shares and the two direction laws from these records (run_engine, ``split_log_ratio``).
+SPLIT_RECORDER: list | None = None
+
+
 def draw_decay_with_pool(
     state: CascadeState,
     channels: list[CascadeChannel],
@@ -1303,6 +1313,12 @@ def draw_decay_with_pool(
             total = math.fsum(channel.weight for channel in subset)
         else:
             u_pool = (u_channel - fraction) / (1.0 - fraction)
+    split_record = None
+    if SPLIT_RECORDER is not None and (meson is not None or lead is not None):
+        split_record = {"me": meson is not None, "be": None if meson_branch else lead is not None,
+                        "branch": 0 if split is None else (2 if meson_branch else 1),
+                        "f_b": None if (meson_branch or lead is None) else fraction}
+        SPLIT_RECORDER.append(split_record)
     if split is None and not str(state.family_id).startswith(CATALOG_FAMILY_PREFIX):
         # the string-like step (2026-10-27; string_step_mass): a heavy
         # vertex emits one established hadron at a time, so it draws over
@@ -1363,6 +1379,9 @@ def draw_decay_with_pool(
     cos_theta = 2.0 * u_cos - 1.0
     if split is not None:
         cos_theta = _leading_split_cos(u_cos, state, identities, masses, split)
+        if split_record is not None:
+            c_law, kappa_law, q_law = _leading_split_law(u_cos, state, masses, split)
+            split_record.update(c=c_law, kappa=kappa_law, q=q_law)
         if meson_branch:
             # the split law directs the B = 1 daughter; the meson takes that direction
             cos_theta = -cos_theta
@@ -1665,14 +1684,14 @@ def _split_remainder_mass(family, parent_mass: float, sibling_mass: float, catal
     return math.sqrt(min(max(mu2, a), b))
 
 
-def _leading_split_cos(u: float, state: CascadeState, identities, masses, split) -> float:
-    """cos(theta) of daughter 0 at a leading-baryon split: the baryon's
-    direction from exp(kappa cos theta) about the incoming baryon, the
-    sign of the root's c.m. p_z (the cascade runs in the c.m. frame, the
-    beam along z), by the inverse CDF at *u*."""
+def _leading_split_law(u: float, state: CascadeState, masses, split) -> tuple[float, float, float]:
+    """``(c, kappa, q)`` of a leading split at the uniform *u*: the directed
+    cosine c from p(c) = kappa exp(kappa (c - 1)) / (1 - exp(-2 kappa)) on
+    [-1, 1] by the inverse CDF, its kappa (the fixed ``leading_split_kappa``
+    or 2 b q*^2 under ``leading_split_slope`` b), and the decay momentum q*."""
 
+    q = decay_momentum(float(state.mass), float(masses[0]), float(masses[1]))
     if split.leading_split_slope is not None:
-        q = decay_momentum(float(state.mass), float(masses[0]), float(masses[1]))
         kappa = 2.0 * float(split.leading_split_slope) * q * q
     else:
         kappa = float(split.leading_split_kappa or 0.0)
@@ -1681,6 +1700,16 @@ def _leading_split_cos(u: float, state: CascadeState, identities, masses, split)
     else:
         inner = float(u) + (1.0 - float(u)) * math.exp(-2.0 * kappa)
         c = max(-1.0, 1.0 + math.log(inner) / kappa) if inner > 0.0 else -1.0
+    return c, kappa, q
+
+
+def _leading_split_cos(u: float, state: CascadeState, identities, masses, split) -> float:
+    """cos(theta) of daughter 0 at a leading-baryon split: the baryon's
+    direction from exp(kappa cos theta) about the incoming baryon, the
+    sign of the root's c.m. p_z (the cascade runs in the c.m. frame, the
+    beam along z), by the inverse CDF at *u* (:func:`_leading_split_law`)."""
+
+    c, _kappa, _q = _leading_split_law(u, state, masses, split)
     side = 1.0 if float(state.momentum[3]) >= 0.0 else -1.0
     return side * c if _baryon_number_of(identities[0]) == 1 else -side * c
 

@@ -87,6 +87,8 @@ from na49_mixing.isovector_exchange import ISOVECTOR_CONFIGURATIONS  # noqa: E40
 from na49_mixing.resonance_decay import ResonanceDecayer  # noqa: E402
 from na49_mixing.rng_substreams import derive_substreams  # noqa: E402
 from na49_mixing.spectral_density import families_from_json  # noqa: E402
+import na49_mixing.cascade_decay as CASCADE_DECAY  # noqa: E402
+from na49_mixing import split_reweight as SPLIT_RW  # noqa: E402
 from na49_mixing.topology_mass_laws import (PROTON_MASS as MASS_LAW_PROTON, log_density_ratio, log_power_integral,  # noqa: E402
                                             log_sd_pomeron_mass_norm, sd_limits)
 from na49_mixing.topology_runner import (  # noqa: E402
@@ -154,6 +156,12 @@ SD_TAIL_LAW = None
 #: the heavy systems (topology "sd_two_sided": m_cut, eps_line, b, scope) fixed
 OPE_FREE = False
 OPE_NAME = "sd_ope_share"
+#: the leading splits as fitted parameters (2026-11-03, the fourteen-parameter fit): the leading-baryon split share,
+#: the leading-meson split share, the baryon split's direction kappa and the meson split's slope b, named as their
+#: KernelConfig fields. Free together; the generation kernel takes them from the shape point, the events carry the
+#: split records (cascade_decay.SPLIT_RECORDER, shape_split_*), and the weights are split_reweight.split_log_ratio. They
+#: ride on the share argument of the single-diffraction classes: (s_tail, s_pi, F_B, F_M, kappa_B, b_M).
+SPLIT_FREE: tuple = ()
 SD_OPE_LAW = None
 SD_TWO_SIDED = None
 #: the intact proton's two-slope transfer in the single-diffraction classes
@@ -515,9 +523,21 @@ def configure(spec_path) -> dict:
             raise ValueError(f"run spec: {OPE_NAME} is free on the identity transform")
         if not tail_free:
             raise ValueError("run spec: the one-pion exchange shares the tail's component draw and needs the free tail")
+    split_free = tuple(n for n in SPLIT_RW.SPLIT_NAMES if n in by_name)
+    if split_free:
+        if split_free != SPLIT_RW.SPLIT_NAMES:
+            raise ValueError(f"run spec: the split parameters are free together, {SPLIT_RW.SPLIT_NAMES}; got {split_free}")
+        if not ope_free:
+            raise ValueError("run spec: the free split parameters ride on the share argument and need the free one-pion exchange")
+        for n in split_free:
+            want = "logit" if n.endswith("_fraction") else "log"
+            if not by_name[n].free or by_name[n].transform != want:
+                raise ValueError(f"run spec: {n} is free on the {want} transform")
+            if getattr(kernel, n) is None:
+                raise ValueError(f"run spec: the free {n} needs its kernel option set (the kernel then takes the generation point)")
     extra_shape = (((BIV_NAME,) if own_slope else ()) + ((EPSC_NAME,) if central_power else ())
                    + ((IVF_NAME,) if intact_free else ()) + ((TAIL_NAME,) if tail_free else ())
-                   + ((OPE_NAME,) if ope_free else ()))
+                   + ((OPE_NAME,) if ope_free else ()) + split_free)
     g.update(
         SPEC=spec, SPEC_PATH=path,
         SPEC_REL=(path.resolve().relative_to(MONO_ROOT.resolve()).as_posix()
@@ -549,7 +569,7 @@ def configure(spec_path) -> dict:
         TOPOLOGY_OPTIONS=topology, EXACT_RANGE=bool(topology.get("exact_transfer_range", False)),
         CENTRAL_POWER=central_power, EXTRA_SHAPE=extra_shape, INTACT_FREE=intact_free,
         TAIL_FREE=tail_free, SD_TAIL_LAW=tail_law, T_BREAK=t_break,
-        OPE_FREE=ope_free, SD_OPE_LAW=ope_law, SD_TWO_SIDED=two_sided,
+        OPE_FREE=ope_free, SD_OPE_LAW=ope_law, SD_TWO_SIDED=two_sided, SPLIT_FREE=split_free,
         LEDGER_SSBAR_SCALE=10 if kernel.eta_prime else 2,
         BIN_CENTER=bin_center, FROZEN_REMNANT_WEIGHTS=split,
         SD_WINDOW=None if window is None else float(window),
@@ -757,12 +777,14 @@ def load_fit_tables() -> dict:
 # ----------------------------------------------------------------------
 # Event generation (one slot per worker process)
 # ----------------------------------------------------------------------
-def _load_physics(floor: float):
+def _load_physics(floor: float, shape_point=None):
     """The committed catalog and continuum families with the spec's kernel
     configuration applied, the continuation floor of the branch set
     (``na49_mixing.kernel_config.load_kernel``; the committed config sets no
-    kernel option)."""
-    return load_kernel(_dc.replace(KERNEL, continuation_floor=float(floor)), NESTED_ROOT)
+    kernel option); with free split parameters (2026-11-03) the kernel takes
+    their values from *shape_point*, the generation point."""
+    split = ({n: float(shape_point[shape_pos(n)]) for n in SPLIT_FREE} if (SPLIT_FREE and shape_point is not None) else {})
+    return load_kernel(_dc.replace(KERNEL, continuation_floor=float(floor), **split), NESTED_ROOT)
 
 
 def flavor_params(point) -> FlavorParams:
@@ -875,8 +897,8 @@ def _generate_range(cls: str, seed: int, n_events: int, partition_base: int, sha
     """Generate one slot of a template class at the shape point and the
     fixed R66 flavor point, with the flavor ledger of every drawn
     continuum vertex: returns the compact arrays and the metadata."""
-    catalog, fams = _load_physics(floor)
     shape_point = tuple(float(v) for v in shape_point)
+    catalog, fams = _load_physics(floor, shape_point)
     flavor_point = tuple(float(v) for v in flavor_point)
     params = _params_at(cls, shape_point, flavor_point)
     runner_cls = RUNNER_CLASS.get(cls, cls)
@@ -915,7 +937,18 @@ def _generate_range(cls: str, seed: int, n_events: int, partition_base: int, sha
                 for label in ("topology_selection", "spectral_state", "exchange_kinematics",
                               "decay_channel", "decay_kinematics")}
         ledger: list = []
-        event = run_topology(runner_cls, params, catalog, fams, **rngs, ledger=ledger)
+        if SPLIT_FREE:
+            # the split records of the event's roots (2026-11-03): the recorder draws no random number
+            CASCADE_DECAY.SPLIT_RECORDER = []
+            try:
+                event = run_topology(runner_cls, params, catalog, fams, **rngs, ledger=ledger)
+                split_rows = SPLIT_RW.records_to_row(CASCADE_DECAY.SPLIT_RECORDER)
+            finally:
+                CASCADE_DECAY.SPLIT_RECORDER = None
+            for key, value in split_rows.items():
+                shape.setdefault(key, []).append(value)
+        else:
+            event = run_topology(runner_cls, params, catalog, fams, **rngs, ledger=ledger)
         closure, shell = event_conservation(event)
         worst_closure = max(worst_closure, closure)
         worst_shell = max(worst_shell, shell)
@@ -989,6 +1022,7 @@ def _generate_range(cls: str, seed: int, n_events: int, partition_base: int, sha
         **({IVF_NAME: float(shape_point[shape_pos(IVF_NAME)])} if INTACT_FREE else {}),
         **({TAIL_NAME: float(shape_point[shape_pos(TAIL_NAME)])} if TAIL_FREE else {}),
         **({OPE_NAME: float(shape_point[shape_pos(OPE_NAME)])} if OPE_FREE else {}),
+        **{n: float(shape_point[shape_pos(n)]) for n in SPLIT_FREE},
         "informative_vertices": int(vertex_counter),
         "event_digests": event_digests,
         "conservation": {"events": int(m), "violations": 0,
@@ -1028,6 +1062,7 @@ def generate_slot(cls: str, seed: int, n_events: int, partition_base: int, shape
             **({IVF_NAME: first[IVF_NAME]} if IVF_NAME in first else {}),
             **({TAIL_NAME: first[TAIL_NAME]} if TAIL_NAME in first else {}),
             **({OPE_NAME: first[OPE_NAME]} if OPE_NAME in first else {}),
+            **{n: first[n] for n in SPLIT_FREE if n in first},
             "arrays": arrays,
             "informative_vertices": int(sum(int(p["informative_vertices"]) for p in parts)),
             "event_rolling_sha256": hashlib.sha256(b"".join(d for p in parts for d in p["event_digests"])).hexdigest(),
@@ -1068,6 +1103,7 @@ def write_slot(contract: RC.RunContract, floor_index: int, generation: int, slot
         **({IVF_NAME: result[IVF_NAME]} if IVF_NAME in result else {}),
         **({TAIL_NAME: result[TAIL_NAME]} if TAIL_NAME in result else {}),
         **({OPE_NAME: result[OPE_NAME]} if OPE_NAME in result else {}),
+        **{n: result[n] for n in SPLIT_FREE if n in result},
         "arrays_file": npz_name, "arrays_sha256": arrays_digest(result["arrays"]),
         "event_rolling_sha256": result["event_rolling_sha256"], "conservation": result["conservation"],
         "tracks": result["tracks"], "track_species": list(TRACK_SPECIES),
@@ -1366,6 +1402,12 @@ class Templates:
             log_w = log_w + ratio[kinds[:, 0]] + ratio[kinds[:, 1]]
         if flavor is not None:
             log_w = log_w + self.flavor_log_weights(block, flavor)
+        if SPLIT_FREE and f_tail is not None:
+            # the leading splits (2026-11-03): every class holds baryonic roots
+            trial = tuple(float(v) for v in f_tail[2:])
+            generation = tuple(float(self.point[shape_pos(n)]) for n in SPLIT_FREE)
+            if trial != generation:
+                log_w = log_w + SPLIT_RW.split_log_ratio(block["shape"], trial, generation)
         if iso is not None and block.get("iv") is not None:
             f, f0 = float(iso), float(ISOVECTOR_GEN)
             with np.errstate(divide="ignore"):
@@ -1471,6 +1513,9 @@ def tail_of(phys: dict):
     (2026-10-26) the pair (tail share, one-pion-exchange share)."""
     if not TAIL_FREE:
         return None
+    if SPLIT_FREE:
+        # the free split parameters ride on the share argument (2026-11-03): (s_tail, s_pi, F_B, F_M, kappa_B, b_M)
+        return (float(phys[TAIL_NAME]), float(phys[OPE_NAME])) + tuple(float(phys[n]) for n in SPLIT_FREE)
     return (float(phys[TAIL_NAME]), float(phys[OPE_NAME])) if OPE_FREE else float(phys[TAIL_NAME])
 
 
@@ -1628,6 +1673,7 @@ def physical_from_x(x, fc_fixed, anchors_: dict, iv_fixed=None) -> dict:
             **({IVF_NAME: float(values[IVF_NAME])} if INTACT_FREE else {}),
             **({TAIL_NAME: float(values[TAIL_NAME])} if TAIL_FREE else {}),
             **({OPE_NAME: float(values[OPE_NAME])} if OPE_FREE else {}),
+            **{n: float(values[n]) for n in SPLIT_FREE},
             **({WINDOW_NAME: float(anchors_[WINDOW_NAME]["value"])} if WINDOW_NAME in anchors_ else {})}
 
 
@@ -3274,6 +3320,7 @@ def step_smoke(run_dir: Path) -> None:
             **({IVF_NAME: result[IVF_NAME]} if IVF_NAME in result else {}),
             **({TAIL_NAME: result[TAIL_NAME]} if TAIL_NAME in result else {}),
         **({OPE_NAME: result[OPE_NAME]} if OPE_NAME in result else {}),
+            **{n: result[n] for n in SPLIT_FREE if n in result},
             "seed": result["seed"], "n_events": result["n_events"], "epsilon": result["epsilon"], "b_sd": result["b_sd"], "epsilon_nd": result["epsilon_nd"],
             "arrays_sha256": arrays_digest(result["arrays"]), "event_rolling_sha256": result["event_rolling_sha256"],
             "conservation": result["conservation"], "tracks": result["tracks"]})
@@ -3294,7 +3341,8 @@ def step_smoke(run_dir: Path) -> None:
              **({EPSC_NAME: float(GEN0_SHAPE[shape_pos(EPSC_NAME)]) + 0.1} if CENTRAL_POWER else {}),
              **({IVF_NAME: 1.1 * float(GEN0_SHAPE[shape_pos(IVF_NAME)])} if INTACT_FREE else {}),
              **({TAIL_NAME: 0.9 * float(GEN0_SHAPE[shape_pos(TAIL_NAME)])} if TAIL_FREE else {}),
-             **({OPE_NAME: 0.9 * float(GEN0_SHAPE[shape_pos(OPE_NAME)])} if OPE_FREE else {})}
+             **({OPE_NAME: 0.9 * float(GEN0_SHAPE[shape_pos(OPE_NAME)])} if OPE_FREE else {}),
+             **{n: 1.1 * float(GEN0_SHAPE[shape_pos(n)]) for n in SPLIT_FREE}}
     x_check = x_from_physical(check, None)
     with BlockPool(contract.run_dir, f, 0, 1, smoke=True) as pool:
         pooled_value = PooledObjective(tables, anchors(), pool).evaluate(x_check)

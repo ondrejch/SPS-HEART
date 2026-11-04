@@ -1,7 +1,7 @@
 {
- "card": "TASK-20261103-r136-fixed-choices",
+ "card": "TASK-20261103-r137-fourteen-parameters",
  "driver": "helpers/benchmarking/run_engine.py",
- "driver_sha256": "8d303713d4fe5eef6a0674bd00ccfa8ce3580a7d47f27f418b02b6bebba44cbd",
+ "driver_sha256": "413f8e4050abfe4cd91f856d694b54f550697dc26402618f9eac110687fa4cb6",
  "environment": {
   "cpu_count": 64,
   "machine": "x86_64",
@@ -10,8 +10,8 @@
   "python": "3.12.15"
  },
  "frozen_substrate": {
-  "dev/mixing2006/config/runs/r136.json": {
-   "sha256": "f81341c0bf62cad9b43932e25414111eeee49549e013e63298d6e96c7741ced9",
+  "dev/mixing2006/config/runs/r137.json": {
+   "sha256": "6dbc44baf8ab83b4c58935e184df88b9216e2cc7b1e789117040018260b69fd7",
    "verified": true
   },
   "dev/mixing2006/config/staged_excitation.json": {
@@ -71,7 +71,7 @@
    "verified": true
   },
   "dev/mixing2006/na49_mixing/cascade_decay.py": {
-   "sha256": "c16b74bc393d1418f8b54a89bafe34013201b8d5d9e134d2b09355dae6df0a8d",
+   "sha256": "197e73edb2dde393fe7312625ae092d6f28ec151845ed6b6d985ec8eaf089cad",
    "verified": true
   },
   "dev/mixing2006/na49_mixing/cascade_form_factor.py": {
@@ -278,6 +278,10 @@
    "sha256": "affaf77c89ad624aaeae430d26685c9f4d8ce9a5c2e9818955f40b092d472ef2",
    "verified": true
   },
+  "dev/mixing2006/na49_mixing/split_reweight.py": {
+   "sha256": "ee442cbb4dfff54861f78cec56819b677959fdc4c3183e32abcec05608839e6b",
+   "verified": true
+  },
   "dev/mixing2006/na49_mixing/staged_evaluation.py": {
    "sha256": "30baaa0e65353afb115be85c249ba1b7789d8768783ef439fc83567dec05e179",
    "verified": true
@@ -303,7 +307,7 @@
    "verified": true
   },
   "dev/mixing2006/na49_mixing/topology_mass_laws.py": {
-   "sha256": "12b4954c24e9b01c2f5f3ead93ee0062dc15fd65ee2a938743142de81f921e71",
+   "sha256": "474a77eef7c06d71067926350432eb819b635866ea0ebdb86e3bdb5ad4704d2b",
    "verified": true
   },
   "dev/mixing2006/na49_mixing/topology_multi_neutral.py": {
@@ -379,7 +383,7 @@
    "verified": true
   },
   "helpers/benchmarking/run_engine.py": {
-   "sha256": "8d303713d4fe5eef6a0674bd00ccfa8ce3580a7d47f27f418b02b6bebba44cbd",
+   "sha256": "413f8e4050abfe4cd91f856d694b54f550697dc26402618f9eac110687fa4cb6",
    "verified": true
   },
   "helpers/benchmarking/run_observables.py": {
@@ -403,8 +407,8 @@
    "head": ""
   }
  },
- "run": "r136_fixed_choices_2026-11-03",
- "run_dir": "/home/ondrejch/NA49/2026/01-NA49-res/dev/00runs/r136_fixed_choices_2026-11-03",
+ "run": "r137_fourteen_parameters_2026-11-03",
+ "run_dir": "/home/ondrejch/NA49/2026/01-NA49-res/dev/00runs/r137_fourteen_parameters_2026-11-03",
  "schema": "na49_mixing.run_engine.provenance/1",
- "written_utc": "2026-11-03T12:14:35Z"
+ "written_utc": "2026-11-04T00:00:35Z"
 }

@@ -1,0 +1,3084 @@
+{
+ "schema": "na49_mixing.paper_record/1",
+ "run_id": "r137_fourteen_parameters_2026-11-03",
+ "card": "TASK-20261103-r137-fourteen-parameters",
+ "identity": {
+  "report_digest": "5ac8dc423393ede7e79d041dc419fc01e8f8ab19f611aaeb0cf37f89334ee882",
+  "branch_digest": "3cc1a38b35b47a4117ec6868ddcb1ad014071f8eeb7ceb373718471294708998",
+  "report_schema": "na49_mixing.run_engine.report/1",
+  "driver": "helpers/benchmarking/run_engine.py",
+  "driver_sha256": "413f8e4050abfe4cd91f856d694b54f550697dc26402618f9eac110687fa4cb6",
+  "spec": {
+   "path": "dev/mixing2006/config/runs/r137.json",
+   "sha256": "6dbc44baf8ab83b4c58935e184df88b9216e2cc7b1e789117040018260b69fd7"
+  },
+  "files": {
+   "report.json": {
+    "path": "dev/00runs/r137_fourteen_parameters_2026-11-03/report.json",
+    "sha256": "84de96201ac644348b1445f7138c9ed87b34a149036ad7f55fec42a541973795"
+   },
+   "REPORT.md": {
+    "path": "dev/00runs/r137_fourteen_parameters_2026-11-03/REPORT.md",
+    "sha256": "f775f32e130f5a276ff77571932b1ade72cb767b3b3a2595a699d00e7ce4aa6c"
+   },
+   "seal_manifest.json": {
+    "path": "dev/00runs/r137_fourteen_parameters_2026-11-03/seal_manifest.json",
+    "sha256": "d7c3573c3d3ca1a8572736a176837e78098422ca3b3d883b18a087a312eb7e22"
+   },
+   "SHA256SUMS.txt": {
+    "path": "dev/00runs/r137_fourteen_parameters_2026-11-03/SHA256SUMS.txt",
+    "sha256": "88a5877d981bf03120a3034c92c701a89fd51348c3e16932b149151231c0eb78"
+   },
+   "provenance.json": {
+    "path": "dev/00runs/r137_fourteen_parameters_2026-11-03/provenance.json",
+    "sha256": "d102cde3b38f399f040c35e824011beb1bd1a4b6fe3556bc1fba5c7fe12d3e06"
+   },
+   "pre_registration.json": {
+    "path": "dev/00runs/r137_fourteen_parameters_2026-11-03/pre_registration.json",
+    "sha256": "6f52d4a08d89d3612f43b7994f11797dffa519a99915bb911b54f23bdf76ebef"
+   }
+  }
+ },
+ "code": {
+  "launch": {
+   "outer": "5631c1a",
+   "nested": "9db53b8",
+   "digests_verified": 43,
+   "source": "dev/00runs/r137_probes_2026-11-03/orch_r137.log"
+  },
+  "cluster_checkout_git": {
+   "nested": {
+    "branch": "main",
+    "dirty": true,
+    "head": "d6e5528c9d2dac57a8390b165b5de7a31cec79c5"
+   },
+   "outer": {
+    "branch": "",
+    "dirty": false,
+    "head": ""
+   }
+  },
+  "seal_git_state": {
+   "branch": "",
+   "dirty": false,
+   "head": ""
+  },
+  "note": "the cluster checkout's own head is older and marked dirty because the orchestrator rsyncs the source trees of the local checkout over it; 'launch' names the local heads at that sync, after which it verified the digests of the frozen inputs, the driver, and the data tables on the cluster",
+  "environment": {
+   "cpu_count": 64,
+   "machine": "x86_64",
+   "numpy": "1.26.4",
+   "platform": "Linux-5.14.0-452.el9.x86_64-x86_64-with-glibc2.34",
+   "python": "3.12.15"
+  },
+  "seal_environment": {
+   "cpu_count": 64,
+   "machine": "x86_64",
+   "numpy": "1.26.4",
+   "platform": "Linux-5.14.0-687.el9.x86_64-x86_64-with-glibc2.34",
+   "python": "3.12.15"
+  }
+ },
+ "frozen_inputs": {
+  "dev/mixing2006/config/runs/r137.json": "6dbc44baf8ab83b4c58935e184df88b9216e2cc7b1e789117040018260b69fd7",
+  "dev/mixing2006/config/staged_excitation.json": "154e41028fc68d63daf74af73ab812789ae11915fcdabb3b1a6d32deabf6693f",
+  "dev/mixing2006/config/v2_singlet/baryon_table_corrections_pdg2025.json": "9419fa4fa7fc867212c9dc0fc0cf131aa92fd7f63eff8ca605409961d1a9946e",
+  "dev/mixing2006/config/v2_singlet/continuum_resonances.json": "33b2e597932013747f4781f83c027d18e1de794272717a1d1f18df4377f4cfe5",
+  "dev/mixing2006/config/v2_singlet/external_cross_sections.json": "02fea5b2d36d3acdb05117dc731eaa26183a8de3ffaee7f1b6f05bc58c5402e0",
+  "dev/mixing2006/config/v2_singlet/isoscalar_dipion_pdg2025.json": "5b80bb7123346ecf46dd5326ec88e79e3c581cef024d5fef6606d3f7a18a4277",
+  "dev/mixing2006/config/v2_singlet/na49_pp_total_yields.json": "e380e12682617d66e747483b721ac753835a0988b25146dd1646658b7e49cdfb",
+  "dev/mixing2006/config/v2_singlet/resonance_catalog.json": "cf9e79b99199c509f2e83def0a99c215f73ca7761f9f87fb01d1f779b80e32f3",
+  "dev/mixing2006/na49_mixing/__init__.py": "7d2c5a85d9b24de104c0d9cf72195689bf7c39c873e154798699448073b36de8",
+  "dev/mixing2006/na49_mixing/associated_kstar.py": "8f50f0f808a881f42ee868f283ece32c59b46ce966cee83603eb57e10e825041",
+  "dev/mixing2006/na49_mixing/axial_isoscalars.py": "e0d6a96dfef4ce447d7c0a159c83ed6d38a573e76c54f97c2ac4623387b56ffa",
+  "dev/mixing2006/na49_mixing/baryon_table_corrections.py": "4852d08d399f3afccc1471957b192c5f513b7a197787f1d73c03af95a9a7c487",
+  "dev/mixing2006/na49_mixing/breit_wigner.py": "93e75cfc31d81de0bcecbf716203564e70a90deee361629a39f95605730ae858",
+  "dev/mixing2006/na49_mixing/cascade_alignment.py": "0d0df347222423aaf6f02403e177867b57da588a5e40d641fd7b467e9c4a81f4",
+  "dev/mixing2006/na49_mixing/cascade_axes.py": "a7251a6b6c0ed4b9cfc56c0182c28a70efccb7a92a33b756090ff716a3ec3c61",
+  "dev/mixing2006/na49_mixing/cascade_decay.py": "197e73edb2dde393fe7312625ae092d6f28ec151845ed6b6d985ec8eaf089cad",
+  "dev/mixing2006/na49_mixing/cascade_form_factor.py": "b16077c9e3418b3f19b117aadf6fc8a8e838af5e9d37b1ab0bae89ccfb88f74c",
+  "dev/mixing2006/na49_mixing/cascade_termination.py": "276ce201092a7d22fe1aed236b457a1d4402c50db8d9c108267cd612d09e06b4",
+  "dev/mixing2006/na49_mixing/channel_partners.py": "0c8888fa6da0861868eff43ea57dbbf9b17cae5b0030a1451dc4eb267b324ba4",
+  "dev/mixing2006/na49_mixing/conjugate_towers.py": "4f37f96684d46f2501e0ef63d17b1765f1c6a21c74fa2c6a66980fa81c861f26",
+  "dev/mixing2006/na49_mixing/constants.py": "0db633d0aba298ec72607ebbf23309b2ca0995e9b5135ba7b4cf3f6df425063f",
+  "dev/mixing2006/na49_mixing/continuum_channels.py": "baa35303b27b1877b096f7f01ce649e44504ddbe1b75c76be3b289c89c7dc8cb",
+  "dev/mixing2006/na49_mixing/continuum_isospin.py": "2002e248e090a2c703b89a2e5d882782b29b79d081a5cf23fee32d378b658688",
+  "dev/mixing2006/na49_mixing/cuts.py": "84bebe9947b50c0b1e55833434e5e11397b172c45998640f915e24e7dd97e24d",
+  "dev/mixing2006/na49_mixing/decays.py": "dc11192d0fd501a0940a82788dec9d0a1c7fe619ec0219b01f14c527a93afbcc",
+  "dev/mixing2006/na49_mixing/eta_prime.py": "666bf05c9772d2be8961f6d71b1dc7a19bcf126802e26e3a9bfb76b130bbc056",
+  "dev/mixing2006/na49_mixing/event.py": "75e58590d4b04a27ce37fa364ab5165548df58f599f9bb6e08407f2f6190bf13",
+  "dev/mixing2006/na49_mixing/event_builder_pA.py": "54b8231e6f7112008c5f09ec07591e29b18b8972bd17bc84b2496db90ac89b40",
+  "dev/mixing2006/na49_mixing/event_builder_pp.py": "4b7c8e5f8cc9c277b2886a8177fd25c88467da48c5356c67ef7824bbe44e81f1",
+  "dev/mixing2006/na49_mixing/event_conservation.py": "63b53055f7ce309fc437cccf5ce2c5586b52e056240e7880537a302caa5c8333",
+  "dev/mixing2006/na49_mixing/exchange_ledger.py": "097deca708bdcf242df95a7ae655037e67fda795e650fd14f3b564ab63ab261a",
+  "dev/mixing2006/na49_mixing/exchange_model.py": "9dc141b583da040a2823d99f5bf96c0573fc4bc16973fe9c61c7447eb9bf50ab",
+  "dev/mixing2006/na49_mixing/excitation_kinematics.py": "faea40874a3e2c28d3d135b2cf3f22a9d50316cbb499ae9e8c84760a06c48f68",
+  "dev/mixing2006/na49_mixing/excited_kaons.py": "52888e7384527e70df047e7f49eb577986d80a55d1da4d368c7dd4b768724391",
+  "dev/mixing2006/na49_mixing/fit_likelihood.py": "f9ae3ebe854eb9a7623e1b0b88ab7d78586eb2284ea775ea52bad36a92691752",
+  "dev/mixing2006/na49_mixing/fits.py": "2ca675d7a27aed6a40960fb74366527a882d3d18ee429c77e08f9abf04b593a0",
+  "dev/mixing2006/na49_mixing/flavor_weights.py": "9fd704238adb730a0c4b4901b615b55da7164b9ae4eccf340be1b0b679c66824",
+  "dev/mixing2006/na49_mixing/floor_pools.py": "518275ca8005c57215528488804b335e4c8dc4ba411ed6b38c7c466eef34f097",
+  "dev/mixing2006/na49_mixing/generator.py": "5cc36a76c37ba307d3e9b4d41f939187730db8347039017c9fc610bf717f9e88",
+  "dev/mixing2006/na49_mixing/glauber.py": "54f6cf71a5a7f968c70191352ceab5ed2d120cfb75281ce0defca372bc6f5287",
+  "dev/mixing2006/na49_mixing/hadron_catalog.py": "26e4178acf4d6737aac4c4b6d19cd21e9057cf2577f9938435c7f1aa07398f27",
+  "dev/mixing2006/na49_mixing/histogram.py": "2310d22893808ed5adc3e673ee11a574802fadbb363a9d384ec53cd2f1b4582c",
+  "dev/mixing2006/na49_mixing/importance.py": "402cd9e77abb19f1e55f091c808711ee509e3792e9e2b6c0fdf5a185effe49d7",
+  "dev/mixing2006/na49_mixing/isoscalar_dipion.py": "114357c292e1bb4bdd2546d68ca060a9bdbf2c9cbef89049e71002127cf6f0ef",
+  "dev/mixing2006/na49_mixing/isospin.py": "169991b5f77fec4a0b8419c69237e59f0c68ce625da441985b9856e31c3f0613",
+  "dev/mixing2006/na49_mixing/isovector_exchange.py": "e6538030eea221ef122e54fbdd8a0b37610dbc6bdaa67d1bb55b3c146f413bc1",
+  "dev/mixing2006/na49_mixing/kernel_config.py": "b8a6cddd390cffdc0c388db5c5ed5b0910b025ef7aff02b9a98385ff5f3e5bbb",
+  "dev/mixing2006/na49_mixing/light_scalar_mesons.py": "df6cf7874b6876a56a30a0ae469e6b9e00c7fc106809741b9b8b028d2ec1b167",
+  "dev/mixing2006/na49_mixing/meson_modes.py": "b05bb02696afec03920d6f79be2df2d8ac80cd13e9a36d52ae806d43a88abcd5",
+  "dev/mixing2006/na49_mixing/mixing.py": "7295867f4a7c0e17b182b2db05054efd3a9edeb1deffb23fdda6ef7ad7a699bb",
+  "dev/mixing2006/na49_mixing/nd_duality.py": "82151782c0432fdb06daa0b6470f18990006caddb03c13cb8d1dc6fa8f64334a",
+  "dev/mixing2006/na49_mixing/nucleon_kstar_pairs.py": "d88b3cf1ea27150890f9e9b44f1b4853caa5c5259f9b895e7fe3526b676a662c",
+  "dev/mixing2006/na49_mixing/one_pion_exchange.py": "0e6a90fff097991450e0a1ceee932a5a961eed449167a73eb7dc13886c96c66d",
+  "dev/mixing2006/na49_mixing/parallel.py": "f2650235d636f744ef6e13c66096880bf95d8cefc4bf857c8d92cd461a4c56f0",
+  "dev/mixing2006/na49_mixing/particle.py": "27bf493621ab08d20468d784292cbea4b68dfdceb43346c0346b3276a94fea3e",
+  "dev/mixing2006/na49_mixing/pdg_database.py": "4c57ecb60af416f2447e4358f749862d5e8fd2729b525d051feebc8f8a3f2f12",
+  "dev/mixing2006/na49_mixing/pdg_hyperons.py": "934c7d45cbed79168ffe5ae57159c9aaac881914df8499b7ef206a3a00d46c1f",
+  "dev/mixing2006/na49_mixing/pdg_nucleon_resonances.py": "cd36c9f48980b1f78ecb03cecae3c9af48ec87b735e7aada8532c3c6b1028c42",
+  "dev/mixing2006/na49_mixing/quantum_numbers.py": "7a577559985deec084d1480f40ea28ecc4e9ef926af7d242bbd1f278aac40ac4",
+  "dev/mixing2006/na49_mixing/reaction.py": "1e21ff78c96beb0a91558d0347ef92c85c3c19f18644c7ad35ff3bca8c5d86e1",
+  "dev/mixing2006/na49_mixing/resonance_decay.py": "33a182c989fec9865b6fdc208958785189f9cde6ea750d0a41a45a35bb49d111",
+  "dev/mixing2006/na49_mixing/resonance_pairs.py": "fcd8498228f8e50ab760b49fe39ad47bbf63584e1723cc7da5f01b74fe2990bb",
+  "dev/mixing2006/na49_mixing/resonance_widths.py": "91406f4b4f7b90252068a52be2bdae5c866fa38310d03daadaec782b9c48a6c0",
+  "dev/mixing2006/na49_mixing/rng_substreams.py": "ed8f05f151b338a8ac7a4c395637bf71e68fce5b4f4b1ff09721d119c8a5bfb0",
+  "dev/mixing2006/na49_mixing/source_event.py": "3b14c82c2ef460f5c2e00456fa89ff55fd045662801c8fb4789d7ad148c706cd",
+  "dev/mixing2006/na49_mixing/spectra.py": "4be6bedb40d8118f7d60e35cb96658deb1891de4b980c41a290781c55196c397",
+  "dev/mixing2006/na49_mixing/spectral_density.py": "affaf77c89ad624aaeae430d26685c9f4d8ce9a5c2e9818955f40b092d472ef2",
+  "dev/mixing2006/na49_mixing/split_reweight.py": "ee442cbb4dfff54861f78cec56819b677959fdc4c3183e32abcec05608839e6b",
+  "dev/mixing2006/na49_mixing/staged_evaluation.py": "30baaa0e65353afb115be85c249ba1b7789d8768783ef439fc83567dec05e179",
+  "dev/mixing2006/na49_mixing/state_validation.py": "1132cce01c9ef7f56db78b43dbe8873bc4da4d4ac9bd84da02e4ffab7e4cb3b2",
+  "dev/mixing2006/na49_mixing/three_body_endings.py": "71d8c26f3318681fbb3390c77f159afb11a05f6b95422c2a3bac97d2d6d706df",
+  "dev/mixing2006/na49_mixing/threshold_metric.py": "ee240f44645d2e592acfae462f7d1e9c3b3dd8cd78c96bd40b7b73509f7fcc63",
+  "dev/mixing2006/na49_mixing/topology_double_diffraction.py": "29e4b239f0417f5207aea27012a70fbe4a00bb0fe2d83a4004b702a85a6a65d6",
+  "dev/mixing2006/na49_mixing/topology_elastic.py": "7640e64e0cb9428f712f854384c1e0410947909e6a3c5cb7aa9c1faf5fc1b824",
+  "dev/mixing2006/na49_mixing/topology_mass_laws.py": "474a77eef7c06d71067926350432eb819b635866ea0ebdb86e3bdb5ad4704d2b",
+  "dev/mixing2006/na49_mixing/topology_multi_neutral.py": "45206c552f635904dae1e0267214363d389487708b8627a9345a902137fae531",
+  "dev/mixing2006/na49_mixing/topology_non_diffractive.py": "6ffb46a69ef900740fff15ef1e0fcc1b4f29f7bd8d24573dc6102c6b368bc79e",
+  "dev/mixing2006/na49_mixing/topology_remnants.py": "bf44bda4d5473e15589cba4dbb49a5f5db8e772b3c0baeeb7edee649ed58f073",
+  "dev/mixing2006/na49_mixing/topology_runner.py": "a5ebfb4b19cebcbb9b07411bde0adb03bf4598f532de477bf81f1a7389af43ad",
+  "dev/mixing2006/na49_mixing/topology_single_diffraction.py": "4fdc2e678a742d4b3cfc0ee046e4c67364b5e313dbd410d6fb178c77ace60dbe",
+  "dev/mixing2006/na49_mixing/two_sided_hadronization.py": "896f1384943bec6dd296334c614bc70ee40b46c7d41783fcdd5634df32b9bb09",
+  "dev/mixing2006/na49_mixing/xi_baryons.py": "39e3cd457fe6532947c64cb58d9092f890f2c221841e17af30929672baa92fa4",
+  "dev/mixing2006/na49_mixing/xi_tower.py": "40f17500f5ee151388fe08f6c63ff5b7ed654e9f7c00149a3da8d4542257f96e",
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_antiproton_pp.txt": "056d34c07cefaa8d8bb33372c880e01c20cf403a6ce3fca6fbe3d223e017c2b1",
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_kaminus_pp.txt": "3e61302092968b1bee892a24169721c69856d346d453b7afb2b622923974ce29",
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_kaplus_pp.txt": "bf06556559ac9dfb888a1290745ceecffbf62bb997d69e524903e5097c723d61",
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_piminus.txt": "5125e5e91137976b8c6f1f433f6c036a0be62812df47d32568a14f349f0424ab",
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_piplus.txt": "cafbc73a343c4b99abbea025cc9f9e643cd41a355fd18c938f4a4b2d2690c7e2",
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_proton_pp.txt": "15ef78378675c95e3b424c6bba51df794408c6fa5a25e7a30e688f89c76a839d",
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_ptintegrated_neutron_pp.txt": "dc02aba143f5dd263c4fed26422300e44b137e32e88943ad5075719a976da10a",
+  "helpers/benchmarking/fit_fanout.py": "51001448678e71d76bd558f537684ba34f4cedd252a00c46bc1f7757a28469bd",
+  "helpers/benchmarking/flavor_fit_core.py": "b8506698fcfccb9c86b39b534af90a612c9ecc34b73de561487984b88f2187f2",
+  "helpers/benchmarking/run_contract.py": "af7f66fdf6d0e91bfc21d39919ea5fdb2a00af89038922bdceb5b366b9067809",
+  "helpers/benchmarking/run_engine.py": "413f8e4050abfe4cd91f856d694b54f550697dc26402618f9eac110687fa4cb6",
+  "helpers/benchmarking/run_observables.py": "a7fff453074c52b6d6f023ba5f7f4ff84631bbd614e498b61dde9e274fb2ebd9",
+  "helpers/benchmarking/sps_core.py": "42175cbf39d61f22645c936beca39105139a7bf471eb93d20cd4a13b454e4f1b"
+ },
+ "fit": {
+  "parametrization": {
+   "free": [
+    "b_sd",
+    "epsilon_nd",
+    "gamma_s_had",
+    "assoc_norm",
+    "r_bbar",
+    "r_v",
+    "f_isovector",
+    "intact_vertex_factor",
+    "sd_tail_share",
+    "sd_ope_share",
+    "leading_split_fraction",
+    "meson_split_fraction",
+    "leading_split_kappa",
+    "meson_split_slope"
+   ],
+   "null": "none: f_central = 0 by construction (the free fit)",
+   "space": "epsilon, log B_SD, epsilon_nd, logit w_excited, log flavor weights (r_V among them), the log intact vertex factor, f_isovector, the tail share s (identity)"
+  },
+  "fixed": {
+   "continuation_ceiling": 17.3,
+   "continuation_floor": 2.0,
+   "diffractive_shapes": "free",
+   "fractions": {
+    "f_dd": 0.0472,
+    "f_sd_total": 0.2045,
+    "f_sd_window": 0.15418502202643172
+   },
+   "w_intact": 0.0
+  },
+  "fitted": {
+   "assoc_norm": 0.9328638741433468,
+   "b_sd": 5.608855651621604,
+   "class_fractions": {
+    "dd": 0.0472,
+    "nd": 0.0,
+    "nd0": 0.5684257786018834,
+    "sd_projectile": 0.1921871106990583,
+    "sd_target": 0.1921871106990583
+   },
+   "epsilon": 0.0808,
+   "epsilon_nd": 0.2702472854351598,
+   "f_central": 0.0,
+   "f_dd": 0.0472,
+   "f_isovector": 3.3141855286092115e-06,
+   "f_nd": 0.5684257786018834,
+   "f_sd_total": 0.3843742213981166,
+   "f_sd_window": 0.15418502202643172,
+   "gamma_s_had": 0.2916168458739988,
+   "intact_vertex_factor": 1.2972794946635786,
+   "leading_split_fraction": 0.16708987347905258,
+   "leading_split_kappa": 2.5886869837522433,
+   "meson_split_fraction": 0.04245023713408524,
+   "meson_split_slope": 4.093810145026343,
+   "r_bbar": 3.0530993703587828,
+   "r_v": 0.7679104538968675,
+   "remnant_weights": {
+    "high_mass_baryonic_continuum": 1.0,
+    "intact_proton": 0.0,
+    "low_mass_baryonic_resonance": 0.0
+   },
+   "sd_ope_share": 0.30360684866130777,
+   "sd_tail_share": 0.19848811480966766,
+   "w_excited": 1.0,
+   "w_intact": 0.0,
+   "w_low_mass": 0.0
+  },
+  "errors_raw": {
+   "assoc_norm": 0.04681002724964089,
+   "b_sd": 0.06685154277962782,
+   "epsilon_nd": 0.005162289887799677,
+   "f_isovector": 0.011349982387448289,
+   "gamma_s_had": 0.008928091834612937,
+   "intact_vertex_factor": 0.03008977400942104,
+   "leading_split_fraction": 0.004680481406335892,
+   "leading_split_kappa": 0.16163624860894057,
+   "meson_split_fraction": 0.0022245209422276533,
+   "meson_split_slope": 0.5889479057359537,
+   "r_bbar": 0.09439171243635114,
+   "r_v": 0.02604687892519961,
+   "sd_ope_share": 0.017588897083742464,
+   "sd_tail_share": 0.00683173992087245
+  },
+  "errors_scaled_by_s": {
+   "assoc_norm": 0.06953513803841649,
+   "b_sd": 0.09930631380476687,
+   "epsilon_nd": 0.007668453983761054,
+   "f_isovector": 0.016860118192964037,
+   "gamma_s_had": 0.013262459661230649,
+   "intact_vertex_factor": 0.04469761528083495,
+   "leading_split_fraction": 0.006952739397909768,
+   "leading_split_kappa": 0.24010665063478925,
+   "meson_split_fraction": 0.0033044708554049148,
+   "meson_split_slope": 0.8748675514411289,
+   "r_bbar": 0.14021655486206847,
+   "r_v": 0.03869199459924628,
+   "sd_ope_share": 0.026127871708746257,
+   "sd_tail_share": 0.010148380728491689
+  },
+  "error_convention": "inverse Hessian at the minimum with pre-registered steps, scaled by S = sqrt(chi2/ndf); f_isovector lies on its boundary at zero, where the scaled error is a curvature scale and statistics.f_isovector_profile gives the one-sided interval",
+  "hessian": {
+   "names": [
+    "b_sd",
+    "epsilon_nd",
+    "gamma_s_had",
+    "assoc_norm",
+    "r_bbar",
+    "r_v",
+    "f_isovector",
+    "intact_vertex_factor",
+    "sd_tail_share",
+    "sd_ope_share",
+    "leading_split_fraction",
+    "meson_split_fraction",
+    "leading_split_kappa",
+    "meson_split_slope"
+   ],
+   "matrix": [
+    [
+     1588.462391755729,
+     -1846.12879244321,
+     -265.6797946711625,
+     -84.11795807475642,
+     55.095502337564994,
+     478.5610920064869,
+     -713.435289567542,
+     1966.3749736714635,
+     5150.331822619478,
+     3327.9370162936175,
+     -4334.599592384848,
+     2402.503572563243,
+     -2.8319178401886798,
+     19.299189297661695
+    ],
+    [
+     -1846.12879244321,
+     449888.0170064831,
+     35957.94686971165,
+     11790.630593376505,
+     -2593.3412940959497,
+     6547.8920287557685,
+     130576.41173176988,
+     -4595.5883282051955,
+     -241113.60611825204,
+     -41251.634797024504,
+     38202.76513697536,
+     138708.10242496151,
+     2001.348941905178,
+     121.57950502554134
+    ],
+    [
+     -265.6797946711625,
+     35957.94686971165,
+     86400.36908816708,
+     13051.87600521928,
+     -1606.4913316140899,
+     8512.930585727645,
+     11554.160095452064,
+     -1356.4440027757505,
+     -6794.392571050595,
+     332.24637559897025,
+     950.59840323529,
+     -7564.4027562551255,
+     377.1724457031193,
+     25.19694755245736
+    ],
+    [
+     -84.11795807475642,
+     11790.630593376505,
+     13051.87600521928,
+     3123.3173219149535,
+     -304.3934885493371,
+     1158.4280595911878,
+     2919.4154950118896,
+     -390.2541170667461,
+     -2769.3624964086894,
+     779.5351671333605,
+     1835.590119401331,
+     -3312.9030183071486,
+     68.56197498422034,
+     6.370543317946916
+    ],
+    [
+     55.095502337564994,
+     -2593.3412940959497,
+     -1606.4913316140899,
+     -304.3934885493371,
+     361.878780738607,
+     -579.1642967314914,
+     -467.0802160671883,
+     57.614750100540846,
+     671.4513067902317,
+     -339.8306820400876,
+     -2221.0201956551145,
+     616.8313916674606,
+     4.261652446388098,
+     0.5729251433592708
+    ],
+    [
+     478.5610920064869,
+     6547.8920287557685,
+     8512.930585727645,
+     1158.4280595911878,
+     -579.1642967314914,
+     5680.00392929008,
+     2065.919084073471,
+     -11.95979810887593,
+     2626.9087673551894,
+     4210.029861320947,
+     -5429.496218595488,
+     -670.939924671643,
+     275.6476514962145,
+     48.74548791651515
+    ],
+    [
+     -713.435289567542,
+     130576.41173176988,
+     11554.160095452064,
+     2919.4154950118896,
+     -467.0802160671883,
+     2065.919084073471,
+     56053.70662116797,
+     -837.8067547312185,
+     -78305.49178200043,
+     -17877.695331851555,
+     5425.861004064245,
+     43500.774783600114,
+     412.6409773321029,
+     66.8233662225551
+    ],
+    [
+     1966.3749736714635,
+     -4595.5883282051955,
+     -1356.4440027757505,
+     -390.2541170667461,
+     57.614750100540846,
+     -11.95979810887593,
+     -837.8067547312185,
+     5447.632277124512,
+     2960.2307583374454,
+     1112.8303737407919,
+     -965.046670893912,
+     216.87172057719786,
+     3.116704146862048,
+     2.9808889885506082
+    ],
+    [
+     5150.331822619478,
+     -241113.60611825204,
+     -6794.392571050595,
+     -2769.3624964086894,
+     671.4513067902317,
+     2626.9087673551894,
+     -78305.49178200043,
+     2960.2307583374454,
+     279746.80810587417,
+     80368.74067032954,
+     -19306.110212728527,
+     -93117.6413728508,
+     -619.4718788435694,
+     3.214581688553153
+    ],
+    [
+     3327.9370162936175,
+     -41251.634797024504,
+     332.24637559897025,
+     779.5351671333605,
+     -339.8306820400876,
+     4210.029861320947,
+     -17877.695331851555,
+     1112.8303737407919,
+     80368.74067032954,
+     37836.093433775204,
+     -14425.651088031373,
+     -27325.67097298973,
+     210.37016057397295,
+     34.27562868209103
+    ],
+    [
+     -4334.599592384848,
+     38202.76513697536,
+     950.59840323529,
+     1835.590119401331,
+     -2221.0201956551145,
+     -5429.496218595488,
+     5425.861004064245,
+     -965.046670893912,
+     -19306.110212728527,
+     -14425.651088031373,
+     153278.21951422264,
+     -36708.274228112714,
+     -1332.4491334960271,
+     -55.59031929673589
+    ],
+    [
+     2402.503572563243,
+     138708.10242496151,
+     -7564.4027562551255,
+     -3312.9030183071486,
+     616.8313916674606,
+     -670.939924671643,
+     43500.774783600114,
+     216.87172057719786,
+     -93117.6413728508,
+     -27325.67097298973,
+     -36708.274228112714,
+     508529.76859702414,
+     1225.4714993245366,
+     -9.10201580141903
+    ],
+    [
+     -2.8319178401886798,
+     2001.348941905178,
+     377.1724457031193,
+     68.56197498422034,
+     4.261652446388098,
+     275.6476514962145,
+     412.6409773321029,
+     3.116704146862048,
+     -619.4718788435694,
+     210.37016057397295,
+     -1332.4491334960271,
+     1225.4714993245366,
+     121.4249630768904,
+     2.7986426276186194
+    ],
+    [
+     19.299189297661695,
+     121.57950502554134,
+     25.19694755245736,
+     6.370543317946916,
+     0.5729251433592708,
+     48.74548791651515,
+     66.8233662225551,
+     2.9808889885506082,
+     3.214581688553153,
+     34.27562868209103,
+     -55.59031929673589,
+     -9.10201580141903,
+     2.7986426276186194,
+     6.767688907257252
+    ]
+   ],
+   "eigenvalues": [
+    5.756026091987045,
+    73.89696062155075,
+    233.54096707369388,
+    483.0873953273192,
+    892.0642104818318,
+    3712.332128659541,
+    5853.147179987359,
+    8762.16983748177,
+    17341.2591329793,
+    79478.96174012637,
+    134622.9414538152,
+    143214.11323704722,
+    410571.7365343021,
+    782817.4629155272
+   ],
+   "positive_definite": true,
+   "bound_limited": [
+    "f_isovector"
+   ],
+   "steps": [
+    0.1,
+    0.02,
+    0.015,
+    0.008,
+    0.04,
+    0.04,
+    0.02,
+    0.04,
+    0.01,
+    0.01,
+    0.01,
+    0.003,
+    0.2,
+    0.3
+   ]
+  },
+  "objective": {
+   "chi2_by_segment": {
+    "antiproton": 137.5318176427237,
+    "k_minus": 295.66836187493556,
+    "k_plus": 164.9038900678521,
+    "neutron": 4.471882427556871,
+    "pi_minus": 668.782642200859,
+    "pi_plus": 439.1669133397602,
+    "proton": 1027.021238713508
+   },
+   "scale_penalty": 18.542602741346347,
+   "chi2": 2756.089349008542,
+   "sum_check": 2756.089349008542,
+   "ndf": 1249,
+   "s": 1.4854752736541068,
+   "s_squared": 2.2066333533871236
+  },
+  "error_model": {
+   "kaon_identification": {
+    "k_minus": [
+     [
+      0.25,
+      0.0
+     ],
+     [
+      0.5,
+      0.06
+     ]
+    ],
+    "k_plus": [
+     [
+      0.25,
+      0.04
+     ],
+     [
+      0.4,
+      0.12
+     ]
+    ]
+   },
+   "neutron_floor": 0.05,
+   "neutron_scale": 0.1,
+   "normalization": 0.015
+  },
+  "profiled_scales": {
+   "identification_k_minus": {
+    "prior": 1.0,
+    "pull": 3.0444759750526504,
+    "value": 3.0444759750526504
+   },
+   "identification_k_plus": {
+    "prior": 1.0,
+    "pull": 2.0241807371693943,
+    "value": 2.0241807371693943
+   },
+   "normalization_antiproton": {
+    "prior": 0.015,
+    "pull": 0.33647002162534223,
+    "value": 0.005047050324380133
+   },
+   "normalization_k_minus": {
+    "prior": 0.015,
+    "pull": 0.2056793129568214,
+    "value": 0.0030851896943523208
+   },
+   "normalization_k_plus": {
+    "prior": 0.015,
+    "pull": -0.7728754369466138,
+    "value": -0.011593131554199205
+   },
+   "normalization_pi_minus": {
+    "prior": 0.015,
+    "pull": 0.3134928414052974,
+    "value": 0.00470239262107946
+   },
+   "normalization_pi_plus": {
+    "prior": 0.015,
+    "pull": -0.7672901892218436,
+    "value": -0.011509352838327653
+   },
+   "normalization_proton": {
+    "prior": 0.015,
+    "pull": -1.620642793771224,
+    "value": -0.02430964190656836
+   },
+   "penalty": 18.542602741346347,
+   "scale_neutron": {
+    "prior": 0.1,
+    "pull": -1.0536192692754351,
+    "value": -0.10536192692754352
+   }
+  },
+  "effective_sample_fractions": {
+   "dd": 0.7660349670359571,
+   "nd0": 0.7630403374797633,
+   "sd_projectile": 0.7763940579325354,
+   "sd_target": 0.7776085944123144
+  },
+  "observable_set": {
+   "anchors": {
+    "f_dd": {
+     "sigma": 0.0315,
+     "value": 0.0472
+    },
+    "f_sd_total": {
+     "sigma": 0.0472,
+     "value": 0.2045
+    },
+    "f_sd_window": {
+     "sigma": 0.025173064820641914,
+     "value": 0.15418502202643172,
+     "xi_max": 0.05
+    },
+    "source": "config/v2_singlet/external_cross_sections.json",
+    "source_sha256": "02fea5b2d36d3acdb05117dc731eaa26183a8de3ffaee7f1b6f05bc58c5402e0"
+   },
+   "discrepancy": 0.05,
+   "fit_window": {
+    "pt_max": 1.5,
+    "pt_min": 0.05,
+    "xf_max": 0.95,
+    "xf_min": 0.0
+   },
+   "normalization": {
+    "fixed": 0.0,
+    "variants": [
+     0.02,
+     -0.02
+    ]
+   },
+   "paper_window": {
+    "pt_max": 1.5,
+    "pt_min": 0.05,
+    "xf_max": 0.4,
+    "xf_min": 0.0
+   },
+   "segments": {
+    "antiproton": [
+     284,
+     406
+    ],
+    "k_minus": [
+     1101,
+     1255
+    ],
+    "k_plus": [
+     948,
+     1101
+    ],
+    "neutron": [
+     1255,
+     1263
+    ],
+    "pi_minus": [
+     406,
+     688
+    ],
+    "pi_plus": [
+     688,
+     948
+    ],
+    "proton": [
+     0,
+     284
+    ]
+   },
+   "total": 1263
+  }
+ },
+ "tests": {
+  "generation_point": {
+   "assoc_norm": 0.996233135196082,
+   "b_sd": 5.815157256885551,
+   "epsilon": 0.0808,
+   "epsilon_nd": 0.257572980750694,
+   "gamma_s_had": 0.2848002745490465,
+   "intact_vertex_factor": 1.2362605780024654,
+   "leading_split_fraction": 0.2,
+   "leading_split_kappa": 4.0,
+   "meson_split_fraction": 0.045,
+   "meson_split_slope": 4.0,
+   "r_bbar": 3.1679394162356247,
+   "r_v": 0.7601034644248745,
+   "sd_ope_share": 0.29011963555375053,
+   "sd_tail_share": 0.19552040655660344
+  },
+  "generation_history": [
+   "fit_report_f0_g0.json"
+  ],
+  "verdict": {
+   "constrained": true,
+   "ess_floor": 0.1,
+   "ess_interior": 0.3,
+   "exponent_on_boundary": false,
+   "interior_fractions": true,
+   "regeneration_point": {
+    "assoc_norm": 0.9328638741433468,
+    "b_sd": 5.608855651621604,
+    "epsilon": 0.0808,
+    "epsilon_nd": 0.2702472854351598,
+    "gamma_s_had": 0.2916168458739988,
+    "intact_vertex_factor": 1.2972794946635786,
+    "leading_split_fraction": 0.16708987347905258,
+    "leading_split_kappa": 2.5886869837522433,
+    "meson_split_fraction": 0.04245023713408524,
+    "meson_split_slope": 4.093810145026343,
+    "r_bbar": 3.0530993703587828,
+    "r_v": 0.7679104538968675,
+    "sd_ope_share": 0.30360684866130777,
+    "sd_tail_share": 0.19848811480966766
+   },
+   "regeneration_requested": false
+  },
+  "isovector": {
+   "chi2_min": 2756.0850583805172,
+   "chi2_vacuum": 2756.0850583805172,
+   "delta_chi2": 0.0,
+   "f_isovector_hat": 3.3141855286092115e-06,
+   "ndf": 1249,
+   "required": false,
+   "required_raw": false,
+   "scale_factor_squared": 2.2066333533871236,
+   "threshold": 8.473472077006555
+  },
+  "central_component": {
+   "absent_by_construction": true,
+   "chi2_free": 2756.089349008542,
+   "chi2_min": 2756.089349008542,
+   "chi2_null": 2756.089349008542,
+   "compatible_with_zero": null,
+   "compatible_with_zero_raw": null,
+   "delta_chi2": 0.0,
+   "f_central_hat": 0.0,
+   "free_fit_is_minimum": true,
+   "ndf": 1249,
+   "profile": [],
+   "rule": "central_component false in the run spec: f_central = 0 by construction, no class with the central source",
+   "scale_factor_squared": 2.2066367886377436,
+   "scaled_interval": null,
+   "tested": false,
+   "threshold": null
+  },
+  "replica_block_stability": {
+   "assoc_norm": {
+    "block_values": [
+     0.8623340028278175,
+     0.963699606033234,
+     0.8272672213584334,
+     0.8610585092759299,
+     0.8811645973519668,
+     0.8388549841745516,
+     0.9724516145712582,
+     0.852048228619642,
+     0.8502450658218711,
+     0.9123563701066411,
+     1.0083631570934963,
+     0.945400981920783,
+     1.048740015221059,
+     0.9285292321527946,
+     0.9743008914404278,
+     0.9703920515724486,
+     0.981462592713598,
+     0.8772401369434853,
+     0.967973183650346,
+     0.8622285304004534,
+     0.8849870065237115,
+     0.969987413483679,
+     1.0407654329029281,
+     0.9850352160548077,
+     0.7799898986434319,
+     1.019411423168516,
+     0.8834365495934209,
+     0.9006888221490442,
+     0.9530031033535307,
+     1.03692911207838,
+     1.0150151729802832,
+     0.8882305754862633
+    ],
+    "expected_spread": 0.2647975015659852,
+    "ratio": 0.267191218342977,
+    "spread": 0.07075156705759195,
+    "stable": true
+   },
+   "b_sd": {
+    "block_values": [
+     5.474944006386125,
+     5.74090117420194,
+     5.619710364966791,
+     5.557568602535734,
+     5.621560807793058,
+     5.510454299925967,
+     5.582247455217134,
+     5.52868244632208,
+     5.594090373950028,
+     5.482803172916584,
+     5.660085891032949,
+     5.526739703414435,
+     5.527343613791872,
+     5.612052942533023,
+     5.4564028599869,
+     5.471334266121167,
+     5.568460459494754,
+     5.320600194187173,
+     5.414501576651877,
+     5.504439064853446,
+     5.336968227623714,
+     5.722710239390205,
+     5.522271307566967,
+     5.680056416031759,
+     5.561663706879639,
+     5.536309488756169,
+     5.746686792870442,
+     5.407597849956697,
+     5.616083385749686,
+     5.757868334507913,
+     5.4859839342688,
+     5.273967539480179
+    ],
+    "expected_spread": 0.3781694338580593,
+    "ratio": 0.3172035778046702,
+    "spread": 0.11995669743614298,
+    "stable": true
+   },
+   "epsilon_nd": {
+    "block_values": [
+     0.2465920099483571,
+     0.24479298154094795,
+     0.263987485548894,
+     0.2508555601516839,
+     0.2455412188718885,
+     0.2486596208469364,
+     0.25398377209030853,
+     0.2370368499306907,
+     0.23553850991001019,
+     0.24286109382268012,
+     0.24815611796219345,
+     0.2349675934464693,
+     0.24356776190087417,
+     0.2489367625160382,
+     0.25484961953430113,
+     0.24330775985588587,
+     0.23383577848324952,
+     0.23124830559844173,
+     0.265529246455478,
+     0.25498841982319836,
+     0.2373854710521845,
+     0.2437559183154276,
+     0.24014073517955295,
+     0.2390604832257099,
+     0.26331227717969535,
+     0.2496281836043805,
+     0.23179597963574483,
+     0.24483934844084004,
+     0.2354038777787495,
+     0.2578160778881126,
+     0.25384123838087586,
+     0.26544991683894503
+    ],
+    "expected_spread": 0.029202321488911148,
+    "ratio": 0.3386134714585217,
+    "spread": 0.00988829945400799,
+    "stable": true
+   },
+   "f_isovector": {
+    "block_values": [
+     0.0878769788382177,
+     0.10652467515529773,
+     0.08184388929650972,
+     0.11032943269745944,
+     0.11116517895967414,
+     0.10509225380793252,
+     0.09177984245192292,
+     0.0892203306598884,
+     0.11012005144453159,
+     0.09713571697345884,
+     0.09528519753897217,
+     0.11942318160412899,
+     0.11512030382952906,
+     0.09580267891969094,
+     0.08782304352422649,
+     0.10743493751124238,
+     0.11544546373317673,
+     0.10970654991383957,
+     0.07621535147220766,
+     0.08132494743934812,
+     0.10560908619130185,
+     0.09224287978260787,
+     0.11211885048863243,
+     0.1283268493145547,
+     0.10139974984121441,
+     0.0929884796122227,
+     0.11279440034502755,
+     0.08971261559046217,
+     0.10539863731515393,
+     0.0744677614552373,
+     0.10697754815264959,
+     0.08378964475971762
+    ],
+    "expected_spread": 0.06420519610010053,
+    "ratio": 0.2078622543718625,
+    "spread": 0.013345836803754412,
+    "stable": true
+   },
+   "gamma_s_had": {
+    "block_values": [
+     0.2971779876855003,
+     0.2819174001984218,
+     0.3110028114238736,
+     0.3142951427478089,
+     0.2924368634643226,
+     0.3017841476736725,
+     0.29505141016745906,
+     0.30460612465864084,
+     0.29300032934830916,
+     0.29845090505891864,
+     0.26618854938502357,
+     0.2970837132478915,
+     0.2800860379962875,
+     0.2817924326441178,
+     0.2853503805294914,
+     0.2852003202799761,
+     0.2855944282411754,
+     0.28831874108110245,
+     0.27433040052765784,
+     0.3006178508258238,
+     0.3019619048241364,
+     0.2834944773588749,
+     0.2729526418760694,
+     0.28042318364263513,
+     0.31922773686121314,
+     0.2692874717799034,
+     0.2996654483469533,
+     0.2984026702083192,
+     0.2863603393786629,
+     0.27832482470407827,
+     0.26994394755117984,
+     0.28295072588384756
+    ],
+    "expected_spread": 0.05050491423448842,
+    "ratio": 0.26220951135892356,
+    "spread": 0.013242868882649552,
+    "stable": true
+   },
+   "intact_vertex_factor": {
+    "block_values": [
+     1.329863501394808,
+     1.2533834116274718,
+     1.275075224035344,
+     1.2941180837257658,
+     1.2778344373932682,
+     1.3317891109432114,
+     1.3358083017966207,
+     1.3064993598522001,
+     1.2601126307577948,
+     1.314386288838296,
+     1.269824452317715,
+     1.320721408872015,
+     1.315905524351035,
+     1.2750554432509529,
+     1.3199201151930222,
+     1.3166208717981125,
+     1.2901565944525086,
+     1.378448307343236,
+     1.394955336730742,
+     1.319872835674513,
+     1.3871981614243525,
+     1.2816433636627054,
+     1.3010703236001329,
+     1.277324338048865,
+     1.325885854482448,
+     1.3365947442800832,
+     1.246196090188403,
+     1.3746965236748598,
+     1.2672817376090706,
+     1.2533671426277952,
+     1.3374041852102214,
+     1.408925238679938
+    ],
+    "expected_spread": 0.1702134659714588,
+    "ratio": 0.2538582679546765,
+    "spread": 0.0432100956540768,
+    "stable": true
+   },
+   "leading_split_fraction": {
+    "block_values": [
+     0.16456125605598648,
+     0.17302461842928082,
+     0.16045191492491248,
+     0.169645963066596,
+     0.18847878382969693,
+     0.17450124285752489,
+     0.1828896086674393,
+     0.18423095127444644,
+     0.1757515939561905,
+     0.1658540683582649,
+     0.18231182286325961,
+     0.16668390131873959,
+     0.1621566034011457,
+     0.1756869957174516,
+     0.1550709721303564,
+     0.1754709267496919,
+     0.18066927973805794,
+     0.1623875530374872,
+     0.1568401083777561,
+     0.1727762054784829,
+     0.1861932622389371,
+     0.18106239286070702,
+     0.16299260411606284,
+     0.1722669582972259,
+     0.15420302625446813,
+     0.14400259135221355,
+     0.18340139384901158,
+     0.17483590812807276,
+     0.19127953517878263,
+     0.17674952848963116,
+     0.17771965239395834,
+     0.1483427514844194
+    ],
+    "expected_spread": 0.026476801133101267,
+    "ratio": 0.4453614939281206,
+    "spread": 0.011791747707075736,
+    "stable": true
+   },
+   "leading_split_kappa": {
+    "block_values": [
+     3.8133926444812407,
+     3.6597708482666538,
+     3.7538619381983014,
+     3.9134243522151864,
+     3.945423127658294,
+     3.4823753521491243,
+     3.620007415728956,
+     4.0274583588058945,
+     4.26746360764596,
+     3.2658376800006104,
+     3.878927759753253,
+     3.329563243131787,
+     3.597494287278899,
+     3.6434220345931636,
+     3.3005263180045232,
+     3.3540677327806114,
+     3.2227305471898444,
+     3.6059563253576212,
+     3.3764636467434417,
+     3.4818765372529286,
+     3.8196795555415712,
+     3.4111248643129715,
+     3.882854797833428,
+     3.4150509864389913,
+     2.9391480853342884,
+     3.923173923329681,
+     3.7671547921238098,
+     3.8053695757238915,
+     4.074093718955909,
+     3.708282410728528,
+     3.4748065266491706,
+     3.37623438328566
+    ],
+    "expected_spread": 0.9143526998154924,
+    "ratio": 0.3190367605157358,
+    "spread": 0.2917121233179517,
+    "stable": true
+   },
+   "meson_split_fraction": {
+    "block_values": [
+     0.034673011598319405,
+     0.025965898386645953,
+     0.021767903862450328,
+     0.03760411528258082,
+     0.02658911506047123,
+     0.044625635926910774,
+     0.032420356258334664,
+     0.03752616055173155,
+     0.03148221199513855,
+     0.040951580092478825,
+     0.031509922222746525,
+     0.037121253771855954,
+     0.029933787182088046,
+     0.03598575477899253,
+     0.0402082859227415,
+     0.033232360691389747,
+     0.04488865258123371,
+     0.03180466874667696,
+     0.04320720863903652,
+     0.034036096466446196,
+     0.031537683007512106,
+     0.0394239852827683,
+     0.042520372875089835,
+     0.0394454665971926,
+     0.026592690675525346,
+     0.0204201264505685,
+     0.042569585081868914,
+     0.03258922546247775,
+     0.038670518413863306,
+     0.02661302163964393,
+     0.026725094019410766,
+     0.02870768339816402
+    ],
+    "expected_spread": 0.012583790745125296,
+    "ratio": 0.5259939872038831,
+    "spread": 0.006618998268167778,
+    "stable": true
+   },
+   "meson_split_slope": {
+    "block_values": [
+     3.241613629191511,
+     4.05351688378048,
+     4.007536884867882,
+     11.685305871412378,
+     5.005352733978819,
+     4.79179807516642,
+     10.226213407640287,
+     4.592224089592191,
+     5.263874127469207,
+     6.619469382040037,
+     4.411013627849697,
+     4.291135147762577,
+     4.23826637602865,
+     5.748094657031354,
+     4.270263595387216,
+     3.7998670663031087,
+     6.040650909513698,
+     5.687363485958626,
+     3.0965011329214955,
+     5.176898301503943,
+     4.80817715410297,
+     7.599997897107379,
+     5.050387986306751,
+     4.021856508040281,
+     5.380381465911098,
+     8.083069222312243,
+     4.508705003415801,
+     4.6440468536191135,
+     5.047857732987066,
+     3.090895491363689,
+     3.240841098736382,
+     4.714061320285226
+    ],
+    "expected_spread": 3.3315924632920675,
+    "ratio": 0.5714332914664422,
+    "spread": 1.9037828471237779,
+    "stable": true
+   },
+   "r_bbar": {
+    "block_values": [
+     3.2937990856832973,
+     3.030315468954255,
+     2.97441457148202,
+     3.0761881177192327,
+     3.229542509595146,
+     3.2842207702258888,
+     3.250181822460304,
+     3.119888215684017,
+     2.8877069258380046,
+     3.050357908545397,
+     3.1372555270981426,
+     3.3341901905353226,
+     3.1792341075420976,
+     3.3695994070838124,
+     3.13165307559321,
+     3.307338466015061,
+     3.4197885813115216,
+     2.9687006691981432,
+     2.934343833175939,
+     3.2279416339678546,
+     3.4838501882528434,
+     3.3194610213593054,
+     3.266361079070933,
+     3.112062544226742,
+     3.016894675156947,
+     3.041430089093522,
+     3.327153548745337,
+     2.9432971103286265,
+     3.0514778520212604,
+     3.2387389006239764,
+     2.7996084227073434,
+     2.990292210532096
+    ],
+    "expected_spread": 0.5339601596124357,
+    "ratio": 0.31489498613819467,
+    "spread": 0.16814137705950616,
+    "stable": true
+   },
+   "r_v": {
+    "block_values": [
+     0.7616628635136701,
+     0.76210915696346,
+     0.6795573496081742,
+     0.7305672740977395,
+     0.7304352423051225,
+     0.7219768984504561,
+     0.7732628909869895,
+     0.7511589240353261,
+     0.7305200309337229,
+     0.7181572120872101,
+     0.7519017036177784,
+     0.7634922898087382,
+     0.7200053321150874,
+     0.7417345901726357,
+     0.7814455663398703,
+     0.7539430118475337,
+     0.7520611754020615,
+     0.7262745307112345,
+     0.767025716588715,
+     0.7536507372482394,
+     0.7401670613454683,
+     0.7440714057437767,
+     0.7834500666273393,
+     0.7474091719484819,
+     0.7162557088944607,
+     0.7532244132875867,
+     0.7251387067180597,
+     0.7169760305703299,
+     0.7470928108643652,
+     0.7731878724346983,
+     0.6924321774741105,
+     0.7353831596448286
+    ],
+    "expected_spread": 0.14734339773402894,
+    "ratio": 0.16319225906292592,
+    "spread": 0.02404530193422338,
+    "stable": true
+   },
+   "sd_ope_share": {
+    "block_values": [
+     0.42991346429333716,
+     0.40151564116454747,
+     0.4046970798801706,
+     0.3973934739674046,
+     0.4045157853807324,
+     0.4190209623887696,
+     0.38932974880024107,
+     0.4235599305946664,
+     0.41749683943521404,
+     0.41462175661901246,
+     0.37459466173977435,
+     0.40708036780118656,
+     0.41705187546739175,
+     0.41403573413251116,
+     0.3793195263134654,
+     0.4194584110581945,
+     0.40555638654588744,
+     0.4502378157841793,
+     0.3848982750254561,
+     0.4265592864578865,
+     0.4344933339976407,
+     0.43002546457970925,
+     0.4147719565326272,
+     0.38746939420298926,
+     0.4047602350129571,
+     0.3938722108921872,
+     0.436532717717384,
+     0.41851669333107516,
+     0.4149082256992824,
+     0.37840531694871804,
+     0.3938146001542641,
+     0.4327935599833532
+    ],
+    "expected_spread": 0.09949782721205269,
+    "ratio": 0.18721860185328404,
+    "spread": 0.018627844098080142,
+    "stable": true
+   },
+   "sd_tail_share": {
+    "block_values": [
+     0.18289285603307034,
+     0.1854991553465774,
+     0.19344352190654757,
+     0.1974492135827948,
+     0.19169246492006245,
+     0.19151797256134193,
+     0.19834394422001217,
+     0.17757135447314176,
+     0.18067372530624137,
+     0.18632373172183173,
+     0.1994336421737186,
+     0.18483180320211504,
+     0.1837505855940122,
+     0.1834829972553104,
+     0.20479477116231484,
+     0.18998955750670427,
+     0.18848889539912245,
+     0.16868256290223538,
+     0.20747735875236586,
+     0.1876407664705747,
+     0.18269124641424866,
+     0.1742529771896294,
+     0.18244770448345218,
+     0.19294441738090753,
+     0.19359659779287078,
+     0.19192778361079593,
+     0.17195599172577933,
+     0.18297984340093187,
+     0.18508951017220274,
+     0.19693307834121912,
+     0.20041988559930687,
+     0.18998430111208925
+    ],
+    "expected_spread": 0.03864615700281406,
+    "ratio": 0.23285742573726786,
+    "spread": 0.00899904463431357,
+    "stable": true
+   }
+  },
+  "named_residual_register": [
+   {
+    "chi2_min": 2756.089349008542,
+    "chi2_vacuum": 2756.0850583805172,
+    "kind": "vacuum_only_fit_below_free_minimum"
+   }
+  ]
+ },
+ "systematic_variants": {
+  "discrepancy_0.03": {
+   "chi2": 4930.650637835076,
+   "delta_chi2": 2174.561288826534,
+   "converged": true,
+   "ess_min": 0.7761032120805172,
+   "fitted": {
+    "assoc_norm": 1.0040173199426317,
+    "b_sd": 5.539362918183497,
+    "epsilon_nd": 0.2618787949974594,
+    "f_central": 0.0,
+    "f_isovector": 6.610696135189607e-05,
+    "gamma_s_had": 0.2810163245247705,
+    "intact_vertex_factor": 1.3224583735061777,
+    "leading_split_fraction": 0.17908511501893518,
+    "leading_split_kappa": 3.2059490091065905,
+    "meson_split_fraction": 0.04071222446283129,
+    "meson_split_slope": 3.1381545875035,
+    "r_bbar": 3.1183851307309873,
+    "r_v": 0.844654835676066,
+    "sd_ope_share": 0.28967756989085275,
+    "sd_tail_share": 0.19955596368483977
+   }
+  },
+  "discrepancy_0.07": {
+   "chi2": 1799.3624658478222,
+   "delta_chi2": -956.7268831607196,
+   "converged": true,
+   "ess_min": 0.7430390996283113,
+   "fitted": {
+    "assoc_norm": 0.9217166921487538,
+    "b_sd": 5.656307762802781,
+    "epsilon_nd": 0.2742605740304778,
+    "f_central": 0.0,
+    "f_isovector": 3.992309596743656e-06,
+    "gamma_s_had": 0.29434049467122075,
+    "intact_vertex_factor": 1.2814232956673675,
+    "leading_split_fraction": 0.15977275985324577,
+    "leading_split_kappa": 2.329142868568245,
+    "meson_split_fraction": 0.04256730987169537,
+    "meson_split_slope": 4.733556948319678,
+    "r_bbar": 3.004156333158893,
+    "r_v": 0.737189673812169,
+    "sd_ope_share": 0.3029792947450963,
+    "sd_tail_share": 0.2004267593536069
+   }
+  },
+  "discrepancy_0.10": {
+   "chi2": 1107.343614221965,
+   "delta_chi2": -1648.7457347865768,
+   "converged": true,
+   "ess_min": 0.7241068648917425,
+   "fitted": {
+    "assoc_norm": 0.9337982353220964,
+    "b_sd": 5.699112614897907,
+    "epsilon_nd": 0.27746920040373346,
+    "f_central": 0.0,
+    "f_isovector": 6.610697568772447e-05,
+    "gamma_s_had": 0.29348140056423644,
+    "intact_vertex_factor": 1.2681214171907655,
+    "leading_split_fraction": 0.1531420449772587,
+    "leading_split_kappa": 2.1461762329850647,
+    "meson_split_fraction": 0.04194172530102589,
+    "meson_split_slope": 5.2642900937160375,
+    "r_bbar": 2.957467561598895,
+    "r_v": 0.719602071296633,
+    "sd_ope_share": 0.2993747786073367,
+    "sd_tail_share": 0.20317442884177825
+   }
+  },
+  "normalization_+0.02": {
+   "chi2": 2759.6148321872506,
+   "delta_chi2": 3.5254831787087824,
+   "converged": true,
+   "ess_min": 0.7606049522250549,
+   "fitted": {
+    "assoc_norm": 0.9341112494330184,
+    "b_sd": 5.590630565955671,
+    "epsilon_nd": 0.2710140514086066,
+    "f_central": 0.0,
+    "f_isovector": 6.610696099693805e-05,
+    "gamma_s_had": 0.28535213542746635,
+    "intact_vertex_factor": 1.304033913536454,
+    "leading_split_fraction": 0.16753618619711655,
+    "leading_split_kappa": 2.559696415867799,
+    "meson_split_fraction": 0.0428582718706706,
+    "meson_split_slope": 4.06272423418683,
+    "r_bbar": 2.996940788492414,
+    "r_v": 0.7724592755887334,
+    "sd_ope_share": 0.31583953658573966,
+    "sd_tail_share": 0.19498325819705434
+   }
+  },
+  "normalization_-0.02": {
+   "chi2": 2764.212203380532,
+   "delta_chi2": 8.122854371990343,
+   "converged": true,
+   "ess_min": 0.764593612812832,
+   "fitted": {
+    "assoc_norm": 0.9312564073093018,
+    "b_sd": 5.617857286391036,
+    "epsilon_nd": 0.26890282493549134,
+    "f_central": 0.0,
+    "f_isovector": 4.165014299778325e-06,
+    "gamma_s_had": 0.29815269461404625,
+    "intact_vertex_factor": 1.2934464915641946,
+    "leading_split_fraction": 0.1665888311670055,
+    "leading_split_kappa": 2.611304266010439,
+    "meson_split_fraction": 0.04217646309503743,
+    "meson_split_slope": 4.14126725529391,
+    "r_bbar": 3.108418573360094,
+    "r_v": 0.765886236981554,
+    "sd_ope_share": 0.2922997647043934,
+    "sd_tail_share": 0.20128680264582477
+   }
+  },
+  "sigma_dd_0.5mb": {
+   "chi2": 2775.6356772054996,
+   "delta_chi2": 19.546328196957802,
+   "converged": true,
+   "ess_min": 0.7725034569999567,
+   "fitted": {
+    "assoc_norm": 0.9509747436983603,
+    "b_sd": 5.751613989489642,
+    "epsilon_nd": 0.27360117133765977,
+    "f_central": 0.0,
+    "f_isovector": 5.393739314984154e-07,
+    "gamma_s_had": 0.2938396234278138,
+    "intact_vertex_factor": 1.2661442433247418,
+    "leading_split_fraction": 0.1745017047867221,
+    "leading_split_kappa": 2.7358140350621354,
+    "meson_split_fraction": 0.04243356325141062,
+    "meson_split_slope": 3.8050420846187816,
+    "r_bbar": 3.102875170253912,
+    "r_v": 0.7602695645301153,
+    "sd_ope_share": 0.3339681191086306,
+    "sd_tail_share": 0.1699903820186351
+   }
+  },
+  "sigma_dd_2.5mb": {
+   "chi2": 2755.2906741424176,
+   "delta_chi2": -0.7986748661242018,
+   "converged": true,
+   "ess_min": 0.7514091456826437,
+   "fitted": {
+    "assoc_norm": 0.917115012328693,
+    "b_sd": 5.478240030378997,
+    "epsilon_nd": 0.26661316673850494,
+    "f_central": 0.0,
+    "f_isovector": 1.5197554256558966e-06,
+    "gamma_s_had": 0.28896800148556046,
+    "intact_vertex_factor": 1.3256071260937585,
+    "leading_split_fraction": 0.15990585627963042,
+    "leading_split_kappa": 2.45790254113958,
+    "meson_split_fraction": 0.04244585126536488,
+    "meson_split_slope": 4.401980682655879,
+    "r_bbar": 3.001511301099428,
+    "r_v": 0.7766440688444177,
+    "sd_ope_share": 0.2700185112326734,
+    "sd_tail_share": 0.2280850271910578
+   }
+  },
+  "sigma_sd_window_4.1mb": {
+   "chi2": 2807.43667766294,
+   "delta_chi2": 51.3473286543981,
+   "converged": true,
+   "ess_min": 0.7576607678563998,
+   "fitted": {
+    "assoc_norm": 0.9575245952719507,
+    "b_sd": 5.7536485355476925,
+    "epsilon_nd": 0.2756246958696662,
+    "f_central": 0.0,
+    "f_isovector": 1.6198367438352754e-06,
+    "gamma_s_had": 0.28633411099966816,
+    "intact_vertex_factor": 1.1669028096530405,
+    "leading_split_fraction": 0.1713313911002266,
+    "leading_split_kappa": 2.6260507679884353,
+    "meson_split_fraction": 0.04337158091366541,
+    "meson_split_slope": 4.019037517839412,
+    "r_bbar": 3.0384316644827987,
+    "r_v": 0.7708267717226607,
+    "sd_ope_share": 0.3594253068591976,
+    "sd_tail_share": 0.1994915553009062
+   }
+  },
+  "sigma_sd_window_5.7mb": {
+   "chi2": 2763.5712745264195,
+   "delta_chi2": 7.481925517877698,
+   "converged": true,
+   "ess_min": 0.7568881204885114,
+   "fitted": {
+    "assoc_norm": 0.9101242210811974,
+    "b_sd": 5.445294131028168,
+    "epsilon_nd": 0.26505496206683665,
+    "f_central": 0.0,
+    "f_isovector": 4.4081214554194615e-06,
+    "gamma_s_had": 0.2965341983709327,
+    "intact_vertex_factor": 1.444478700645948,
+    "leading_split_fraction": 0.16205171217891168,
+    "leading_split_kappa": 2.539121342771265,
+    "meson_split_fraction": 0.041487100148482746,
+    "meson_split_slope": 4.184539750583148,
+    "r_bbar": 3.0650668845951894,
+    "r_v": 0.766677120098749,
+    "sd_ope_share": 0.25148903945265333,
+    "sd_tail_share": 0.19860977612580388
+   }
+  }
+ },
+ "readouts": {
+  "readout_class_yields": {
+   "dd": {
+    "fraction": 0.0472,
+    "per_event": {
+     "antiproton": 0.010253410959895713,
+     "k_minus": 0.07514861769238998,
+     "k_plus": 0.1898518576435347,
+     "pi_minus": 1.6858111809477379,
+     "pi_plus": 2.5479434900838402,
+     "proton": 1.0144391589692656
+    },
+    "ratio_model_over_data": {
+     "antiproton": 0.26563240828745366,
+     "k_minus": 0.5767353621825785,
+     "k_plus": 0.8374585692260023,
+     "pi_minus": 0.7143267715880246,
+     "pi_plus": 0.8442490026785422,
+     "proton": 0.8727859924023621
+    }
+   },
+   "nd0": {
+    "fraction": 0.5684257786018834,
+    "per_event": {
+     "antiproton": 0.041023008493229415,
+     "k_minus": 0.14074480778623,
+     "k_plus": 0.2476983816064068,
+     "pi_minus": 2.5609286636303716,
+     "pi_plus": 3.356859094032848,
+     "proton": 1.1182870024058746
+    },
+    "ratio_model_over_data": {
+     "antiproton": 1.0627722407572386,
+     "k_minus": 1.080159691375518,
+     "k_plus": 1.0926262973374803,
+     "pi_minus": 1.0851392642501576,
+     "pi_plus": 1.1122793552130048,
+     "proton": 0.9621328421284303
+    }
+   },
+   "sd_projectile": {
+    "fraction": 0.1921871106990583,
+    "per_event": {
+     "antiproton": 0.03145785704628397,
+     "k_minus": 0.10942373844671811,
+     "k_plus": 0.1849537986968351,
+     "pi_minus": 1.8066558397075336,
+     "pi_plus": 2.427879803497857,
+     "proton": 1.3225319253120933
+    },
+    "ratio_model_over_data": {
+     "antiproton": 0.8149703898001027,
+     "k_minus": 0.8397831039656033,
+     "k_plus": 0.8158526629767758,
+     "pi_minus": 0.765532135469294,
+     "pi_plus": 0.804466469018508,
+     "proton": 1.1378576316889728
+    }
+   },
+   "sd_target": {
+    "fraction": 0.1921871106990583,
+    "per_event": {
+     "antiproton": 0.031356144347289096,
+     "k_minus": 0.10948209578028503,
+     "k_plus": 0.18514053773483224,
+     "pi_minus": 1.8065211454615722,
+     "pi_plus": 2.4283743186585847,
+     "proton": 1.3218109954875037
+    },
+    "ratio_model_over_data": {
+     "antiproton": 0.8123353457846916,
+     "k_minus": 0.8402309729876057,
+     "k_plus": 0.8166763905374161,
+     "pi_minus": 0.7654750616362594,
+     "pi_plus": 0.8046303242738849,
+     "proton": 1.1372373702895153
+    }
+   }
+  },
+  "readout_mesonic_count": {
+   "charged_from_weak": {
+    "-311": 0.692,
+    "-3122": 1.278,
+    "-3212": 1.278,
+    "310": 1.384,
+    "311": 0.692,
+    "3122": 1.278,
+    "3212": 1.278
+   },
+   "decays_per_mass": 2000,
+   "family": "mesonic_neutral",
+   "flavor": {
+    "assoc_norm": 0.9328638741433468,
+    "gamma_s_had": 0.2916168458739988,
+    "r_bbar": 3.0530993703587828,
+    "r_v": 0.7679104538968675
+   },
+   "floor": 2.0,
+   "reference": {
+    "a": 2.103,
+    "b": 0.832,
+    "source": "Siegrist et al., Phys. Rev. D 26 (1982) 969; HEPData ins169326 Table 6; weighted fit <n_ch> = a + b ln s over 2.6 to 7.8 GeV (chi2/ndf 30.5/36)"
+   },
+   "rows": [
+    {
+     "below_open_charm": true,
+     "mark_i": 3.6929710445256543,
+     "mass": 2.6,
+     "model": 3.5222300000000026,
+     "ratio": 0.9537659400880619
+    },
+    {
+     "below_open_charm": true,
+     "mark_i": 3.931090848343735,
+     "mass": 3.0,
+     "model": 3.481631000000003,
+     "ratio": 0.885665362189963
+    },
+    {
+     "below_open_charm": true,
+     "mark_i": 4.187597579576293,
+     "mass": 3.5,
+     "model": 4.304713999999993,
+     "ratio": 1.0279674486858286
+    }
+   ],
+   "seed_rule": "numpy SeedSequence([MASTER_SEED, 69, round(1000 floor), mass index, 1 or 2])"
+  },
+  "readout_neutron_dndxf": {
+   "edges": [
+    0.05,
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.55,
+    0.675,
+    0.825,
+    0.975
+   ],
+   "note": "dN/dx_F per inelastic event in the forward hemisphere (x_F > 0)",
+   "rows": [
+    {
+     "data": 0.481,
+     "data_error": 0.100048,
+     "model": 0.4600839142696629,
+     "ratio": 0.9565154142820435,
+     "xf": 0.1
+    },
+    {
+     "data": 0.407,
+     "data_error": 0.05982899999999999,
+     "model": 0.4383561861884162,
+     "ratio": 1.0770422265071653,
+     "xf": 0.2
+    },
+    {
+     "data": 0.378,
+     "data_error": 0.049895999999999996,
+     "model": 0.41907014503515244,
+     "ratio": 1.1086511773416732,
+     "xf": 0.3
+    },
+    {
+     "data": 0.325,
+     "data_error": 0.037375000000000005,
+     "model": 0.36566552332419533,
+     "ratio": 1.1251246871513703,
+     "xf": 0.4
+    },
+    {
+     "data": 0.325,
+     "data_error": 0.039975000000000004,
+     "model": 0.3280366779804243,
+     "ratio": 1.0093436245551517,
+     "xf": 0.5
+    },
+    {
+     "data": 0.293,
+     "data_error": 0.029885999999999996,
+     "model": 0.3301027713129787,
+     "ratio": 1.126630618815627,
+     "xf": 0.6
+    },
+    {
+     "data": 0.286,
+     "data_error": 0.030029999999999998,
+     "model": 0.35452856835332003,
+     "ratio": 1.2396103788577624,
+     "xf": 0.75
+    },
+    {
+     "data": 0.215,
+     "data_error": 0.059985,
+     "model": 0.25142877948530973,
+     "ratio": 1.1694361836526035,
+     "xf": 0.9
+    }
+   ],
+   "table": "spshadrons.web.cern.ch/data/xsect_ptintegrated_neutron_pp.txt"
+  },
+  "readout_paper_window_sum_ratios": {
+   "antiproton": {
+    "bins": 122,
+    "chi2_data_only": 269.98434134973155,
+    "data_sum": 0.49481050975456253,
+    "model_sum": 0.47741109263156173,
+    "sum_ratio": 0.9648362013740749
+   },
+   "k_minus": {
+    "bins": 148,
+    "chi2_data_only": 583.7622703743505,
+    "data_sum": 2.6748294524858403,
+    "model_sum": 2.62446882163292,
+    "sum_ratio": 0.9811723955685782
+   },
+   "k_plus": {
+    "bins": 153,
+    "chi2_data_only": 653.6398445926988,
+    "data_sum": 4.263298080553807,
+    "model_sum": 4.234680705480578,
+    "sum_ratio": 0.9932875031178886
+   },
+   "pi_minus": {
+    "bins": 229,
+    "chi2_data_only": 16873.58099368605,
+    "data_sum": 68.5860645059786,
+    "model_sum": 64.88423212150747,
+    "sum_ratio": 0.9460264645429766
+   },
+   "pi_plus": {
+    "bins": 230,
+    "chi2_data_only": 9974.221552274756,
+    "data_sum": 88.52056985525488,
+    "model_sum": 87.39094240195845,
+    "sum_ratio": 0.987238814039002
+   },
+   "proton": {
+    "bins": 135,
+    "chi2_data_only": 4501.674456190664,
+    "data_sum": 7.008002422907488,
+    "model_sum": 7.394302608031697,
+    "sum_ratio": 1.0551227242532744
+   }
+  },
+  "readout_pi0": {
+   "charged_pion_mean": 2.5956859140023614,
+   "neutral_share": 0.37039340187136466,
+   "pi0_per_event": 3.054049747046926,
+   "ratio": 1.1765867860097914
+  },
+  "readout_pt_profile": {
+   "profile_ratio": 1.0979541150185417,
+   "pt_high": 1.3,
+   "pt_low": 0.3,
+   "ratio_high": 1.0213374331913767,
+   "ratio_low": 0.9302186851170269,
+   "species": "pi_minus",
+   "xf_max": 0.5
+  },
+  "readout_sd_nch_vs_mx": {
+   "edges": [
+    1.08,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    8.0,
+    10.0,
+    13.0,
+    17.3
+   ],
+   "mean_event_n_ch": [
+    2.125040480136012,
+    2.7714692451908314,
+    3.4149108814561613,
+    4.095327141343486,
+    4.595134494447849,
+    5.2272361437376,
+    5.475214271262825,
+    5.978622769241538,
+    7.51029719068329,
+    10.369573080459885,
+    14.123630658115816
+   ],
+   "note": "whole-event charged count of single-diffraction events (the excited system plus the other line, an intact proton or a low-mass resonance by the frozen split)"
+  },
+  "readout_total_yields": {
+   "data": {
+    "antiproton": {
+     "source": "spshadrons.web.cern.ch/ppdata.html",
+     "value": 0.0386
+    },
+    "charged_multiplicity": {
+     "derived": true,
+     "source": "sum of the six charged species above (pi+-, K+-, p, pbar); other charged hadrons (Sigma+-, ...) are not included",
+     "value": 6.936
+    },
+    "k_minus": {
+     "source": "spshadrons.web.cern.ch/ppdata.html",
+     "value": 0.1303
+    },
+    "k_plus": {
+     "source": "spshadrons.web.cern.ch/ppdata.html, 'Total multiplicities of: K+ 0.2267 / inelastic event'",
+     "value": 0.2267
+    },
+    "pi_minus": {
+     "source": "spshadrons.web.cern.ch/ppdata.html; pp-pi.pdf section 9.3",
+     "value": 2.36
+    },
+    "pi_plus": {
+     "source": "spshadrons.web.cern.ch/ppdata.html, 'Total multiplicities of: pi+ 3.018 / inelastic event'; pp-pi.pdf section 9.3 Total Pion Multiplicity",
+     "value": 3.018
+    },
+    "proton": {
+     "source": "spshadrons.web.cern.ch/ppdata.html, 'Total multiplicities of: p 1.1623 / inelastic event'",
+     "value": 1.1623
+    }
+   },
+   "model": {
+    "antiproton": 0.03587453797994011,
+    "charged_multiplicity": 6.826835313510104,
+    "events_with_a_proton": 0.8350641921095648,
+    "k_minus": 0.12562087150039575,
+    "k_plus": 0.22088651430871045,
+    "pi_minus": 2.2296742025326926,
+    "pi_plus": 2.9616976254720297,
+    "proton": 1.1917533139922585
+   },
+   "ratio_model_over_data": {
+    "antiproton": 0.9293921756461169,
+    "k_minus": 0.9640895740628991,
+    "k_plus": 0.9743560401795784,
+    "pi_minus": 0.9447772044630054,
+    "pi_plus": 0.981344474974165,
+    "proton": 1.0253405437428016
+   },
+   "reference_sha256": "e380e12682617d66e747483b721ac753835a0988b25146dd1646658b7e49cdfb"
+  }
+ },
+ "readout_files": [
+  {
+   "path": "dev/00runs/r137_readouts_2026-11-03/yields_ry137.txt",
+   "sha256": "904f3ef3877d87728d84cf1f6942200b098534fbfe06281ce61c197fa86adb32",
+   "bytes": 14465,
+   "content": "submitted ry137: 20261104T082524Z-30f193c4\nfinished in 634 s\nkernel options: (the spec); events {'nd0': 280000, 'sd_projectile': 40000, 'sd_target': 40000, 'dd': 40000}\n  rho0           0.3284 per event   NA27 0.385 +- 0.018\n  rho+           0.3720 per event   \n  rho-           0.2624 per event   \n  omega          0.4451 per event   NA27 0.390 +- 0.024\n  eta            0.3862 per event   NA27 0.30 +- 0.02\n  eta'           0.0401 per event   \n  phi            0.0170 per event   NA61 0.01256 +- 0.0005\n  K*0            0.0888 per event   NA61 0.0784 +- 0.006\n  K*0bar         0.0500 per event   \n  K*+            0.1066 per event   \n  K*-            0.0372 per event   \n  Delta++        0.1715 per event   \n  Delta+         0.3131 per event   \n  Delta0         0.1117 per event   \n  Delta-         0.0436 per event   \n  Sigma(1385)+   0.0171 per event   \n  Sigma(1385)-   0.006611 per event   \n  Lambda(1520)   0.0177 per event   \n  f2(1270)       0.1053 per event   \n  f1(1285)       0.1188 per event   \n  h1(1170)       0.1222 per event   \n  f0(500)        0.1163 per event   \n  f0(980)        0.0681 per event   \n  Xi(1530)0      0.000598 per event   NA61 0.00067 +- 0.00007\n  aXi(1530)0     0.000004 per event   NA61 0.00027 +- 0.00003\n  Xi- (final)    0.000900 per event   NA61 0.0033 +- 0.0006\n  aXi+ (final)   0.000025 per event   NA61 0.00079 +- 0.00010\n  Xi0 (final)    0.000905 per event   \n  Omega- (final) 0.000000 per event   \n  Lambda (final) 0.0765 per event   \n  rho0/omega     0.738   (NA27 0.99 +- 0.08; NA60 p+A 1.00 +- 0.06)\n  (rho+ + rho-)/2rho0 0.966\n  K*(892)0 and anti-K*(892)0 by the emitting vertex's siblings, per inelastic event\n      313 other                                          0.0139\n      313 cascade, sibling mesonic_charged [c]           0.0131\n      313 cascade, sibling mesonic_neutral [c]           0.0120\n      313 cascade, sibling mesonic_strange_qm1 [c]       0.0054\n      313 cascade, with a kaon [c]                       0.0047\n      313 cascade, sibling baryonic_strange_q1 [f]       0.0046\n      313 cascade, with a kaon [f]                       0.0032\n      313 cascade, sibling mesonic_charged [f]           0.0031\n      313 cascade, sibling mesonic_strange [c]           0.0029\n      313 cascade, with catalog:223 [c]                  0.0027\n      313 cascade, sibling mesonic_neutral [f]           0.0026\n      313 cascade, with catalog:223 [f]                  0.0025\n      313 cascade, with catalog:213 [f]                  0.0024\n      313 cascade, with catalog:213 [c]                  0.0024\n      313 cascade, sibling baryonic_strange_q1 [c]       0.0016\n      313 cascade, with catalog:221 [c]                  0.0014\n      313 cascade, with a hyperon [f]                    0.0014\n      313 cascade, with catalog:211 [f]                  0.0014\n      313 cascade, with catalog:211 [c]                  0.0014\n      313 cascade, with catalog:221 [f]                  0.0012\n      313 cascade, with catalog:113 [c]                  0.0011\n      313 cascade, sibling mesonic_strange_qm1 [f]       0.0009\n      313 cascade, with catalog:113 [f]                  0.0009\n      313 cascade, sibling mesonic_strange [f]           0.0006\n      313 cascade, with catalog:111 [c]                  0.0006\n      313 cascade, with catalog:111 [f]                  0.0005\n      313 cascade, with a hyperon [c]                    0.0001\n      313 cascade, sibling baryonic_strange [c]          0.0001\n      313 cascade, sibling baryonic_strange [f]          0.0001\n      313 with a nucleon or Delta                        0.0001\n      313 cascade, sibling baryonic_strange_qm1 [c]      0.0000\n      313 cascade, with a nucleon or Delta [c]           0.0000\n      313 cascade, sibling anti_baryonic_np_q0 [c]       0.0000\n      313 cascade, sibling anti_baryonic_np [c]          0.0000\n      313 cascade, with a nucleon or Delta [f]           0.0000\n      313 cascade, sibling baryonic_strange_qm1 [f]      0.0000\n     -313 cascade, sibling mesonic_antistrange_q1 [c]    0.0106\n     -313 cascade, with a kaon [c]                       0.0060\n     -313 cascade, with a kaon [f]                       0.0046\n     -313 cascade, sibling mesonic_neutral [c]           0.0046\n     -313 with a nucleon or Delta                        0.0035\n     -313 cascade, sibling mesonic_antistrange [c]       0.0030\n     -313 cascade, sibling mesonic_anticharged [c]       0.0021\n     -313 cascade, sibling mesonic_antistrange_q1 [f]    0.0020\n     -313 cascade, with a nucleon or Delta [f]           0.0018\n     -313 cascade, with catalog:223 [c]                  0.0017\n     -313 other                                          0.0017\n     -313 cascade, with catalog:-213 [c]                 0.0009\n     -313 cascade, with catalog:221 [c]                  0.0008\n     -313 cascade, sibling mesonic_antistrange [f]       0.0007\n     -313 cascade, with catalog:223 [f]                  0.0007\n     -313 cascade, with catalog:113 [c]                  0.0006\n     -313 cascade, with catalog:-211 [c]                 0.0005\n     -313 cascade, sibling mesonic_neutral [f]           0.0005\n     -313 cascade, with a nucleon or Delta [c]           0.0004\n     -313 cascade, sibling baryonic_np [f]               0.0004\n     -313 cascade, with catalog:-213 [f]                 0.0004\n     -313 cascade, sibling baryonic_np [c]               0.0003\n     -313 cascade, with catalog:221 [f]                  0.0003\n     -313 cascade, with catalog:111 [c]                  0.0003\n     -313 cascade, sibling baryonic_np_q0 [f]            0.0003\n     -313 cascade, sibling baryonic_np_q0 [c]            0.0003\n     -313 cascade, with catalog:-211 [f]                 0.0002\n     -313 cascade, sibling mesonic_anticharged [f]       0.0002\n     -313 cascade, with catalog:113 [f]                  0.0002\n     -313 cascade, with catalog:111 [f]                  0.0002\n     -313 cascade, sibling anti_baryonic_strange [c]     0.0001\n     -313 cascade, with a hyperon [c]                    0.0001\n     -313 cascade, sibling anti_baryonic_strange_q1 [c]  0.0001\n     -313 cascade, with a hyperon [f]                    0.0000\n     -313 cascade, sibling anti_baryonic_strange_qm1 [c] 0.0000\n     -313 cascade, sibling anti_baryonic_strange_q1 [f]  0.0000\n     -313 cascade, sibling anti_baryonic_strange [f]     0.0000\n  the strange continuum states made per inelastic event (s-bar: mesonic_antistrange; s: mesonic_strange)\n    mesonic_antistrange    0.3112\n    mesonic_strange        0.0810\n  their largest origins (family | parent | sibling)\n    mesonic_antistrange  | mesonic_antistrange_q1     | catalog:223                    0.0247\n    mesonic_antistrange  | mesonic_antistrange_q1     | catalog:211                    0.0179\n    mesonic_antistrange  | mesonic_antistrange_q1     | catalog:213                    0.0162\n    mesonic_antistrange  | mesonic_antistrange        | catalog:223                    0.0149\n    mesonic_antistrange  | mesonic_charged            | catalog:-313                   0.0126\n    mesonic_strange      | mesonic_charged            | catalog:323                    0.0125\n    mesonic_antistrange  | mesonic_antistrange        | catalog:-211                   0.0113\n    mesonic_antistrange  | mesonic_antistrange        | catalog:-213                   0.0099\n    mesonic_antistrange  | baryonic_np                | catalog:13126                  0.0091\n    mesonic_antistrange  | mesonic_antistrange_q1     | catalog:111                    0.0090\n    mesonic_antistrange  | baryonic_np                | catalog:3126                   0.0090\n    mesonic_strange      | mesonic_charged            | catalog:321                    0.0085\n    mesonic_antistrange  | mesonic_charged            | catalog:-311                   0.0083\n    mesonic_antistrange  | mesonic_antistrange_q1     | catalog:113                    0.0082\n    mesonic_antistrange  | baryonic_np                | catalog:3226                   0.0080\n    mesonic_antistrange  | baryonic_np                | catalog:13226                  0.0075\n    mesonic_antistrange  | baryonic_np                | catalog:102134                 0.0068\n    mesonic_antistrange  | baryonic_np                | catalog:3216                   0.0065\n    mesonic_antistrange  | baryonic_np                | catalog:3224                   0.0064\n    mesonic_antistrange  | baryonic_np                | catalog:13216                  0.0064\n    mesonic_strange      | mesonic_anticharged        | catalog:313                    0.0063\n    mesonic_antistrange  | mesonic_anticharged        | catalog:-323                   0.0062\n    mesonic_antistrange  | baryonic_np                | catalog:13124                  0.0062\n    mesonic_antistrange  | baryonic_np                | catalog:23124                  0.0059\n  mass distributions per inelastic event in 0.25 GeV bins (SM: a strange continuum state at its creation, beside a hyperon Y or otherwise; CM: the state that emits a K*(892), by its family)\n    CM|-313|anti_baryonic_np                 total 0.0003, mean 3.69 GeV | \n    CM|-313|baryonic_strange                 total 0.0035, mean 2.92 GeV | 2.00:0.0021\n    CM|-313|mesonic_charged                  total 0.0186, mean 4.62 GeV | 2.00:0.0054 3.00:0.0010 3.25:0.0010 3.50:0.0008 3.75:0.0007 4.00:0.0006 4.25:0.0006 4.50:0.0005 4.75:0.0005\n    CM|-313|mesonic_neutral                  total 0.0083, mean 3.57 GeV | 2.00:0.0041 3.00:0.0006\n    CM|-313|mesonic_strange                  total 0.0142, mean 3.90 GeV | 2.00:0.0063 3.25:0.0005 3.50:0.0005\n    CM|313|anti_baryonic_strange             total 0.0001, mean 3.33 GeV | \n    CM|313|baryonic_np                       total 0.0078, mean 4.59 GeV | 2.00:0.0012 3.00:0.0013 3.25:0.0011 3.50:0.0006\n    CM|313|mesonic_anticharged               total 0.0097, mean 4.44 GeV | 2.00:0.0032 3.00:0.0006\n    CM|313|mesonic_antistrange               total 0.0492, mean 4.71 GeV | 2.00:0.0169 2.25:0.0014 3.00:0.0017 3.25:0.0020 3.50:0.0016 3.75:0.0016 4.00:0.0015 4.25:0.0013 4.50:0.0012 4.75:0.0012 5.00:0.0012 5.25:0.0010 5.50:0.0011 5.75:0.0010 6.00:0.0009 6.25:0.0009 6.50:0.0009 6.75:0.0009 7.00:0.0008 7.25:0.0007 7.50:0.0008 7.75:0.0006 8.00:0.0007 8.25:0.0007 8.50:0.0006 8.75:0.0005 9.00:0.0006 9.25:0.0006\n    CM|313|mesonic_neutral                   total 0.0081, mean 3.52 GeV | 2.00:0.0041 3.00:0.0006\n    SM|mesonic_antistrange|Y                 total 0.1336, mean 4.94 GeV | 2.00:0.0233 2.25:0.0112 2.50:0.0086 2.75:0.0073 3.00:0.0063 3.25:0.0055 3.50:0.0045 3.75:0.0038 4.00:0.0034 4.25:0.0034 4.50:0.0031 4.75:0.0030 5.00:0.0028 5.25:0.0026 5.50:0.0025 5.75:0.0023 6.00:0.0020 6.25:0.0021 6.50:0.0020 6.75:0.0020 7.00:0.0020 7.25:0.0018 7.50:0.0018 7.75:0.0018 8.00:0.0017 8.25:0.0018 8.50:0.0018 8.75:0.0016 9.00:0.0016 9.25:0.0016 9.50:0.0014 9.75:0.0013 10.00:0.0013 10.25:0.0013 10.50:0.0012 10.75:0.0011 11.00:0.0011 11.25:0.0010 11.50:0.0009 11.75:0.0008 12.00:0.0008 12.25:0.0006 12.50:0.0006\n    SM|mesonic_antistrange|other             total 0.1775, mean 4.19 GeV | 2.00:0.0564 2.25:0.0153 2.50:0.0080 2.75:0.0064 3.00:0.0059 3.25:0.0057 3.50:0.0053 3.75:0.0048 4.00:0.0044 4.25:0.0043 4.50:0.0041 4.75:0.0038 5.00:0.0037 5.25:0.0034 5.50:0.0033 5.75:0.0031 6.00:0.0030 6.25:0.0027 6.50:0.0028 6.75:0.0028 7.00:0.0025 7.25:0.0024 7.50:0.0024 7.75:0.0021 8.00:0.0021 8.25:0.0018 8.50:0.0017 8.75:0.0015 9.00:0.0015 9.25:0.0013 9.50:0.0012 9.75:0.0011 10.00:0.0011 10.25:0.0010 10.50:0.0008 10.75:0.0007 11.00:0.0007 11.25:0.0005\n    SM|mesonic_strange|Y                     total 0.0033, mean 4.32 GeV | \n    SM|mesonic_strange|other                 total 0.0778, mean 3.81 GeV | 2.00:0.0275 2.25:0.0067 2.50:0.0038 2.75:0.0029 3.00:0.0028 3.25:0.0026 3.50:0.0023 3.75:0.0022 4.00:0.0022 4.25:0.0020 4.50:0.0020 4.75:0.0017 5.00:0.0017 5.25:0.0015 5.50:0.0014 5.75:0.0014 6.00:0.0012 6.25:0.0011 6.50:0.0012 6.75:0.0011 7.00:0.0010 7.25:0.0009 7.50:0.0008 7.75:0.0007 8.00:0.0006 8.25:0.0006 8.50:0.0006\n  the largest single origins (state | vertex parent | siblings)\n      313 | mesonic_antistrange_q1   | mesonic_charged [c]                0.0131\n      313 | mesonic_antistrange      | mesonic_neutral [c]                0.0120\n     -313 | mesonic_charged          | mesonic_antistrange_q1 [c]         0.0106\n      313 | mesonic_anticharged      | mesonic_strange_qm1 [c]            0.0054\n     -313 | mesonic_strange          | mesonic_neutral [c]                0.0046\n      313 | baryonic_np              | baryonic_strange_q1 [f]            0.0046\n      313 | 20323                    | 211                                0.0040\n      313 | mesonic_antistrange_q1   | mesonic_charged [f]                0.0031\n     -313 | mesonic_neutral          | mesonic_antistrange [c]            0.0030\n      313 | 100323                   | 211                                0.0030\n      313 | mesonic_neutral          | mesonic_strange [c]                0.0029\n      313 | mesonic_antistrange      | catalog:223 [c]                    0.0027\n      313 | mesonic_antistrange      | mesonic_neutral [f]                0.0026\n      313 | mesonic_antistrange      | catalog:223 [f]                    0.0025\n      313 | mesonic_antistrange_q1   | catalog:213 [f]                    0.0024\n      313 | mesonic_antistrange_q1   | catalog:213 [c]                    0.0024\n     -313 | mesonic_charged          | catalog:323 [c]                    0.0021\n     -313 | mesonic_strange_qm1      | mesonic_anticharged [c]            0.0021\n     -313 | mesonic_charged          | mesonic_antistrange_q1 [f]         0.0020\n     -313 | mesonic_strange          | catalog:223 [c]                    0.0017\n     -313 | mesonic_neutral          | catalog:313 [c]                    0.0017\n      313 | mesonic_neutral          | catalog:-313 [c]                   0.0017\n      313 | 20313                    | 111                                0.0017\n     -313 | mesonic_charged          | catalog:323 [f]                    0.0016\n  dn/dy per inelastic event, p_T < 1.5 GeV/c (model / NA49 Table IV)\n      313 0.0296/0.0241  0.0277/0.0272  0.0273/0.0232  0.0267/0.0192  0.0245/0.0180  0.0223/0.0173  0.0192/0.0136  0.0149/0.0113  0.0114/0.0095  0.0076/0.0062\n     -313 0.0198/0.0188  0.0194/0.0179  0.0181/0.0176  0.0167/0.0159  0.0134/0.0146  0.0121/0.0115  0.0088/0.0094  0.0066/0.0079  0.0044/0.0048  0.0024/0.0026\n      333 0.0064  0.0057  0.0056  0.0051  0.0051  0.0046  0.0034  0.0025  0.0016  0.0011\n"
+  },
+  {
+   "path": "dev/00runs/r137_readouts_2026-11-03/origin_l137xf05.txt",
+   "sha256": "2be37f9fb8b86833bb8ac04106f8581557bb9c9ed37d769f846d3bedb122d44d",
+   "bytes": 11138,
+   "content": "submitted l137xf05: 20261104T082511Z-963bf244\nfinished in 363 s\nspec r137.json x_F [0.0, 0.1] events {'nd0': 112000, 'sd_projectile': 16000, 'sd_target': 16000, 'dd': 16000} fractions {'nd0': 0.5684257786018834, 'sd_projectile': 0.1921871106990583, 'sd_target': 0.1921871106990583, 'dd': 0.0472}\nK+ pT0-0.5     per event 0.0450 | classes nd 0.64, sdp 0.25, sdt 0.09, dd 0.02\n               nd:K*(892)0 0.189, nd:K*(892)+ 0.114, sdt:record 0.093, sdp:K*(892)0 0.075, nd:f0(980) 0.059, nd:phi(1020) 0.039, sdp:K*(892)+ 0.036, nd:f1(1285) 0.032, sdp:f0(980) 0.025, sdp:phi(1020) 0.017\nK+ pT0.5-1     per event 0.0193 | classes nd 0.67, sdp 0.23, sdt 0.09, dd 0.01\n               nd:K*(892)0 0.204, nd:K*(892)+ 0.122, sdt:record 0.089, sdp:K*(892)0 0.076, nd:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.041, sdp:K*(892)+ 0.039, nd:step[>3]:mesonic_antistrange_q1:d2:m>2 0.028, nd:step[>3]:mesonic_antistrange_q1:d1:m>2 0.021, nd:step[>3]:mesonic_charged:d2:m>2 0.021, nd:phi(1020) 0.021\nK+ pT1-2.5     per event 0.0023 | classes nd 0.68, sdp 0.20, sdt 0.11, dd 0.01\n               nd:K*(892)0 0.179, sdt:record 0.113, nd:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.087, nd:K*(892)+ 0.087, sdp:K*(892)0 0.052, nd:step[>3]:mesonic_antistrange_q1:d2:m>2 0.044, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.031, nd:step[>3]:mesonic_charged:d2:m>2 0.028, nd:step[>3]:mesonic_antistrange_q1:d1:m>2 0.028, nd:direct[2-3]:mesonic_charged:d2:m>2 0.026\nK- pT0-0.5     per event 0.0308 | classes nd 0.64, sdp 0.26, sdt 0.09, dd 0.02\n               nd:aK*(892)0 0.165, sdt:record 0.091, nd:f0(980) 0.089, nd:K*(892)- 0.066, sdp:aK*(892)0 0.066, nd:phi(1020) 0.056, nd:f1(1285) 0.048, sdp:f0(980) 0.039, sdp:K*(892)- 0.028, sdp:phi(1020) 0.023\nK- pT0.5-1     per event 0.0125 | classes nd 0.63, sdp 0.28, sdt 0.08, dd 0.01\n               nd:aK*(892)0 0.180, sdp:aK*(892)0 0.091, sdt:record 0.083, nd:K*(892)- 0.074, nd:phi(1020) 0.030, nd:f0(980) 0.027, sdp:K*(892)- 0.026, nd:direct[2-3]:mesonic_strange_qm1:d2:m>2 0.025, nd:Lambda(1820) 0.024, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.018\nK- pT1-2.5     per event 0.0014 | classes nd 0.65, sdp 0.21, sdt 0.14, dd 0.00\n               nd:aK*(892)0 0.166, sdt:record 0.136, nd:K*(892)- 0.065, nd:direct[2-3]:mesonic_strange_qm1:d2:m>2 0.061, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.054, sdp:aK*(892)0 0.051, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.040, nd:direct[2-3]:mesonic_strange:d2:m>2 0.036, sdp:Lambda(1820) 0.034, nd:Lambda(1890) 0.025\nLambda pT0-0.5 per event 0.0035 | classes nd 0.72, sdp 0.20, sdt 0.07, dd 0.00\n               nd:Sigma(1385)0 0.185, nd:Sigma(1385)+ 0.132, nd:Sigma(1385)- 0.096, sdt:record 0.075, nd:step0[>3]:baryonic_np:d0:m>2 0.034, sdp:Sigma(1385)+ 0.031, nd:N(1720)+ 0.029, sdp:Sigma(1385)- 0.027, nd:Sigma(1775)+ 0.022, nd:Lambda(1520) 0.019\nLambda pT0.5-1 per event 0.0039 | classes nd 0.65, sdp 0.27, sdt 0.07, dd 0.00\n               nd:Sigma(1385)+ 0.127, nd:Sigma(1385)0 0.125, sdt:record 0.074, nd:Sigma(1385)- 0.068, sdp:Sigma(1385)+ 0.062, sdp:Sigma(1385)0 0.046, sdp:Sigma(1385)- 0.025, nd:N(1720)+ 0.022, sdp:Lambda(1670) 0.022, sdp:Lambda(1690) 0.022\nLambda pT1-2.5 per event 0.0007 | classes nd 0.58, sdp 0.34, sdt 0.08\n               nd:Sigma(1385)+ 0.121, sdp:Sigma(1385)+ 0.101, sdt:record 0.084, nd:Sigma(1385)0 0.078, nd:Sigma(1775)0 0.057, sdp:Sigma(1775)+ 0.051, nd:Sigma(1385)- 0.043, sdp:step0[>3]:baryonic_np:d0:m>2 0.034, sdp:Sigma(1385)0 0.034, nd:Sigma(1915)0 0.029\nLambdabar pT0-0.5 per event 0.0003 | classes nd 0.60, sdp 0.24, sdt 0.16\n               nd:aSigma(1385)0 0.184, sdt:record 0.159, nd:aSigma(1385)- 0.101, nd:aSigma(1385)+ 0.067, sdp:aN(1650)+ 0.040, sdp:aSigma(1385)0 0.040, sdp:direct[2-3]:anti_baryonic_strange_qm1:d2:m>2 0.040, sdp:direct[2-3]:anti_baryonic_np:d2:m>2 0.040, sdp:step[>3]:anti_baryonic_strange_qm1:d2:m>2 0.040, sdp:step[>3]:anti_baryonic_np_q0:d2:m>2 0.040\nLambdabar pT0.5-1 per event 0.0004 | classes nd 0.52, sdp 0.32, sdt 0.16\n               sdt:record 0.161, sdp:aSigma(1385)+ 0.129, nd:aSigma(1385)0 0.095, nd:aSigma(1385)- 0.082, sdp:direct[2-3]:anti_baryonic_np:d2:m>2 0.064, nd:aSigma(1385)+ 0.041, nd:aSigma(1670)0 0.041, sdp:direct[2-3]:anti_baryonic_np_q0:d2:m>2 0.032, sdp:aLambda(1670) 0.032, sdp:aSigma(1385)- 0.032\nLambdabar pT1-2.5 per event 0.0001 | classes nd 0.79, sdp 0.21\n               sdp:aSigma(1385)- 0.208, nd:aSigma(1385)0 0.176, nd:aSigma(1385)+ 0.088, nd:aSigma(1915)0 0.088, nd:aLambda(1670) 0.088, nd:aSigma(1775)- 0.088, nd:direct[2-3]:anti_baryonic_xi_q0:d2:m>2 0.088, nd:aSigma(1775)0 0.088, nd:aSigma(1910)- 0.088\nSigma0 pT0-0.5 per event 0.0014 | classes nd 0.74, sdp 0.22, sdt 0.03, dd 0.00\n               nd:Sigma(1910)+ 0.079, nd:Sigma(1670)+ 0.068, nd:Lambda(1520) 0.064, nd:Sigma(1750)0 0.057, nd:Lambda(1830) 0.057, nd:step0[>3]:baryonic_np:d0:m>2 0.050, nd:Lambda(1405) 0.039, nd:Sigma(1660)0 0.036, sdp:Lambda(1830) 0.034, sdp:Sigma(1670)+ 0.034\nSigma0 pT0.5-1 per event 0.0017 | classes nd 0.67, sdp 0.24, sdt 0.09, dd 0.00\n               nd:Sigma(1910)+ 0.097, sdt:record 0.093, nd:Lambda(1520) 0.060, nd:step0[>3]:baryonic_np:d0:m>2 0.057, nd:Lambda(1830) 0.057, sdp:Lambda(1690) 0.057, nd:Sigma(1670)+ 0.054, nd:Sigma(1750)0 0.036, sdp:Lambda(1520) 0.036, nd:Sigma(1915)+ 0.027\nSigma0 pT1-2.5 per event 0.0004 | classes nd 0.71, sdp 0.23, sdt 0.07\n               nd:step0[>3]:baryonic_np:d0:m>2 0.111, sdp:Sigma(1670)+ 0.098, nd:Sigma(1910)+ 0.097, nd:Lambda(1830) 0.069, sdt:record 0.065, nd:Lambda(1520) 0.041, nd:Sigma(1385)+ 0.041, nd:Sigma(1670)0 0.041, nd:Sigma(1670)+ 0.041, nd:Sigma(1750)+ 0.041\nSigma0bar pT0-0.5 per event 0.0001 | classes nd 0.75, sdp 0.13, sdt 0.13\n               sdp:aLambda(1600) 0.126, sdt:record 0.126, nd:aSigma(1660)0 0.107, nd:aSigma(1750)0 0.107, nd:direct[2-3]:anti_baryonic_np_q0:d2:m>2 0.107, nd:step[>3]:anti_baryonic_strange:d2:m>2 0.053, nd:aSigma(1670)+ 0.053, nd:aLambda(1670) 0.053, nd:aLambda(1600) 0.053, nd:aSigma(1385)+ 0.053\nSigma0bar pT0.5-1 per event 0.0001 | classes nd 0.86, sdt 0.14\n               nd:aLambda(1520) 0.173, sdt:record 0.136, nd:aSigma(1670)- 0.115, nd:aSigma(1750)0 0.115, nd:step[>3]:anti_baryonic_np_q0:d2:m>2 0.115, nd:aSigma(1910)- 0.058, nd:aLambda(1405) 0.058, nd:aSigma(1660)- 0.058, nd:aLambda(1890) 0.058, nd:step[>3]:anti_baryonic_strange:d2:m>2 0.058\nSigma0bar pT1-2.5 per event 0.0000 | classes nd 0.46, sdp 0.27, sdt 0.27\n               sdp:aLambda(1520) 0.271, sdt:record 0.271, nd:direct[2-3]:anti_baryonic_np:d2:m>2 0.115, nd:aSigma(1750)- 0.115, nd:aLambda(1405) 0.115, nd:aSigma(1670)+ 0.115\nn pT0-0.5      per event 0.0242 | classes nd 0.73, sdp 0.20, sdt 0.06, dd 0.01\n               nd:Delta0 0.119, nd:Delta- 0.101, nd:Delta+ 0.066, sdt:record 0.060, nd:N*(1440)+ 0.042, nd:N*(1520)+ 0.040, nd:N*(1680)+ 0.036, sdp:Delta- 0.029, nd:N*(1440)0 0.027, nd:N(1535)0 0.025\nn pT0.5-1      per event 0.0182 | classes nd 0.72, sdp 0.21, sdt 0.06, dd 0.01\n               nd:Delta0 0.103, nd:Delta- 0.085, sdt:record 0.064, nd:Delta+ 0.059, nd:N*(1680)+ 0.043, nd:N*(1520)+ 0.041, nd:N*(1680)0 0.037, nd:N*(1440)+ 0.035, sdp:Delta- 0.029, nd:N*(1520)0 0.026\nn pT1-2.5      per event 0.0029 | classes nd 0.71, sdp 0.23, sdt 0.06\n               nd:Delta- 0.084, nd:Delta0 0.071, nd:N*(1680)+ 0.071, sdt:record 0.062, nd:N*(1520)+ 0.056, sdp:N*(1680)+ 0.054, nd:Delta+ 0.047, nd:N*(1680)0 0.042, nd:step0[>3]:baryonic_np:d0:m>2 0.035, nd:N*(1520)0 0.033\np pT0-0.5      per event 0.0310 | classes nd 0.72, sdp 0.21, sdt 0.06, dd 0.01\n               nd:Delta++ 0.164, nd:Delta+ 0.118, sdp:Delta++ 0.058, sdt:record 0.057, nd:Delta0 0.045, nd:N(1535)+ 0.027, nd:N*(1680)+ 0.026, nd:N*(1520)0 0.025, nd:N*(1440)0 0.025, nd:N*(1680)0 0.024\np pT0.5-1      per event 0.0227 | classes nd 0.71, sdp 0.22, sdt 0.06, dd 0.01\n               nd:Delta++ 0.156, nd:Delta+ 0.096, sdt:record 0.058, sdp:Delta++ 0.047, nd:Delta0 0.042, nd:N*(1680)0 0.038, nd:N*(1680)+ 0.030, nd:N*(1520)0 0.030, nd:N(1535)+ 0.023, nd:step0[>3]:baryonic_np:d0:m>2 0.022\np pT1-2.5      per event 0.0035 | classes nd 0.72, sdp 0.23, sdt 0.06, dd 0.00\n               nd:Delta++ 0.125, nd:Delta+ 0.085, nd:N*(1680)0 0.083, sdt:record 0.055, nd:N*(1680)+ 0.051, nd:N*(1520)0 0.045, sdp:N*(1520)+ 0.031, nd:Delta0 0.028, nd:N*(1440)0 0.026, sdp:Delta++ 0.024\npbar pT0-0.5   per event 0.0062 | classes nd 0.64, sdp 0.28, sdt 0.08, dd 0.00\n               nd:aDelta-- 0.126, nd:step[>3]:mesonic_neutral:d2:m>2 0.086, sdt:record 0.079, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.063, sdp:aDelta-- 0.056, nd:aDelta+ 0.048, nd:aN(1535)+ 0.042, nd:aN*(1520)0 0.037, nd:aDelta0 0.031, nd:aN*(1440)0 0.029\npbar pT0.5-1   per event 0.0043 | classes nd 0.67, sdp 0.25, sdt 0.09, dd 0.00\n               nd:aDelta-- 0.100, sdt:record 0.086, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.071, nd:aDelta+ 0.066, nd:step[>3]:mesonic_neutral:d2:m>2 0.065, nd:aN*(1520)0 0.058, nd:direct[2-3]:anti_baryonic_np:d2:m>2 0.040, nd:aDelta0 0.033, nd:aN*(1520)+ 0.032, sdp:step[>3]:mesonic_neutral:d2:m>2 0.031\npbar pT1-2.5   per event 0.0008 | classes nd 0.67, sdp 0.24, sdt 0.09\n               sdt:record 0.095, nd:aDelta-- 0.073, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.073, nd:step[>3]:mesonic_neutral:d2:m>2 0.067, nd:aN*(1520)0 0.060, sdp:aDelta+ 0.047, sdp:aDelta-- 0.047, nd:aDelta+ 0.047, nd:aN*(1440)0 0.040, nd:direct[2-3]:anti_baryonic_np_q0:d2:m>2 0.033\npi+ pT0-0.5    per event 0.8767 | classes nd 0.64, sdp 0.23, sdt 0.10, dd 0.03\n               nd:omega 0.120, sdt:record 0.097, nd:rho+ 0.077, nd:rho0 0.073, sdp:omega 0.045, nd:Delta++ 0.043, nd:eta 0.034, sdp:rho+ 0.027, sdp:rho0 0.023, nd:f1(1285) 0.020\npi+ pT0.5-1    per event 0.1537 | classes nd 0.65, sdp 0.24, sdt 0.10, dd 0.01\n               nd:rho+ 0.127, nd:rho0 0.114, sdt:record 0.099, nd:direct[2-3]:mesonic_charged:d2:m>2 0.050, nd:omega 0.050, sdp:rho+ 0.044, nd:f2(1270) 0.043, sdp:rho0 0.042, nd:f0(980) 0.019, sdp:omega 0.018\npi+ pT1-2.5    per event 0.0120 | classes nd 0.65, sdp 0.23, sdt 0.12, dd 0.00\n               sdt:record 0.119, nd:direct[2-3]:mesonic_charged:d2:m>2 0.104, nd:rho+ 0.099, nd:rho0 0.096, nd:f2(1270) 0.091, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.045, sdp:rho+ 0.039, sdp:rho0 0.036, sdp:direct[2-3]:mesonic_charged:d2:m>2 0.032, sdp:f2(1270) 0.032\npi- pT0-0.5    per event 0.7103 | classes nd 0.66, sdp 0.23, sdt 0.09, dd 0.03\n               nd:omega 0.149, nd:rho0 0.089, sdt:record 0.086, nd:rho- 0.071, sdp:omega 0.056, nd:eta 0.042, sdp:rho0 0.028, nd:f1(1285) 0.025, sdp:rho- 0.024, nd:K*(892)0 0.020\npi- pT0.5-1    per event 0.1311 | classes nd 0.67, sdp 0.23, sdt 0.08, dd 0.01\n               nd:rho0 0.139, nd:rho- 0.118, sdt:record 0.084, nd:omega 0.057, nd:f2(1270) 0.051, sdp:rho0 0.050, sdp:rho- 0.044, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.039, nd:f0(980) 0.024, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.020\npi- pT1-2.5    per event 0.0103 | classes nd 0.67, sdp 0.24, sdt 0.09, dd 0.00\n               nd:rho0 0.120, nd:rho- 0.099, nd:f2(1270) 0.097, sdt:record 0.090, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.083, sdp:rho0 0.052, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.048, nd:f0(980) 0.038, sdp:rho- 0.033, nd:rho(1450)- 0.032\n"
+  },
+  {
+   "path": "dev/00runs/r137_readouts_2026-11-03/origin_l137xf15.txt",
+   "sha256": "c4f2d737de829c08c63d6c8bbfa3cfaa4393c246235fff7892d5e4dc04052503",
+   "bytes": 11155,
+   "content": "submitted l137xf15: 20261104T082553Z-8d9d17f4\nfinished in 332 s\nspec r137.json x_F [0.1, 0.2] events {'nd0': 112000, 'sd_projectile': 16000, 'sd_target': 16000, 'dd': 16000} fractions {'nd0': 0.5684257786018834, 'sd_projectile': 0.1921871106990583, 'sd_target': 0.1921871106990583, 'dd': 0.0472}\nK+ pT0-0.5     per event 0.0165 | classes nd 0.62, sdp 0.30, dd 0.06, sdt 0.01\n               nd:K*(892)0 0.157, nd:K*(892)+ 0.107, sdp:K*(892)0 0.072, sdp:K*(892)+ 0.041, nd:f0(980) 0.040, nd:step0[2-3]:baryonic_np:d0:m>2 0.032, sdp:f0(980) 0.028, nd:phi(1020) 0.024, sdp:step0[2-3]:baryonic_np:d0:m>2 0.021, nd:direct[2-3]:baryonic_np:d1:m>2 0.017\nK+ pT0.5-1     per event 0.0091 | classes nd 0.64, sdp 0.27, dd 0.07, sdt 0.02\n               nd:K*(892)0 0.175, nd:K*(892)+ 0.094, sdp:K*(892)0 0.082, nd:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.045, sdp:K*(892)+ 0.033, nd:direct[2-3]:mesonic_antistrange_q1:d1:m>2 0.030, sdp:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.022, sdt:record 0.021, dd:K*(892)0 0.018, sdp:direct[2-3]:mesonic_antistrange_q1:d1:m>2 0.017\nK+ pT1-2.5     per event 0.0016 | classes nd 0.67, sdp 0.28, dd 0.03, sdt 0.02\n               nd:K*(892)0 0.166, nd:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.137, nd:K*(892)+ 0.054, sdp:K*(892)0 0.053, nd:direct[2-3]:mesonic_antistrange:d2:m>2 0.048, nd:direct[2-3]:mesonic_antistrange_q1:d1:m>2 0.038, sdp:K*(892)+ 0.038, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.035, sdp:direct[2-3]:mesonic_antistrange_q1:d1:m>2 0.030, sdp:K*(1680)0 0.023\nK- pT0-0.5     per event 0.0080 | classes nd 0.63, sdp 0.30, dd 0.06, sdt 0.02\n               nd:aK*(892)0 0.162, nd:f0(980) 0.083, sdp:aK*(892)0 0.078, sdp:f0(980) 0.058, nd:K*(892)- 0.054, nd:phi(1020) 0.049, nd:Lambda(1520) 0.048, sdp:Lambda(1520) 0.030, nd:f1(1285) 0.025, sdp:K*(892)- 0.022\nK- pT0.5-1     per event 0.0045 | classes nd 0.68, sdp 0.25, dd 0.05, sdt 0.02\n               nd:aK*(892)0 0.186, sdp:aK*(892)0 0.059, nd:K*(892)- 0.056, nd:direct[2-3]:mesonic_strange_qm1:d2:m>2 0.037, nd:Lambda(1820) 0.033, nd:phi(1020) 0.033, nd:Sigma(1775)0 0.032, nd:Lambda(1890) 0.024, sdt:record 0.021, nd:Sigma(1915)+ 0.019\nK- pT1-2.5     per event 0.0007 | classes nd 0.68, sdp 0.26, sdt 0.03, dd 0.02\n               nd:aK*(892)0 0.125, nd:direct[2-3]:mesonic_strange_qm1:d2:m>2 0.111, nd:direct[2-3]:mesonic_strange:d2:m>2 0.062, sdp:aK*(892)0 0.049, nd:K*(892)- 0.049, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.049, sdp:direct[2-3]:mesonic_neutral:d2:m>2 0.033, sdp:Lambda(1890) 0.033, sdp:direct[2-3]:mesonic_strange:d2:m>2 0.033, sdt:record 0.033\nLambda pT0-0.5 per event 0.0040 | classes nd 0.66, sdp 0.29, dd 0.05\n               nd:Sigma(1385)+ 0.149, nd:Sigma(1385)0 0.133, sdp:Sigma(1385)+ 0.070, nd:Sigma(1385)- 0.058, sdp:Sigma(1385)0 0.052, nd:step0[>3]:baryonic_np:d0:m>2 0.031, nd:Lambda(1520) 0.027, nd:Lambda(1690) 0.023, sdp:Sigma(1385)- 0.021, nd:N(1720)0 0.020\nLambda pT0.5-1 per event 0.0033 | classes nd 0.70, sdp 0.27, dd 0.02, sdt 0.01\n               nd:Sigma(1385)+ 0.163, nd:Sigma(1385)0 0.136, sdp:Sigma(1385)+ 0.072, nd:Sigma(1385)- 0.062, sdp:Sigma(1385)0 0.040, nd:Sigma(1775)0 0.038, nd:step0[>3]:baryonic_np:d0:m>2 0.030, nd:N(1720)0 0.023, sdp:Sigma(1385)- 0.022, sdp:step0[>3]:baryonic_np:d0:m>2 0.022\nLambda pT1-2.5 per event 0.0006 | classes nd 0.75, sdp 0.24, dd 0.01\n               nd:Sigma(1385)0 0.201, nd:Sigma(1385)+ 0.125, nd:Sigma(1385)- 0.084, sdp:Sigma(1385)0 0.059, nd:Sigma(1775)0 0.042, sdp:Sigma(1775)+ 0.040, sdp:Sigma(1385)+ 0.040, nd:Sigma(1775)+ 0.033, nd:step0[>3]:baryonic_np:d0:m>2 0.033, nd:Sigma(1660)+ 0.033\nLambdabar pT0-0.5 per event 0.0001 | classes nd 0.64, sdp 0.25, sdt 0.08, dd 0.02\n               nd:aSigma(1385)0 0.178, nd:aSigma(1385)- 0.107, sdp:aSigma(1660)+ 0.084, sdp:direct[2-3]:anti_baryonic_np_q0:d2:m>2 0.084, sdp:aSigma(1385)- 0.084, sdt:record 0.084, nd:aN_eff(1720)- 0.036, nd:step[>3]:anti_baryonic_strange_qm1:d2:m>2 0.036, nd:aSigma(1750)+ 0.036, nd:direct[2-3]:anti_baryonic_np:d2:m>2 0.036\nLambdabar pT0.5-1 per event 0.0001 | classes nd 0.61, sdp 0.39\n               sdp:direct[2-3]:anti_baryonic_np_q0:d2:m>2 0.131, sdp:aN_eff(1720)- 0.131, sdp:aSigma(1385)- 0.131, nd:direct[2-3]:anti_baryonic_np:d2:m>2 0.110, nd:aSigma(1385)0 0.110, nd:step[>3]:anti_baryonic_np_q0:d2:m>2 0.055, nd:aSigma(1385)- 0.055, nd:aN(1650)0 0.055, nd:aSigma(1670)- 0.055, nd:direct[2-3]:anti_baryonic_np_q0:d2:m>2 0.055\nLambdabar pT1-2.5 per event 0.0000 | classes sdp 0.70, nd 0.30\n               sdp:aSigma(1385)0 0.703, nd:direct[2-3]:anti_baryonic_np_q0:d2:m>2 0.297\nSigma0 pT0-0.5 per event 0.0013 | classes nd 0.68, sdp 0.27, dd 0.03, sdt 0.02\n               nd:step0[>3]:baryonic_np:d0:m>2 0.092, nd:Lambda(1520) 0.088, nd:Sigma(1910)+ 0.056, nd:Sigma(1750)0 0.048, nd:Lambda(1405) 0.048, sdp:Lambda(1830) 0.047, sdp:Lambda(1405) 0.047, nd:Sigma(1670)+ 0.044, sdp:Sigma(1910)+ 0.038, nd:Lambda(1830) 0.032\nSigma0 pT0.5-1 per event 0.0015 | classes nd 0.69, sdp 0.27, dd 0.04\n               nd:Sigma(1910)+ 0.070, nd:Sigma(1670)+ 0.060, nd:step0[>3]:baryonic_np:d0:m>2 0.057, nd:Lambda(1520) 0.057, nd:Lambda(1830) 0.050, sdp:Sigma(1910)+ 0.047, nd:Sigma(1750)0 0.043, nd:Lambda(1405) 0.040, sdp:Sigma(1670)+ 0.040, sdp:Lambda(1830) 0.040\nSigma0 pT1-2.5 per event 0.0005 | classes nd 0.75, sdp 0.19, sdt 0.05, dd 0.01\n               nd:Sigma(1910)+ 0.113, nd:Sigma(1670)+ 0.090, nd:step0[>3]:baryonic_np:d0:m>2 0.079, nd:Lambda(1830) 0.068, sdp:Lambda(1830) 0.053, sdp:Lambda(1820) 0.053, sdt:record 0.053, nd:Sigma(1670)0 0.034, nd:Sigma(1915)+ 0.034, nd:Sigma(1660)0 0.034\nSigma0bar pT0-0.5 per event 0.0000 | classes nd 0.63, sdp 0.37\n               sdp:aLambda(1405) 0.372, nd:aLambda(1600) 0.157, nd:aLambda(1405) 0.157, nd:aSigma(1910)+ 0.157, nd:aLambda(1520) 0.157\nSigma0bar pT0.5-1 per event 0.0000 | classes nd 0.68, sdp 0.32\n               sdp:direct[2-3]:anti_baryonic_np_q0:d2:m>2 0.321, nd:step[>3]:anti_baryonic_np_q0:d2:m>2 0.136, nd:aSigma(1660)0 0.136, nd:aSigma(1910)+ 0.136, nd:aSigma(1670)+ 0.136, nd:aSigma(1750)0 0.136\nSigma0bar pT1-2.5 per event 0.0000 | classes sdp 0.70, nd 0.30\n               sdp:aLambda(1405) 0.703, nd:aSigma(1910)+ 0.297\nn pT0-0.5      per event 0.0245 | classes nd 0.71, sdp 0.24, dd 0.05, sdt 0.00\n               nd:Delta0 0.114, nd:Delta- 0.089, nd:Delta+ 0.083, nd:N*(1440)+ 0.041, nd:N*(1680)+ 0.039, nd:N*(1520)+ 0.036, nd:step0[>3]:baryonic_np:d0:m>2 0.027, sdp:Delta- 0.027, nd:N*(1680)0 0.024, nd:N(1535)0 0.023\nn pT0.5-1      per event 0.0164 | classes nd 0.73, sdp 0.23, dd 0.03, sdt 0.01\n               nd:Delta0 0.107, nd:Delta- 0.080, nd:Delta+ 0.067, nd:N*(1680)+ 0.049, nd:N*(1520)+ 0.044, nd:step0[>3]:baryonic_np:d0:m>2 0.036, nd:N*(1680)0 0.035, nd:N*(1440)+ 0.035, sdp:N*(1680)+ 0.022, nd:N*(1520)0 0.022\nn pT1-2.5      per event 0.0031 | classes nd 0.79, sdp 0.20, dd 0.01\n               nd:Delta0 0.094, nd:N*(1680)+ 0.081, nd:N*(1680)0 0.063, nd:N*(1520)+ 0.056, nd:Delta- 0.056, nd:step0[>3]:baryonic_np:d0:m>2 0.050, nd:Delta+ 0.048, nd:N*(1440)+ 0.036, nd:N*(1520)0 0.025, sdp:N*(1680)+ 0.024\np pT0-0.5      per event 0.0346 | classes nd 0.69, sdp 0.23, dd 0.05, sdt 0.03\n               nd:Delta++ 0.173, nd:Delta+ 0.118, sdp:Delta++ 0.053, nd:Delta0 0.044, sdt:record 0.029, nd:N*(1440)+ 0.022, nd:N*(1520)0 0.021, nd:N*(1680)+ 0.021, nd:N*(1680)0 0.021, nd:N(1535)+ 0.020\np pT0.5-1      per event 0.0218 | classes nd 0.73, sdp 0.23, dd 0.04, sdt 0.00\n               nd:Delta++ 0.163, nd:Delta+ 0.100, nd:Delta0 0.046, sdp:Delta++ 0.045, nd:N*(1680)0 0.034, nd:N*(1520)0 0.029, nd:step0[>3]:baryonic_np:d0:m>2 0.026, nd:N*(1680)+ 0.025, nd:N*(1440)0 0.022, nd:N*(1440)+ 0.020\np pT1-2.5      per event 0.0038 | classes nd 0.72, sdp 0.26, dd 0.01\n               nd:Delta++ 0.141, nd:Delta+ 0.083, nd:N*(1680)0 0.058, nd:N*(1680)+ 0.046, sdp:Delta++ 0.041, nd:N*(1520)0 0.038, nd:Delta0 0.031, nd:step0[>3]:baryonic_np:d0:m>2 0.024, sdp:Delta+ 0.022, nd:N*(1520)+ 0.020\npbar pT0-0.5   per event 0.0025 | classes nd 0.60, sdp 0.35, dd 0.03, sdt 0.02\n               nd:direct[2-3]:mesonic_neutral:d2:m>2 0.096, nd:aDelta-- 0.096, nd:step[>3]:mesonic_neutral:d2:m>2 0.078, sdp:aDelta-- 0.066, sdp:direct[2-3]:mesonic_neutral:d2:m>2 0.057, nd:aDelta+ 0.054, nd:step[>3]:mesonic_neutral:d1:m>2 0.042, sdp:step[>3]:mesonic_neutral:d2:m>2 0.033, nd:aN*(1520)0 0.032, sdp:step[>3]:mesonic_neutral:d1:m>2 0.028\npbar pT0.5-1   per event 0.0021 | classes nd 0.68, sdp 0.28, sdt 0.02, dd 0.02\n               nd:direct[2-3]:mesonic_neutral:d2:m>2 0.126, nd:aDelta-- 0.099, nd:step[>3]:mesonic_neutral:d2:m>2 0.059, nd:direct[2-3]:anti_baryonic_np:d2:m>2 0.054, sdp:direct[2-3]:mesonic_neutral:d2:m>2 0.053, nd:aDelta+ 0.047, nd:aN*(1520)0 0.037, sdp:aDelta-- 0.035, sdp:step[>3]:mesonic_neutral:d2:m>2 0.035, nd:aN(1535)+ 0.035\npbar pT1-2.5   per event 0.0003 | classes nd 0.74, sdp 0.23, dd 0.03\n               nd:direct[2-3]:mesonic_neutral:d2:m>2 0.152, nd:aDelta-- 0.133, nd:aN*(1440)0 0.095, nd:aN*(1520)+ 0.057, nd:step[>3]:mesonic_neutral:d2:m>2 0.057, sdp:direct[2-3]:anti_baryonic_np:d2:m>2 0.045, sdp:aDelta0 0.045, sdp:aDelta+ 0.045, sdp:aN(1650)+ 0.045, sdp:direct[2-3]:mesonic_neutral:d2:m>2 0.045\npi+ pT0-0.5    per event 0.1994 | classes nd 0.63, sdp 0.26, dd 0.07, sdt 0.03\n               nd:Delta++ 0.076, nd:rho+ 0.071, nd:Delta+ 0.064, nd:rho0 0.061, nd:omega 0.060, sdp:omega 0.031, sdt:record 0.031, sdp:Delta++ 0.028, nd:step0[2-3]:baryonic_np:d0:m>2 0.026, nd:f0(500) 0.026\npi+ pT0.5-1    per event 0.0631 | classes nd 0.67, sdp 0.25, dd 0.05, sdt 0.03\n               nd:rho+ 0.119, nd:rho0 0.099, nd:direct[2-3]:mesonic_charged:d2:m>2 0.047, sdp:rho+ 0.044, sdp:rho0 0.035, nd:f2(1270) 0.034, nd:omega 0.028, sdt:record 0.026, nd:direct[2-3]:mesonic_charged:d1:m>2 0.023, sdp:direct[2-3]:mesonic_charged:d2:m>2 0.021\npi+ pT1-2.5    per event 0.0066 | classes nd 0.71, sdp 0.22, sdt 0.03, dd 0.03\n               nd:direct[2-3]:mesonic_charged:d2:m>2 0.137, nd:rho0 0.102, nd:rho+ 0.094, nd:f2(1270) 0.075, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.049, sdp:direct[2-3]:mesonic_charged:d2:m>2 0.045, sdp:f2(1270) 0.033, sdt:record 0.033, nd:direct[2-3]:mesonic_charged:d1:m>2 0.031, nd:f0(980) 0.020\npi- pT0-0.5    per event 0.1264 | classes nd 0.65, sdp 0.26, dd 0.07, sdt 0.02\n               nd:rho0 0.099, nd:omega 0.094, nd:rho- 0.070, sdp:omega 0.048, nd:step0[2-3]:baryonic_np:d0:m>2 0.041, nd:f0(500) 0.039, sdp:rho0 0.031, nd:Delta0 0.028, sdp:rho- 0.027, sdp:f0(500) 0.022\npi- pT0.5-1    per event 0.0479 | classes nd 0.67, sdp 0.26, dd 0.05, sdt 0.02\n               nd:rho0 0.129, nd:rho- 0.106, nd:f2(1270) 0.051, sdp:rho0 0.048, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.046, nd:omega 0.041, sdp:rho- 0.038, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.024, nd:f0(980) 0.020, sdp:direct[2-3]:mesonic_anticharged:d2:m>2 0.020\npi- pT1-2.5    per event 0.0055 | classes nd 0.71, sdp 0.24, dd 0.03, sdt 0.02\n               nd:rho0 0.118, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.098, nd:rho- 0.097, nd:f2(1270) 0.097, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.061, sdp:rho- 0.037, sdp:rho0 0.035, sdp:f2(1270) 0.033, sdp:direct[2-3]:mesonic_anticharged:d2:m>2 0.031, nd:rho(1450)- 0.029\n"
+  },
+  {
+   "path": "dev/00runs/r137_readouts_2026-11-03/origin_l137xf25.txt",
+   "sha256": "b7a4291bfd8b2d20a9d9d431db32c9822f4bdddbbb7099a0c8754003adff6214",
+   "bytes": 10523,
+   "content": "submitted l137xf25: 20261104T082536Z-9a5e0b87\nfinished in 334 s\nspec r137.json x_F [0.2, 0.3] events {'nd0': 112000, 'sd_projectile': 16000, 'sd_target': 16000, 'dd': 16000} fractions {'nd0': 0.5684257786018834, 'sd_projectile': 0.1921871106990583, 'sd_target': 0.1921871106990583, 'dd': 0.0472}\nK+ pT0-0.5     per event 0.0063 | classes nd 0.58, sdp 0.32, dd 0.09, sdt 0.01\n               nd:K*(892)0 0.112, nd:K*(892)+ 0.097, sdp:K*(892)0 0.069, nd:step0[2-3]:baryonic_np:d0:m>2 0.068, sdp:step0[2-3]:baryonic_np:d0:m>2 0.046, sdp:K*(892)+ 0.040, sdp:f0(980) 0.027, nd:f0(980) 0.027, nd:direct[2-3]:baryonic_np:d1:m>2 0.026, nd:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.020\nK+ pT0.5-1     per event 0.0041 | classes nd 0.65, sdp 0.26, dd 0.08, sdt 0.01\n               nd:K*(892)0 0.147, nd:K*(892)+ 0.082, nd:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.055, nd:direct[2-3]:mesonic_antistrange_q1:d1:m>2 0.050, sdp:K*(892)+ 0.038, nd:direct[2-3]:baryonic_np:d1:m>2 0.033, sdp:K*(892)0 0.026, nd:step0[2-3]:baryonic_np:d0:m>2 0.021, sdp:step0[2-3]:baryonic_np:d0:m>2 0.020, dd:K*(892)0 0.019\nK+ pT1-2.5     per event 0.0008 | classes nd 0.72, sdp 0.24, dd 0.04\n               nd:K*(892)0 0.123, sdp:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.092, nd:direct[2-3]:mesonic_antistrange:d2:m>2 0.084, nd:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.084, nd:direct[2-3]:mesonic_antistrange_q1:d1:m>2 0.065, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.058, nd:K2*(1430)0 0.045, nd:direct[2-3]:mesonic_charged:d2:m>2 0.039, nd:K*(892)+ 0.039, nd:step[>3]:mesonic_antistrange_q1:d1:m>2 0.039\nK- pT0-0.5     per event 0.0021 | classes nd 0.57, sdp 0.35, dd 0.08, sdt 0.01\n               nd:aK*(892)0 0.139, sdp:f0(980) 0.085, nd:f0(980) 0.065, sdp:aK*(892)0 0.062, nd:K*(892)- 0.045, nd:Lambda(1820) 0.038, nd:phi(1020) 0.038, nd:Lambda(1520) 0.038, sdp:phi(1020) 0.028, sdp:K*(892)- 0.028\nK- pT0.5-1     per event 0.0017 | classes nd 0.54, sdp 0.38, dd 0.08\n               nd:aK*(892)0 0.125, sdp:aK*(892)0 0.101, nd:Lambda(1820) 0.049, nd:K*(892)- 0.049, sdp:K*(892)- 0.043, nd:Lambda(1890) 0.033, sdp:Lambda(1520) 0.029, sdp:Lambda(1890) 0.029, nd:Sigma(1915)0 0.024, nd:direct[2-3]:mesonic_strange_qm1:d2:m>2 0.024\nK- pT1-2.5     per event 0.0004 | classes nd 0.72, sdp 0.27, dd 0.02\n               nd:aK*(892)0 0.098, nd:Lambda(1820) 0.070, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.070, nd:Lambda(1520) 0.070, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.070, nd:direct[2-3]:mesonic_strange:d2:m>2 0.056, nd:direct[2-3]:mesonic_strange_qm1:d2:m>2 0.042, nd:direct[2-3]:mesonic_anticharged:d1:m>2 0.042, nd:K*(892)- 0.042, sdp:direct[2-3]:mesonic_strange_qm1:d2:m>2 0.033\nLambda pT0-0.5 per event 0.0038 | classes nd 0.61, sdp 0.29, dd 0.10, sdt 0.00\n               nd:Sigma(1385)+ 0.138, nd:Sigma(1385)0 0.120, sdp:Sigma(1385)+ 0.057, nd:Sigma(1385)- 0.049, sdp:step0[>3]:baryonic_np:d0:m>2 0.041, sdp:Sigma(1385)0 0.035, nd:step0[>3]:baryonic_np:d0:m>2 0.035, nd:Lambda(1690) 0.029, dd:Sigma(1385)+ 0.026, nd:Lambda(1520) 0.023\nLambda pT0.5-1 per event 0.0027 | classes nd 0.65, sdp 0.25, dd 0.09, sdt 0.01\n               nd:Sigma(1385)+ 0.151, nd:Sigma(1385)0 0.123, sdp:Sigma(1385)+ 0.075, nd:step0[>3]:baryonic_np:d0:m>2 0.054, nd:Sigma(1385)- 0.050, sdp:Sigma(1385)- 0.027, sdp:Sigma(1670)+ 0.022, nd:Sigma(1775)0 0.019, sdp:Sigma(1385)0 0.018, dd:Sigma(1385)+ 0.016\nLambda pT1-2.5 per event 0.0007 | classes nd 0.66, sdp 0.33, dd 0.01\n               nd:Sigma(1385)+ 0.132, nd:Sigma(1385)0 0.095, sdp:Sigma(1385)0 0.087, nd:step0[>3]:baryonic_np:d0:m>2 0.073, sdp:Sigma(1385)+ 0.069, nd:Sigma(1385)- 0.066, nd:Sigma(1775)+ 0.051, sdp:N(1720)+ 0.035, sdp:Sigma(1775)- 0.035, nd:N(1720)+ 0.022\nLambdabar pT0-0.5 per event 0.0000 | classes nd 1.00\n               nd:aSigma(1385)0 0.500, nd:aN(1650)+ 0.500\nLambdabar pT0.5-1 per event 0.0000 | classes nd 1.00\n               nd:aSigma(1385)- 0.500, nd:aSigma(1385)0 0.250, nd:direct[2-3]:anti_baryonic_np:d2:m>2 0.250\nLambdabar pT1-2.5 per event 0.0000 | classes nd 1.00\n               nd:direct[2-3]:anti_baryonic_np_q0:d2:m>2 1.000\nSigma0 pT0-0.5 per event 0.0012 | classes nd 0.68, sdp 0.25, dd 0.07\n               nd:step0[>3]:baryonic_np:d0:m>2 0.114, nd:Lambda(1520) 0.053, nd:Sigma(1670)+ 0.053, nd:Lambda(1405) 0.053, nd:Sigma(1750)0 0.045, nd:Sigma(1910)+ 0.037, nd:direct[2-3]:baryonic_np:d1:m>2 0.033, sdp:Lambda(1405) 0.029, sdp:Sigma(1385)+ 0.029, sdp:Lambda(1690) 0.029\nSigma0 pT0.5-1 per event 0.0012 | classes nd 0.67, sdp 0.24, dd 0.07, sdt 0.02\n               nd:step0[>3]:baryonic_np:d0:m>2 0.083, nd:Sigma(1670)+ 0.061, nd:Lambda(1830) 0.057, nd:Lambda(1520) 0.052, nd:Lambda(1405) 0.048, nd:Sigma(1910)+ 0.039, sdp:Sigma(1385)+ 0.031, nd:Sigma(1750)0 0.031, nd:Sigma(1385)+ 0.022, sdp:Lambda(1830) 0.021\nSigma0 pT1-2.5 per event 0.0003 | classes nd 0.81, sdp 0.13, dd 0.05\n               nd:step0[>3]:baryonic_np:d0:m>2 0.132, nd:Lambda(1520) 0.113, nd:Sigma(1910)+ 0.094, nd:Sigma(1670)+ 0.075, sdp:Lambda(1890) 0.045, sdp:Sigma(1670)+ 0.045, sdp:step0[>3]:baryonic_np:d0:m>2 0.045, nd:step[>3]:baryonic_np:d1:m>2 0.038, nd:Lambda(1830) 0.038, nd:Sigma(1915)+ 0.038\nSigma0bar pT0-0.5 per event 0.0000 | classes nd 0.63, dd 0.37\n               nd:aLambda(1670) 0.632, dd:aSigma(1385)- 0.368\nn pT0-0.5      per event 0.0238 | classes nd 0.70, sdp 0.24, dd 0.07, sdt 0.00\n               nd:Delta0 0.133, nd:Delta+ 0.088, nd:Delta- 0.082, nd:step0[>3]:baryonic_np:d0:m>2 0.039, nd:N*(1680)+ 0.039, nd:N*(1440)+ 0.037, sdp:Delta0 0.030, nd:N*(1520)+ 0.030, nd:N*(1440)0 0.022, sdp:Delta- 0.021\nn pT0.5-1      per event 0.0154 | classes nd 0.71, sdp 0.22, dd 0.07, sdt 0.00\n               nd:Delta0 0.115, nd:Delta- 0.072, nd:Delta+ 0.071, nd:N*(1680)+ 0.051, nd:step0[>3]:baryonic_np:d0:m>2 0.042, nd:N*(1520)+ 0.039, nd:N*(1440)+ 0.035, nd:N*(1680)0 0.030, sdp:N*(1680)+ 0.026, nd:direct[2-3]:baryonic_np_q0:d1:m>2 0.022\nn pT1-2.5      per event 0.0028 | classes nd 0.77, sdp 0.17, dd 0.05, sdt 0.00\n               nd:Delta0 0.089, nd:N*(1680)+ 0.081, nd:Delta- 0.066, nd:Delta+ 0.064, nd:N*(1680)0 0.054, sdp:N*(1680)+ 0.047, nd:N*(1520)+ 0.039, nd:N*(1440)+ 0.038, nd:N*(1440)0 0.032, nd:step0[>3]:baryonic_np:d0:m>2 0.027\np pT0-0.5      per event 0.0376 | classes nd 0.66, sdp 0.23, dd 0.07, sdt 0.04\n               nd:Delta++ 0.177, nd:Delta+ 0.130, sdp:Delta++ 0.065, sdt:record 0.044, nd:Delta0 0.041, nd:step0[>3]:baryonic_np:d0:m>2 0.028, nd:N*(1440)+ 0.025, nd:N*(1680)+ 0.019, sdp:Delta+ 0.019, dd:Delta++ 0.019\np pT0.5-1      per event 0.0225 | classes nd 0.68, sdp 0.24, dd 0.07, sdt 0.01\n               nd:Delta++ 0.157, nd:Delta+ 0.100, sdp:Delta++ 0.046, nd:Delta0 0.041, nd:N*(1680)+ 0.031, nd:step0[>3]:baryonic_np:d0:m>2 0.030, nd:direct[2-3]:baryonic_np:d1:m>2 0.027, nd:N*(1680)0 0.026, sdp:Delta+ 0.020, nd:N*(1520)0 0.019\np pT1-2.5      per event 0.0035 | classes nd 0.77, sdp 0.19, dd 0.04\n               nd:Delta++ 0.142, nd:Delta+ 0.096, nd:N*(1680)0 0.046, nd:Delta0 0.037, nd:step0[>3]:baryonic_np:d0:m>2 0.034, nd:N*(1520)0 0.033, nd:N*(1680)+ 0.030, nd:Delta(1700)++ 0.027, sdp:Delta+ 0.027, nd:N*(1440)+ 0.026\npbar pT0-0.5   per event 0.0007 | classes nd 0.63, sdp 0.29, dd 0.06, sdt 0.02\n               nd:direct[2-3]:mesonic_neutral:d1:m>2 0.129, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.115, nd:step[>3]:mesonic_neutral:d1:m>2 0.088, sdp:direct[2-3]:mesonic_neutral:d1:m>2 0.080, sdp:direct[2-3]:mesonic_neutral:d2:m>2 0.064, nd:aDelta+ 0.054, nd:aDelta-- 0.041, nd:step[>3]:mesonic_neutral:d2:m>2 0.041, sdp:aDelta-- 0.032, dd:direct[2-3]:mesonic_neutral:d1:m>2 0.032\npbar pT0.5-1   per event 0.0006 | classes nd 0.76, sdp 0.19, dd 0.05\n               nd:direct[2-3]:mesonic_neutral:d2:m>2 0.208, nd:direct[2-3]:mesonic_neutral:d1:m>2 0.165, nd:aDelta-- 0.069, nd:step[>3]:mesonic_neutral:d1:m>2 0.069, sdp:direct[2-3]:mesonic_neutral:d1:m>2 0.062, sdp:aDelta-- 0.041, nd:direct[2-3]:anti_baryonic_np:d2:m>2 0.035, nd:aN*(1440)0 0.035, nd:aN*(1520)+ 0.035, nd:direct[2-3]:anti_baryonic_np_q0:d2:m>2 0.026\npbar pT1-2.5   per event 0.0001 | classes nd 0.52, sdp 0.48\n               nd:direct[2-3]:mesonic_neutral:d2:m>2 0.121, sdp:aDelta+ 0.095, sdp:aN(1535)+ 0.095, sdp:direct[2-3]:anti_baryonic_np:d2:m>2 0.095, sdp:direct[2-3]:mesonic_neutral:d2:m>2 0.095, sdp:step[>3]:mesonic_neutral:d1:m>2 0.095, nd:aN*(1520)0 0.081, nd:aDelta0 0.081, nd:aDelta-- 0.040, nd:direct[2-3]:anti_baryonic_np:d2:m>2 0.040\npi+ pT0-0.5    per event 0.0729 | classes nd 0.65, sdp 0.26, dd 0.08, sdt 0.02\n               nd:Delta+ 0.127, nd:rho+ 0.067, nd:Delta++ 0.066, nd:rho0 0.058, sdp:N*(1440)+ 0.034, nd:omega 0.032, nd:N*(1440)+ 0.031, nd:step0[2-3]:baryonic_np:d0:m>2 0.027, sdp:rho+ 0.026, nd:f0(500) 0.024\npi+ pT0.5-1    per event 0.0290 | classes nd 0.67, sdp 0.24, dd 0.07, sdt 0.02\n               nd:rho+ 0.101, nd:rho0 0.082, nd:direct[2-3]:mesonic_charged:d2:m>2 0.041, sdp:rho+ 0.037, nd:N*(1680)+ 0.033, nd:direct[2-3]:mesonic_charged:d1:m>2 0.031, nd:f2(1270) 0.023, sdp:rho0 0.023, nd:Delta(1950)+ 0.022, nd:direct[2-3]:baryonic_np:d1:m>2 0.021\npi+ pT1-2.5    per event 0.0033 | classes nd 0.72, sdp 0.21, dd 0.06, sdt 0.01\n               nd:direct[2-3]:mesonic_charged:d2:m>2 0.110, nd:rho+ 0.082, nd:rho0 0.079, nd:direct[2-3]:mesonic_charged:d1:m>2 0.076, nd:f2(1270) 0.048, sdp:direct[2-3]:mesonic_charged:d2:m>2 0.044, sdp:direct[2-3]:mesonic_charged:d1:m>2 0.040, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.036, nd:direct[2-3]:mesonic_neutral:d1:m>2 0.028, nd:rho(1450)+ 0.022\npi- pT0-0.5    per event 0.0389 | classes nd 0.63, sdp 0.28, dd 0.08, sdt 0.01\n               nd:rho0 0.111, nd:rho- 0.060, nd:omega 0.058, nd:step0[2-3]:baryonic_np:d0:m>2 0.052, nd:f0(500) 0.043, sdp:rho0 0.039, sdp:omega 0.033, nd:Delta0 0.031, sdp:rho- 0.027, sdp:step0[2-3]:baryonic_np:d0:m>2 0.026\npi- pT0.5-1    per event 0.0194 | classes nd 0.66, sdp 0.25, dd 0.08, sdt 0.01\n               nd:rho0 0.127, nd:rho- 0.082, sdp:rho0 0.048, nd:f2(1270) 0.038, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.031, sdp:rho- 0.029, nd:f0(500) 0.024, nd:step0[2-3]:baryonic_np:d0:m>2 0.021, nd:direct[2-3]:baryonic_np_q0:d1:m>2 0.021, nd:direct[2-3]:baryonic_np:d1:m>2 0.020\npi- pT1-2.5    per event 0.0024 | classes nd 0.71, sdp 0.22, dd 0.05, sdt 0.02\n               nd:rho0 0.098, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.096, nd:f2(1270) 0.067, nd:rho- 0.061, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.054, sdp:rho0 0.049, nd:f0(980) 0.033, nd:N*(1680)0 0.033, nd:direct[2-3]:mesonic_neutral:d1:m>2 0.033, nd:direct[2-3]:mesonic_anticharged:d1:m>2 0.033\n"
+  },
+  {
+   "path": "dev/00runs/r137_readouts_2026-11-03/origin_l137xf35.txt",
+   "sha256": "8edb95878e35dbbdacb3c1db8da5b0a6e615494c480dd885df4cda9f7902befe",
+   "bytes": 9830,
+   "content": "submitted l137xf35: 20261104T082606Z-3b8a5e14\nfinished in 332 s\nspec r137.json x_F [0.3, 0.4] events {'nd0': 112000, 'sd_projectile': 16000, 'sd_target': 16000, 'dd': 16000} fractions {'nd0': 0.5684257786018834, 'sd_projectile': 0.1921871106990583, 'sd_target': 0.1921871106990583, 'dd': 0.0472}\nK+ pT0-0.5     per event 0.0025 | classes nd 0.58, sdp 0.35, dd 0.08\n               nd:K*(892)0 0.105, nd:K*(892)+ 0.094, sdp:K*(892)0 0.073, nd:step0[2-3]:baryonic_np:d0:m>2 0.047, sdp:direct[2-3]:baryonic_np:d1:m>2 0.044, sdp:K*(892)+ 0.044, sdp:step0[2-3]:baryonic_np:d0:m>2 0.034, nd:N(1710)+ 0.031, sdp:direct[1.7-2]:baryonic_np:d0:m<2 0.029, nd:step0[>3]:baryonic_np:d0:m>2 0.029\nK+ pT0.5-1     per event 0.0019 | classes nd 0.59, sdp 0.32, dd 0.09\n               nd:K*(892)0 0.133, nd:K*(892)+ 0.091, sdp:direct[2-3]:mesonic_antistrange_q1:d1:m>2 0.038, sdp:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.038, nd:direct[2-3]:mesonic_antistrange_q1:d1:m>2 0.035, nd:direct[2-3]:baryonic_np:d1:m>2 0.032, sdp:direct[2-3]:baryonic_np:d1:m>2 0.032, sdp:K*(892)0 0.032, sdp:direct[2-3]:baryonic_np:d0:m>2 0.032, nd:K*(1680)0 0.027\nK+ pT1-2.5     per event 0.0004 | classes nd 0.65, sdp 0.26, dd 0.10\n               nd:direct[2-3]:mesonic_antistrange_q1:d1:m>2 0.108, nd:K*(892)0 0.108, nd:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.096, nd:K0*(1430)0 0.048, nd:direct[2-3]:mesonic_charged:d2:m>2 0.048, nd:direct[2-3]:mesonic_neutral:d1:m>2 0.036, sdp:K*(892)0 0.028, sdp:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.028, sdp:direct[2-3]:mesonic_antistrange:d2:m>2 0.028, sdp:direct[2-3]:baryonic_np:d0:m>2 0.028\nK- pT0-0.5     per event 0.0005 | classes nd 0.52, sdp 0.40, dd 0.09\n               nd:aK*(892)0 0.119, sdp:aK*(892)0 0.117, nd:f0(980) 0.089, sdp:K*(892)- 0.070, sdp:Sigma(1775)- 0.047, sdp:f0(980) 0.047, sdp:Lambda(1520) 0.047, nd:K*(892)- 0.040, nd:Lambda(1820) 0.030, nd:Lambda(1690) 0.030\nK- pT0.5-1     per event 0.0006 | classes nd 0.50, sdp 0.41, dd 0.07, sdt 0.02\n               nd:aK*(892)0 0.147, sdp:aK*(892)0 0.123, sdp:K*(892)- 0.061, nd:direct[2-3]:mesonic_strange:d2:m>2 0.043, sdp:direct[2-3]:mesonic_anticharged:d2:m>2 0.041, sdp:direct[2-3]:mesonic_neutral:d2:m>2 0.041, nd:Lambda(1890) 0.026, nd:Lambda(1820) 0.026, nd:Sigma(1915)0 0.026, nd:Sigma(1775)- 0.026\nK- pT1-2.5     per event 0.0002 | classes nd 0.67, sdp 0.28, dd 0.04\n               nd:Lambda(1820) 0.120, sdp:direct[2-3]:mesonic_neutral:d1:m>2 0.114, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.096, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.072, nd:direct[2-3]:mesonic_strange_qm1:d2:m>2 0.072, sdp:direct[2-3]:mesonic_neutral:d2:m>2 0.057, sdp:Lambda(1890) 0.057, sdp:direct[2-3]:mesonic_strange_qm1:d2:m>2 0.057, nd:Sigma(1775)0 0.048, nd:Lambda(1890) 0.048\nLambda pT0-0.5 per event 0.0031 | classes nd 0.61, sdp 0.30, dd 0.09\n               nd:Sigma(1385)+ 0.135, nd:Sigma(1385)0 0.118, nd:step0[>3]:baryonic_np:d0:m>2 0.075, sdp:Sigma(1385)+ 0.069, sdp:step0[>3]:baryonic_np:d0:m>2 0.046, sdp:Sigma(1385)0 0.042, nd:Sigma(1385)- 0.031, sdp:Sigma(1385)- 0.031, nd:Lambda(1690) 0.026, nd:N(1895)+ 0.019\nLambda pT0.5-1 per event 0.0023 | classes nd 0.63, sdp 0.27, dd 0.11\n               nd:Sigma(1385)+ 0.130, nd:Sigma(1385)0 0.103, sdp:Sigma(1385)+ 0.069, nd:step0[>3]:baryonic_np:d0:m>2 0.056, nd:Sigma(1385)- 0.056, sdp:Sigma(1385)0 0.048, sdp:step0[>3]:baryonic_np:d0:m>2 0.037, nd:direct[2-3]:baryonic_np:d1:m>2 0.027, sdp:Sigma(1385)- 0.027, dd:Sigma(1385)+ 0.025\nLambda pT1-2.5 per event 0.0004 | classes nd 0.70, sdp 0.22, dd 0.08\n               nd:Sigma(1385)+ 0.150, nd:Sigma(1385)0 0.092, nd:Sigma(1670)0 0.058, sdp:Lambda(1600) 0.054, sdp:Sigma(1385)0 0.054, nd:N(1720)0 0.046, nd:Sigma(1660)+ 0.035, nd:Sigma(1775)0 0.035, nd:step0[>3]:baryonic_np:d0:m>2 0.035, sdp:N(1720)0 0.027\nSigma0 pT0-0.5 per event 0.0011 | classes nd 0.60, sdp 0.33, dd 0.08\n               nd:step0[>3]:baryonic_np:d0:m>2 0.139, nd:Lambda(1520) 0.091, sdp:Lambda(1405) 0.068, sdp:Lambda(1520) 0.057, nd:Sigma(1670)+ 0.048, nd:Lambda(1405) 0.048, nd:Sigma(1750)0 0.024, sdp:Lambda(1830) 0.023, sdp:Sigma(1915)+ 0.023, sdp:Sigma(1910)+ 0.023\nSigma0 pT0.5-1 per event 0.0010 | classes nd 0.64, sdp 0.26, dd 0.09\n               nd:step0[>3]:baryonic_np:d0:m>2 0.102, nd:Sigma(1670)+ 0.086, nd:Lambda(1405) 0.061, sdp:Lambda(1520) 0.060, nd:Lambda(1830) 0.051, nd:Lambda(1520) 0.041, nd:direct[2-3]:baryonic_np:d1:m>2 0.041, nd:Sigma(1910)+ 0.041, sdp:Lambda(1405) 0.036, sdp:Lambda(1690) 0.024\nSigma0 pT1-2.5 per event 0.0003 | classes nd 0.81, sdp 0.14, dd 0.06\n               nd:Sigma(1910)+ 0.096, nd:Lambda(1830) 0.096, nd:step0[>3]:baryonic_np:d0:m>2 0.096, nd:Sigma(1915)+ 0.058, nd:Lambda(1405) 0.058, nd:Sigma(1775)+ 0.058, sdp:Sigma(1775)+ 0.046, sdp:Sigma(1910)+ 0.046, sdp:Sigma(1915)+ 0.046, nd:Sigma(1385)- 0.038\nn pT0-0.5      per event 0.0216 | classes nd 0.67, sdp 0.25, dd 0.07, sdt 0.01\n               nd:Delta0 0.131, nd:Delta+ 0.099, nd:step0[>3]:baryonic_np:d0:m>2 0.058, nd:Delta- 0.053, nd:N*(1520)+ 0.041, nd:N*(1680)+ 0.037, nd:N*(1440)+ 0.037, sdp:step0[>3]:baryonic_np:d0:m>2 0.029, sdp:Delta- 0.026, sdp:Delta0 0.026\nn pT0.5-1      per event 0.0148 | classes nd 0.70, sdp 0.23, dd 0.07, sdt 0.00\n               nd:Delta0 0.111, nd:Delta+ 0.078, nd:Delta- 0.059, nd:N*(1680)+ 0.055, nd:step0[>3]:baryonic_np:d0:m>2 0.045, nd:N*(1440)+ 0.036, nd:N*(1520)+ 0.033, nd:direct[2-3]:baryonic_np_q0:d1:m>2 0.029, sdp:Delta- 0.026, nd:N*(1680)0 0.025\nn pT1-2.5      per event 0.0026 | classes nd 0.73, sdp 0.22, dd 0.06\n               nd:Delta0 0.107, nd:N*(1680)+ 0.060, nd:Delta- 0.058, nd:Delta+ 0.046, nd:N*(1680)0 0.040, nd:step0[>3]:baryonic_np:d0:m>2 0.034, sdp:N*(1680)+ 0.033, nd:N*(1520)+ 0.032, nd:N(1535)+ 0.030, nd:direct[2-3]:baryonic_np_q0:d1:m>2 0.030\np pT0-0.5      per event 0.0353 | classes nd 0.62, sdp 0.23, sdt 0.08, dd 0.07\n               nd:Delta++ 0.158, nd:Delta+ 0.117, sdt:record 0.081, sdp:Delta++ 0.062, nd:Delta0 0.042, nd:step0[>3]:baryonic_np:d0:m>2 0.034, sdp:step0[>3]:baryonic_np:d0:m>2 0.026, nd:N*(1440)+ 0.019, nd:N*(1680)+ 0.019, dd:Delta++ 0.019\np pT0.5-1      per event 0.0218 | classes nd 0.68, sdp 0.22, dd 0.07, sdt 0.03\n               nd:Delta++ 0.152, nd:Delta+ 0.110, sdp:Delta++ 0.047, nd:direct[2-3]:baryonic_np:d1:m>2 0.039, nd:Delta0 0.038, nd:step0[>3]:baryonic_np:d0:m>2 0.033, sdt:record 0.026, sdp:direct[2-3]:baryonic_np:d1:m>2 0.025, nd:N*(1680)+ 0.024, nd:N*(1440)+ 0.019\np pT1-2.5      per event 0.0037 | classes nd 0.72, sdp 0.23, dd 0.06\n               nd:Delta++ 0.129, nd:Delta+ 0.091, nd:N*(1680)0 0.052, nd:direct[2-3]:baryonic_np:d1:m>2 0.039, sdp:Delta++ 0.035, nd:Delta0 0.033, nd:N*(1680)+ 0.029, nd:N(1535)+ 0.023, nd:step0[>3]:baryonic_np:d0:m>2 0.023, nd:N*(1440)0 0.023\npbar pT0-0.5   per event 0.0001 | classes nd 0.63, sdp 0.35, dd 0.02\n               nd:direct[2-3]:mesonic_neutral:d1:m>2 0.259, sdp:direct[2-3]:mesonic_neutral:d1:m>2 0.175, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.148, sdp:aDelta-- 0.088, sdp:direct[2-3]:mesonic_neutral:d2:m>2 0.088, nd:aDelta-- 0.074, nd:direct[2-3]:anti_baryonic_np_q0:d2:m>2 0.037, nd:aDelta+ 0.037, nd:aN(1535)+ 0.037, nd:aN*(1440)0 0.037\npbar pT0.5-1   per event 0.0001 | classes nd 0.74, sdp 0.21, dd 0.05\n               nd:direct[2-3]:mesonic_neutral:d2:m>2 0.306, nd:direct[2-3]:anti_baryonic_np:d2:m>2 0.131, sdp:step[>3]:mesonic_neutral:d1:m>2 0.103, sdp:aN*(1680)+ 0.103, nd:direct[2-3]:anti_baryonic_np_q0:d2:m>2 0.087, nd:step[>3]:mesonic_neutral:d1:m>2 0.087, nd:direct[2-3]:mesonic_neutral:d1:m>2 0.087, nd:step[>3]:mesonic_neutral:d2:m>2 0.044, dd:direct[2-3]:mesonic_neutral:d2:m>2 0.025, dd:direct[2-3]:mesonic_neutral:d1:m>2 0.025\npbar pT1-2.5   per event 0.0000 | classes nd 1.00\n               nd:direct[2-3]:mesonic_neutral:d2:m>2 1.000\npi+ pT0-0.5    per event 0.0276 | classes nd 0.65, sdp 0.26, dd 0.08, sdt 0.01\n               nd:Delta+ 0.140, nd:rho+ 0.067, sdp:N*(1440)+ 0.061, nd:N*(1440)+ 0.060, nd:rho0 0.056, nd:Delta++ 0.038, nd:N*(1520)+ 0.032, sdp:rho+ 0.028, dd:N*(1440)+ 0.023, sdp:N*(1520)+ 0.017\npi+ pT0.5-1    per event 0.0142 | classes nd 0.71, sdp 0.22, dd 0.07, sdt 0.01\n               nd:rho+ 0.090, nd:rho0 0.074, nd:N*(1680)+ 0.047, nd:Delta(1950)+ 0.041, nd:N*(1520)+ 0.032, sdp:rho+ 0.031, nd:direct[2-3]:mesonic_charged:d1:m>2 0.026, nd:direct[2-3]:baryonic_np:d1:m>2 0.025, nd:Delta+ 0.023, nd:direct[2-3]:mesonic_charged:d2:m>2 0.021\npi+ pT1-2.5    per event 0.0017 | classes nd 0.76, sdp 0.16, dd 0.07, sdt 0.01\n               nd:direct[2-3]:mesonic_charged:d1:m>2 0.086, nd:direct[2-3]:mesonic_charged:d2:m>2 0.079, nd:rho0 0.073, nd:N*(1680)+ 0.055, nd:rho+ 0.052, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.037, nd:direct[2-3]:mesonic_neutral:d1:m>2 0.037, nd:f2(1270) 0.034, nd:Delta(1950)+ 0.034, nd:direct[2-3]:baryonic_np_q2:d1:m>2 0.031\npi- pT0-0.5    per event 0.0130 | classes nd 0.64, sdp 0.29, dd 0.07, sdt 0.00\n               nd:rho0 0.122, nd:rho- 0.047, nd:f0(500) 0.041, sdp:rho0 0.039, nd:omega 0.036, sdp:omega 0.035, sdp:rho- 0.032, nd:step0[2-3]:baryonic_np:d0:m>2 0.029, sdp:f0(500) 0.029, nd:direct[2-3]:baryonic_np_q0:d1:m>2 0.023\npi- pT0.5-1    per event 0.0072 | classes nd 0.71, sdp 0.20, dd 0.08, sdt 0.01\n               nd:rho0 0.127, nd:rho- 0.080, nd:f2(1270) 0.031, nd:N*(1680)0 0.028, sdp:rho- 0.027, nd:f0(500) 0.026, nd:direct[2-3]:baryonic_np:d1:m>2 0.025, nd:direct[2-3]:baryonic_np_q0:d1:m>2 0.025, sdp:rho0 0.023, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.023\npi- pT1-2.5    per event 0.0013 | classes nd 0.67, sdp 0.25, dd 0.08\n               nd:rho0 0.091, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.091, nd:rho- 0.071, nd:f2(1270) 0.055, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.047, sdp:rho0 0.047, nd:direct[2-3]:mesonic_neutral:d1:m>2 0.044, nd:direct[2-3]:mesonic_anticharged:d1:m>2 0.040, sdp:rho- 0.028, sdp:N*(1520)0 0.028\n"
+  },
+  {
+   "path": "dev/00runs/r137_readouts_2026-11-03/region_numbers.txt",
+   "sha256": "dc03c163acfc67cd9f53e3c9c00a3b159f895961e193003c8bb9c3a395d13572",
+   "bytes": 3530,
+   "content": "p, xF>0.5, pT>1                  R136 1.00 (30, 186) | R137 0.99 (30, 114)\np soft 0.3-0.6, xF 0.5-0.8       R136 0.99 (28, 37) | R137 0.99 (28, 38)\np soft 0.3-0.6, xF 0.8-0.95      R136 0.84 (17, 96) | R137 0.84 (17, 96)\np mid 0.6-1.0, xF 0.30-0.50      R136 0.86 (16, 123) | R137 0.85 (16, 152)\np pT>1, xF 0                     R136 0.75 (3, 48) | R137 0.78 (3, 36)\np pT>1, xF 0.05-0.15             R136 0.85 (6, 65) | R137 0.88 (6, 53)\np pT>1, xF<0.15                  R136 0.82 (9, 112) | R137 0.85 (9, 90)\npi- soft <0.3, xF 0.15-0.30      R136 1.13 (15, 102) | R137 1.13 (15, 101)\npi- soft <0.3, xF<0.15           R136 0.93 (55, 137) | R137 0.94 (55, 128)\npi+ 0.3-0.6, xF 0.30-0.50        R136 1.13 (9, 66) | R137 1.14 (9, 73)\npi- <0.3, xF 0.5-0.8             R136 0.77 (4, 26) | R137 0.76 (4, 31)\npi- 0.3-0.6, xF 0.5-0.8          R136 0.86 (7, 39) | R137 0.85 (7, 33)\npi- <0.6, xF 0.5-0.8             R136 0.81 (11, 65) | R137 0.80 (11, 64)\npi+ <0.3, xF 0.5-0.8             R136 0.80 (1, 12) | R137 0.79 (1, 13)\nK+ pT>1, xF 0                    R136 0.78 (4, 30) | R137 0.75 (4, 29)\nK+ pT>1, xF 0.05-0.15            R136 0.89 (6, 15) | R137 0.86 (6, 19)\nK+ pT>1, xF<0.15                 R136 0.83 (10, 45) | R137 0.80 (10, 48)\nK+ bare xF 0.30                  R136 0.89 (12, 18) | R137 0.87 (12, 22)\nK+ bare xF 0.40                  R136 0.81 (12, 15) | R137 0.78 (12, 14)\nK- <0.3, xF 0.30-0.50            R136 0.85 (3, 12) | R137 0.77 (3, 24)\nK- 0.3-0.6, xF 0.30-0.50         R136 0.75 (5, 61) | R137 0.74 (5, 54)\nK- >1, xF 0.30-0.50              R136 1.58 (5, 60) | R137 1.54 (5, 55)\nK- <0.3, xF 0.5                  R136 1.05 (1, 0) | R137 0.56 (1, 2)\nK- 0.3-0.6, xF 0.5               R136 0.58 (2, 24) | R137 0.67 (2, 17)\nK- >1, xF 0.5                    R136 1.37 (1, 2) | R137 1.10 (1, 0)\nK- xF>=0.30 (all)                R136 0.92 (37, 215) | R137 0.88 (37, 211)\nR136 K+ scaled by pT column xF 0.25-0.45: [0.99, 1.0, 1.01, 1.04] | bare K+/pi+ at xF 0.30 (model/data): 0.872 | neutrons m_bare/d: [0.94, 1.06, 1.12, 1.17, 1.03, 1.13, 1.22, 1.13] chi2 3.5 | K- segment chi2 320.0\n   nuisances {\"identification_k_minus\": {\"prior\": 1.0, \"pull\": 2.0188638574876743, \"value\": 2.0188638574876743}, \"identification_k_plus\": {\"prior\": 1.0, \"pull\": 1.90243963839669, \"value\": 1.90243963839669}, \"normalization_antiproton\": {\"prior\": 0.015, \"pull\": -0.26378997005971516, \"value\": -0.003956849550895728}, \"normalization_k_minus\": {\"prior\": 0.015, \"pull\": 0.40517250008074907, \"value\": 0.0060775875012112355}, \"normalization_k_plus\": {\"prior\": 0.015, \"pull\": -1.4015747161985055, \"value\": -0.021023620742977582}, \"normalization_pi_minus\": {\"prior\": 0.015, \"pull\": 0.18458921216620353, \"value\": 0.00276883\nR137 K+ scaled by pT column xF 0.25-0.45: [1.0, 1.0, 1.02, 1.03] | bare K+/pi+ at xF 0.30 (model/data): 0.856 | neutrons m_bare/d: [0.96, 1.07, 1.11, 1.12, 1.01, 1.13, 1.24, 1.17] chi2 4.5 | K- segment chi2 296.0\n   nuisances {\"identification_k_minus\": {\"prior\": 1.0, \"pull\": 3.0444759750526504, \"value\": 3.0444759750526504}, \"identification_k_plus\": {\"prior\": 1.0, \"pull\": 2.0241807371693943, \"value\": 2.0241807371693943}, \"normalization_antiproton\": {\"prior\": 0.015, \"pull\": 0.33647002162534223, \"value\": 0.005047050324380133}, \"normalization_k_minus\": {\"prior\": 0.015, \"pull\": 0.2056793129568214, \"value\": 0.0030851896943523208}, \"normalization_k_plus\": {\"prior\": 0.015, \"pull\": -0.7728754369466138, \"value\": -0.011593131554199205}, \"normalization_pi_minus\": {\"prior\": 0.015, \"pull\": 0.3134928414052974, \"value\": 0.00470239\n"
+  },
+  {
+   "path": "dev/00runs/r137_readouts_2026-11-03/scripts/region_numbers.py",
+   "sha256": "49b8db18570f3528d2427092688419265f6bf27113c030e159ae0841b17c307f",
+   "bytes": 5735,
+   "content": "\"\"\"The manuscript's hand-quoted region numbers from a sealed report's per-bin record (2026-11-02): for each quoted\nregion of the companion paper's spectra section, sum(m) / sum(d) under the profiled scales (m_bare for the 'bare'\nnumbers), the point count and sum(pull^2). Printed for R136 (the numbers the text quotes) and R137 side by side, so\nthe definitions are checked against the quoted R136 values before the R137 values replace them.\nusage: python region_numbers.py\"\"\"\nimport importlib.util, json, os, sys\nimport numpy as np\nR = \"/home/o/NA49/2026/01-NA49-res\"\nos.environ.setdefault(\"PROBE_SPEC\", \"r137.json\")\nos.environ.setdefault(\"PROBE_REPORT\", R + \"/dev/00runs/r137_fourteen_parameters_2026-11-03/report.json\")\nspec = importlib.util.spec_from_file_location(\"pf\", R + \"/.collab/tooling/probe_forward_r75.py\")\npf = importlib.util.module_from_spec(spec); sys.modules[\"pf\"] = pf; spec.loader.exec_module(pf)\ntabs = pf.tables()\nRUNS = {\"R136\": \"r136_fixed_choices_2026-11-03\", \"R137\": \"r137_fourteen_parameters_2026-11-03\"}\nORDER = (\"proton\", \"antiproton\", \"pi_minus\", \"pi_plus\", \"k_plus\", \"k_minus\")\n\n\ndef load(run):\n    rep = json.load(open(f\"{R}/dev/00runs/{run}/report.json\"))\n    pb = {k: np.asarray(v, dtype=float) for k, v in rep[\"per_bin\"].items()}\n    seg = rep[\"observable_set\"][\"segments\"]\n    out = {}\n    for s in ORDER:\n        a, b = seg[s]\n        t = tabs[s]\n        xf = np.asarray(t.xf_centers)[t.bin_index_xf]; pt = np.asarray(t.pt_centers)[t.bin_index_pt]\n        d = pb[\"d\"][a:b]\n        if len(d) != len(t.data):\n            # the zero pi- entry: the per-bin record keeps it, the probe tables drop it\n            keep = d > 0\n            assert keep.sum() == len(t.data), (s, len(d), len(t.data))\n            sl = {k: v[a:b][keep] for k, v in pb.items()}\n        else:\n            sl = {k: v[a:b] for k, v in pb.items()}\n        assert np.allclose(sl[\"d\"], t.data, rtol=1e-9), s\n        out[s] = {**sl, \"xf\": xf, \"pt\": pt}\n    out[\"neutron\"] = {k: v[seg[\"neutron\"][0]:seg[\"neutron\"][1]] for k, v in pb.items()}\n    out[\"_rep\"] = rep\n    return out\n\n\ndef region(o, s, x0, x1, p0, p1, bare=False):\n    v = o[s]\n    sel = (v[\"xf\"] >= x0 - 1e-9) & (v[\"xf\"] < x1 - 1e-9) & (v[\"pt\"] >= p0 - 1e-9) & (v[\"pt\"] < p1 - 1e-9)\n    m = v[\"m_bare\"] if bare else v[\"m\"]\n    return float(m[sel].sum() / v[\"d\"][sel].sum()), int(sel.sum()), float(np.sum(v[\"pull\"][sel] ** 2))\n\n\nQ = [  # (label, species, xF range, pT range, bare)\n    (\"p, xF>0.5, pT>1\", \"proton\", 0.5, 1.0, 1.0, 9, False),\n    (\"p soft 0.3-0.6, xF 0.5-0.8\", \"proton\", 0.5, 0.8, 0.3, 0.6, False),\n    (\"p soft 0.3-0.6, xF 0.8-0.95\", \"proton\", 0.8, 1.0, 0.3, 0.6, False),\n    (\"p mid 0.6-1.0, xF 0.30-0.50\", \"proton\", 0.3, 0.5, 0.6, 1.0, False),\n    (\"p pT>1, xF 0\", \"proton\", 0.0, 0.05, 1.0, 9, False),\n    (\"p pT>1, xF 0.05-0.15\", \"proton\", 0.05, 0.15, 1.0, 9, False),\n    (\"p pT>1, xF<0.15\", \"proton\", 0.0, 0.15, 1.0, 9, False),\n    (\"pi- soft <0.3, xF 0.15-0.30\", \"pi_minus\", 0.15, 0.3, 0.0, 0.3, False),\n    (\"pi- soft <0.3, xF<0.15\", \"pi_minus\", 0.0, 0.15, 0.0, 0.3, False),\n    (\"pi+ 0.3-0.6, xF 0.30-0.50\", \"pi_plus\", 0.3, 0.5, 0.3, 0.6, False),\n    (\"pi- <0.3, xF 0.5-0.8\", \"pi_minus\", 0.5, 0.8, 0.0, 0.3, False),\n    (\"pi- 0.3-0.6, xF 0.5-0.8\", \"pi_minus\", 0.5, 0.8, 0.3, 0.6, False),\n    (\"pi- <0.6, xF 0.5-0.8\", \"pi_minus\", 0.5, 0.8, 0.0, 0.6, False),\n    (\"pi+ <0.3, xF 0.5-0.8\", \"pi_plus\", 0.5, 0.8, 0.0, 0.3, False),\n    (\"K+ pT>1, xF 0\", \"k_plus\", 0.0, 0.05, 1.0, 9, False),\n    (\"K+ pT>1, xF 0.05-0.15\", \"k_plus\", 0.05, 0.15, 1.0, 9, False),\n    (\"K+ pT>1, xF<0.15\", \"k_plus\", 0.0, 0.15, 1.0, 9, False),\n    # the single tabulated x_F rows 0.30 and 0.40 (corrected 2026-11-02: the ranges 0.25-0.35 and 0.35-0.45 printed\n    # before included the x_F 0.25 row; the text quotes the single rows)\n    (\"K+ bare xF 0.30\", \"k_plus\", 0.275, 0.325, 0.0, 9, True),\n    (\"K+ bare xF 0.40\", \"k_plus\", 0.375, 0.425, 0.0, 9, True),\n    (\"K- <0.3, xF 0.30-0.50\", \"k_minus\", 0.3, 0.5, 0.0, 0.3, False),\n    (\"K- 0.3-0.6, xF 0.30-0.50\", \"k_minus\", 0.3, 0.5, 0.3, 0.6, False),\n    (\"K- >1, xF 0.30-0.50\", \"k_minus\", 0.3, 0.5, 1.0, 9, False),\n    (\"K- <0.3, xF 0.5\", \"k_minus\", 0.45, 0.55, 0.0, 0.3, False),\n    (\"K- 0.3-0.6, xF 0.5\", \"k_minus\", 0.45, 0.55, 0.3, 0.6, False),\n    (\"K- >1, xF 0.5\", \"k_minus\", 0.45, 0.55, 1.0, 9, False),\n    (\"K- xF>=0.30 (all)\", \"k_minus\", 0.25, 0.6, 0.0, 9, False),\n]\nruns = {k: load(v) for k, v in RUNS.items()}\nfor lab, *q in Q:\n    print(f\"{lab:32s} \" + \" | \".join(f\"{k} {r:.2f} ({n}, {c:.0f})\" for k, (r, n, c) in ((k, region(o, *q)) for k, o in runs.items())))\nfor k, o in runs.items():\n    # the K+ identification lift: the scaled K+ in each pT column at xF >= 0.25\n    cols = [(0.0, 0.3), (0.3, 0.6), (0.6, 1.0), (1.0, 9)]\n    lifts = [region(o, \"k_plus\", 0.25, 0.45, a, b)[0] for a, b in cols]\n    v = o[\"k_plus\"]; w = o[\"pi_plus\"]\n    # the text's K+/pi+ at x_F 0.30: the bare model, each species summed over all of its tabulated p_T points\n    # (corrected 2026-11-02: the scaled model on the common p_T points printed before is not the quoted ratio)\n    sk = (np.abs(v[\"xf\"] - 0.3) < 1e-6); spi = (np.abs(w[\"xf\"] - 0.3) < 1e-6)\n    ratio = (v[\"m_bare\"][sk].sum() / w[\"m_bare\"][spi].sum()) / (v[\"d\"][sk].sum() / w[\"d\"][spi].sum())\n    n = o[\"neutron\"]\n    nuis = o[\"_rep\"][\"objective_at_optimum\"][\"nuisances\"]\n    print(k, \"K+ scaled by pT column xF 0.25-0.45:\", [round(x, 2) for x in lifts], \"| bare K+/pi+ at xF 0.30 (model/data):\", round(ratio, 3),\n          \"| neutrons m_bare/d:\", [round(x, 2) for x in (n[\"m_bare\"] / n[\"d\"])], \"chi2\", round(float(np.sum(n[\"pull\"] ** 2)), 1),\n          \"| K- segment chi2\", round(float(np.sum(o[\"k_minus\"][\"pull\"] ** 2)), 0))\n    print(\"   nuisances\", json.dumps(nuis)[:600])\n"
+  }
+ ],
+ "statistics": [
+  {
+   "path": "dev/00runs/r137_statistics_2026-11-03/mc_error_check.json",
+   "sha256": "89f24bfd86f5eedec58194316f8da3e231033f007dec381919134ce990513ebb",
+   "bytes": 1207,
+   "content": {
+    "chi2_committed": 2756.0893490085423,
+    "chi2_reweighted_se": 2689.0334947731353,
+    "delta": -67.05585423540697,
+    "se_ratio_median": 1.146458942726777,
+    "se_ratio_p90": 1.3035155574316568,
+    "se_ratio_max": 1.6721160191098916,
+    "se_over_sigma_median": 0.22013794238155715,
+    "by_segment_committed": {
+     "proton": 1027.0212387135077,
+     "antiproton": 137.53181764272378,
+     "pi_minus": 668.7826422008592,
+     "pi_plus": 439.1669133397603,
+     "k_plus": 164.90389006785213,
+     "k_minus": 295.66836187493556,
+     "neutron": 4.471882427556865
+    },
+    "by_segment_reweighted_se": {
+     "proton": 1007.1448231437231,
+     "antiproton": 132.45030286543775,
+     "pi_minus": 648.8107732448949,
+     "pi_plus": 432.47924285982094,
+     "k_plus": 161.71382982810775,
+     "k_minus": 283.5701721886332,
+     "neutron": 4.471381013060871
+    },
+    "ess": {
+     "sd_projectile": 0.7763940579325355,
+     "sd_target": 0.7776085944123146,
+     "dd": 0.7660349670359567,
+     "nd0": 0.7630403374797633
+    },
+    "se_ratio_median_by_segment": {
+     "proton": 1.150038735519781,
+     "antiproton": 1.1492007657027847,
+     "pi_minus": 1.1435314792232156,
+     "pi_plus": 1.1543460966776795,
+     "k_plus": 1.13412913699292,
+     "k_minus": 1.1457797019732188,
+     "neutron": 1.1836399553106567
+    }
+   }
+  },
+  {
+   "path": "dev/00runs/r137_statistics_2026-11-03/fiv_profile.json",
+   "sha256": "23995671ac5a65d21fe715ca856662f75ffcdbbcdaeb0827252a79e2ea1cbb7a",
+   "bytes": 1949,
+   "content": {
+    "profile": [
+     {
+      "f_isovector": 0.01,
+      "chi2": 2769.7351083970943,
+      "nfev": 856,
+      "converged": true,
+      "x": [
+       1.7253516928880144,
+       0.26699547933231793,
+       -1.2336952378764514,
+       -0.06683083372694751,
+       1.1139274476894387,
+       -0.2675126249497339,
+       0.25786593737299324,
+       0.19771973213947894,
+       0.3063155588301952,
+       -1.601253176236695,
+       -3.115912155392916,
+       0.9613569348102418,
+       1.3937663789190238
+      ],
+      "seconds": 3980.8741462230682
+     },
+     {
+      "f_isovector": 0.02,
+      "chi2": 2784.9959439363665,
+      "nfev": 1149,
+      "converged": true,
+      "x": [
+       1.7261143573300106,
+       0.26374998838822955,
+       -1.2349278586345387,
+       -0.0644391597794708,
+       1.1121405207537591,
+       -0.27093748601941714,
+       0.2558459650403014,
+       0.19686704930984583,
+       0.3093400022805165,
+       -1.596149984267197,
+       -3.1156117554048772,
+       0.971116222273118,
+       1.3790365781172296
+      ],
+      "seconds": 5472.726558208466
+     },
+     {
+      "f_isovector": 0.03,
+      "chi2": 2801.8538884815234,
+      "nfev": 1153,
+      "converged": true,
+      "x": [
+       1.7270031602495173,
+       0.2604737967411124,
+       -1.236212977304126,
+       -0.062028804734763035,
+       1.1101897094936912,
+       -0.2744043767887442,
+       0.25367718323713956,
+       0.19600916204193855,
+       0.3122661900025455,
+       -1.5909192903420255,
+       -3.11536860648176,
+       0.9813751790376007,
+       1.364215764746611
+      ],
+      "seconds": 5353.571040391922
+     },
+     {
+      "f_isovector": 0.045,
+      "chi2": 2830.1083985657533,
+      "nfev": 1285,
+      "converged": true,
+      "x": [
+       1.7283548833446716,
+       0.25551782128014316,
+       -1.2380238043803622,
+       -0.058670114106465165,
+       1.107099294881631,
+       -0.2797723325190067,
+       0.2504617678709369,
+       0.19466885563099645,
+       0.31668371085289265,
+       -1.5830226150365927,
+       -3.1150035265617313,
+       0.9972179009517147,
+       1.3424983724693338
+      ],
+      "seconds": 5687.489103078842
+     }
+    ],
+    "chi2_vacuum_only": 2756.0850583805172,
+    "s2": 2.21
+   }
+  },
+  {
+   "path": "dev/00runs/r137_statistics_2026-11-03/scripts/mc_error_check.py",
+   "sha256": "9e80b26305e9c0d45286408a0f661cbd50f3dba91114cf9905b16aae639ed9d9",
+   "bytes": 3185,
+   "content": "\"\"\"The Monte Carlo error convention at the R137 optimum (2026-11-03; the review of 2026-11-01, item R7).\n\nThe objective's MC error s_i is the between-block standard error of the mixture at the trial class fractions with unit\nweights (Objective.unweighted_se), while the prediction m_i is the mean of the reweighted blocks. This script loads the\nR137 sample (32 replica blocks, generation 0), reproduces the sealed chi2 at the reported optimum, and recomputes the\nobjective with s_i from the spread of the reweighted blocks themselves, per segment, with the profiled scales.\nusage: python mc_error_check.py OUT.json\"\"\"\nimport importlib.util, json, math, sys, time\nfrom pathlib import Path\nimport numpy as np\nR = Path(\"/home/o/NA49/2026/01-NA49-res\")\nRUN = R / \"dev/00runs/r137_fourteen_parameters_2026-11-03\"\nspec = importlib.util.spec_from_file_location(\"eng\", R / \"helpers/benchmarking/run_engine.py\")\nE = importlib.util.module_from_spec(spec); spec.loader.exec_module(E)\nE.configure(R / \"dev/mixing2006/config/runs/r137.json\")\nrep = json.loads((RUN / \"report.json\").read_text())\nt0 = time.time()\ncontract = E._contract(RUN)\ntemplates = E.Templates(contract, 0, 0, E.load_fit_tables())\nobj = E.Objective(templates, E.anchors(), fc_fixed=E.FC_DEFAULT)\nprint(f\"loaded {templates.n_blocks} blocks in {time.time() - t0:.0f} s\", flush=True)\nfitted = rep[\"fitted\"]\nx = E.x_from_physical({n: fitted[n] for n in E.free_shape_names()}, obj.fc_fixed)\nt0 = time.time()\nvalue, det = obj.evaluate(x, details=True)\nprint(f\"chi2 at the optimum {value:.2f} (sealed 3153.6), one evaluation {time.time() - t0:.0f} s\", flush=True)\nphys = det[\"physical\"]\nweights, ess = obj.class_weights(phys[\"epsilon\"], phys[\"b_sd\"], phys[\"epsilon_nd\"], None,\n                                 remnant=(phys[\"w_intact\"], phys[\"w_low_mass\"], phys[\"w_excited\"]), flavor=E.flavor_of(phys),\n                                 iso=E.iso_of(phys), b_iv=E.biv_of(phys), eps_central=E.epsc_of(phys), f_ivf=E.ivf_of(phys),\n                                 f_tail=E.tail_of(phys))\nfrac = E.class_fractions(phys)\nblocks = list(range(templates.n_blocks))\nvectors = np.asarray([obj.observation_vector(obj.block_prediction(k, frac, weights)) for k in blocks])\nscale = 1.0 + obj.norm\nm = vectors.mean(axis=0) * scale\nse_unit = obj.unweighted_se(frac, blocks) * scale\nse_w = np.maximum(vectors.std(axis=0, ddof=1) / math.sqrt(len(blocks)), E.SE_FLOOR) * scale\nv_w, det_w = obj._likelihood(phys, m, se_w, ess, blocks, True)\nratio = se_w / se_unit\nout = {\"chi2_committed\": value, \"chi2_reweighted_se\": v_w, \"delta\": v_w - value,\n       \"se_ratio_median\": float(np.median(ratio)), \"se_ratio_p90\": float(np.quantile(ratio, 0.9)),\n       \"se_ratio_max\": float(ratio.max()), \"se_over_sigma_median\": float(np.median(se_unit / np.sqrt(obj.v_data))),\n       \"by_segment_committed\": det[\"chi2_by_segment\"], \"by_segment_reweighted_se\": det_w[\"chi2_by_segment\"],\n       \"ess\": ess}\nseg = obj.segments\nout[\"se_ratio_median_by_segment\"] = {k: float(np.median(ratio[a:b])) for k, (a, b) in seg.items()}\nPath(sys.argv[1]).write_text(json.dumps(out, indent=1))\nprint(json.dumps({k: v for k, v in out.items() if not k.startswith(\"by_segment\")}, indent=1))\n"
+  },
+  {
+   "path": "dev/00runs/r137_statistics_2026-11-03/scripts/fiv_profile.py",
+   "sha256": "be32290f3d6cbb1684029a567de689724547841963eda7edc8fd2da6d60cadda",
+   "bytes": 2333,
+   "content": "\"\"\"The one-sided profile of the isovector exchange fraction at R137 (2026-11-03; the review of 2026-11-01, item R7).\n\nf_iv's minimum lies on its boundary at zero, so the Hessian error is a curvature scale. This script refits the R137\nsample (32 blocks, generation 0) with f_iv held at each value of VALUES and the other thirteen parameters free, each fit one\nPowell run from the R137 optimum with its own pool of block workers (run_engine._fit_worker, the engine's own fit path).\nThe profile Delta chi2(f) against the vacuum-only minimum gives the one-sided interval under the declared objective:\n95% at Delta chi2 = 2.71 S^2 (the errors of the paper are scaled by S).\nusage: python fiv_profile.py OUT.json\"\"\"\nimport concurrent.futures as cf, importlib.util, json, sys, time\nfrom pathlib import Path\nR = Path(\"/home/o/NA49/2026/01-NA49-res\")\nRUN = R / \"dev/00runs/r137_fourteen_parameters_2026-11-03\"\nVALUES = (0.01, 0.02, 0.03, 0.045)\n\n\ndef _engine():\n    spec = importlib.util.spec_from_file_location(\"eng\", R / \"helpers/benchmarking/run_engine.py\")\n    E = importlib.util.module_from_spec(spec); spec.loader.exec_module(E)\n    E.configure(R / \"dev/mixing2006/config/runs/r137.json\")\n    return E\n\n\ndef one(f):\n    E = _engine()\n    rep = json.loads((RUN / \"report.json\").read_text())\n    names = E.free_shape_names(f)\n    x0 = E.x_from_physical({n: rep[\"fitted\"][n] for n in names}, E.FC_DEFAULT, f)\n    t0 = time.time()\n    res = E._fit_worker(str(RUN), 0, 0, list(x0), None, 3000, E.FC_DEFAULT, E.DISCREPANCY, 6, E.NORM_FIXED, f)\n    return {\"f_isovector\": f, \"chi2\": res[\"fun\"], \"nfev\": res[\"nfev\"], \"converged\": res[\"converged\"],\n            \"x\": [float(v) for v in res[\"x\"]], \"seconds\": time.time() - t0}\n\n\nif __name__ == \"__main__\":\n    with cf.ProcessPoolExecutor(max_workers=4) as ex:\n        out = list(ex.map(one, VALUES))\n    rep = json.loads((RUN / \"report.json\").read_text())\n    vac = rep[\"isovector_test\"][\"chi2_vacuum\"] if \"chi2_vacuum\" in rep[\"isovector_test\"] else None\n    s2 = None\n    for line in (RUN / \"REPORT.md\").read_text().splitlines():\n        if \"S^2 = chi2/ndf\" in line:\n            s2 = float(line.split(\"S^2 = chi2/ndf = \")[1].split()[0])\n    rec = {\"profile\": out, \"chi2_vacuum_only\": vac, \"s2\": s2}\n    Path(sys.argv[1]).write_text(json.dumps(rec, indent=1))\n    print(json.dumps(rec, indent=1))\n"
+  }
+ ],
+ "external_inputs": [
+  {
+   "path": "dev/00runs/r125_probes_2026-10-28/na61_lambda_xf_table6.txt",
+   "sha256": "9d9d146d0988a8fa16c87b7903788285bd30570f4c6337c85b8139681c51aa3f",
+   "bytes": 774
+  },
+  {
+   "path": "dev/00runs/manuscript_review_probes_2026-10-30/yields_xi128.txt",
+   "sha256": "4bb54dd3340f2dfe0050dc760a84b403d61a8fec79ae41b807e41c4eb3cc371c",
+   "bytes": 14544
+  },
+  {
+   "path": "dev/00runs/r135_probes_2026-11-02/fixed_choice_rescan.json",
+   "sha256": "91ce19cdeff7b0fc763beac2b8217ab41271baf9976a0b28ce301df0dd071a19",
+   "bytes": 21569
+  }
+ ],
+ "generator_comparison": {
+  "path": "latex/paper/generated/fit_generators.json",
+  "sha256": "b7c0229332aa325aad1ccdecafe1689ab53e351d8bd6c507c7fc44fc6176db38",
+  "n_events_per_generator": 3200000,
+  "error_model": {
+   "discrepancy": 0.05,
+   "normalization_prior": 0.015,
+   "kaon_identification": {
+    "k_plus": [
+     [
+      0.25,
+      0.04
+     ],
+     [
+      0.4,
+      0.12
+     ]
+    ],
+    "k_minus": [
+     [
+      0.25,
+      0.0
+     ],
+     [
+      0.5,
+      0.06
+     ]
+    ]
+   }
+  },
+  "chi2": {
+   "cascade": {
+    "penalty": 17.432489176757848,
+    "total": 2750.5073530163963,
+    "nuisances": {
+     "normalization_pi_minus": 0.31349284140529743,
+     "normalization_pi_plus": -0.7672901892218434,
+     "normalization_k_plus": -0.7728754369466135,
+     "identification_k_plus": 2.0241807371693943,
+     "normalization_k_minus": 0.2056793129568213,
+     "identification_k_minus": 3.0444759750526504,
+     "normalization_proton": -1.6206427937712256,
+     "normalization_antiproton": 0.33647002162534245
+    },
+    "pi_minus": 668.7826422008591,
+    "pi_plus": 439.1669133397602,
+    "k_plus": 164.9038900678521,
+    "k_minus": 295.66836187493544,
+    "proton": 1027.0212387135082,
+    "antiproton": 137.5318176427237
+   },
+   "pythia8": {
+    "penalty": 2478.129843505904,
+    "total": 32430.09352811215,
+    "nuisances": {
+     "normalization_pi_minus": -8.054861887279788,
+     "normalization_pi_plus": -4.551482642903578,
+     "normalization_k_plus": -13.517249868795133,
+     "identification_k_plus": 4.462914041078404,
+     "normalization_k_minus": -20.353834336109713,
+     "identification_k_minus": 2.5010870364351083,
+     "normalization_proton": -20.15432841433331,
+     "normalization_antiproton": -36.92111104912983
+    },
+    "pi_minus": 3140.507702964532,
+    "pi_plus": 5091.4886283811475,
+    "k_plus": 303.45887287689044,
+    "k_minus": 298.6956659322406,
+    "proton": 20897.355870459472,
+    "antiproton": 220.45694399196105
+   },
+   "epos_lhc": {
+    "penalty": 170.34338837875507,
+    "total": 9477.76677348391,
+    "nuisances": {
+     "normalization_pi_minus": 0.4883517969873667,
+     "normalization_pi_plus": 1.1016122713962795,
+     "normalization_k_plus": -7.984881355858692,
+     "identification_k_plus": 4.939539542793983,
+     "normalization_k_minus": -1.8333819651374124,
+     "identification_k_minus": -3.16470815213565,
+     "normalization_proton": -7.685767415481202,
+     "normalization_antiproton": -2.8785903250585556
+    },
+    "pi_minus": 2051.24532088282,
+    "pi_plus": 2771.2730570997705,
+    "k_plus": 1617.0216912059211,
+    "k_minus": 398.66056692482414,
+    "proton": 2293.9838013377225,
+    "antiproton": 175.23894765409767
+   },
+   "urqmd": {
+    "penalty": 586.1792261614285,
+    "total": 25050.139993025008,
+    "nuisances": {
+     "normalization_pi_minus": 1.7581331296442162,
+     "normalization_pi_plus": 6.876947140851675,
+     "normalization_k_plus": 3.3700453290718957,
+     "identification_k_plus": -0.28640753663325674,
+     "normalization_k_minus": -4.175402752530484,
+     "identification_k_minus": -1.2454456959448132,
+     "normalization_proton": -14.292368194233333,
+     "normalization_antiproton": -17.352223072501374
+    },
+    "pi_minus": 3298.4625791939097,
+    "pi_plus": 4130.684631419047,
+    "k_plus": 468.2966607259152,
+    "k_minus": 366.90251225614946,
+    "proton": 13983.022860979578,
+    "antiproton": 2216.5915222889817
+   }
+  },
+  "window_sum_ratio": {
+   "cascade": {
+    "pi_minus": 0.9428971744183314,
+    "pi_plus": 0.9828937161125408,
+    "k_plus": 0.9986617682432831,
+    "k_minus": 0.9958449989127129,
+    "proton": 0.994171147596594,
+    "antiproton": 0.9783801095515537
+   },
+   "pythia8": {
+    "pi_minus": 1.0708323687168528,
+    "pi_plus": 1.011109073122257,
+    "k_plus": 1.2554560897226088,
+    "k_minus": 1.4939832239666966,
+    "proton": 0.9410275538855263,
+    "antiproton": 2.4569444292229567
+   },
+   "epos_lhc": {
+    "pi_minus": 1.0490615638571672,
+    "pi_plus": 1.0452896534158482,
+    "k_plus": 1.0736144708487683,
+    "k_minus": 1.0116424712429235,
+    "proton": 1.0695076693571703,
+    "antiproton": 1.0429173635417757
+   },
+   "urqmd": {
+    "pi_minus": 0.8576098431171542,
+    "pi_plus": 0.8415273765276484,
+    "k_plus": 0.9404876206068857,
+    "k_minus": 1.0590960178610944,
+    "proton": 0.9321728490192367,
+    "antiproton": 1.203033150377326
+   }
+  },
+  "points": {
+   "pi_minus": 282,
+   "pi_plus": 260,
+   "k_plus": 153,
+   "k_minus": 154,
+   "proton": 284,
+   "antiproton": 122
+  },
+  "omitted": "per-point data and predictions; they are in the file named here"
+ },
+ "multiplicity_and_seagull": [
+  {
+   "path": "latex/paper/generated/fit_nch_summary.json",
+   "sha256": "9a1f2a0d825ab5d74b3c4a0e7e61f1a95be8df7a49a2ad4b801fdc3bc5897f04",
+   "bytes": 2741,
+   "content": {
+    "rows": [
+     {
+      "mass": 2.6,
+      "model": 3.525880000000003,
+      "mark_i": 3.6929710445256543,
+      "ratio": 0.9547543041873178,
+      "below_open_charm": true
+     },
+     {
+      "mass": 3.0,
+      "model": 3.4948780000000004,
+      "mark_i": 3.931090848343735,
+      "ratio": 0.889035164748858,
+      "below_open_charm": true
+     },
+     {
+      "mass": 3.5,
+      "model": 4.2729180000000015,
+      "mark_i": 4.187597579576293,
+      "ratio": 1.0203745509931117,
+      "below_open_charm": true
+     },
+     {
+      "mass": 4.0,
+      "model": 4.845706000000002,
+      "mark_i": 4.409793816903498,
+      "ratio": 1.0988509216520683,
+      "below_open_charm": false
+     },
+     {
+      "mass": 5.0,
+      "model": 5.910422000000001,
+      "mark_i": 4.781104686290343,
+      "ratio": 1.2362042640371247,
+      "below_open_charm": false
+     },
+     {
+      "mass": 6.0,
+      "model": 7.070738000000003,
+      "mark_i": 5.084487756795483,
+      "ratio": 1.3906490364835418,
+      "below_open_charm": false
+     },
+     {
+      "mass": 7.8,
+      "model": 9.108191999999972,
+      "mark_i": 5.521061892869389,
+      "ratio": 1.6497174233390621,
+      "below_open_charm": false
+     },
+     {
+      "mass": 10.0,
+      "model": 11.736625999999863,
+      "mark_i": 5.934501594742093,
+      "ratio": 1.9776936298068217,
+      "below_open_charm": false
+     },
+     {
+      "mass": 13.0,
+      "model": 15.217779999999722,
+      "mark_i": 6.371075730815997,
+      "ratio": 2.3885730829400535,
+      "below_open_charm": false
+     }
+    ],
+    "slope_above_4": 1.1574446895748076,
+    "sd_bins": [
+     {
+      "lo": 1.08,
+      "hi": 1.5,
+      "event": 2.125040480136012,
+      "system_over_law": 0.972583674980208
+     },
+     {
+      "lo": 1.5,
+      "hi": 2.0,
+      "event": 2.7714692451908314,
+      "system_over_law": 0.9941544739055983
+     },
+     {
+      "lo": 2.0,
+      "hi": 2.5,
+      "event": 3.4149108814561613,
+      "system_over_law": 1.0599073428664845
+     },
+     {
+      "lo": 2.5,
+      "hi": 3.0,
+      "event": 4.095327141343486,
+      "system_over_law": 1.1534511325645211
+     },
+     {
+      "lo": 3.0,
+      "hi": 4.0,
+      "event": 4.595134494447849,
+      "system_over_law": 1.131053429364623
+     },
+     {
+      "lo": 4.0,
+      "hi": 5.0,
+      "event": 5.2272361437376,
+      "system_over_law": 1.1243501974002206
+     },
+     {
+      "lo": 5.0,
+      "hi": 6.0,
+      "event": 5.475214271262825,
+      "system_over_law": 1.0502821098837196
+     },
+     {
+      "lo": 6.0,
+      "hi": 8.0,
+      "event": 5.978622769241538,
+      "system_over_law": 1.0171108968256926
+     },
+     {
+      "lo": 8.0,
+      "hi": 10.0,
+      "event": 7.51029719068329,
+      "system_over_law": 1.1504374960356205
+     },
+     {
+      "lo": 10.0,
+      "hi": 13.0,
+      "event": 10.369573080459885,
+      "system_over_law": 1.4482771753109085
+     },
+     {
+      "lo": 13.0,
+      "hi": 17.3,
+      "event": 14.123630658115816,
+      "system_over_law": 1.7500729163898767
+     }
+    ],
+    "sd_rule": "excited system = event count minus one leading proton; law 2 (M_X - m_p)^(1/2) at the geometric bin center"
+   }
+  },
+  {
+   "path": "latex/paper/generated/fit_seagull.json",
+   "sha256": "3bb2a3fe8744e2ada462668ad19bf28ddb3eeca78e28037a1febbb5e5a99bedf",
+   "bytes": 12733,
+   "content": {
+    "rule": "rows with tabulated p_T from <= 0.11 to >= 0.95 GeV/c; <p_T>_xF with density (p_T/E) f",
+    "species": {
+     "pi_minus": {
+      "xf": [
+       0.0,
+       0.01,
+       0.02,
+       0.03,
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3,
+       0.35,
+       0.45,
+       0.55,
+       0.65,
+       0.75,
+       0.85
+      ],
+      "data": [
+       0.2592640192622776,
+       0.2628793970205764,
+       0.2793584997631622,
+       0.295539594871147,
+       0.3342315752620278,
+       0.38850682989571406,
+       0.42081548552818593,
+       0.44744579814933666,
+       0.459060699931517,
+       0.47271880922529674,
+       0.48479440695779624,
+       0.4918058671881206,
+       0.485938855105265,
+       0.4772762645938113,
+       0.483423742340233,
+       0.43225972602991064
+      ],
+      "cascade": {
+       "mean_pt": [
+        0.2656280410500449,
+        0.268813069704634,
+        0.2859805352736205,
+        0.30470994783192656,
+        0.34272007349550976,
+        0.3905359059278382,
+        0.4145246678376811,
+        0.4332810013274605,
+        0.4498830063963779,
+        0.46585064563276135,
+        0.478733275975993,
+        0.4917412517786808,
+        0.4958418071839839,
+        0.4795194296393788,
+        0.536589719974158,
+        0.5251961490250184
+       ],
+       "rms_dev": 0.027675674043810657,
+       "mean_dev": 0.009639309808168104
+      },
+      "pythia8": {
+       "mean_pt": [
+        0.27464702500399385,
+        0.2777752097615575,
+        0.29525464755839326,
+        0.31434547627252607,
+        0.35700888954150123,
+        0.41049473609262405,
+        0.44597839448956783,
+        0.469313435131551,
+        0.4814332745186119,
+        0.4877978169653399,
+        0.4953035013058714,
+        0.5005133787356518,
+        0.48786196659337694,
+        0.4619714551247365,
+        0.4473652873653018,
+        0.46697211163970725
+       ],
+       "rms_dev": 0.020669691310888364,
+       "mean_dev": 0.012419814685995886
+      },
+      "epos_lhc": {
+       "mean_pt": [
+        0.25167940856591814,
+        0.25735091999619747,
+        0.27435277785252227,
+        0.29193765982368647,
+        0.32552871808783784,
+        0.37027631499180347,
+        0.39704624730523275,
+        0.4168554892400144,
+        0.43425865384981327,
+        0.4472243381445708,
+        0.46261602669355356,
+        0.46997512400838826,
+        0.4904361470797454,
+        0.5022055876770768,
+        0.5119404106650475,
+        0.4637095959125071
+       ],
+       "rms_dev": 0.020482491858907673,
+       "mean_dev": -0.006745384451903914
+      },
+      "urqmd": {
+       "mean_pt": [
+        0.2594677107814679,
+        0.26342196560391257,
+        0.2794656423734157,
+        0.2974640341106265,
+        0.33443966826138005,
+        0.393140740894411,
+        0.43491047291070006,
+        0.4675939452582419,
+        0.4958871391159134,
+        0.5222152525348132,
+        0.5501788089306484,
+        0.5845198523808046,
+        0.6143825515202205,
+        0.6361595655197589,
+        0.652455100603212,
+        0.6656246139962274
+       ],
+       "rms_dev": 0.09423366198593662,
+       "mean_dev": 0.06100046835446099
+      }
+     },
+     "pi_plus": {
+      "xf": [
+       0.0,
+       0.01,
+       0.02,
+       0.03,
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3,
+       0.35,
+       0.45
+      ],
+      "data": [
+       0.2602255050281075,
+       0.2625488646323362,
+       0.2768388973368159,
+       0.2903570850690238,
+       0.32651301990320064,
+       0.3746407593699076,
+       0.3977368634708396,
+       0.41276320903126146,
+       0.4207500406283893,
+       0.4332482225859009,
+       0.456946716041272,
+       0.4702109539853589
+      ],
+      "cascade": {
+       "mean_pt": [
+        0.26394255818178014,
+        0.2669720543827628,
+        0.2824477339068156,
+        0.2988806931274657,
+        0.33284919284975983,
+        0.3715864729714927,
+        0.39115794918339436,
+        0.4053913188044601,
+        0.41730178854070077,
+        0.4275144457657423,
+        0.4464018895169901,
+        0.4679839678191476
+       ],
+       "rms_dev": 0.006093125486586986,
+       "mean_dev": -0.0008625060026584743
+      },
+      "pythia8": {
+       "mean_pt": [
+        0.2755918652651136,
+        0.27881187348612546,
+        0.2971030164868174,
+        0.31560518519636066,
+        0.3558191103703182,
+        0.40561281236926594,
+        0.43423437516312335,
+        0.4517853837672883,
+        0.4632483736075697,
+        0.47323225888298637,
+        0.47754791068289515,
+        0.48673371595367376
+       ],
+       "rms_dev": 0.029331250972776852,
+       "mean_dev": 0.027712145345760348
+      },
+      "epos_lhc": {
+       "mean_pt": [
+        0.24927369238055763,
+        0.25490052448466877,
+        0.2697054390236992,
+        0.28547882622641996,
+        0.31697878560392934,
+        0.35435098200194987,
+        0.3723720776373301,
+        0.384313146243042,
+        0.3933413126955121,
+        0.4015046518438449,
+        0.41532987603994287,
+        0.40205066667517364
+       ],
+       "rms_dev": 0.029361478242088478,
+       "mean_dev": -0.02359834635219528
+      },
+      "urqmd": {
+       "mean_pt": [
+        0.2558962161872491,
+        0.2592743216315938,
+        0.27474232704246593,
+        0.29167647841766836,
+        0.3250568804544222,
+        0.3768888287001889,
+        0.4174069378826895,
+        0.4476713725271516,
+        0.47627527536786507,
+        0.5009436865545307,
+        0.5169564213559854,
+        0.5568697221274062
+       ],
+       "rms_dev": 0.04125621367950553,
+       "mean_dev": 0.02640652759723359
+      }
+     },
+     "k_plus": {
+      "xf": [
+       0.0,
+       0.025,
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3,
+       0.4
+      ],
+      "data": [
+       0.4178143587330688,
+       0.4056289720340527,
+       0.4296102535862412,
+       0.46069753452198264,
+       0.48292232138833524,
+       0.501753570274398,
+       0.5092837224097689,
+       0.5054840390989334,
+       0.5290944765483082
+      ],
+      "cascade": {
+       "mean_pt": [
+        0.40916091073970096,
+        0.4057435276100802,
+        0.42849533546681,
+        0.4551535950789653,
+        0.47713953987864205,
+        0.49712567297655147,
+        0.5059027555856498,
+        0.5177339472713485,
+        0.5258972103101243
+       ],
+       "rms_dev": 0.0060868280902224865,
+       "mean_dev": -0.0022151948530240717
+      },
+      "pythia8": {
+       "mean_pt": [
+        0.40857251982483356,
+        0.40486144478793556,
+        0.4279781350079476,
+        0.4609124122059819,
+        0.4853209941483764,
+        0.5027004759369942,
+        0.5107503271813189,
+        0.5104451081955051,
+        0.5177142383217805
+       ],
+       "rms_dev": 0.005287657405327467,
+       "mean_dev": -0.00144817699826838
+      },
+      "epos_lhc": {
+       "mean_pt": [
+        0.3622361654670989,
+        0.36039926911333187,
+        0.3778690827720107,
+        0.40491124499183145,
+        0.4320167307861277,
+        0.45427253249135946,
+        0.46705508469805396,
+        0.4744330584010891,
+        0.46438408246081647
+       ],
+       "rms_dev": 0.05022682428690974,
+       "mean_dev": -0.04941244415704106
+      },
+      "urqmd": {
+       "mean_pt": [
+        0.3876590304716988,
+        0.38601901925840343,
+        0.40651439689794133,
+        0.43987874290823414,
+        0.4636877647793145,
+        0.49578518262628746,
+        0.5140648197674657,
+        0.5467558352072913,
+        0.5860373517223557
+       ],
+       "rms_dev": 0.02912623034872307,
+       "mean_dev": -0.0017652338840107554
+      }
+     },
+     "k_minus": {
+      "xf": [
+       0.0,
+       0.025,
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3,
+       0.4,
+       0.5
+      ],
+      "data": [
+       0.4020874869152221,
+       0.3933600305987054,
+       0.41860176800927007,
+       0.447818342706887,
+       0.47659890714046355,
+       0.49900075687509,
+       0.5052983485742755,
+       0.5090792162050987,
+       0.45953460822793585,
+       0.5272988347645542
+      ],
+      "cascade": {
+       "mean_pt": [
+        0.3939800861874904,
+        0.3964996450697965,
+        0.4181597984001768,
+        0.4537249478012777,
+        0.48144249674033535,
+        0.5050743951562097,
+        0.5373745467782141,
+        0.5659294455906716,
+        0.5536656980879923,
+        0.5498219787677151
+       ],
+       "rms_dev": 0.037148088854051665,
+       "mean_dev": 0.021699473856237723
+      },
+      "pythia8": {
+       "mean_pt": [
+        0.41142914062880653,
+        0.4086345216712858,
+        0.43583639927864753,
+        0.46761074294322863,
+        0.49298659932172745,
+        0.5190545035939866,
+        0.5249950720517541,
+        0.5335927831563727,
+        0.5194602029480273,
+        0.4558357282162467
+       ],
+       "rms_dev": 0.033714960754456735,
+       "mean_dev": 0.01307573937925811
+      },
+      "epos_lhc": {
+       "mean_pt": [
+        0.3722518341806273,
+        0.37313309830350583,
+        0.39388446807554717,
+        0.42846943296180207,
+        0.44765038022132175,
+        0.47638824306982724,
+        0.49656419650715344,
+        0.5136607489862292,
+        0.5024266101797522,
+        0.4897997731105327
+       ],
+       "rms_dev": 0.026414281158523636,
+       "mean_dev": -0.014444951442120341
+      },
+      "urqmd": {
+       "mean_pt": [
+        0.38634803163413195,
+        0.38717318855998395,
+        0.40704812070032087,
+        0.44256150671358174,
+        0.4787203330599141,
+        0.5109222729271443,
+        0.5519260640717519,
+        0.5808976758661855,
+        0.5913274978439461,
+        0.5859490706214148
+       ],
+       "rms_dev": 0.05360503938127155,
+       "mean_dev": 0.028419546198087297
+      }
+     },
+     "proton": {
+      "xf": [
+       0.0,
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3,
+       0.35,
+       0.4,
+       0.45,
+       0.5,
+       0.55,
+       0.6,
+       0.65
+      ],
+      "data": [
+       0.515068117525094,
+       0.5201189924596268,
+       0.5184158159192003,
+       0.5066107342618156,
+       0.49708085757714254,
+       0.4913838837382667,
+       0.4943568155226542,
+       0.49516124930573663,
+       0.4980312349478497,
+       0.4956220147666651,
+       0.48576427637023606,
+       0.45841293676960887,
+       0.44649986231339966,
+       0.44852415809234103
+      ],
+      "cascade": {
+       "mean_pt": [
+        0.5108163400501757,
+        0.5104919544258757,
+        0.5075277852546438,
+        0.49208829752065164,
+        0.4820929114583404,
+        0.47850227149153685,
+        0.480136611526007,
+        0.4814942712274954,
+        0.4793403675177228,
+        0.47048279664482695,
+        0.461492276558562,
+        0.4473679982782614,
+        0.4378636566920916,
+        0.4397581937585834
+       ],
+       "rms_dev": 0.014792996510229472,
+       "mean_dev": -0.013685372654633031
+      },
+      "pythia8": {
+       "mean_pt": [
+        0.4813381637464656,
+        0.48073869056425855,
+        0.48067342185544837,
+        0.47617009730597226,
+        0.4751941480686028,
+        0.47595601710838553,
+        0.47918162632271843,
+        0.48032845880165725,
+        0.4812452168255369,
+        0.47915509693467123,
+        0.47398628067101733,
+        0.4615691726552582,
+        0.45481150949506044,
+        0.45265146324654115
+       ],
+       "rms_dev": 0.022352236596504035,
+       "mean_dev": -0.017003684712003076
+      },
+      "epos_lhc": {
+       "mean_pt": [
+        0.48197416015831934,
+        0.48447483749430686,
+        0.48132404455550676,
+        0.48134384058313084,
+        0.47962023989749,
+        0.4797687906034229,
+        0.47702204588014807,
+        0.4777261657720559,
+        0.4780486181654528,
+        0.47201473947197264,
+        0.46070405248984503,
+        0.4482166776219774,
+        0.44392935938667755,
+        0.4535990583660369
+       ],
+       "rms_dev": 0.022591307100393615,
+       "mean_dev": -0.019377451365949573
+      },
+      "urqmd": {
+       "mean_pt": [
+        0.4922799093344478,
+        0.4919596863512655,
+        0.5024007212411274,
+        0.5194273921682007,
+        0.5311726239441554,
+        0.5456649178043327,
+        0.5535080920623986,
+        0.5610501408320133,
+        0.5641398495869657,
+        0.5642464614657566,
+        0.5587961641337521,
+        0.5420543044448489,
+        0.5169707061656884,
+        0.5057369854589151
+       ],
+       "rms_dev": 0.055633073248041245,
+       "mean_dev": 0.04131121467315938
+      }
+     },
+     "antiproton": {
+      "xf": [
+       0.0,
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3,
+       0.35,
+       0.4
+      ],
+      "data": [
+       0.4901983966140332,
+       0.4889587848714976,
+       0.5075667077969285,
+       0.5147633869177353,
+       0.5186788602201908,
+       0.5379696907656721,
+       0.5348864784737629,
+       0.5191528288641862,
+       0.5275548687513227
+      ],
+      "cascade": {
+       "mean_pt": [
+        0.49418185670108633,
+        0.4977165423841302,
+        0.5154115193548618,
+        0.5209277690579568,
+        0.5335511039410914,
+        0.5430668773124292,
+        0.5517173253690886,
+        0.4886696098434628,
+        0.525825860260647
+       ],
+       "rms_dev": 0.013559602624019344,
+       "mean_dev": 0.0034820512166027586
+      },
+      "pythia8": {
+       "mean_pt": [
+        0.4620534478107238,
+        0.4706292965173493,
+        0.48490294091170266,
+        0.4986311778055824,
+        0.5055843450843017,
+        0.5111413872915006,
+        0.5067995109561877,
+        0.49657260411238957,
+        0.4966759771439978
+       ],
+       "rms_dev": 0.02367717424428951,
+       "mean_dev": -0.022971035071288195
+      },
+      "epos_lhc": {
+       "mean_pt": [
+        0.4769537020402156,
+        0.4808676067303955,
+        0.49867096638293895,
+        0.5148421996853113,
+        0.527653296109812,
+        0.5424092445650722,
+        0.5508600980054733,
+        0.5518135035084741,
+        0.548491182281289
+       ],
+       "rms_dev": 0.015565221473547546,
+       "mean_dev": 0.005870199559294748
+      },
+      "urqmd": {
+       "mean_pt": [
+        0.5470002786671082,
+        0.5537461549374111,
+        0.5735060564980008,
+        0.5987749680568643,
+        0.6161758195804052,
+        0.6310440491382211,
+        0.6336685693958263,
+        0.6184107270847589,
+        0.6344976142853723
+       ],
+       "rms_dev": 0.08695150406778926,
+       "mean_dev": 0.08523269270762653
+      }
+     }
+    }
+   }
+  }
+ ],
+ "paper_generated": [
+  {
+   "path": "latex/paper/generated/fit_generators.json",
+   "sha256": "b7c0229332aa325aad1ccdecafe1689ab53e351d8bd6c507c7fc44fc6176db38",
+   "bytes": 182194
+  },
+  {
+   "path": "latex/paper/generated/fit_nch_mass.json",
+   "sha256": "c4ede971623329d66fdc040a2b7e52f567694dd77dfa8063249268a0cfedb41f",
+   "bytes": 2179
+  },
+  {
+   "path": "latex/paper/generated/fit_nch_summary.json",
+   "sha256": "9a1f2a0d825ab5d74b3c4a0e7e61f1a95be8df7a49a2ad4b801fdc3bc5897f04",
+   "bytes": 2741
+  },
+  {
+   "path": "latex/paper/generated/fit_seagull.json",
+   "sha256": "3bb2a3fe8744e2ada462668ad19bf28ddb3eeca78e28037a1febbb5e5a99bedf",
+   "bytes": 12733
+  },
+  {
+   "path": "latex/paper/generated/fit_tables.tex",
+   "sha256": "f4679b52697c53ff5b02bccd8f6e1c9d9c6c2c0d88d05f853cf39b4c0573d689",
+   "bytes": 13558
+  }
+ ]
+}
