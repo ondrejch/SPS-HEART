@@ -459,6 +459,12 @@ class TopologyNominalParams:
                                          # protons change slope near
                                          # |t| = 1 GeV^2); None = one
                                          # exponential
+    nd_symmetric_remnants: bool = False  # 2026-11-04: the two non-diffractive
+                                         # remnant masses drawn on one window,
+                                         # the pair kept when it leaves a neutral
+                                         # pion (symmetric under projectile <->
+                                         # target); False = the projectile first,
+                                         # the target on the remaining window
 
 
 #: The R50 nominal parameter set (the module-level frozen instance; the
@@ -741,6 +747,9 @@ def run_topology(
             raise ValueError("run_topology: duality_redraw_shapes needs duality_line_shapes and nd_duality_shape_mass")
         if class_label == "nd":
             options["duality_redraw_shapes"] = True
+    if isinstance(params, TopologyNominalParams) and bool(params.nd_symmetric_remnants) and class_label == "nd":
+        # the symmetric remnant pair of the non-diffractive class (2026-11-04)
+        options["symmetric_remnants"] = True
     f_intact = params.intact_vertex_factor if isinstance(params, TopologyNominalParams) else None
     if f_intact is not None:
         # the intact proton's own vertex slope (2026-10-15): a term of the

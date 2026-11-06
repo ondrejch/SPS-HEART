@@ -329,11 +329,15 @@ class HadronCatalog:
     inspected instead of disappearing into an exception.
     """
 
-    def __init__(self, records: Sequence[HadronRecord], *, three_body_law: str = "flat_m2") -> None:
+    def __init__(self, records: Sequence[HadronRecord], *, three_body_law: str = "flat_m2",
+                 closed_channel_reference: bool = False) -> None:
         if three_body_law not in THREE_BODY_LAWS:
             raise ValueError(f"HadronCatalog: three_body_law must be one of {THREE_BODY_LAWS!r}, got {three_body_law!r}")
         # the run attribute of the three-body vertex (not serialized)
         self._three_body_law = str(three_body_law)
+        # the run attribute of the channels closed at the pole (2026-11-04, not serialized;
+        # resonance_widths.channel_width)
+        self._closed_channel_reference = bool(closed_channel_reference)
         self._records: tuple[HadronRecord, ...] = tuple(records)
         # First occurrence wins on duplicate ids; validate() reports the
         # duplicate as an error, get() stays deterministic.
@@ -385,7 +389,19 @@ class HadronCatalog:
 
     def with_three_body_law(self, law: str) -> "HadronCatalog":
         """A catalog with the same records and the three-body vertex law *law*."""
-        return type(self)(self._records, three_body_law=law)
+        return type(self)(self._records, three_body_law=law, closed_channel_reference=self._closed_channel_reference)
+
+    @property
+    def closed_channel_reference(self) -> bool:
+        """Whether a two-body channel closed at the pole but open on the
+        record's support takes its width from a reference mass above the
+        threshold (``False``: zero width by convention; a run attribute, not
+        in :meth:`to_dict`)."""
+        return self._closed_channel_reference
+
+    def with_closed_channel_reference(self, on: bool) -> "HadronCatalog":
+        """A catalog with the same records and the closed-channel rule *on*."""
+        return type(self)(self._records, three_body_law=self._three_body_law, closed_channel_reference=on)
 
     def records(self) -> tuple[HadronRecord, ...]:
         """Return the records in construction order."""

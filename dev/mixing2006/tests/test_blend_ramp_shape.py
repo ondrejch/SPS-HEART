@@ -23,6 +23,10 @@ from __future__ import annotations
 from pathlib import Path
 
 import numpy as np
+
+#: numpy 2 renamed trapz to trapezoid (the code reviews of 2026-11-04)
+_trapezoid = getattr(np, "trapezoid", None) or np.trapz
+
 import pytest
 
 from na49_mixing.hadron_catalog import HadronCatalog
@@ -87,7 +91,7 @@ def test_endpoints_continuity_and_band_means(shape):
     s = np.linspace(0.0, 1.0, 200001)
     w = np.array([spec.weight(B + x * W) for x in s])
     assert np.all(np.diff(w) >= -1e-15)  # monotone within the band
-    mean = float(np.trapz(w, s))
+    mean = float(_trapezoid(w, s))
     expected_mean = {"linear": 0.5, "smoothstep": 0.5, "quadratic": 1.0 / 3.0}[shape]
     assert abs(mean - expected_mean) < 1e-8
 

@@ -771,7 +771,7 @@ def test_named_constants_and_record_surface():
         "rng_decay_kinematics", "flavor", "ledger", "central",
         "exchange", "exact_range", "line_thresholds", "central_recoil", "central_epsilon",
         "slope_mass_exponent", "low_mass_spin_isospin", "duality",
-        "duality_line_shapes", "duality_redraw_shapes")  # duality_redraw_shapes: 2026-10-20, False = the fixed-width redraw  # central: 2026-10-02; exchange: Round 8 2026-10-04 (None = vacuum);
+        "duality_line_shapes", "duality_redraw_shapes", "symmetric_remnants")  # symmetric_remnants: 2026-11-04, False = the ordered remnant draw;  # duality_redraw_shapes: 2026-10-20, False = the fixed-width redraw  # central: 2026-10-02; exchange: Round 8 2026-10-04 (None = vacuum);
     # duality_line_shapes: 2026-10-18, False = the fixed-width Breit-Wigner pick;
     # low_mass_spin_isospin: 2026-10-08, the I = 1/2 low-mass records with weight 2J + 1 (False = the uniform pick);
     # exact_range: 2026-10-05, the exact transfer window (False = the committed draw);

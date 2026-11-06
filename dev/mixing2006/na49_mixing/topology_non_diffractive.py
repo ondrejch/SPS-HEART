@@ -1062,6 +1062,7 @@ def generate_nd(
     duality: tuple[float, float | None] | None = None,
     duality_line_shapes: bool = False,
     duality_redraw_shapes: bool = False,
+    symmetric_remnants: bool = False,
 ) -> NDEvent:
     """One non-diffractive event.
 
@@ -1201,26 +1202,46 @@ def generate_nd(
             edges[slot] = edge
             return redrawn
         return sampler
-    if isovector:
-        remnant_p = select_line_remnant(
-            weights, catalog, rng_spectral_state,
-            make_remnant_mass_sampler(params, rng_spectral_state, m_other_p, m_lo=lo_p), exchange.projectile)
-        remnant_t = select_line_remnant(
-            weights, catalog, rng_spectral_state,
-            make_remnant_mass_sampler(params, rng_spectral_state, remnant_p.mass, m_lo=lo_t), exchange.target)
+    def _draw_pair(m_other_t_of):
+        if isovector:
+            rp = select_line_remnant(
+                weights, catalog, rng_spectral_state,
+                make_remnant_mass_sampler(params, rng_spectral_state, m_other_p, m_lo=lo_p), exchange.projectile)
+            rt = select_line_remnant(
+                weights, catalog, rng_spectral_state,
+                make_remnant_mass_sampler(params, rng_spectral_state, m_other_t_of(rp), m_lo=lo_t), exchange.target)
+        else:
+            rp = select_remnant(
+                KIND_INTACT_PROTON, weights, catalog, rng_spectral_state,
+                _sampler(m_other_p, lo_p, 0),
+                spin_isospin=low_mass_spin_isospin)
+            rt = select_remnant(
+                KIND_INTACT_PROTON, weights, catalog, rng_spectral_state,
+                _sampler(m_other_t_of(rp), lo_t, 1),
+                spin_isospin=low_mass_spin_isospin)
+        return rp, rt
+
+    if symmetric_remnants:
+        # the symmetric remnant pair (2026-11-04, the code review of that date, finding M6): both lines draw on the
+        # projectile's window and a pair whose masses leave no neutral pion, m_1 + m_2 > sqrt(s) - m_pi0, is drawn
+        # again, so the joint law is rho(m_1) rho(m_2) on the symmetric region.  The ordered draw (the target's window
+        # set by the projectile's drawn mass) makes the projectile heavier: the mean excited mass 4.02 against 3.65
+        # GeV at epsilon_nd 0.27.  Both recorded windows are the full window, and the acceptance is one constant of
+        # the class, so the self-normalized exponent reweighting stays exact
+        for _attempt in range(SYMMETRIC_REMNANT_ATTEMPTS):
+            remnant_p, remnant_t = _draw_pair(lambda _rp: m_other_p)
+            if float(remnant_p.mass) + float(remnant_t.mass) <= SQRT_S - PI0_MASS:
+                break
+        else:
+            raise RuntimeError(f"generate_nd: no symmetric remnant pair in {SYMMETRIC_REMNANT_ATTEMPTS} draws")
+        remnant_windows = (remnant_excitation_window(m_other_p, m_lo=lo_p),
+                           remnant_excitation_window(m_other_p, m_lo=lo_t))
     else:
-        remnant_p = select_remnant(
-            KIND_INTACT_PROTON, weights, catalog, rng_spectral_state,
-            _sampler(m_other_p, lo_p, 0),
-            spin_isospin=low_mass_spin_isospin)
-        remnant_t = select_remnant(
-            KIND_INTACT_PROTON, weights, catalog, rng_spectral_state,
-            _sampler(remnant_p.mass, lo_t, 1),
-            spin_isospin=low_mass_spin_isospin)
-    # the excitation windows of the two remnant draws, recorded for the
-    # exact exponent reweighting of the excited kinds (2026-09-29)
-    remnant_windows = (remnant_excitation_window(m_other_p, m_lo=lo_p),
-                       remnant_excitation_window(remnant_p.mass, m_lo=lo_t))
+        remnant_p, remnant_t = _draw_pair(lambda rp: rp.mass)
+        # the excitation windows of the two remnant draws, recorded for the
+        # exact exponent reweighting of the excited kinds (2026-09-29)
+        remnant_windows = (remnant_excitation_window(m_other_p, m_lo=lo_p),
+                           remnant_excitation_window(remnant_p.mass, m_lo=lo_t))
 
     # (2) the exchange kinematics (5 uniforms: t_1, t_2, M_c^2 in card
     # 4's order; the closure is exact by construction; 3 uniforms, t_1
@@ -1369,6 +1390,10 @@ def _heaviest_intact_or_low_mass(catalog: HadronCatalog) -> float:
     proton or the heaviest low-mass record), the reservation of the
     projectile-side excitation window."""
     return max([PROTON_MASS] + [float(r.pole_mass) for r in low_mass_records(catalog)])
+
+
+#: The draws of a symmetric remnant pair before giving up (the acceptance is about 0.95 at epsilon_nd 0.27).
+SYMMETRIC_REMNANT_ATTEMPTS = 200
 
 
 def remnant_excitation_window(m_other: float, sqrt_s: float = SQRT_S, *,

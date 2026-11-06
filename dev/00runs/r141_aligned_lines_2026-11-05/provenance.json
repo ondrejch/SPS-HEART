@@ -1,0 +1,422 @@
+{
+ "card": "TASK-20261105-r141-aligned-lines",
+ "driver": "helpers/benchmarking/run_engine.py",
+ "driver_sha256": "509bb33d0f2c8eea3ff6a04a04f283a03f33b42af9cdcba897a34a1c891d87ae",
+ "environment": {
+  "cpu_count": 64,
+  "machine": "x86_64",
+  "numpy": "1.26.4",
+  "platform": "Linux-5.14.0-452.el9.x86_64-x86_64-with-glibc2.34",
+  "python": "3.12.15"
+ },
+ "frozen_substrate": {
+  "dev/mixing2006/config/runs/r141.json": {
+   "sha256": "6b30ef9c85b1cd83453e25734bd2a8578817a56207df3d47ce7bb3207fabdff4",
+   "verified": true
+  },
+  "dev/mixing2006/config/staged_excitation.json": {
+   "sha256": "154e41028fc68d63daf74af73ab812789ae11915fcdabb3b1a6d32deabf6693f",
+   "verified": true
+  },
+  "dev/mixing2006/config/v2_singlet/baryon_table_corrections_pdg2025.json": {
+   "sha256": "9419fa4fa7fc867212c9dc0fc0cf131aa92fd7f63eff8ca605409961d1a9946e",
+   "verified": true
+  },
+  "dev/mixing2006/config/v2_singlet/continuum_resonances.json": {
+   "sha256": "33b2e597932013747f4781f83c027d18e1de794272717a1d1f18df4377f4cfe5",
+   "verified": true
+  },
+  "dev/mixing2006/config/v2_singlet/external_cross_sections.json": {
+   "sha256": "02fea5b2d36d3acdb05117dc731eaa26183a8de3ffaee7f1b6f05bc58c5402e0",
+   "verified": true
+  },
+  "dev/mixing2006/config/v2_singlet/isoscalar_dipion_pdg2025.json": {
+   "sha256": "5b80bb7123346ecf46dd5326ec88e79e3c581cef024d5fef6606d3f7a18a4277",
+   "verified": true
+  },
+  "dev/mixing2006/config/v2_singlet/na49_pp_total_yields.json": {
+   "sha256": "e380e12682617d66e747483b721ac753835a0988b25146dd1646658b7e49cdfb",
+   "verified": true
+  },
+  "dev/mixing2006/config/v2_singlet/resonance_catalog.json": {
+   "sha256": "cf9e79b99199c509f2e83def0a99c215f73ca7761f9f87fb01d1f779b80e32f3",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/__init__.py": {
+   "sha256": "7d2c5a85d9b24de104c0d9cf72195689bf7c39c873e154798699448073b36de8",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/associated_kstar.py": {
+   "sha256": "8f50f0f808a881f42ee868f283ece32c59b46ce966cee83603eb57e10e825041",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/axial_isoscalars.py": {
+   "sha256": "e0d6a96dfef4ce447d7c0a159c83ed6d38a573e76c54f97c2ac4623387b56ffa",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/baryon_pair_completion.py": {
+   "sha256": "890a8751986a148c264c80a00f7598857158747f4ff635547ff323626a840f7b",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/baryon_table_corrections.py": {
+   "sha256": "4852d08d399f3afccc1471957b192c5f513b7a197787f1d73c03af95a9a7c487",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/breit_wigner.py": {
+   "sha256": "06548e5fba0fb299636944b5a5a86a25055c7669880c88de45eb0bbe85315883",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/cascade_alignment.py": {
+   "sha256": "d0ae03fb0ab44f11a58d2216f98c435f56a4bda6d0c84bf8cae3e18082b00e88",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/cascade_axes.py": {
+   "sha256": "7ab3906e4e8020e775f21fc018e36f9f86adbf7dffd4c3db9c5a6a3b17dd28b4",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/cascade_decay.py": {
+   "sha256": "0c7091720002245c62ec7437aba522225b753213b57361c022c5169cdf6488e3",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/cascade_form_factor.py": {
+   "sha256": "f2525cdc4edbe6e5317ef0f8da688a4b14e3fd9e9ab191c66df7470493049c83",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/cascade_termination.py": {
+   "sha256": "276ce201092a7d22fe1aed236b457a1d4402c50db8d9c108267cd612d09e06b4",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/channel_partners.py": {
+   "sha256": "0c8888fa6da0861868eff43ea57dbbf9b17cae5b0030a1451dc4eb267b324ba4",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/conjugate_towers.py": {
+   "sha256": "4f37f96684d46f2501e0ef63d17b1765f1c6a21c74fa2c6a66980fa81c861f26",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/constants.py": {
+   "sha256": "0dd02ed56c4280e10dfbcddfe99e0b18586a762d95305a736c2a39dcfd2ccd3f",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/continuum_channels.py": {
+   "sha256": "c3e566af3db5499a5bfae406fa25164ae02038246fe671ada5b737c93e63de8a",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/continuum_isospin.py": {
+   "sha256": "2002e248e090a2c703b89a2e5d882782b29b79d081a5cf23fee32d378b658688",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/cuts.py": {
+   "sha256": "55e728e48579aed92f1ded80443420c89d141dc6b8e85819462372e6a8ee1224",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/decays.py": {
+   "sha256": "ad2d19083de35706fcb4f117af11052b0bc20e3a01582fafb6d7e8b7347fd990",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/eta_prime.py": {
+   "sha256": "666bf05c9772d2be8961f6d71b1dc7a19bcf126802e26e3a9bfb76b130bbc056",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/event.py": {
+   "sha256": "6007f2b590b579a7faada1cc4dec5e123ed8ff194b6ea451606a5afb621bdc06",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/event_builder_pA.py": {
+   "sha256": "b2341f52d6ed3c79469c295735d158be5218fd5037b63ff48bfa0742c0bd6c19",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/event_builder_pp.py": {
+   "sha256": "22f1d16fe189977248f216f627f16afd45dcee6f2fee434885aa93f472dcef21",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/event_conservation.py": {
+   "sha256": "ff2ce561800afaff2ce285633c283677549f9317478095b199465681bb8788fb",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/exchange_ledger.py": {
+   "sha256": "097deca708bdcf242df95a7ae655037e67fda795e650fd14f3b564ab63ab261a",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/exchange_model.py": {
+   "sha256": "7259fa446a9dea153ab550cb2a841e89bf155ba5bc0794ef2f62954eabdad76d",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/excitation_kinematics.py": {
+   "sha256": "faea40874a3e2c28d3d135b2cf3f22a9d50316cbb499ae9e8c84760a06c48f68",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/excited_kaons.py": {
+   "sha256": "52888e7384527e70df047e7f49eb577986d80a55d1da4d368c7dd4b768724391",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/fit_likelihood.py": {
+   "sha256": "e24b0a6242fe2cb7ff34c5ac567b03097689748c4f86ba891f708a7ca6cc4a5f",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/fits.py": {
+   "sha256": "aaff91de5d457200e711bb4a13b3a078380696f15fa5a5c9524f182f61741a20",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/flavor_weights.py": {
+   "sha256": "f99849efc873a80c249217964abb4a9e3788ff94b50d2cb1beb1e735c25b3f3f",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/floor_pools.py": {
+   "sha256": "518275ca8005c57215528488804b335e4c8dc4ba411ed6b38c7c466eef34f097",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/generator.py": {
+   "sha256": "8ee99482034a981791ca6d7430933038dbed99a99d89d90b8f29c4ae7839c43e",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/glauber.py": {
+   "sha256": "66d72929ea34dbda77a0ca76a74df788f8f65cc303f8c2e5fcfac9c660be1f95",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/hadron_catalog.py": {
+   "sha256": "1c1bfb9e2acc7033c99283344458b22c0a133fd844a2e5239b916600121f49d8",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/histogram.py": {
+   "sha256": "b8e37f02c55789c86f620c9988a8a4fd2d7351bedbd2d80f3a340bdafe4aae6d",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/importance.py": {
+   "sha256": "402cd9e77abb19f1e55f091c808711ee509e3792e9e2b6c0fdf5a185effe49d7",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/isoscalar_dipion.py": {
+   "sha256": "114357c292e1bb4bdd2546d68ca060a9bdbf2c9cbef89049e71002127cf6f0ef",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/isospin.py": {
+   "sha256": "169991b5f77fec4a0b8419c69237e59f0c68ce625da441985b9856e31c3f0613",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/isovector_exchange.py": {
+   "sha256": "e6538030eea221ef122e54fbdd8a0b37610dbc6bdaa67d1bb55b3c146f413bc1",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/kernel_config.py": {
+   "sha256": "155185be5a482d2eb25ad33f91570bd3aac94722e658141365cffbf718b740e5",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/light_scalar_mesons.py": {
+   "sha256": "df6cf7874b6876a56a30a0ae469e6b9e00c7fc106809741b9b8b028d2ec1b167",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/meson_modes.py": {
+   "sha256": "b05bb02696afec03920d6f79be2df2d8ac80cd13e9a36d52ae806d43a88abcd5",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/mixing.py": {
+   "sha256": "4526b3dfd023f4359089021af7379828708dd454d1ae2f31c9c210aa2d3122d7",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/nd_duality.py": {
+   "sha256": "26826b1ba8fef9b364c642e7987ea1fe5c99f62a686ab9c3f2a0181c3a5c6b55",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/nucleon_kstar_pairs.py": {
+   "sha256": "d88b3cf1ea27150890f9e9b44f1b4853caa5c5259f9b895e7fe3526b676a662c",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/omega_baryon.py": {
+   "sha256": "7a9adef5f8ec6c86a67b6a04e1d1ba94a37948e111ffafa3a3b9cc8707d199ad",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/one_pion_exchange.py": {
+   "sha256": "14db634720dc973e9d73a3c526f0b3b0cd74037ac5a0e18f7e581a3335c0245a",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/parallel.py": {
+   "sha256": "57bb9688777c842e263a323ebe5a68ac1c210c42930ab12002c53ff404da83a4",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/particle.py": {
+   "sha256": "ad80cff04bf58973c286340ee1eb53c12c74dc7db3ef0b30ab3bd16a73f5b24e",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/pdg_database.py": {
+   "sha256": "4c57ecb60af416f2447e4358f749862d5e8fd2729b525d051feebc8f8a3f2f12",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/pdg_hyperons.py": {
+   "sha256": "8c2b785fae68b130a2dae67d42ce2103c74e39a463df4498ebdbc561a66612f8",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/pdg_nucleon_resonances.py": {
+   "sha256": "cd36c9f48980b1f78ecb03cecae3c9af48ec87b735e7aada8532c3c6b1028c42",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/quantum_numbers.py": {
+   "sha256": "dd31fcb42f97a0bc408e3644c431ed641c58a31003b98f96fc1c6621a4e4b71a",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/reaction.py": {
+   "sha256": "f2fd44a72aae229b8448048bad903cfd0eede2baa7348c80fed16e74552f6c8f",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/resonance_decay.py": {
+   "sha256": "b4d737e15d38feed948ee34320c4a743388de298bb9ed0d846005a18c62a7d09",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/resonance_pairs.py": {
+   "sha256": "fcd8498228f8e50ab760b49fe39ad47bbf63584e1723cc7da5f01b74fe2990bb",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/resonance_widths.py": {
+   "sha256": "78de8307c37fc89d7205d05d5fc657630042c3b2ca8d405b54a4861c27497207",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/rng_substreams.py": {
+   "sha256": "ed8f05f151b338a8ac7a4c395637bf71e68fce5b4f4b1ff09721d119c8a5bfb0",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/source_event.py": {
+   "sha256": "3b14c82c2ef460f5c2e00456fa89ff55fd045662801c8fb4789d7ad148c706cd",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/spectra.py": {
+   "sha256": "42012dd89f28a6081be1c20beb226a70fe3ebc68f34b1ffb2641c40d9fc8c8ab",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/spectral_density.py": {
+   "sha256": "e963149811ad7a84d58692d009a9a07d6a7b5857c00acd2ad3281ec1ea88869f",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/split_reweight.py": {
+   "sha256": "3701e667c02c0247b60805ae3e1f5ff94e30a0d72beb442fbe09b3df797d4191",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/staged_evaluation.py": {
+   "sha256": "5698be25a3f27a40e1c744822685a2e6b7b67b3764619847a7cd02c21cc93187",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/state_validation.py": {
+   "sha256": "1132cce01c9ef7f56db78b43dbe8873bc4da4d4ac9bd84da02e4ffab7e4cb3b2",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/three_body_endings.py": {
+   "sha256": "71d8c26f3318681fbb3390c77f159afb11a05f6b95422c2a3bac97d2d6d706df",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/threshold_metric.py": {
+   "sha256": "ee240f44645d2e592acfae462f7d1e9c3b3dd8cd78c96bd40b7b73509f7fcc63",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/topology_double_diffraction.py": {
+   "sha256": "29e4b239f0417f5207aea27012a70fbe4a00bb0fe2d83a4004b702a85a6a65d6",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/topology_elastic.py": {
+   "sha256": "7640e64e0cb9428f712f854384c1e0410947909e6a3c5cb7aa9c1faf5fc1b824",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/topology_mass_laws.py": {
+   "sha256": "474a77eef7c06d71067926350432eb819b635866ea0ebdb86e3bdb5ad4704d2b",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/topology_multi_neutral.py": {
+   "sha256": "45206c552f635904dae1e0267214363d389487708b8627a9345a902137fae531",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/topology_non_diffractive.py": {
+   "sha256": "928ad90c99843c6c9ecf0cd8269ff3272caf76f47bf7e8b430a775fa9eef8e2a",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/topology_remnants.py": {
+   "sha256": "b6ec218632e05b53b2405b1ae35613dfa155e6b193abef59c6b9182f0d75037c",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/topology_runner.py": {
+   "sha256": "92d155b783f49bf997bc60a7b664dfc2c4efd2b0910b9684d4fed58b5743dc68",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/topology_single_diffraction.py": {
+   "sha256": "afe9723594d34a0944bc6966daa232289259ff233961865208e0f4639f2719ad",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/two_sided_hadronization.py": {
+   "sha256": "896f1384943bec6dd296334c614bc70ee40b46c7d41783fcdd5634df32b9bb09",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/xi_baryons.py": {
+   "sha256": "39e3cd457fe6532947c64cb58d9092f890f2c221841e17af30929672baa92fa4",
+   "verified": true
+  },
+  "dev/mixing2006/na49_mixing/xi_tower.py": {
+   "sha256": "40f17500f5ee151388fe08f6c63ff5b7ed654e9f7c00149a3da8d4542257f96e",
+   "verified": true
+  },
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_antiproton_pp.txt": {
+   "sha256": "056d34c07cefaa8d8bb33372c880e01c20cf403a6ce3fca6fbe3d223e017c2b1",
+   "verified": true
+  },
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_kaminus_pp.txt": {
+   "sha256": "3e61302092968b1bee892a24169721c69856d346d453b7afb2b622923974ce29",
+   "verified": true
+  },
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_kaplus_pp.txt": {
+   "sha256": "bf06556559ac9dfb888a1290745ceecffbf62bb997d69e524903e5097c723d61",
+   "verified": true
+  },
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_piminus.txt": {
+   "sha256": "5125e5e91137976b8c6f1f433f6c036a0be62812df47d32568a14f349f0424ab",
+   "verified": true
+  },
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_piplus.txt": {
+   "sha256": "cafbc73a343c4b99abbea025cc9f9e643cd41a355fd18c938f4a4b2d2690c7e2",
+   "verified": true
+  },
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_proton_pp.txt": {
+   "sha256": "15ef78378675c95e3b424c6bba51df794408c6fa5a25e7a30e688f89c76a839d",
+   "verified": true
+  },
+  "dev/mixing2006/spshadrons.web.cern.ch/data/xsect_ptintegrated_neutron_pp.txt": {
+   "sha256": "dc02aba143f5dd263c4fed26422300e44b137e32e88943ad5075719a976da10a",
+   "verified": true
+  },
+  "helpers/benchmarking/fit_fanout.py": {
+   "sha256": "51001448678e71d76bd558f537684ba34f4cedd252a00c46bc1f7757a28469bd",
+   "verified": true
+  },
+  "helpers/benchmarking/flavor_fit_core.py": {
+   "sha256": "b8506698fcfccb9c86b39b534af90a612c9ecc34b73de561487984b88f2187f2",
+   "verified": true
+  },
+  "helpers/benchmarking/run_contract.py": {
+   "sha256": "af7f66fdf6d0e91bfc21d39919ea5fdb2a00af89038922bdceb5b366b9067809",
+   "verified": true
+  },
+  "helpers/benchmarking/run_engine.py": {
+   "sha256": "509bb33d0f2c8eea3ff6a04a04f283a03f33b42af9cdcba897a34a1c891d87ae",
+   "verified": true
+  },
+  "helpers/benchmarking/run_observables.py": {
+   "sha256": "a7fff453074c52b6d6f023ba5f7f4ff84631bbd614e498b61dde9e274fb2ebd9",
+   "verified": true
+  },
+  "helpers/benchmarking/sps_core.py": {
+   "sha256": "42175cbf39d61f22645c936beca39105139a7bf471eb93d20cd4a13b454e4f1b",
+   "verified": true
+  }
+ },
+ "git": {
+  "nested": {
+   "branch": "main",
+   "dirty": true,
+   "head": "d6e5528c9d2dac57a8390b165b5de7a31cec79c5"
+  },
+  "outer": {
+   "branch": "",
+   "dirty": false,
+   "head": ""
+  }
+ },
+ "run": "r141_aligned_lines_2026-11-05",
+ "run_dir": "/home/ondrejch/NA49/2026/01-NA49-res/dev/00runs/r141_aligned_lines_2026-11-05",
+ "schema": "na49_mixing.run_engine.provenance/1",
+ "written_utc": "2026-11-05T21:21:41Z"
+}

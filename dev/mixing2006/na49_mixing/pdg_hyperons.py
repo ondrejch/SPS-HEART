@@ -68,6 +68,10 @@ def _tag(name: str) -> ProvenanceTag:
 
 def _split(kind: str, isospin: float, i3x2: int):
     """The charge members of a mode and their Clebsch-Gordan shares, with the three-body flag."""
+    if kind in ("Lam pi pi", "Sig pi pi") and int(i3x2) != 0:
+        # the fixed neutral triples below hold the charge of a neutral parent only (the code reviews muse13f M1 and
+        # glm53f F14: a charged parent would break (B, Q, S) through them)
+        raise ValueError(f"pdg_hyperons: the mode {kind!r} is tabulated for a neutral parent only (2 I3 = {i3x2})")
     if kind == "Lam pi pi":
         return [((3122, 211, -211), 2 / 3, True), ((3122, 111, 111), 1 / 3, True)]
     if kind == "Sig pi pi":

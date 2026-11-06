@@ -62,9 +62,14 @@ ETAP_NEUTRAL = {"a": -0.087, "b": -0.073, "d": -0.074}
 
 
 def _omega_3pi(t, m, q, cross2):
-    # (pi+, pi-, pi0)
-    x = _SQRT3 * (t[0] - t[1]) / q
-    y = 3.0 * t[2] / q - 1.0
+    # (pi+, pi-, pi0).  BESIII (PRD 98 (2018) 112007, Eq. (1)) defines x = (t - u)/(sqrt(3) R_omega) with
+    # t = m^2(pi- pi0), u = m^2(pi0 pi+), and y = (s - s0)/R_omega with s = m^2(pi+ pi-); in the omega rest frame
+    # m^2(pi- pi0) = m_omega^2 + m_pi^2 - 2 m_omega E_+, so t - u = -2 m_omega (T_+ - T_-) and s - s0 = -2 m_omega
+    # (T_0 - Q/3): both are the negatives of the kinetic-energy variables below (to the charged-neutral mass
+    # difference).  alpha multiplies the even z and is convention-free; beta multiplies the odd 3x^2 y - y^3 and is
+    # applied in BESIII's variables (the sign fixed 2026-11-04, the code review of that date, finding M4)
+    x = -_SQRT3 * (t[0] - t[1]) / q
+    y = -(3.0 * t[2] / q - 1.0)
     z = x * x + y * y
     return cross2 * (1.0 + 2.0 * OMEGA_ALPHA * z + 2.0 * OMEGA_BETA * (3.0 * x * x * y - y * y * y))
 

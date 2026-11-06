@@ -1071,7 +1071,7 @@ def test_nominal_params():
         "transfer_slope_mass_exponent", "low_mass_spin_isospin", "nd_duality_mass",
         "nd_duality_shape_mass", "duality_line_shapes", "duality_redraw_shapes", "diffractive_duality_mass",
         "intact_vertex_factor", "diffractive_xi_max", "sd_tail", "sd_ope", "sd_two_sided", "diffractive_pomeron_slope",
-        "diffractive_pomeron_linear_t", "intact_t_break")  # diffractive_pomeron_slope: 2026-11-01, None = the zero-transfer form with the per-mass vertex law;
+        "diffractive_pomeron_linear_t", "intact_t_break", "nd_symmetric_remnants")  # nd_symmetric_remnants: 2026-11-04, False = the ordered remnant draw;  # diffractive_pomeron_slope: 2026-11-01, None = the zero-transfer form with the per-mass vertex law;
     # diffractive_pomeron_linear_t: 2026-11-01, None = the shrinkage at every t;
     # sd_ope: 2026-10-26, None = no one-pion exchange; sd_two_sided: 2026-10-26, None = every system one line; duality_line_shapes: 2026-10-18, False = the fixed-width pick;
     # sd_tail: 2026-10-23 (R112), None = no leading-proton tail of the single-diffraction classes;

@@ -791,6 +791,10 @@ def test_config_is_only_card_addition_under_v2_singlet():
         # TASK-20261028-excited-kaons (2026-10-28) adds the PDG 2024 records of
         # the kernel option KernelConfig.excited_kaons.
         "excited_kaons_pdg2024.json",
+        # 2026-11-04 adds the PDG 2025 Omega- record of KernelConfig.omega_baryon and the counted decays of the
+        # observables (na49_mixing.counted_decays, the run spec's fit.counted_decays).
+        "omega_baryon_pdg2025.json",
+        "counted_decays_pdg2025.json",
     }
 
 

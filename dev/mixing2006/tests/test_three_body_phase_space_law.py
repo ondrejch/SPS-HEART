@@ -14,6 +14,10 @@ import math
 from pathlib import Path
 
 import numpy as np
+
+#: numpy 2 renamed trapz to trapezoid (the code reviews of 2026-11-04)
+_trapezoid = getattr(np, "trapezoid", None) or np.trapz
+
 import pytest
 
 from na49_mixing.hadron_catalog import HadronCatalog
@@ -146,7 +150,7 @@ def test_the_pair_mass_density():
         draws.append(math.sqrt(pair[0] ** 2 - pair[1] ** 2 - pair[2] ** 2 - pair[3] ** 2))
     grid = np.linspace(mb + mc, OMEGA - md, 20001)
     density = np.array([decay_momentum(m, mb, mc) * decay_momentum(OMEGA, m, md) for m in grid])
-    mean = np.trapz(grid * density, grid) / np.trapz(density, grid)
+    mean = _trapezoid(grid * density, grid) / _trapezoid(density, grid)
     draws = np.asarray(draws)
     assert draws.mean() == pytest.approx(mean, abs=4.0 * draws.std() / math.sqrt(draws.size))
 

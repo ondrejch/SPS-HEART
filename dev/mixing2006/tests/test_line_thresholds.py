@@ -15,6 +15,10 @@ import sys
 from pathlib import Path
 
 import numpy as np
+
+#: numpy 2 renamed trapz to trapezoid (the code reviews of 2026-11-04)
+_trapezoid = getattr(np, "trapezoid", None) or np.trapz
+
 import pytest
 
 from na49_mixing.cascade_decay import _daughter_pole_mass
@@ -106,7 +110,7 @@ def test_the_joint_mass_with_line_edges():
             inner = 2.0 * np.log(top / lo2)
         else:
             inner = (top ** (-2 * eps) - lo2 ** (-2 * eps)) / (-eps)
-        direct = np.trapz(2.0 * m1 ** (-1.0 - 2.0 * eps) * inner, m1)
+        direct = _trapezoid(2.0 * m1 ** (-1.0 - 2.0 * eps) * inner, m1)
         assert log_dd_joint_mass(eps, sqrt_s, lo1, lo2) == pytest.approx(math.log(direct), abs=2e-6)
 
 

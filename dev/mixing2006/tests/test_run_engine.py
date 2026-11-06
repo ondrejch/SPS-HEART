@@ -161,8 +161,8 @@ def test_the_pre_registration(engine, tmp_path):
                                     "delta_lines": False, "isovector_meson_pairs": False,
                                     "continuation_sibling_weight": None, "three_body_phase_space": False,
                                 "continuation_daughters": None, "continuation_t_h_alpha": None, "leading_split_fraction": None, "leading_split_kappa": None,
-                                "leading_split_slope": None, "leading_split_epsilon": None, "continuation_q_min": None, "sibling_line_width": None, "meson_split_fraction": None, "meson_split_slope": None,
-                                "string_step_mass": None, "string_step_slope": None, "string_step_epsilon": None, "leading_split_strange": None, "leading_split_regge": None, "xi_tower": None,
+                                "leading_split_slope": None, "leading_split_epsilon": None, "continuation_q_min": None, "sibling_line_width": None, "meson_split_fraction": None, "meson_split_slope": None, "meson_split_slope_strange": None,
+                                "string_step_mass": None, "string_step_slope": None, "string_step_epsilon": None, "leading_split_strange": None, "leading_split_regge": None, "leading_split_axis": None, "xi_tower": None,
                                 "isovector_neutral_mesons": False, "isoscalar_dipion": False,
                                 "floor_pools": [], "conjugate_towers": False, "baryon_resonance_pairs": False,
                                 "non_diffractive_isospin_mixture": False, "light_scalar_mesons": False,
@@ -175,7 +175,7 @@ def test_the_pre_registration(engine, tmp_path):
                                 "baryon_table_corrections": False, "baryon_pdg_widths": False,
                                 "pdg_nucleon_resonance_siblings": False,
                                 "resonance_pair_line_shapes": False, "direct_baryon_pairs_in_gap": False,
-                                "baryon_pair_s_wave": False, "baryon_forward_hemisphere": False}
+                                "baryon_pair_s_wave": False, "baryon_forward_hemisphere": False, "baryon_pair_completion": None, "baryon_pair_completion_members": "octet_decuplet", "baryon_pair_share": None, "omega_baryon": False, "closed_channel_reference": False, "baryon_line_kappa": None, "baryon_line_kappa_scope": "all", "baryon_line_kappa_final": None, "baryon_line_kappa_kaon": None, "baryon_line_kappa_strange": None, "baryon_line_kappa_axis": "beam"}
     assert pre["run_spec"]["path"] == engine.SPEC_REL
     engine_rel = Path(engine.__file__).resolve().relative_to(MONO_ROOT.resolve()).as_posix()
     assert engine.SPEC_REL in pre["frozen_substrate"] and engine_rel in pre["frozen_substrate"]

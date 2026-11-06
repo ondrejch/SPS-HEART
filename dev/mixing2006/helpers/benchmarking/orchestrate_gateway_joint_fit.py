@@ -198,6 +198,38 @@ RUNS = {
              "extra_files": ("dev/mixing2006/spshadrons.web.cern.ch/data/xsect_ptintegrated_neutron_pp.txt",
                              "dev/00runs/r114_sd_tail_replica_2026-10-24/branch_report_f0.json",
                              "dev/00runs/r114_sd_tail_replica_2026-10-24/seal_manifest.json")},
+    "r141": {"run_id": "r141_aligned_lines_2026-11-05", "driver": "helpers/benchmarking/run_engine.py",
+             "spec": "dev/mixing2006/config/runs/r141.json",
+             "gate": "gate8_aligned_lines_r141.json", "n_floors": 1, "replicas": 32, "eval_tasks": 32, "profile_tasks": 32,
+             "classes": ("sd_projectile", "sd_target", "dd", "nd", "nd0"), "inactive_classes": ("nd",),
+             "fanout": True, "fanout_tasks": 32, "gen_tasks": 4,
+             "extra_files": ("dev/mixing2006/spshadrons.web.cern.ch/data/xsect_ptintegrated_neutron_pp.txt",
+                             "dev/00runs/r140_symmetric_remnants_2026-11-05/branch_report_f0.json",
+                             "dev/00runs/r140_symmetric_remnants_2026-11-05/seal_manifest.json")},
+    "r140": {"run_id": "r140_symmetric_remnants_2026-11-05", "driver": "helpers/benchmarking/run_engine.py",
+             "spec": "dev/mixing2006/config/runs/r140.json",
+             "gate": "gate8_symmetric_remnants_r140.json", "n_floors": 1, "replicas": 32, "eval_tasks": 32, "profile_tasks": 32,
+             "classes": ("sd_projectile", "sd_target", "dd", "nd", "nd0"), "inactive_classes": ("nd",),
+             "fanout": True, "fanout_tasks": 32, "gen_tasks": 4,
+             "extra_files": ("dev/mixing2006/spshadrons.web.cern.ch/data/xsect_ptintegrated_neutron_pp.txt",
+                             "dev/00runs/r139_symmetric_lines_2026-11-04/branch_report_f0.json",
+                             "dev/00runs/r139_symmetric_lines_2026-11-04/seal_manifest.json")},
+    "r139": {"run_id": "r139_symmetric_lines_2026-11-04", "driver": "helpers/benchmarking/run_engine.py",
+             "spec": "dev/mixing2006/config/runs/r139.json",
+             "gate": "gate8_symmetric_lines_r139.json", "n_floors": 1, "replicas": 32, "eval_tasks": 32, "profile_tasks": 32,
+             "classes": ("sd_projectile", "sd_target", "dd", "nd", "nd0"), "inactive_classes": ("nd",),
+             "fanout": True, "fanout_tasks": 32, "gen_tasks": 4,
+             "extra_files": ("dev/mixing2006/spshadrons.web.cern.ch/data/xsect_ptintegrated_neutron_pp.txt",
+                             "dev/00runs/r138_counted_pairs_2026-11-04/branch_report_f0.json",
+                             "dev/00runs/r138_counted_pairs_2026-11-04/seal_manifest.json")},
+    "r138": {"run_id": "r138_counted_pairs_2026-11-04", "driver": "helpers/benchmarking/run_engine.py",
+             "spec": "dev/mixing2006/config/runs/r138.json",
+             "gate": "gate8_counted_pairs_r138.json", "n_floors": 1, "replicas": 32, "eval_tasks": 32, "profile_tasks": 32,
+             "classes": ("sd_projectile", "sd_target", "dd", "nd", "nd0"), "inactive_classes": ("nd",),
+             "fanout": True, "fanout_tasks": 32, "gen_tasks": 4,
+             "extra_files": ("dev/mixing2006/spshadrons.web.cern.ch/data/xsect_ptintegrated_neutron_pp.txt",
+                             "dev/00runs/r137_fourteen_parameters_2026-11-03/branch_report_f0.json",
+                             "dev/00runs/r137_fourteen_parameters_2026-11-03/seal_manifest.json")},
     "r137": {"run_id": "r137_fourteen_parameters_2026-11-03", "driver": "helpers/benchmarking/run_engine.py",
              "spec": "dev/mixing2006/config/runs/r137.json",
              "gate": "gate8_fourteen_parameters_r137.json", "n_floors": 1, "replicas": 32, "eval_tasks": 32, "profile_tasks": 32,
@@ -678,7 +710,11 @@ N_SLOTS = len(CLASSES) * REPLICAS
 #: the five-class slot numbering and generates no nd slot, 2026-10-06)
 ACTIVE_SLOT_IDS: list = []
 MAX_GENERATIONS = 4
-MAX_TASKS_PER_WORKER = 32
+#: Task slots per worker (2026-11-05, the owner: "you can go up to 64 per node, it has hyperthreading"): the workers
+#: are 32-core EPYC 7543P nodes with two threads per core and 250 GB, and a 32-task fit job holds about 19 GB, so two
+#: fit jobs share a node. At 32 the 72-job profile and clean fan-outs ran in six waves of twelve (R139: 155 and 146 min
+#: of its 9.3 h); at 64 they run in three of twenty-four. The jobs' results do not depend on their placement.
+MAX_TASKS_PER_WORKER = 64
 EVAL_TASKS = 24
 PROFILE_TASKS = 8
 POLL_SECONDS = 120

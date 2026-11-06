@@ -931,8 +931,13 @@ def _enumerate_continuum_channels(
         finally:
             candidates, seen = saved
         if state_qn[0] == 0 and any(str(f.family_id).startswith(CONJUGATE_FAMILY_PREFIX) for f in fams):
-            out = _halve_conjugate_pairs(out, catalog, fams)
+            out = _halve_conjugate_pairs(out, catalog, fams,
+                                         every=completion_here and getattr(family, "baryon_pair_completion", None) is not None)
         return out
+
+    # the line-emitted pair share (2026-11-04; KernelConfig.baryon_pair_share = "line"): a family that offers its
+    # completion only on a cluster a baryonic line emits directly keeps the committed vertex elsewhere
+    completion_here = not getattr(family, "completion_line_only", False) or _emitted_by_baryonic_line(state)
 
     # the baryon-resonance pairs (2026-10-10; na49_mixing.resonance_pairs):
     # the family's resonance-pair classes join its allowed decay classes,
@@ -945,9 +950,28 @@ def _enumerate_continuum_channels(
         base = _finish(list(candidates), set(seen))
         for class_id in pair_classes:
             _offer_class(class_id)
+    # the baryon-pair completion (2026-11-04; na49_mixing.baryon_pair_completion): the completion's octet classes
+    # join with the weight law after the resonance pairs, its decuplet classes after them, both outside the
+    # resonance pairs' share hold; the decuplet classes are then held at the octet classes' share
+    free_octet, free_decuplet = set(), set()
+    for classes, free in ((getattr(family, "completion_pair_classes", ()), free_octet),
+                          (getattr(family, "completion_resonance_classes", ()), free_decuplet)):
+        for class_id in (tuple(classes or ()) if completion_here else ()):
+            n_before = len(candidates)
+            _offer_class(class_id)
+            free.update(daughters for daughters, _kind, _raw in candidates[n_before:])
     candidates = _finish(candidates, seen)
     if base is not None:
-        candidates = _hold_pair_shares(candidates, base, catalog, fams)
+        candidates = _hold_pair_shares(candidates, base, catalog, fams, free=free_octet | free_decuplet)
+    if free_decuplet:
+        candidates = _hold_completion_share(candidates, free_octet, free_decuplet)
+    # the universal baryon-pair share (2026-11-04; KernelConfig.baryon_pair_share): at a completed mesonic family
+    # other than the reference, the completion's pairs that create no s-sbar take the reference family's committed
+    # pair share at this mass, and the others keep their weight-law ratio to them
+    reference = getattr(family, "pair_share_reference", None)
+    if reference is not None and (free_octet or free_decuplet):
+        targets = _reference_pair_shares(reference, state, catalog, fams)
+        candidates = _hold_universal_share(candidates, free_octet | free_decuplet, targets, state_qn, catalog, fams)
 
     total = math.fsum(raw for _, _, raw in candidates)
     if not (math.isfinite(total) and total > 0.0):
@@ -963,14 +987,17 @@ def _enumerate_continuum_channels(
     ]
 
 
-def _hold_pair_shares(candidates, base, catalog: HadronCatalog, fams):
+def _hold_pair_shares(candidates, base, catalog: HadronCatalog, fams, free=frozenset()):
     """The raw candidates with the baryon-pair share (channels whose
     daughters carry |B| = 2 in all) of the continuation channels and of the
     direct pairs each set to its share among the *base* candidates (the
     vertex without the resonance-pair classes).  The topology cascades draw
     among the continuation channels while one is open and among the direct
     pairs only at the floor, so each set keeps its own share
-    (``na49_mixing.resonance_pairs``)."""
+    (``na49_mixing.resonance_pairs``).  The channels of *free* (the
+    daughters of the baryon-pair completion's channels,
+    ``na49_mixing.baryon_pair_completion``) keep their weights and stay out
+    of the shares."""
 
     qn_b = {str(f.family_id): abs(int(f.qn[0])) for f in fams}
 
@@ -984,7 +1011,8 @@ def _hold_pair_shares(candidates, base, catalog: HadronCatalog, fams):
         return total >= 2
 
     def share(cands, continuing: bool) -> float:
-        chosen = [(daughters, raw) for daughters, kind, raw in cands if (kind == KIND_CONTINUUM) == continuing]
+        chosen = [(daughters, raw) for daughters, kind, raw in cands
+                  if (kind == KIND_CONTINUUM) == continuing and daughters not in free]
         total = math.fsum(raw for _, raw in chosen)
         if not total > 0.0:
             return 0.0
@@ -994,8 +1022,125 @@ def _hold_pair_shares(candidates, base, catalog: HadronCatalog, fams):
     for continuing in (True, False):
         s0, s1 = share(base, continuing), share(candidates, continuing)
         factor[continuing] = (s0 / s1, (1.0 - s0) / (1.0 - s1)) if 0.0 < s1 < 1.0 else (1.0, 1.0)
-    return [(daughters, kind, raw * factor[kind == KIND_CONTINUUM][0 if is_pair(daughters) else 1])
+    return [(daughters, kind, raw if daughters in free else
+             raw * factor[kind == KIND_CONTINUUM][0 if is_pair(daughters) else 1])
             for daughters, kind, raw in candidates]
+
+
+def _hold_completion_share(candidates, octet, decuplet):
+    """The raw candidates with the share of the baryon-pair completion's
+    channels (the daughters in *octet* or *decuplet*) among the continuation
+    channels and among the direct pairs each set to the share of the *octet*
+    channels without the *decuplet* ones (``na49_mixing.
+    baryon_pair_completion``): the decuplet pairs redistribute the octet
+    pairs' share, as the committed resonance pairs do the p pbar and n nbar
+    share (:func:`_hold_pair_shares`)."""
+
+    sector = octet | decuplet
+    factor = {}
+    for continuing in (True, False):
+        chosen = [(daughters, raw) for daughters, kind, raw in candidates if (kind == KIND_CONTINUUM) == continuing]
+        rest = math.fsum(raw for daughters, raw in chosen if daughters not in sector)
+        oct_sum = math.fsum(raw for daughters, raw in chosen if daughters in octet)
+        sec_sum = math.fsum(raw for daughters, raw in chosen if daughters in sector)
+        s0 = oct_sum / (rest + oct_sum) if rest + oct_sum > 0.0 else 0.0
+        s1 = sec_sum / (rest + sec_sum) if rest + sec_sum > 0.0 else 0.0
+        factor[continuing] = (s0 / s1, (1.0 - s0) / (1.0 - s1)) if 0.0 < s1 < 1.0 and s0 > 0.0 else (1.0, 1.0)
+    return [(daughters, kind, raw * factor[kind == KIND_CONTINUUM][0 if daughters in sector else 1])
+            for daughters, kind, raw in candidates]
+
+
+_REFERENCE_SHARES: dict = {}
+
+
+def _pair_total_b(daughters, catalog: HadronCatalog, fams) -> int:
+    """The summed |B| of a channel's daughters (2 for a baryon-antibaryon pair)."""
+    total = 0
+    for d in daughters:
+        if d.startswith(CATALOG_FAMILY_PREFIX):
+            total += abs(int(catalog.get(int(d[len(CATALOG_FAMILY_PREFIX):])).B))
+        else:
+            total += abs(int(_family_by_id(fams, d).qn[0]))
+    return total
+
+
+def _created_strangeness(daughters, parent_qn, catalog: HadronCatalog, fams) -> int:
+    """The s-sbar pairs a channel creates, (sum |S_daughters| - |S_parent|) / 2."""
+    total = 0
+    for d in daughters:
+        if d.startswith(CATALOG_FAMILY_PREFIX):
+            total += abs(int(catalog.get(int(d[len(CATALOG_FAMILY_PREFIX):])).S))
+        else:
+            total += abs(int(_family_by_id(fams, d).qn[2]))
+    return (total - abs(int(parent_qn[2]))) // 2
+
+
+def _reference_pair_shares(reference: str, state, catalog: HadronCatalog, fams) -> dict:
+    """The committed baryon-pair share of the *reference* family (its
+    completion classes left out) at the state's mass, among the continuation
+    channels and among the direct pairs (``{True: ..., False: ...}``; the
+    universal pair share, ``na49_mixing.baryon_pair_completion``)."""
+    # keyed on the family list's id with the list kept and checked by identity (the code review glm53f F9: a
+    # recycled address never serves a dead kernel's shares)
+    key = (id(fams), reference, float(state.mass))
+    hit = _REFERENCE_SHARES.get(key)
+    if hit is not None and hit[0] is fams:
+        return hit[1]
+    ref = _family_by_id(fams, reference)
+    # the committed reference: its completion and its own reference cleared, so a cyclic configuration cannot recurse
+    committed = dataclasses.replace(ref, completion_pair_classes=(), completion_resonance_classes=(),
+                                    baryon_pair_completion=None, pair_share_reference=None)
+    fams_ref = [committed if f is ref else f for f in fams]
+    ref_state = dataclasses.replace(state, qn=tuple(int(v) for v in ref.qn), family_id=reference)
+    channels = _enumerate_continuum_channels(ref_state, catalog, fams_ref, reference)
+    out = {}
+    for continuing in (True, False):
+        chosen = [ch for ch in channels if (ch.kind == KIND_CONTINUUM) == continuing]
+        total = math.fsum(ch.weight for ch in chosen)
+        pairs = math.fsum(ch.weight for ch in chosen if _pair_total_b(ch.daughters, catalog, fams_ref) >= 2)
+        out[continuing] = pairs / total if total > 0.0 else 0.0
+    if len(_REFERENCE_SHARES) > 4096:
+        _REFERENCE_SHARES.clear()
+    _REFERENCE_SHARES[key] = (fams, out)
+    return out
+
+
+def _emitted_by_baryonic_line(state) -> bool:
+    """Whether *state* is a cluster a baryonic line emits directly: its
+    parent is a baryonic state (|B| = 1).  A root, or a state continued from
+    a mesonic one, is not (``KernelConfig.baryon_pair_share`` = "line")."""
+
+    parent = getattr(state, "parent", None)
+    return parent is not None and abs(int(parent.qn[0])) == 1
+
+
+def _hold_universal_share(candidates, sector, targets, parent_qn, catalog: HadronCatalog, fams):
+    """The raw candidates with the completion's channels (the daughters in
+    *sector*) scaled by one factor per channel kind, so that those creating
+    no s-sbar take the target share of the kind (*targets*, the reference
+    family's committed pair share), and the other channels scaled to keep
+    the kind's total.  A kind whose sector holds no such channel, or whose
+    target cannot be met, is left as it is."""
+
+    out = list(candidates)
+    for continuing in (True, False):
+        idx = [i for i, (_d, kind, _r) in enumerate(out) if (kind == KIND_CONTINUUM) == continuing]
+        total = math.fsum(out[i][2] for i in idx)
+        anchor = math.fsum(out[i][2] for i in idx if out[i][0] in sector
+                           and _created_strangeness(out[i][0], parent_qn, catalog, fams) == 0)
+        sec = math.fsum(out[i][2] for i in idx if out[i][0] in sector)
+        rest = total - sec
+        target = float(targets[continuing])
+        if not (total > 0.0 and anchor > 0.0 and rest > 0.0):
+            continue
+        f = target * total / anchor
+        g = (total - f * sec) / rest
+        if not g > 0.0:
+            continue
+        for i in idx:
+            d, kind, raw = out[i]
+            out[i] = (d, kind, raw * (f if d in sector else g))
+    return [c for c in out if c[2] > 0.0]
 
 
 def _is_baryon_antibaryon_pair(catalog: HadronCatalog, d0: int, d1: int) -> bool:
@@ -1128,12 +1273,16 @@ def _charge_conjugate_pdg(pdg_id: int, catalog: HadronCatalog) -> int:
     return -pdg
 
 
-def _halve_conjugate_pairs(candidates, catalog: HadronCatalog, fams):
+def _halve_conjugate_pairs(candidates, catalog: HadronCatalog, fams, every: bool = False):
     """The raw candidates of a mesonic vertex with each baryon-pair
     continuation (an established baryon or antibaryon beside a continuum
     daughter of nonzero baryon number) at half its weight when its charge
     conjugate (the conjugate sibling beside the conjugate family) is also
-    open."""
+    open.  *every* (a family of the baryon-pair completion, 2026-11-04;
+    ``na49_mixing.baryon_pair_completion``) halves every baryon-pair
+    continuation, so a pair class carries one unit over its two
+    continuations also where the charge conjugate lives at the conjugate
+    vertex; at the neutral family the two rules agree."""
 
     qn = {str(f.family_id): int(f.qn[0]) for f in fams}
 
@@ -1153,7 +1302,7 @@ def _halve_conjugate_pairs(candidates, catalog: HadronCatalog, fams):
         if k is not None:
             partner = (k[1][len(CONJUGATE_FAMILY_PREFIX):] if k[1].startswith(CONJUGATE_FAMILY_PREFIX)
                        else CONJUGATE_FAMILY_PREFIX + k[1])
-            if (_charge_conjugate_pdg(k[0], catalog), partner) in keys:
+            if every or (_charge_conjugate_pdg(k[0], catalog), partner) in keys:
                 raw = 0.5 * raw
         out.append((daughters, kind, raw))
     return out
@@ -1377,7 +1526,17 @@ def draw_decay_with_pool(
     u_cos = float(rng_kinematics.random())
     u_phi = float(rng_kinematics.random())
     cos_theta = 2.0 * u_cos - 1.0
+    aligned_helicity = False
     if split is not None:
+        if meson_branch and getattr(split, "meson_split_slope_strange", None) is not None:
+            # the kaon's own direction law on the meson branch (2026-11-06; KernelConfig.meson_split_slope_strange):
+            # a strange meson beside the baryonic remainder takes kappa = 2 b_K q*^2, on the same uniform
+            cont = _continuing_baryon_slot(identities)
+            if cont is not None and int(identities[1 - cont][2].S) != 0:
+                split = dataclasses.replace(split, leading_split_kappa=None,
+                                            leading_split_slope=float(split.meson_split_slope_strange))
+                if split_record is not None:
+                    split_record["ms"] = True
         cos_theta = _leading_split_cos(u_cos, state, identities, masses, split)
         if split_record is not None:
             c_law, kappa_law, q_law = _leading_split_law(u_cos, state, masses, split)
@@ -1392,6 +1551,48 @@ def draw_decay_with_pool(
         # carrier along the line's hemisphere, the sibling toward the center,
         # with kappa = 2 b q*^2 on the same cos(theta) uniform
         cos_theta = _string_step_cos(u_cos, state, identities, masses, parent_family)
+    elif (parent_family is not None and getattr(parent_family, "baryon_line_kappa", None) is not None
+            and int(state.qn[0]) != 0
+            and _continuing_baryon_slot(identities, getattr(parent_family, "baryon_line_kappa_scope", "all")) is not None):
+        # the aligned continuing baryonic step (2026-11-05; KernelConfig.baryon_line_kappa): at a baryonic vertex that
+        # continues into a baryonic continuum daughter beside an established hadron, the continuing daughter's angle
+        # to the line's beam axis follows exp(kappa cos theta) on the same cos(theta) uniform, so the line keeps its
+        # baryon leading and the emitted hadron recoils toward the center; the continuation mass law is unchanged
+        slot = _continuing_baryon_slot(identities, getattr(parent_family, "baryon_line_kappa_scope", "all"))
+        side = 1.0 if float(state.momentum[3]) >= 0.0 else -1.0
+        cos_theta = side * _aligned_cos(u_cos, float(parent_family.baryon_line_kappa))
+        if slot == 1:
+            cos_theta = -cos_theta
+        aligned_helicity = getattr(parent_family, "baryon_line_kappa_axis", "beam") == "helicity"
+    elif (parent_family is not None and getattr(parent_family, "baryon_line_kappa_strange", None) is not None
+            and int(state.qn[0]) != 0 and _strange_transfer_slot(identities) is not None):
+        # the strangeness-transfer step reversed (2026-11-05; KernelConfig.baryon_line_kappa_strange): at a continuing
+        # baryonic step whose established hadron carries strangeness, the hadron goes along the line's beam axis by
+        # exp(kappa cos theta) and the hyperon cluster recoils, on the same uniform
+        slot = _strange_transfer_slot(identities)
+        side = 1.0 if float(state.momentum[3]) >= 0.0 else -1.0
+        cos_theta = -side * _aligned_cos(u_cos, float(parent_family.baryon_line_kappa_strange))
+        if slot == 1:
+            cos_theta = -cos_theta
+    elif (parent_family is not None and getattr(parent_family, "baryon_line_kappa_kaon", None) is not None
+            and int(state.qn[0]) != 0 and _yk_meson_slot(identities) is not None):
+        # the kaon-led direct pair (2026-11-06; KernelConfig.baryon_line_kappa_kaon): the strange meson of an
+        # established hyperon-meson pair along the line's beam axis by exp(kappa cos theta), the hyperon recoiling
+        slot = _yk_meson_slot(identities)
+        side = 1.0 if float(state.momentum[3]) >= 0.0 else -1.0
+        cos_theta = side * _aligned_cos(u_cos, float(parent_family.baryon_line_kappa_kaon))
+        if slot == 1:
+            cos_theta = -cos_theta
+    elif (parent_family is not None and getattr(parent_family, "baryon_line_kappa_final", None) is not None
+            and int(state.qn[0]) != 0 and _forward_baryon_slot(identities) is not None):
+        # the aligned final baryonic step (2026-11-05; KernelConfig.baryon_line_kappa_final): the established baryon
+        # of a line's last step, beside a mesonic continuum daughter, along the line's beam axis by exp(kappa cos
+        # theta) on the same uniform (the graded form of the hard hemisphere rule below)
+        slot = _forward_baryon_slot(identities)
+        side = 1.0 if float(state.momentum[3]) >= 0.0 else -1.0
+        cos_theta = side * _aligned_cos(u_cos, float(parent_family.baryon_line_kappa_final))
+        if slot == 1:
+            cos_theta = -cos_theta
     elif parent_family is not None and bool(getattr(parent_family, "baryon_forward_hemisphere", False)) \
             and int(state.qn[0]) != 0:
         # the forward-hemisphere baryon rule (2026-10-21; KernelConfig.
@@ -1417,6 +1618,16 @@ def draw_decay_with_pool(
         sin_theta * math.sin(phi),
         cos_theta,
     )
+    if split is not None and getattr(parent_family, "leading_split_axis", None) == "gottfried_jackson":
+        # the Gottfried-Jackson axis of the split (2026-11-04, the code review grok47; KernelConfig.
+        # leading_split_axis): the angle drawn about the beam axis of the root's side is carried onto the incoming
+        # baryon's direction in the root's rest frame, the azimuth kept
+        direction = _onto_gottfried_jackson(direction, state)
+    if aligned_helicity:
+        # the aligned continuing step about the parent's own direction of motion (2026-11-05;
+        # KernelConfig.baryon_line_kappa_axis = "helicity"): the angle drawn about the line's beam axis is carried
+        # onto the parent's momentum direction, the rest-frame helicity axis, the azimuth kept
+        direction = _onto_helicity(direction, state)
 
     parent_mass = float(state.mass)
     mass0, mass1 = masses
@@ -1541,6 +1752,58 @@ def _daughter_identity(catalog: HadronCatalog, fams, daughter_id: str):
 def _baryon_number_of(identity) -> int:
     kind, _pdg, obj = identity
     return int(obj.B) if kind == "catalog" else int(obj.qn[0])
+
+
+def _aligned_cos(u: float, kappa: float) -> float:
+    """cos(theta) drawn from exp(kappa cos theta) on [-1, 1] by the inverse
+    CDF of the uniform *u* (``KernelConfig.baryon_line_kappa``)."""
+
+    lo = math.exp(-2.0 * kappa)
+    return 1.0 + math.log(lo + float(u) * (1.0 - lo)) / kappa
+
+
+def _continuing_baryon_slot(identities, scope: str = "all") -> "int | None":
+    """The daughter slot of the baryonic continuum daughter at a vertex whose
+    two daughters are one baryonic continuum state (|B| = 1) and one
+    established hadron with B = 0, or ``None``; *scope* "nonstrange" also
+    needs the established hadron's S = 0 (``KernelConfig.baryon_line_kappa``,
+    ``baryon_line_kappa_scope``)."""
+
+    kinds = [identity[0] for identity in identities]
+    if sorted(kinds) != ["catalog", "family"]:
+        return None
+    cont = 0 if kinds[0] == "family" else 1
+    if abs(_baryon_number_of(identities[cont])) != 1 or _baryon_number_of(identities[1 - cont]) != 0:
+        return None
+    if scope == "nonstrange" and int(identities[1 - cont][2].S) != 0:
+        return None
+    return cont
+
+
+def _strange_transfer_slot(identities) -> "int | None":
+    """The slot of the baryonic continuum daughter at a continuing baryonic
+    step whose established hadron (B = 0) carries strangeness, or ``None``
+    (``KernelConfig.baryon_line_kappa_strange``)."""
+
+    cont = _continuing_baryon_slot(identities)
+    if cont is None or int(identities[1 - cont][2].S) == 0:
+        return None
+    return cont
+
+
+def _yk_meson_slot(identities) -> "int | None":
+    """The slot of the strange meson (B = 0, S != 0) at a vertex whose two
+    daughters are established hadrons, one hyperon (|B| = 1, S != 0) and one
+    strange meson, or ``None`` (``KernelConfig.baryon_line_kappa_kaon``)."""
+
+    if [identity[0] for identity in identities] != ["catalog", "catalog"]:
+        return None
+    b = [_baryon_number_of(identity) for identity in identities]
+    s = [int(identity[2].S) for identity in identities]
+    for k in (0, 1):
+        if b[k] == 0 and s[k] != 0 and abs(b[1 - k]) == 1 and s[1 - k] != 0:
+            return k
+    return None
 
 
 def _forward_baryon_slot(identities) -> "int | None":
@@ -1701,6 +1964,68 @@ def _leading_split_law(u: float, state: CascadeState, masses, split) -> tuple[fl
         inner = float(u) + (1.0 - float(u)) * math.exp(-2.0 * kappa)
         c = max(-1.0, 1.0 + math.log(inner) / kappa) if inner > 0.0 else -1.0
     return c, kappa, q
+
+
+def _onto_helicity(direction, state: CascadeState):
+    """*direction* (a rest-frame unit vector whose polar angle is taken about
+    the beam axis of the state's side, (0, 0, sign p_z)) rotated so that the
+    same angle is taken about the state's own direction of motion, the
+    rest-frame helicity axis (``KernelConfig.baryon_line_kappa_axis``); a
+    state at rest leaves *direction*."""
+
+    px, py, pz = (float(x) for x in state.momentum[1:])
+    p = math.sqrt(px * px + py * py + pz * pz)
+    if not p > 0.0:
+        return direction
+    side = 1.0 if pz >= 0.0 else -1.0
+    ax = (0.0, 0.0, side)
+    n = (px / p, py / p, pz / p)
+    c = ax[2] * n[2]
+    k = (ax[1] * n[2] - ax[2] * n[1], ax[2] * n[0] - ax[0] * n[2], ax[0] * n[1] - ax[1] * n[0])
+    s_ = math.sqrt(k[0] * k[0] + k[1] * k[1] + k[2] * k[2])
+    if not s_ > 1e-15:
+        return direction
+    k = tuple(x / s_ for x in k)
+    v = direction
+    kv = k[0] * v[0] + k[1] * v[1] + k[2] * v[2]
+    kxv = (k[1] * v[2] - k[2] * v[1], k[2] * v[0] - k[0] * v[2], k[0] * v[1] - k[1] * v[0])
+    return tuple(v[j] * c + kxv[j] * s_ + k[j] * kv * (1.0 - c) for j in range(3))
+
+
+def _onto_gottfried_jackson(direction, state: CascadeState):
+    """*direction* (a rest-frame unit vector whose polar angle is taken about
+    the beam axis of the root's side, (0, 0, sign p_z)) rotated so that the
+    same angle is taken about the Gottfried-Jackson axis: the incoming
+    baryon of that side, a lightlike vector along the state's axis in the
+    c.m. frame (the proton at 158 GeV/c has beta 0.994 there), boosted into
+    the root's rest frame.  The rotation is the shortest one from the beam
+    axis to that axis (Rodrigues); a root at rest leaves *direction*."""
+
+    energy, px, py, pz = (float(x) for x in state.momentum)
+    side = 1.0 if pz >= 0.0 else -1.0
+    ax = tuple(side * float(a) for a in state.axis)
+    mass = float(state.mass)
+    b = (px / energy, py / energy, pz / energy)
+    b2 = b[0] * b[0] + b[1] * b[1] + b[2] * b[2]
+    if not b2 > 0.0:
+        return direction
+    gamma = energy / mass
+    bk = b[0] * ax[0] + b[1] * ax[1] + b[2] * ax[2]
+    f = (gamma - 1.0) * bk / b2 - gamma
+    n = tuple(ax[j] + f * b[j] for j in range(3))
+    norm = math.sqrt(sum(x * x for x in n))
+    n = tuple(x / norm for x in n)
+    # the rotation taking ax onto n
+    c = ax[0] * n[0] + ax[1] * n[1] + ax[2] * n[2]
+    k = (ax[1] * n[2] - ax[2] * n[1], ax[2] * n[0] - ax[0] * n[2], ax[0] * n[1] - ax[1] * n[0])
+    s_ = math.sqrt(k[0] * k[0] + k[1] * k[1] + k[2] * k[2])
+    if not s_ > 1e-15:
+        return direction
+    k = tuple(x / s_ for x in k)
+    v = direction
+    kv = k[0] * v[0] + k[1] * v[1] + k[2] * v[2]
+    kxv = (k[1] * v[2] - k[2] * v[1], k[2] * v[0] - k[0] * v[2], k[0] * v[1] - k[1] * v[0])
+    return tuple(v[j] * c + kxv[j] * s_ + k[j] * kv * (1.0 - c) for j in range(3))
 
 
 def _leading_split_cos(u: float, state: CascadeState, identities, masses, split) -> float:
@@ -2125,8 +2450,14 @@ def _sibling_line_mass(record, hi: float, catalog: HadronCatalog, u: float) -> f
     if not top_mass >= lo_c:
         raise ValueError(f"draw_decay: the on-shell window of {record.name} (pdg {pdg}) is empty "
                          f"([{lo_c!r}, {float(hi)!r}] GeV; checked, never repaired)")
-    x = (top_mass - lo_c) / cell
-    k = min(int(x), cdf.size - 1)
+    if hasattr(cell, "shape"):
+        # a narrow line's nonuniform grid (resonance_widths._draw_entry, 2026-11-04): the same inverse on its nodes
+        xs = cell
+        k = min(max(bisect.bisect_right(list(xs), top_mass) - 1, 0), cdf.size - 1)
+        x = k + (top_mass - xs[k]) / (xs[k + 1] - xs[k])
+    else:
+        x = (top_mass - lo_c) / cell
+        k = min(int(x), cdf.size - 1)
     below = float(cdf[k - 1]) if k > 0 else 0.0
     top = below + (x - k) * (float(cdf[k]) - below)
     if not top > 0.0:
@@ -2136,6 +2467,8 @@ def _sibling_line_mass(record, hi: float, catalog: HadronCatalog, u: float) -> f
     below = float(cdf[idx - 1]) if idx > 0 else 0.0
     width = float(cdf[idx]) - below
     position = (target - below) / width if width > 0.0 else 0.5
+    if hasattr(cell, "shape"):
+        return float(min(max(float(cell[idx]) + position * (cell[idx + 1] - cell[idx]), lo_c), top_mass))
     return float(min(max(lo_c + (idx + position) * cell, lo_c), top_mass))
 
 def _daughter_qn(

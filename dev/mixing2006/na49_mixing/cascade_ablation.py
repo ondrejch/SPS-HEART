@@ -1,3 +1,7 @@
+# Not used by the HEART p+p fits (marked 2026-11-04): no production generation, fit, probe tool or paper script
+# runs this module (an execution trace of the R137 generation and an import scan of the engine, the probe tools
+# and the paper scripts). Code reviews of the p+p model can skip it. It stays until the cleanup and refactor after
+# the p+A run.
 """The isotropic-versus-aligned ablation runner of the aligned
 resonance cascade.
 

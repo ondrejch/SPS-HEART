@@ -463,6 +463,14 @@ def ledger_log_weight(
     pool weights carrying the ``from`` factors as drawn."""
     if params_from is None:
         params_from = NOMINAL_FLAVOR
+    # the exponent keys were counted at the generation point's hidden s-sbar content and pair scope, which the key does
+    # not encode, so a reweight across either is refused (the code reviews ds41f S3 and glm53f F4)
+    if dict(params_from.hidden_ssbar_content) != dict(params_to.hidden_ssbar_content):
+        raise ValueError("ledger_log_weight: the hidden s-sbar content differs between the two points; the ledger's "
+                         "exponents were counted at the generation content")
+    if bool(params_from.bbar_continuation_only) != bool(params_to.bbar_continuation_only):
+        raise ValueError("ledger_log_weight: bbar_continuation_only differs between the two points; the ledger's "
+                         "pair exponents were counted under the generation scope")
     total = 0.0
     for record in records:
         if record is None:

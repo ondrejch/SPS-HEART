@@ -26,6 +26,10 @@ import math
 from pathlib import Path
 
 import numpy as np
+
+#: numpy 2 renamed trapz to trapezoid (the code reviews of 2026-11-04)
+_trapezoid = getattr(np, "trapezoid", None) or np.trapz
+
 import pytest
 
 from na49_mixing.hadron_catalog import HadronCatalog
@@ -68,9 +72,9 @@ def _grid_moments(record, masses):
     xs = np.linspace(lo + 1e-9, hi, 20001)
     ys = np.array([_unnormalized_shape(float(x), record, masses,
                                        BLATT_WEISSKOPF_BARRIER) for x in xs])
-    ys = ys / np.trapz(ys, xs)
+    ys = ys / _trapezoid(ys, xs)
     cut = record.pole_mass + record.nominal_width
-    return float(np.trapz(xs * ys, xs)), float(np.trapz(ys[xs > cut], xs[xs > cut]))
+    return float(_trapezoid(xs * ys, xs)), float(_trapezoid(ys[xs > cut], xs[xs > cut]))
 
 
 def test_barrier_factors_never_grow_with_momentum():

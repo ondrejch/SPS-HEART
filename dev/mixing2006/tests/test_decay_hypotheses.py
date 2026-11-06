@@ -53,6 +53,10 @@ from __future__ import annotations
 import math
 
 import numpy as np
+
+#: numpy 2 renamed trapz to trapezoid (the code reviews of 2026-11-04)
+_trapezoid = getattr(np, "trapezoid", None) or np.trapz
+
 import pytest
 from scipy.stats import chi2 as chi2_dist
 
@@ -356,11 +360,11 @@ def test_h1_three_body_matches_analytic_uniform_phase_space():
     rho = np.array([_pstar(mass, m, x) for x in grid]) * np.array(
         [_pstar(x, m, m) for x in grid]
     )
-    expected_total = float(np.trapz(rho, grid))
+    expected_total = float(_trapezoid(rho, grid))
     expected = np.array(
         [
             H1_N
-            * float(np.trapz(rho[(grid >= edges[i]) & (grid < edges[i + 1])],
+            * float(_trapezoid(rho[(grid >= edges[i]) & (grid < edges[i + 1])],
                              grid[(grid >= edges[i]) & (grid < edges[i + 1])]))
             / expected_total
             for i in range(H1_NBINS)

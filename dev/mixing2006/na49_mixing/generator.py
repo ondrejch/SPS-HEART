@@ -1,3 +1,6 @@
+# The legacy p+A path (marked 2026-11-04): the HEART p+p fits do not run this module; the p+A builder
+# (event_builder_pA, parallel, glauber) and its imports do. Code reviews of the p+p model can skip it; review it
+# with the p+A work. The cleanup and refactor after the p+A run decides its future.
 """MC particle generator — port of ``TGenerPart.h`` / ``TGenerPart.cxx``.
 
 Generates identified particles from y/y_max and p_T parametrisations.

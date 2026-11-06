@@ -60,6 +60,18 @@ def _superseded_entries() -> set[str]:
     }
 
 
+#: The test modules of a published snapshot (SPS-HEART) whose inputs the snapshot leaves out.
+#: ``helpers/publishing/sync_sps_heart.py`` writes their paths, one
+#: per line relative to this directory, to ``tests/snapshot_collect_ignore.txt``. The development checkout has no
+#: such file, so every module is collected there.
+_SNAPSHOT_IGNORE = Path(__file__).resolve().parent / "tests" / "snapshot_collect_ignore.txt"
+collect_ignore = (
+    [line.strip() for line in _SNAPSHOT_IGNORE.read_text(encoding="utf-8").splitlines()
+     if line.strip() and not line.strip().startswith("#")]
+    if _SNAPSHOT_IGNORE.is_file() else []
+)
+
+
 def _mark_superseded(config, items) -> None:
     import pytest
 

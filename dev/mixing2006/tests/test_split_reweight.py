@@ -106,3 +106,19 @@ def test_a_reweighted_sample_reproduces_the_trial_sample(kernels):
     for ch in sorted(common, key=common.get, reverse=True)[:10]:
         f_w = np.sum(w * np.array([c == ch for _r, c, _x in gen])) / np.sum(w)
         assert f_w == pytest.approx(common[ch] / n, abs=0.01), ch
+
+
+def test_the_direction_density_at_the_uniform_limit():
+    """kappa = 0 is the uniform density 1/2 (the code review of 2026-11-04, finding S1), and the small-kappa series
+    joins the closed form continuously."""
+    c = np.array([-1.0, -0.3, 0.4, 1.0])
+    assert np.allclose(SR._log_direction(np.zeros(4), c), -math.log(2.0))
+    lo = SR._log_direction(np.full(4, 0.999e-6), c)
+    hi = SR._log_direction(np.full(4, 1.001e-6), c)
+    assert np.allclose(lo, hi, atol=1e-9)
+    # the density integrates to one over cos(theta) in [-1, 1] at several kappa
+    grid = np.linspace(-1.0, 1.0, 20001)
+    for kappa in (0.0, 1e-8, 0.5, 4.0):
+        dens = np.exp(SR._log_direction(np.full(grid.size, kappa), grid))
+        assert float(np.sum(0.5 * (dens[1:] + dens[:-1]) * np.diff(grid))) == pytest.approx(1.0, abs=1e-6)
+

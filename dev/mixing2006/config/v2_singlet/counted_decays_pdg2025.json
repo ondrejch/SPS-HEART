@@ -1,0 +1,15 @@
+{
+ "label": "counted_decays",
+ "source": "PDG 2025 summary tables (pdg.lbl.gov; S. Navas et al., Phys. Rev. D 110, 030001 (2024) and 2025 update): mean lives and branching fractions",
+ "accessed_on": "2026-11-04",
+ "rule": "The decays the NA49 tables count: the NA49 pion tables subtract the decay products of K0S, Lambda, Sigma+-, anti-Lambda (EPJC 45 (2006) 343, Sect. 5.6), the baryon tables those of Lambda, Sigma and their antiparticles (EPJC 65 (2010) 9, Sect. 6.4), the kaon tables nothing (EPJC 68 (2010) 1); strong and electromagnetic decays stay in every table. The Sigma0 (electromagnetic) and the Xi and Omega (weak, not subtracted) therefore decay, each to its dominant modes renormalized to one; the Lambda they give stays stable as the tables subtract its products. The K0L stays stable: it decays outside the detector. The widths are hbar over the mean lives.",
+ "decays": [
+  {"name": "Sigma0", "pdg_id": 3212, "mean_life_s": 7.4e-20, "channels": [{"daughters": [3122, 22], "fraction": 1.0, "L": 1}]},
+  {"name": "Xi0", "pdg_id": 3322, "mean_life_s": 2.90e-10, "channels": [{"daughters": [3122, 111], "fraction": 1.0, "L": 0}]},
+  {"name": "Xi-", "pdg_id": 3312, "mean_life_s": 1.639e-10, "channels": [{"daughters": [3122, -211], "fraction": 1.0, "L": 0}]},
+  {"name": "Omega-", "pdg_id": 3334, "mean_life_s": 8.21e-11, "channels": [
+    {"daughters": [3122, -321], "fraction": 0.678, "L": 0},
+    {"daughters": [3322, -211], "fraction": 0.236, "L": 0},
+    {"daughters": [3312, 111], "fraction": 0.086, "L": 0}]}
+ ]
+}

@@ -51,6 +51,9 @@ _NONSTRANGE_BARYONS = frozenset({
 _STRANGE_BARYONS = frozenset({
     3122, 3222, 3212, 3112, 102134, 3224, 3214, 3114,
 })
+#: The multistrange baryons (pdg id -> (Q, S)), which the bundled database does not list (2026-11-04, the code
+#: reviews muse13f H1 and glm53f F14): the Xi and Xi(1530) doublets and the Omega-.
+_MULTISTRANGE_BARYONS = {3322: (0, -2), 3312: (-1, -2), 3324: (0, -2), 3314: (-1, -2), 3334: (-1, -3)}
 _POSITIVE_STRANGENESS_MESONS = frozenset({
     321, 311, 323, 313, 10323, 10313, 325, 315,
 })
@@ -66,6 +69,10 @@ def quantum_numbers(pdg_id: int) -> QuantumNumbers:
     """
     pid = int(pdg_id)
     apid = abs(pid)
+    if apid in _MULTISTRANGE_BARYONS:
+        sign = 1 if pid > 0 else -1
+        q, strangeness = _MULTISTRANGE_BARYONS[apid]
+        return QuantumNumbers(sign, sign * q, sign * strangeness)
     charge = get_charge(pid, default=float("nan"))
     if charge != charge and pid < 0 and apid in _NONSTRANGE_BARYONS | _STRANGE_BARYONS:
         # the bundled database lists some antibaryons only through their

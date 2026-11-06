@@ -176,6 +176,13 @@ _NORMALIZATION_GRID_POINTS = 10_001
 #: re-normalizes over the window internally, so the draw convention is
 #: independent of the support-normalization quadrature.
 _DRAW_GRID_POINTS = 1024
+#: A line narrower than this many uniform draw cells is drawn on the uniform grid joined with a dense grid of
+#: _NARROW_GRID_POINTS nodes over the pole +- _NARROW_GRID_WIDTHS widths (2026-11-04, the code review glm53f F6: the
+#: eta's 1.31 keV line sat inside one 0.54 MeV cell, so its draws averaged 264 keV below the pole on a near-uniform
+#: slab).  A resolved line keeps the uniform grid bit for bit.
+_NARROW_CELLS = 10.0
+_NARROW_GRID_POINTS = 1601
+_NARROW_GRID_WIDTHS = 20.0
 
 
 # ----------------------------------------------------------------------
@@ -447,6 +454,17 @@ def channel_width(
     L = int(channel.orbital_angular_momentum)
     q0 = decay_momentum(M0, mb, mc)
     if not q0 > 0.0:
+        if getattr(catalog, "closed_channel_reference", False):
+            # the channel closed at the pole and open above its threshold (2026-11-04, the code review grok47: the
+            # f0(980) K0 Kbar0 and the a0(980) K Kbar never opened): the law normalized at the reference mass half a
+            # width above the larger of the pole and the threshold, the catalog fraction there
+            M_ref = max(M0, threshold) + 0.5 * float(record.nominal_width)
+            q_ref = decay_momentum(M_ref, mb, mc)
+            if q_ref > 0.0:
+                qm = decay_momentum(M, mb, mc)
+                gamma_c0 = float(channel.branching_fraction) * float(record.nominal_width)
+                return gamma_c0 * (qm / q_ref) ** (2 * L + 1) * (M_ref / M) * (
+                    float(barrier(L, qm)) / float(barrier(L, q_ref))) ** 2
         # Channel closed at the pole mass: outside the pole
         # normalization, zero partial width by convention.
         return 0.0
@@ -677,6 +695,10 @@ def _convolved_phase(M: float, conv, barrier: BarrierFactor) -> float:
     return float((w * _int_power_vec(q, 2 * L + 1) * _barrier_squared_vec(barrier, L, q)).sum())
 
 
+#: The nodes of a broad daughter's window that sits inside the first cells of its grid (the dead band, F5).
+_OPEN_BAND_NODES = 33
+
+
 def draw_broad_daughter_mass(
     parent_mass: float,
     other_mass: float,
@@ -703,6 +725,16 @@ def draw_broad_daughter_mass(
     ys = np.maximum(ys_rho * _int_power_vec(q, 2 * int(L) + 1) * _barrier_squared_vec(barrier, int(L), q), 0.0)
     cell = 0.5 * (ys[1:] + ys[:-1]) * np.diff(xs)
     total = float(cell.sum())
+    if not (math.isfinite(total) and total > 0.0) and xs.size < _OPEN_BAND_NODES:
+        # an open window inside the daughter grid's first cells (2026-11-04, the code review glm53f F5): the
+        # integrand vanishes at both ends (the daughter's threshold edge and q = 0 at the window's top), so the
+        # coarse table carried no mass although the channel is open; the window is resolved on its own nodes
+        xs = np.linspace(float(ms[0]), hi_w, _OPEN_BAND_NODES)
+        ys_rho = np.interp(xs, ms, rho)
+        q = _decay_momentum_vec(float(parent_mass), xs, float(other_mass))
+        ys = np.maximum(ys_rho * _int_power_vec(q, 2 * int(L) + 1) * _barrier_squared_vec(barrier, int(L), q), 0.0)
+        cell = 0.5 * (ys[1:] + ys[:-1]) * np.diff(xs)
+        total = float(cell.sum())
     if not (math.isfinite(total) and total > 0.0):
         return None
     cdf = np.cumsum(cell) / total
@@ -897,6 +929,13 @@ def _draw_entry(
     if not hi_c > lo_c:
         return None
     xs = np.linspace(lo_c, hi_c, _DRAW_GRID_POINTS)
+    width = float(record.nominal_width)
+    uniform_cell = (hi_c - lo_c) / (_DRAW_GRID_POINTS - 1)
+    narrow = width > 0.0 and width < _NARROW_CELLS * uniform_cell
+    if narrow:
+        pole = float(record.pole_mass)
+        dense = pole + width * np.linspace(-_NARROW_GRID_WIDTHS, _NARROW_GRID_WIDTHS, _NARROW_GRID_POINTS)
+        xs = np.unique(np.concatenate([xs, dense[(dense > lo_c) & (dense < hi_c)]]))
     ys = np.array(
         [
             spectral_function(float(x), record, daughter_masses, barrier, catalog)
@@ -911,6 +950,8 @@ def _draw_entry(
     # normalization cancels in the CDF.
     cell = 0.5 * (ys[1:] + ys[:-1]) * (xs[1:] - xs[:-1])
     cdf = np.cumsum(cell) / total
+    if narrow:
+        return (lo_c, hi_c, cdf, xs)
     cell_width = (hi_c - lo_c) / cdf.size
     return (lo_c, hi_c, cdf, cell_width)
 
@@ -953,5 +994,10 @@ def draw_mass(
     if idx >= cdf.size:
         idx = cdf.size - 1
     u_within = rng.random()
-    mass = lo_c + (idx + u_within) * cell_width
+    if isinstance(cell_width, np.ndarray):
+        # the narrow line's nonuniform grid: the position inside the chosen cell
+        xs = cell_width
+        mass = xs[idx] + u_within * (xs[idx + 1] - xs[idx])
+    else:
+        mass = lo_c + (idx + u_within) * cell_width
     return float(min(max(mass, lo_c), hi_c))

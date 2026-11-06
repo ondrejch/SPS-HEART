@@ -2,35 +2,61 @@
 
 ![HEART model logo](assets/logo/heart_logo.png)
 
-Private snapshot of the files that reproduce the HEART paper.
-Assembled by `helpers/publishing/sync_sps_heart.py` from the
-development checkout. Re-run that script to refresh this tree.
+HEART (Hadronic Excitations And Resonance Transitions) is an event generator for soft identified-hadron production
+in p+p collisions at 158 GeV/c beam momentum (√s = 17.3 GeV). An inelastic event is the decay of two excited hadronic
+systems, produced by Pomeron and pion exchange. Each system is either a catalogued resonance or a member of a resonant
+continuum, and it decays by successive two-body hadronic transitions into the established hadrons of the PDG tables.
+Fourteen parameters are fitted to the NA49 double-differential invariant cross sections of π±, K±, p, and p̄.
 
-Layout matches the development checkout:
+This repository holds the generator, the fit that produced the published model, the NA49 and SPS tables the fit
+uses, and the result record of the fit. Everything needed to generate events at the published point, and to repeat
+the fit, is here.
 
-- `dev/mixing2006/`: the generator (`na49_mixing`) and its tests
-- `helpers/benchmarking/`: the fit driver
-- `helpers/na49_gateway/`: the cluster client, example config only
-- `dev/mixing2006/spshadrons.web.cern.ch/`: the SPS tables
-- `dev/mixing2006/config/runs/r137.json`: the paper fit description
-- `dev/00runs/`: the report and probe files the table scripts read
-- `dev/00runs/paper_record_r137/RECORD.json`: the result record of the fitted model,
-  with the run identity, the code commits, the fitted parameters and errors, the
-  objective by segment (checked to add to the total), the profiled scales, the
-  tests, the variants, the readouts, and the hashes of every file the papers quote
+## Papers
 
-Manuscripts are not in this tree. They stay in their own repositories.
-Earlier run descriptions, later trials, and `staged_r<number>` drivers are not copied.
-A rerun uses `r137.json`. It does not need the previous `r<number>.json` files.
+- *HEART: a resonance-cascade model of soft hadron production in p+p collisions at 158 GeV/c.* arXiv: TBD.
+- *The two-component picture of soft hadron production in the fragmentation region: Regge exchange, duality, and
+  resonance cascades.* arXiv: TBD.
 
-Some tests pin assertions to the earlier run descriptions. Those files
-are not copied, so those tests fail to collect or fail here. The fit
-driver, the paper fit description, and the paper result files are complete.
+The first paper defines the model and its fit. The second gives the historical picture the model realizes.
 
-Paper result files copied: 20.
-Event samples and generator chunk files are not in this snapshot.
-Regenerating the generator comparison needs those samples from the
-development checkout.
+## Quick start
 
-Not copied: `.legacy/`, cluster `config.na49_project.json`,
-virtualenvs, and git history of the source trees.
+```bash
+git clone https://github.com/ondrejch/SPS-HEART.git && cd SPS-HEART
+python -m pip install -e dev/mixing2006
+python helpers/benchmarking/heart_events.py \
+    --spec dev/mixing2006/config/runs/r141.json \
+    --report dev/00runs/r141_aligned_lines_2026-11-05/report.json \
+    --events 1000 --workers 4 --out heart_events.jsonl
+```
+
+The first call builds the decay kernel, which takes one to two minutes. Afterwards one core generates about six
+events per second. The output is one JSON line per event with every final-state hadron's four-momentum
+([event format](docs/event-format.md)).
+
+## Documentation
+
+| Document | Contents |
+|---|---|
+| [docs/getting-started.md](docs/getting-started.md) | installation, tests, generating events, a first analysis |
+| [docs/model.md](docs/model.md) | the model layer by layer, with the code module of each layer |
+| [docs/event-format.md](docs/event-format.md) | the `heart-events/1` JSON Lines format, frames, units, conventions |
+| [docs/inputs.md](docs/inputs.md) | the run description, kernel options, configuration files, data tables |
+| [docs/fit.md](docs/fit.md) | repeating the fit, its outputs, and the result record |
+| [docs/future-development.md](docs/future-development.md) | open directions for anyone who wants to extend the model |
+| [docs/snapshot.md](docs/snapshot.md) | what this snapshot contains and what it leaves out |
+
+## Layout
+
+- `dev/mixing2006/`: the generator package `na49_mixing`, its configuration (`config/`, with the run descriptions of
+  the project's fits under `config/runs/`; `r141.json` is the paper's), and its tests
+- `dev/mixing2006/spshadrons.web.cern.ch/`: the NA49 and SPS data tables
+- `helpers/benchmarking/`: the fit driver (`run_engine.py`), the event writer (`heart_events.py`), and their tests
+- `helpers/na49_gateway/`: the client for running the fit on a cluster, with an example configuration
+- `dev/00runs/`: the fit's report and the readout files the papers quote, and the result record
+  `paper_record_r141/RECORD.json`
+
+## License
+
+GNU General Public License, version 2 (`LICENSE`).

@@ -191,7 +191,9 @@ TOPOLOGY_KEYS = ("exact_transfer_range", "line_thresholds", "central_recoil", "l
                  # 2026-10-18: the duality picks with the records' own line shapes (na49_mixing.nd_duality)
                  "duality_line_shapes",
                  # 2026-10-20: the redraw below the shape mass on the same line shapes
-                 "duality_redraw_shapes")
+                 "duality_redraw_shapes",
+                 # 2026-11-04: the symmetric non-diffractive remnant pair (the code review of that date, M6)
+                 "nd_symmetric_remnants")
 #: the numeric generator options of the "topology" block (2026-10-08): the
 #: exponent of the factorized vertex slopes (needs exact_transfer_range);
 #: the duality and shape masses of the low-mass non-diffractive lines
@@ -223,6 +225,9 @@ SQRT_S = OB.SQRT_S
 SQRT_S_CM = OB.SQRT_S_CM
 #: the bin-center correction of the model bins (spec fit.bin_center_correction)
 BIN_CENTER = False
+#: the decays the NA49 tables count, performed in the observables (spec fit.counted_decays, 2026-11-04;
+#: na49_mixing.counted_decays): the Sigma0, Xi and Omega- of the final state decay before the tracks are binned
+COUNTED_DECAYS = False
 ESS_FLOOR = 0.1
 ESS_INTERIOR = 0.3
 TRUST_PENALTY = 1.0e12
@@ -483,6 +488,7 @@ def configure(spec_path) -> dict:
             raise ValueError("run spec: the isovector exchange needs the kernel's Delta-like lines (delta_lines)")
     neutron = bool(fit.get("neutron_segment", False))
     bin_center = fit.get("bin_center_correction", False)
+    counted_decays = bool(fit.get("counted_decays", False))
     correlated = parse_correlated_errors(fit.get("correlated_errors"), neutron)
     if not isinstance(bin_center, bool):
         raise ValueError(f"run spec: fit.bin_center_correction must be a bool, got {bin_center!r}")
@@ -524,6 +530,11 @@ def configure(spec_path) -> dict:
         if not tail_free:
             raise ValueError("run spec: the one-pion exchange shares the tail's component draw and needs the free tail")
     split_free = tuple(n for n in SPLIT_RW.SPLIT_NAMES if n in by_name)
+    if split_free and spec["kernel"].get("meson_split_slope_strange") is not None:
+        # the split records reweight the meson branch with one slope b_M (na49_mixing.split_reweight); the kaon's own
+        # slope (2026-11-06) is generated, not reweighted, so a fit that frees b_M cannot carry it yet
+        raise ValueError("run spec: kernel.meson_split_slope_strange is not reweighted by the free split parameters; "
+                         "fix the split parameters or drop the option")
     if split_free:
         if split_free != SPLIT_RW.SPLIT_NAMES:
             raise ValueError(f"run spec: the split parameters are free together, {SPLIT_RW.SPLIT_NAMES}; got {split_free}")
@@ -571,7 +582,7 @@ def configure(spec_path) -> dict:
         TAIL_FREE=tail_free, SD_TAIL_LAW=tail_law, T_BREAK=t_break,
         OPE_FREE=ope_free, SD_OPE_LAW=ope_law, SD_TWO_SIDED=two_sided, SPLIT_FREE=split_free,
         LEDGER_SSBAR_SCALE=10 if kernel.eta_prime else 2,
-        BIN_CENTER=bin_center, FROZEN_REMNANT_WEIGHTS=split,
+        BIN_CENTER=bin_center, COUNTED_DECAYS=counted_decays, FROZEN_REMNANT_WEIGHTS=split,
         SD_WINDOW=None if window is None else float(window),
         SD_WINDOW_INTACT=(counts == "intact_protons"),
         NEUTRAL_OPE_WINDOW=(neutral_ope_window_fraction(ope_law, float(window)) if counts == "intact_protons" else 0.0),
@@ -610,6 +621,9 @@ CHARGED_FROM_WEAK = {310: 2 * 0.692, 311: 0.692, -311: 0.692, 3122: 2 * 0.639, -
                      3212: 2 * 0.639, -3212: 2 * 0.639}
 NEUTRON_TABLE_REL = "spshadrons.web.cern.ch/data/xsect_ptintegrated_neutron_pp.txt"
 NEUTRON_XF_EDGES = np.asarray([0.05, 0.15, 0.25, 0.35, 0.45, 0.55, 0.675, 0.825, 0.975])
+#: the tabulated x_F of the neutron points (the bin-center factors are taken there; the edge midpoint of the 0.60 bin
+#: is 0.6125, the code review grok47)
+NEUTRON_XF_CENTERS = np.asarray([0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.75, 0.90])
 SD_MX_EDGES = np.asarray([1.08, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0, 6.0, 8.0, 10.0, 13.0, 17.3])
 
 LEAD_XF_EDGES = np.linspace(-1.05, 1.05, 43)
@@ -766,8 +780,7 @@ def neutron_divisor(data: np.ndarray, sigma: np.ndarray) -> np.ndarray:
     widths = np.diff(NEUTRON_XF_EDGES)
     if not BIN_CENTER:
         return widths
-    centers = 0.5 * (NEUTRON_XF_EDGES[:-1] + NEUTRON_XF_EDGES[1:])
-    return widths / OB.bin_center_factors_1d(centers, data, NEUTRON_XF_EDGES, sigma)
+    return widths / OB.bin_center_factors_1d(NEUTRON_XF_CENTERS, data, NEUTRON_XF_EDGES, sigma)
 
 
 def load_fit_tables() -> dict:
@@ -858,6 +871,16 @@ def iv_config_index(event) -> int:
 
 def _line_qn(h) -> tuple[int, int, int]:
     return int(h.qn[0]), int(h.qn[1]), int(h.qn[2])
+
+
+def observed_final_state(event, catalog):
+    """The final state the observables bin: the event's, with the decays the
+    NA49 tables count performed under COUNTED_DECAYS (the event itself keeps
+    its exact (B, Q, S); ``na49_mixing.counted_decays``)."""
+    if not COUNTED_DECAYS:
+        return event.final_state
+    from na49_mixing.counted_decays import counted_final_state
+    return counted_final_state(event.final_state, catalog, NESTED_ROOT)
 
 
 def event_conservation(event) -> tuple[float, float]:
@@ -959,8 +982,9 @@ def _generate_range(cls: str, seed: int, n_events: int, partition_base: int, sha
         lead_xf = OB.leading_proton_xf(event.final_state, beta, gamma, SQRT_S_CM)
         lead[j] = np.nan if lead_xf is None else lead_xf
         gap[j] = np.nan if obs.gap_size is None else float(obs.gap_size)
-        n_ch[j] = OB.charged_multiplicity(event.final_state)
-        for h in event.final_state:
+        finals = observed_final_state(event, catalog)
+        n_ch[j] = OB.charged_multiplicity(finals)
+        for h in finals:
             if h.pdg_id is None:
                 continue
             if int(h.pdg_id) == 111:
@@ -970,7 +994,7 @@ def _generate_range(cls: str, seed: int, n_events: int, partition_base: int, sha
                 neu_event.append(i); neu_xf.append(2.0 * pz_cm / SQRT_S_CM)
         if cls in ND_CLASSES:
             rem_kind[j] = [REMNANT_KINDS.index(r.kind) for r in event.remnants]
-        tracks = OB.track_arrays(event.final_state, species_pdg, beta, gamma, SQRT_S_CM)
+        tracks = OB.track_arrays(finals, species_pdg, beta, gamma, SQRT_S_CM)
         line = [cls, str(i), str(int(n_ch[j])), float(lead[j]).hex(), float(gap[j]).hex(), f"{int(rem_kind[j][0])}/{int(rem_kind[j][1])}"]
         if ISOVECTOR_GEN is not None:
             iv_config[j] = iv_config_index(event)
@@ -1037,6 +1061,10 @@ def _generate_range_job(*args) -> dict:
     return _generate_range(*args)
 
 
+#: the arrays a slot carries once, not per event (merged from the first chunk in generate_slot)
+SLOT_CONSTANT_ARRAYS = ("led_ssbar_scale",)
+
+
 def generate_slot(cls: str, seed: int, n_events: int, partition_base: int, shape_point, floor: float,
                   flavor_point=None, chunks: int = 1) -> dict:
     """Generate one slot, its events split into *chunks* contiguous ranges
@@ -1050,7 +1078,13 @@ def generate_slot(cls: str, seed: int, n_events: int, partition_base: int, shape
              tuple(float(v) for v in flavor_point), a, b) for a, b in bounds]
     parts = RC.run_replicas(_generate_range_job, jobs, max_workers=len(jobs)) if len(jobs) > 1 else [_generate_range(*jobs[0])]
     first = parts[0]
-    arrays = {key: np.concatenate([p["arrays"][key] for p in parts], axis=0) for key in first["arrays"]}
+    # the per-slot constants (2026-11-05: led_ssbar_scale, one entry per slot) are taken once; concatenated per
+    # chunk they made the arrays depend on the split, and the clean validation's probe slot failed from R98 on
+    arrays = {key: (np.asarray(first["arrays"][key]) if key in SLOT_CONSTANT_ARRAYS
+                    else np.concatenate([p["arrays"][key] for p in parts], axis=0)) for key in first["arrays"]}
+    for key in SLOT_CONSTANT_ARRAYS:
+        if key in first["arrays"] and any(not np.array_equal(p["arrays"][key], first["arrays"][key]) for p in parts):
+            raise RuntimeError(f"generate_slot: the per-slot array {key} differs between chunks")
     offsets = np.cumsum([0] + [int(p["informative_vertices"]) for p in parts[:-1]])
     arrays["led_gvertex"] = np.concatenate([p["arrays"]["led_gvertex"] + np.int32(o) for p, o in zip(parts, offsets)]).astype(np.int32)
     return {**{key: first[key] for key in ("cls", "seed", "n_events", "partition_base", "epsilon", "b_sd", "epsilon_nd",
@@ -1333,11 +1367,12 @@ class Templates:
         # read-only, the same floats as a recomputation)
         memo = self.__dict__.setdefault("_flavor_memo", {})
         hit = memo.get(id(block))
-        if hit is not None and hit[0] == point:
+        # the block kept beside the value and checked by identity (the code review glm53f F9)
+        if hit is not None and hit[2] is block and hit[0] == point:
             return hit[1]
         value = Templates._flavor_log_weights(self, block, led, point)
         value.setflags(write=False)
-        memo[id(block)] = (point, value)
+        memo[id(block)] = (point, value, block)
         return value
 
     def _flavor_log_weights(self, block: dict, led: dict, point: tuple) -> np.ndarray:
@@ -1441,12 +1476,12 @@ class Templates:
         memo = self.__dict__.setdefault("_mass_law_memo", {})
         key = (tag, cls, id(block))
         hit = memo.get(key)
-        if hit is not None and hit[0] == args:
+        if hit is not None and hit[2] is block and hit[0] == args:
             return hit[1]
         value = log_density_ratio(law, block["shape"], eps_c, b, eps0=eps0_c, b_sd0=b0, sqrt_s=SQRT_S, exact_range=exact,
                                   **central, **intact, **xi)
         value.setflags(write=False)
-        memo[key] = (args, value)
+        memo[key] = (args, value, block)
         return value
 
     @staticmethod
@@ -3093,8 +3128,11 @@ def step_evaluate(run_dir: Path | None, floor_indices: list[int] | None) -> None
         if contract.path(REGENERATION_FMT.format(f=f)).is_file():
             contract.path(REGENERATION_FMT.format(f=f)).unlink()
         test = report["central_component_test"]
+        # the central component absent by construction carries no threshold (2026-11-05: the format raised after the
+        # branch report was written, and every such evaluation job ended FAILED)
+        against = f"against {test['threshold']:.1f}" if test.get("threshold") is not None else "(no central component)"
         print(f"[{RUN_ID}] final at generation {g}: f_central {test['f_central_hat']:.4f}, Delta chi2 {test['delta_chi2']:.1f} "
-              f"against {test['threshold']:.1f}", flush=True)
+              f"{against}", flush=True)
 
 
 def _load_branches(contract: RC.RunContract) -> list[dict]:
@@ -3280,6 +3318,15 @@ def step_clean_validate(run_dir: Path | None) -> None:
     print(f"[{RUN_ID}] clean validation: branch match True, report match True, probe match True", flush=True)
 
 
+def clean_validation_failures(clean: dict) -> list[str]:
+    """The clean-validation verdicts that do not hold: the report digest, the chosen branch's digest and the probe
+    slot's arrays must all reproduce (a verdict missing from the record counts as failed)."""
+    verdicts = {"report_hash_match": clean.get("report_hash_match"),
+                "branch_digest_match": (clean.get("chosen_branch") or {}).get("branch_digest_match"),
+                "probe_arrays_match": (clean.get("probe_slot") or {}).get("arrays_match")}
+    return [k for k, v in verdicts.items() if v is not True]
+
+
 def step_seal(run_dir: Path | None) -> None:
     contract = _contract(run_dir)
     required = [GATE_RECORD_NAME]
@@ -3288,6 +3335,11 @@ def step_seal(run_dir: Path | None) -> None:
         for g in range(_latest_complete(contract, f) + 1):
             for s in ACTIVE_SLOTS:
                 required.extend(slot_names(f, g, s))
+    # the clean validation's verdicts (2026-11-05): the record's presence was the only check, so R98-R139 sealed with
+    # a failed probe-slot reproduction; every verdict must hold
+    failed = clean_validation_failures(RC.read_json(contract.path(RC.CLEAN_ENV_NAME)))
+    if failed:
+        contract.refuse(f"the clean validation failed {failed}; the run is not sealed")
     contract.seal(required, "slot_")
 
 

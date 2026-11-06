@@ -299,9 +299,16 @@ def _draw_kind(weights: Mapping[str, float], u: float
             return kind, lower, cumulative
         if index == len(kinds) - 1:
             # the u -> 1 float dust falls to the last kind with a
-            # nonempty interval (a zero-weight tail interval is skipped
-            # by the scan above)
-            return kind, lower, max(cumulative, math.nextafter(1.0, 0.0))
+            # nonempty interval: walk back past zero-weight kinds that
+            # sort last (2026-11-04, the code review qwen38fn L20: the
+            # dust returned the last kind in sort order even at weight 0)
+            last = index
+            while last > 0 and not weights[kinds[last]] > 0.0:
+                last -= 1
+            if last == index:
+                return kind, lower, max(cumulative, math.nextafter(1.0, 0.0))
+            top = math.fsum(weights[k] for k in kinds[:last + 1])
+            return kinds[last], top - weights[kinds[last]], max(top, math.nextafter(1.0, 0.0))
     raise ValueError(
         "select_remnant: the weights mapping carries no kinds to draw "
         "over (the sum validation would already have rejected an empty "

@@ -1475,5 +1475,10 @@ def mirror_sd(event: SDEvent) -> SDEvent:
         final_state=final_state,
         gap_size=float(event.gap_size),
         exchange_configuration=event.exchange_configuration,
+        # the fields the reweighting and the observables read (the code review glm53f F7: the mirror dropped them)
+        excitation_m_min=event.excitation_m_min,
+        slope_factor=event.slope_factor,
         tail=event.tail,
+        ope=event.ope,
+        pomeron=event.pomeron,
     )

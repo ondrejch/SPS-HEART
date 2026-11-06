@@ -1,0 +1,15 @@
+{
+ "label": "omega_baryon",
+ "source": "PDG 2025 summary tables (pdg.lbl.gov, the Omega- listing; S. Navas et al., Phys. Rev. D 110, 030001 (2024) and 2025 update)",
+ "accessed_on": "2026-11-04",
+ "rule": "The S = -3 ground state: the Omega- (J^P = 3/2+, I = 0) at its listed mass, stable here (its decays Lambda K-, Xi0 pi- and Xi- pi0 are weak, as the Xi's are), with the classes (Omega-, K+) and (Omega-, K0) at the S = -2 excited baryonic continuum of charge 0 and -1 and their conjugates. The excited Omega states list no branching fractions and stay out.",
+ "records": [
+  {"name": "Omega-", "pdg_id": 3334, "spin": 1.5, "parity": "+", "pole_mass": 1.67245, "nominal_width": 0.0, "stable": true}
+ ],
+ "classes": {
+  "baryonic_xi_q0": ["(3334,321)"],
+  "baryonic_xi_qm1": ["(3334,311)"],
+  "anti_baryonic_xi_q0": ["(-3334,-321)"],
+  "anti_baryonic_xi_qm1": ["(-3334,-311)"]
+ }
+}

@@ -43,16 +43,33 @@ def records_to_row(records: list) -> dict:
     return row
 
 
+#: Below this kappa the normalization kappa / (1 - exp(-2 kappa)) takes its series 1/2 (1 + kappa + kappa^2/3).
+_KAPPA_SMALL = 1.0e-6
+
+
 def _log_direction(kappa, c):
-    """log p_kappa(c) for kappa > 0 (elementwise)."""
+    """log p_kappa(c) for kappa >= 0 (elementwise), with p_kappa(c) =
+    kappa exp(kappa (c - 1)) / (1 - exp(-2 kappa)); at kappa -> 0 the uniform
+    density 1/2 (the code review of 2026-11-04, finding S1: the closed form
+    gave NaN at kappa = 0)."""
     kappa = np.asarray(kappa, dtype=float)
-    return np.log(kappa) + kappa * (np.asarray(c, dtype=float) - 1.0) - np.log1p(-np.exp(-2.0 * kappa))
+    c = np.asarray(c, dtype=float)
+    small = kappa < _KAPPA_SMALL
+    safe = np.where(small, 1.0, kappa)
+    # the committed closed form, in its committed order of operations (bit-identical above _KAPPA_SMALL)
+    closed = np.log(safe) + kappa * (c - 1.0) - np.log1p(-np.exp(-2.0 * safe))
+    series = -np.log(2.0) + np.log1p(kappa + kappa * kappa / 3.0) + kappa * (c - 1.0)
+    return np.where(small, series, closed)
 
 
 def split_log_ratio(shape: dict, trial, generation) -> np.ndarray:
     """The per-event log weight from the generation split point to the trial one, both (F_B, F_M, kappa_B, b_M)."""
     fb1, fm1, kb1, bm1 = (float(v) for v in trial)
     fb0, fm0, kb0, bm0 = (float(v) for v in generation)
+    for name, value in (("F_B", fb0), ("F_M", fm0), ("F_B", fb1), ("F_M", fm1)):
+        # the shares must be interior (the code review muse13f L6: 0 or 1 gave a division by zero or log(0))
+        if not 0.0 < float(value) < 1.0:
+            raise ValueError(f"split_log_ratio: the split share {name} = {value!r} must lie in (0, 1)")
     n = len(shape["split_br0"])
     out = np.zeros(n)
     for k in range(SPLIT_SLOTS):

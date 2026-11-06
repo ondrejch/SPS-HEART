@@ -177,8 +177,13 @@ _SHAPE_CDF_POINTS = 3001
 
 
 def _shape_cdf(r: DualityRecord):
-    key = (int(r.pdg_id), float(r.lo), float(r.hi), id(r.shape.keywords.get("catalog")) if hasattr(r.shape, "keywords") else 0)
+    # keyed on the catalog's id with the catalog kept beside the table and checked by identity, so a recycled
+    # address never returns a dead catalog's table (the code review of 2026-11-04, finding L2; as _I12_CACHE)
+    catalog = r.shape.keywords.get("catalog") if hasattr(r.shape, "keywords") else None
+    key = (int(r.pdg_id), float(r.lo), float(r.hi), id(catalog) if catalog is not None else 0)
     hit = _SHAPE_CDF_CACHE.get(key)
+    if hit is not None and hit[2] is not catalog:
+        hit = None
     if hit is None:
         n = _SHAPE_CDF_POINTS
         step = (float(r.hi) - float(r.lo)) / (n - 1)
@@ -187,8 +192,8 @@ def _shape_cdf(r: DualityRecord):
         cdf = [0.0]
         for k in range(1, n):
             cdf.append(cdf[-1] + 0.5 * (rho[k] + rho[k - 1]) * (grid[k] - grid[k - 1]))
-        hit = _SHAPE_CDF_CACHE[key] = (grid, cdf)
-    return hit
+        hit = _SHAPE_CDF_CACHE[key] = (grid, cdf, catalog)
+    return hit[0], hit[1]
 
 
 def _interp(x: float, xs, ys) -> float:

@@ -49,6 +49,9 @@ from .baryon_table_corrections import (baryon_pdg_widths_catalog, baryon_table_c
                                        load_baryon_table_corrections)
 from .xi_baryons import load_xi_baryons, xi_baryons_catalog, xi_baryons_families
 from .xi_tower import xi_tower_families
+from .omega_baryon import load_omega_baryon, omega_baryon_catalog, omega_baryon_families
+from .baryon_pair_completion import MEMBERS as PAIR_COMPLETION_MEMBERS, SCOPES as PAIR_COMPLETION_SCOPES, \
+    SHARES as PAIR_COMPLETION_SHARES, baryon_pair_completion_families
 from .meson_modes import load_meson_modes, meson_modes_catalog
 from .three_body_endings import THREE_BODY_SETS, three_body_families
 from .channel_partners import charged_scalar_pair_families, delta_isoscalar_pair_families, hyperon_meson_partner_families
@@ -76,8 +79,9 @@ _OPTION_FIELDS = ("continuation_floor", "continuation_ceiling", "continuation_ma
                   "continuation_sibling_weight", "continuation_daughters", "continuation_t_h_alpha",
                   "leading_split_fraction", "leading_split_kappa", "leading_split_slope", "leading_split_epsilon",
                   "continuation_q_min", "sibling_line_width", "meson_split_fraction", "meson_split_slope",
+                  "meson_split_slope_strange",
                   "string_step_mass", "string_step_slope", "string_step_epsilon", "leading_split_strange",
-                  "leading_split_regge")
+                  "leading_split_regge", "leading_split_axis")
 
 
 @dataclass(frozen=True)
@@ -147,6 +151,10 @@ class KernelConfig:
       mass law and the meson along the incoming baryon;
       ``meson_split_slope`` = b [GeV^-2] sets the branch's direction law
       kappa = 2 b q*^2 (``None``: the leading-baryon split's law);
+      ``meson_split_slope_strange`` = b_K [GeV^-2] sets it for the branch's
+      strange mesons alone, the kaon of p* -> K Y* (2026-11-06, the kaon's
+      momentum share at the strangeness-exchange vertex; ``None``: the
+      branch's one law);
     - ``leading_split_regge``: ``True`` draws the leading-baryon split's
       mesonic remainder from the Regge flux of the trajectory the leading
       baryon exchanges with the root, (mu^2)^(1 - 2 alpha(0)) in place of
@@ -390,6 +398,58 @@ class KernelConfig:
       the yields fixed, the protons +2,070 and +2,084); the
       same two kinematics uniforms.  ``False`` keeps the isotropic
       kinematics bit for bit.
+    - ``baryon_pair_completion``: the baryon-antibaryon pairs of the mesonic
+      continuum completed (2026-11-04; ``na49_mixing.baryon_pair_completion``):
+      at every mesonic family every octet or decuplet pair (X, Ybar) whose
+      (B, Q, S) sums to the family's, selected by the family's isospin
+      factor, at the flavor ledger's gamma_s and r_BBbar, the decuplet pairs
+      held at the octet pairs' share; "strange" adds the classes with a
+      strange member (Lambda Lambdabar, Xi Xibar, Lambda nbar,
+      Xi Lambdabar, ...), "strange_neutral" adds them at the neutral family
+      only, "charged_nucleon" them at the neutral family and the non-strange
+      pairs at the charged families (no strange family), "all" also the
+      non-strange pairs of the charged families.  Needs
+      the conjugate towers and the Xi baryons.  ``None`` keeps the committed
+      pairs bit for bit.  ``baryon_pair_completion_members``: "octet_decuplet"
+      (the default) or "octet" (the decuplet classes left out).
+      ``baryon_pair_share``: ``None`` (the weight law), "universal" (at the
+      completed families but the neutral one, the pairs that create no s-sbar
+      take the neutral family's committed pair share at the same mass) or
+      "line" (the universal share, offered at those families only on a
+      cluster a baryonic line emits directly).
+    - ``omega_baryon``: the Omega- (stable, the weak decays) at its PDG 2025
+      mass, with the (Omega-, K) classes at the S = -2 continuum and their
+      conjugates (2026-11-04; ``na49_mixing.omega_baryon``), the record before
+      the conjugate towers; the pair completion then also offers the Omega
+      pairs.  Needs the xi tower.  ``False`` keeps the kernel without it.
+    - ``baryon_line_kappa``: the aligned continuing baryonic steps (2026-11-05):
+      at a baryonic vertex that continues into a baryonic continuum daughter
+      beside an established hadron, the continuing daughter's angle to the
+      line's beam axis follows exp(kappa cos theta), so the line keeps its
+      baryon leading through the cascade and the emitted hadron recoils
+      toward the center; the continuation mass law is unchanged.  ``None``
+      keeps the isotropic decay bit for bit.  ``baryon_line_kappa_scope``
+      "nonstrange" aligns only the steps whose established hadron has S = 0
+      (the strangeness-transfer steps keep the isotropic decay).
+      ``baryon_line_kappa_axis`` "helicity" takes the angle about the
+      parent's own direction of motion in place of the line's beam axis.
+    - ``baryon_line_kappa_final``: the aligned final baryonic step (2026-11-05):
+      at a baryonic vertex that ends in an established baryon beside a
+      mesonic continuum daughter, the baryon's angle to the line's beam axis
+      follows exp(kappa cos theta) (the graded form of the rejected hard
+      hemisphere rule).  ``None`` keeps the isotropic decay bit for bit.
+    - ``baryon_line_kappa_kaon``: the kaon-led direct pair (2026-11-06): at a
+      baryonic continuum vertex that ends in an established hyperon beside an
+      established strange meson (K or K*), the meson's angle to the line's
+      beam axis follows exp(kappa cos theta) and the hyperon recoils (the
+      forward K+ deficit at x_F 0.40-0.55, flat in p_T).  ``None`` keeps the
+      isotropic decay bit for bit.
+    - ``baryon_line_kappa_strange``: the strangeness-transfer step reversed
+      (2026-11-05): at a continuing baryonic step whose established hadron
+      carries strangeness (a kaon beside a hyperon cluster), the hadron's
+      angle to the line's beam axis follows exp(kappa cos theta), so the kaon
+      leads and the hyperon cluster recoils.  ``None`` keeps the step as the
+      other options leave it.
     """
 
     continuation_floor: float | None = None
@@ -407,6 +467,7 @@ class KernelConfig:
     sibling_line_width: float | None = None
     meson_split_fraction: float | None = None
     meson_split_slope: float | None = None
+    meson_split_slope_strange: float | None = None
     string_step_mass: float | None = None
     string_step_slope: float | None = None
     string_step_epsilon: float | None = None
@@ -425,6 +486,10 @@ class KernelConfig:
     # kernel without it; ``True`` appends the (1, 0, -2) and (1, -1, -2) families and their conjugates, built on the
     # strange baryonic family, which the strange lines reach by continuation (``na49_mixing.xi_tower``)
     xi_tower: bool | None = None
+    # the axis of the leading splits (2026-11-04, the code review grok47): ``None`` keeps the committed beam axis of
+    # the c.m. frame read in the root's rest frame; "gottfried_jackson" takes the incoming baryon's direction in the
+    # root's rest frame (the Gottfried-Jackson axis of the side), which differs once the root carries a transfer
+    leading_split_axis: str | None = None
     isospin_completion: tuple = ()
     delta_lines: bool = False
     isovector_meson_pairs: bool = False
@@ -458,6 +523,17 @@ class KernelConfig:
     direct_baryon_pairs_in_gap: bool = False
     baryon_pair_s_wave: bool = False
     baryon_forward_hemisphere: bool = False
+    baryon_pair_completion: str | None = None
+    baryon_pair_completion_members: str = "octet_decuplet"
+    baryon_pair_share: str | None = None
+    omega_baryon: bool = False
+    closed_channel_reference: bool = False
+    baryon_line_kappa: float | None = None
+    baryon_line_kappa_scope: str = "all"
+    baryon_line_kappa_final: float | None = None
+    baryon_line_kappa_kaon: float | None = None
+    baryon_line_kappa_strange: float | None = None
+    baryon_line_kappa_axis: str = "beam"
 
     def __post_init__(self) -> None:
         floor, ceiling = self.continuation_floor, self.continuation_ceiling
@@ -585,6 +661,14 @@ class KernelConfig:
             object.__setattr__(self, "meson_split_fraction", float(meson))
             if meson_slope is not None:
                 object.__setattr__(self, "meson_split_slope", float(meson_slope))
+        kaon_slope = self.meson_split_slope_strange
+        if kaon_slope is not None:
+            if isinstance(kaon_slope, bool) or not isinstance(kaon_slope, (int, float)) or not (
+                    math.isfinite(float(kaon_slope)) and 0.0 <= float(kaon_slope) <= 100.0):
+                raise ValueError(f"KernelConfig: meson_split_slope_strange must be a number in [0, 100], got {kaon_slope!r}")
+            if meson is None:
+                raise ValueError("KernelConfig: meson_split_slope_strange needs meson_split_fraction")
+            object.__setattr__(self, "meson_split_slope_strange", float(kaon_slope))
         rule = self.continuation_daughters
         if rule is not None and rule not in CONTINUATION_DAUGHTER_RULES:
             raise ValueError(f"KernelConfig: continuation_daughters must be one of {CONTINUATION_DAUGHTER_RULES!r}, got {rule!r}")
@@ -647,6 +731,10 @@ class KernelConfig:
             raise ValueError("KernelConfig: pdg_nucleon_resonances needs isoscalar_dipion, light_scalar_mesons and eta_prime")
         if not isinstance(self.axial_isoscalars, bool):
             raise ValueError(f"KernelConfig: axial_isoscalars must be a bool, got {self.axial_isoscalars!r}")
+        if self.axial_isoscalars and not self.light_scalar_mesons:
+            # the f1(1285) modes name the a0(980) charge states (the code review glm53f F10: a bare KeyError before)
+            raise ValueError("KernelConfig: axial_isoscalars needs light_scalar_mesons (the f1(1285) modes name the "
+                             "a0(980) records)")
         if not isinstance(self.excited_kaons, bool):
             raise ValueError(f"KernelConfig: excited_kaons must be a bool, got {self.excited_kaons!r}")
         if not isinstance(self.dalitz_matrix_elements, bool):
@@ -661,12 +749,60 @@ class KernelConfig:
                              "Delta lines (its classes join their families)")
         if self.nstar_range_rule and not self.isoscalar_dipion:
             raise ValueError("KernelConfig: nstar_range_rule needs the isoscalar dipion (its N* tables)")
+        if self.leading_split_axis not in (None, "gottfried_jackson"):
+            raise ValueError(f"KernelConfig: leading_split_axis must be None or 'gottfried_jackson', "
+                             f"got {self.leading_split_axis!r}")
         tower = self.xi_tower
         if tower is not None and not isinstance(tower, bool):
             raise ValueError(f"KernelConfig: xi_tower must be a bool or None, got {tower!r}")
         if tower and not (self.xi_baryons and self.conjugate_towers):
             raise ValueError("KernelConfig: xi_tower needs xi_baryons and the conjugate towers (its classes name the Xi "
                              "baryons and the antihyperons)")
+        completion = self.baryon_pair_completion
+        if completion is not None and completion not in PAIR_COMPLETION_SCOPES:
+            raise ValueError(f"KernelConfig: baryon_pair_completion must be None or one of {PAIR_COMPLETION_SCOPES}, "
+                             f"got {completion!r}")
+        if self.baryon_pair_completion_members not in PAIR_COMPLETION_MEMBERS:
+            raise ValueError(f"KernelConfig: baryon_pair_completion_members must be one of {PAIR_COMPLETION_MEMBERS}, "
+                             f"got {self.baryon_pair_completion_members!r}")
+        if self.baryon_pair_share not in PAIR_COMPLETION_SHARES:
+            raise ValueError(f"KernelConfig: baryon_pair_share must be one of {PAIR_COMPLETION_SHARES}, "
+                             f"got {self.baryon_pair_share!r}")
+        if self.baryon_pair_share is not None and completion is None:
+            raise ValueError("KernelConfig: baryon_pair_share needs baryon_pair_completion")
+        if completion is not None and not (self.xi_baryons and self.conjugate_towers):
+            raise ValueError("KernelConfig: baryon_pair_completion needs xi_baryons and the conjugate towers (its classes "
+                             "name the Xi baryons and the antibaryons)")
+        if not isinstance(self.closed_channel_reference, bool):
+            raise ValueError(f"KernelConfig: closed_channel_reference must be a bool, got {self.closed_channel_reference!r}")
+        if self.baryon_line_kappa is not None and (isinstance(self.baryon_line_kappa, bool)
+                                                   or not isinstance(self.baryon_line_kappa, (int, float))
+                                                   or not (math.isfinite(float(self.baryon_line_kappa))
+                                                           and 0.0 < float(self.baryon_line_kappa) <= 50.0)):
+            raise ValueError(f"KernelConfig: baryon_line_kappa must be None or a number in (0, 50], got {self.baryon_line_kappa!r}")
+        if self.baryon_line_kappa_kaon is not None and (isinstance(self.baryon_line_kappa_kaon, bool)
+                                                        or not isinstance(self.baryon_line_kappa_kaon, (int, float))
+                                                        or not (math.isfinite(float(self.baryon_line_kappa_kaon))
+                                                                and 0.0 < float(self.baryon_line_kappa_kaon) <= 50.0)):
+            raise ValueError(f"KernelConfig: baryon_line_kappa_kaon must be None or a number in (0, 50], got {self.baryon_line_kappa_kaon!r}")
+        if self.baryon_line_kappa_final is not None and (isinstance(self.baryon_line_kappa_final, bool)
+                                                         or not isinstance(self.baryon_line_kappa_final, (int, float))
+                                                         or not (math.isfinite(float(self.baryon_line_kappa_final))
+                                                                 and 0.0 < float(self.baryon_line_kappa_final) <= 50.0)):
+            raise ValueError(f"KernelConfig: baryon_line_kappa_final must be None or a number in (0, 50], got {self.baryon_line_kappa_final!r}")
+        if self.baryon_line_kappa_strange is not None and (isinstance(self.baryon_line_kappa_strange, bool)
+                                                           or not isinstance(self.baryon_line_kappa_strange, (int, float))
+                                                           or not (math.isfinite(float(self.baryon_line_kappa_strange))
+                                                                   and 0.0 < float(self.baryon_line_kappa_strange) <= 50.0)):
+            raise ValueError(f"KernelConfig: baryon_line_kappa_strange must be None or a number in (0, 50], got {self.baryon_line_kappa_strange!r}")
+        if self.baryon_line_kappa_axis not in ("beam", "helicity"):
+            raise ValueError(f"KernelConfig: baryon_line_kappa_axis must be 'beam' or 'helicity', got {self.baryon_line_kappa_axis!r}")
+        if self.baryon_line_kappa_scope not in ("all", "nonstrange"):
+            raise ValueError(f"KernelConfig: baryon_line_kappa_scope must be 'all' or 'nonstrange', got {self.baryon_line_kappa_scope!r}")
+        if not isinstance(self.omega_baryon, bool):
+            raise ValueError(f"KernelConfig: omega_baryon must be a bool, got {self.omega_baryon!r}")
+        if self.omega_baryon and not self.xi_tower:
+            raise ValueError("KernelConfig: omega_baryon needs the xi tower (its classes join the S = -2 continuum)")
         if self.xi_baryons and "strange_baryonic" not in self.isospin_completion:
             raise ValueError("KernelConfig: xi_baryons needs the strange baryonic isospin completion (its classes join "
                              "the charged strange baryonic families)")
@@ -696,7 +832,15 @@ class KernelConfig:
                 "resonance_pair_line_shapes": self.resonance_pair_line_shapes,
                 "direct_baryon_pairs_in_gap": self.direct_baryon_pairs_in_gap,
                 "baryon_pair_s_wave": self.baryon_pair_s_wave,
-                "baryon_forward_hemisphere": self.baryon_forward_hemisphere}
+                "baryon_forward_hemisphere": self.baryon_forward_hemisphere,
+                "baryon_pair_completion": self.baryon_pair_completion,
+                "baryon_pair_completion_members": self.baryon_pair_completion_members,
+                "baryon_pair_share": self.baryon_pair_share, "omega_baryon": self.omega_baryon,
+                "closed_channel_reference": self.closed_channel_reference, "baryon_line_kappa": self.baryon_line_kappa,
+                "baryon_line_kappa_scope": self.baryon_line_kappa_scope, "baryon_line_kappa_final": self.baryon_line_kappa_final,
+                "baryon_line_kappa_kaon": self.baryon_line_kappa_kaon,
+                "baryon_line_kappa_strange": self.baryon_line_kappa_strange,
+                "baryon_line_kappa_axis": self.baryon_line_kappa_axis}
 
 
 LEGACY = KernelConfig()
@@ -778,6 +922,9 @@ def load_kernel(config: KernelConfig, nested_root) -> tuple[HadronCatalog, list[
         # the S = -2 baryons (2026-10-16): their records and classes before the conjugate towers
         catalog = xi_baryons_catalog(catalog, load_xi_baryons(root))
         fams = xi_baryons_families(fams)
+    if config.omega_baryon:
+        # the S = -3 baryon (2026-11-04): its record before the conjugate towers, which build the anti-Omega+
+        catalog = omega_baryon_catalog(catalog, load_omega_baryon(root))
     if config.pdg_nucleon_resonances:
         # the PDG N and Delta resonances up to the floor (2026-10-21): their records and (N*, pi) classes before
         # the floor pools and the conjugate towers, which conjugate both
@@ -839,6 +986,33 @@ def load_kernel(config: KernelConfig, nested_root) -> tuple[HadronCatalog, list[
         # the S = -2 excited baryonic continuum (2026-10-30): its families at the end of the load, built on the strange
         # baryonic family as the probe hook PROBE_XI_TOWER built them
         fams = xi_tower_families(catalog, fams)
+    if config.omega_baryon:
+        # the (Omega-, K) classes of the S = -2 continuum and their conjugates (2026-11-04)
+        fams = omega_baryon_families(fams, load_omega_baryon(root))
+    if config.baryon_pair_completion is not None:
+        # the baryon-pair completion of the mesonic continuum (2026-11-04): every mesonic family's octet and decuplet
+        # pairs by (B, Q, S), after the Xi tower so every pair's continuation families are loaded
+        fams = baryon_pair_completion_families(fams, catalog, config.baryon_pair_completion,
+                                               config.baryon_pair_completion_members, config.baryon_pair_share)
+    if config.closed_channel_reference:
+        # the channels closed at the pole and open above threshold (2026-11-04): a run attribute of the catalog, set
+        # last so no rebuild drops it
+        catalog = catalog.with_closed_channel_reference(True)
+    if config.baryon_line_kappa is not None:
+        # the aligned continuing baryonic steps (2026-11-05): every family carries the strength, the cascade reads it at
+        # a baryonic vertex that continues into a baryonic continuum daughter beside an established hadron
+        fams = [dataclasses.replace(f, baryon_line_kappa=float(config.baryon_line_kappa),
+                                    baryon_line_kappa_scope=config.baryon_line_kappa_scope,
+                                    baryon_line_kappa_axis=config.baryon_line_kappa_axis) for f in fams]
+    if config.baryon_line_kappa_strange is not None:
+        # the strangeness-transfer step reversed (2026-11-05): the emitted strange hadron along the line
+        fams = [dataclasses.replace(f, baryon_line_kappa_strange=float(config.baryon_line_kappa_strange)) for f in fams]
+    if config.baryon_line_kappa_kaon is not None:
+        # the kaon-led direct pair (2026-11-06): the strange meson beside an established hyperon along the line
+        fams = [dataclasses.replace(f, baryon_line_kappa_kaon=float(config.baryon_line_kappa_kaon)) for f in fams]
+    if config.baryon_line_kappa_final is not None:
+        # the aligned final baryonic step (2026-11-05): the established baryon of a line's last step along the line
+        fams = [dataclasses.replace(f, baryon_line_kappa_final=float(config.baryon_line_kappa_final)) for f in fams]
     mechanism_flags = {"resonance_pair_line_shapes": config.resonance_pair_line_shapes,
                        "direct_baryon_pairs_in_gap": config.direct_baryon_pairs_in_gap,
                        "baryon_pair_s_wave": config.baryon_pair_s_wave,

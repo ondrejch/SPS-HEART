@@ -343,6 +343,9 @@ def clebsch_gordan_squared(
         return 0.0
     if not (abs(a - b) <= c <= a + b) or (a + b + c) % 2:
         return 0.0
+    if (a - aa) % 2 or (b - bb) % 2 or (c - cc) % 2:
+        # an impossible projection (2 I3 of the wrong parity for its 2 I; the code review glm53f F15)
+        return 0.0
 
     def fac2(n: int) -> int:
         # factorial of the half-integer argument n/2 (n is even here)

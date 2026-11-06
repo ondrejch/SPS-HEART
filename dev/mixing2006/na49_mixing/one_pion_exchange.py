@@ -58,7 +58,10 @@ one ``xi m_p F(t) / (q^2 + mu^2)`` and the flip one ``q F(t) / (q^2 + mu^2)``
 with ``q`` the leading nucleon's transverse momentum and
 ``mu^2 = xi^2 m_p^2 + (1 - xi) m_pi^2``, are transformed to ``b`` (Bessel
 ``J_0`` and ``J_1``), screened and transformed back; their squares sum to
-``(-t) F^2 / (t - m_pi^2)^2`` with ``t = -(q^2 + xi^2 m_p^2) / (1 - xi)``.
+``(-t) F^2 / ((1 - xi) (t - m_pi^2)^2)`` with ``t = -(q^2 + xi^2 m_p^2) / (1 - xi)``
+(the factor ``1 - xi`` cancels in the survival ratio, and the sampled flux is
+the specification's ``(-t) / (t - m_pi^2)^2``; the code review grok47 corrected
+this sentence).
 The survival factor ``S^2(xi, q) = |A_abs|^2 / |A|^2`` multiplies the flux
 (:func:`ope_log_absorption`).  The pion's range ``1 / mu`` shrinks with
 ``xi``, so the heavy systems are absorbed more: averaged over ``t``, ``S^2``

@@ -12,6 +12,10 @@ Covers:
 import math
 
 import numpy as np
+
+#: numpy 2 renamed trapz to trapezoid (the code reviews of 2026-11-04)
+_trapezoid = getattr(np, "trapezoid", None) or np.trapz
+
 import pytest
 
 from na49_mixing.decays import build_soft_resonance_decays, build_omega_decays
@@ -398,8 +402,8 @@ class TestTwoBodyPhaseSpaceWeighting:
         q = np.array(
             [Event._two_body_pstar(m0, x, mpi0) for x in xs]
         )
-        raw_mean = np.trapz(xs * ys, xs) / np.trapz(ys, xs)
-        weighted_mean = np.trapz(xs * ys * q, xs) / np.trapz(ys * q, xs)
+        raw_mean = _trapezoid(xs * ys, xs) / _trapezoid(ys, xs)
+        weighted_mean = _trapezoid(xs * ys * q, xs) / _trapezoid(ys * q, xs)
         assert weighted_mean < raw_mean - 0.005, (
             "phase-space weighting must shift the sampled line shape down"
         )

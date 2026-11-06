@@ -14,6 +14,10 @@ import math
 from pathlib import Path
 
 import numpy as np
+
+#: numpy 2 renamed trapz to trapezoid (the code reviews of 2026-11-04)
+_trapezoid = getattr(np, "trapezoid", None) or np.trapz
+
 import pytest
 
 from na49_mixing import cascade_decay as C
@@ -53,7 +57,7 @@ def _independent_weight(fam, M, m_other, floor, edge):
     barrier = np.array([BLATT_WEISSKOPF_BARRIER(L, x) ** 2 for x in q]) if L else 1.0
     integrand = np.exp((m - ceiling) / t_h) * q ** (2 * L + 1) * barrier
     norm = t_h * (1.0 - math.exp((floor - ceiling) / t_h))
-    return float(np.trapz(integrand, m)) / norm
+    return float(_trapezoid(integrand, m)) / norm
 
 
 def test_the_density_weight(kernels):

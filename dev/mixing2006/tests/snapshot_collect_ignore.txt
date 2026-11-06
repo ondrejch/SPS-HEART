@@ -1,0 +1,2 @@
+# Test modules whose inputs this snapshot leaves out; written by helpers/publishing/sync_sps_heart.py,
+# read by the nested conftest.py.

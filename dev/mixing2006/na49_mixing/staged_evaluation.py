@@ -1,3 +1,6 @@
+# Partly legacy (marked 2026-11-04): the HEART p+p fits use only BinnedFitTable here (through
+# helpers/benchmarking/run_observables.py); the staged objectives and the p+A drivers are legacy, and code reviews
+# of the p+p model can skip them. The cleanup and refactor after the p+A run splits the module.
 """Staged evaluation runner: simple p+p -> Regge fit -> p+A transfer.
 
 The stage boundary is deliberate:

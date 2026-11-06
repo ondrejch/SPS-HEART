@@ -416,6 +416,8 @@ class ContinuumFamily:
     # b = meson_split_slope).
     meson_split_fraction: float | None = None
     meson_split_slope: float | None = None
+    # the strange mesons' own slope on that branch (2026-11-06, KernelConfig.meson_split_slope_strange)
+    meson_split_slope_strange: float | None = None
     # the string-like continuation step of a heavy vertex of this family
     # (2026-10-27; a run option of na49_mixing.kernel_config, never set by the
     # committed config): ``None`` is the committed cascade bit for bit; a mass
@@ -520,6 +522,45 @@ class ContinuumFamily:
     # mesonic cluster recoils backward.  ``False`` keeps the isotropic
     # two-body kinematics bit for bit.
     baryon_forward_hemisphere: bool = False
+    # the baryon-pair completion of the mesonic continuum (2026-11-04; a run
+    # option of na49_mixing.kernel_config [KernelConfig.baryon_pair_completion],
+    # never set by the committed config): the scope ("strange" or "all") at a
+    # completed mesonic family, whose baryon-pair continuation channels each
+    # take half their weight; the completion's octet-octet classes, offered
+    # with the weight law after the resonance pairs and outside their share
+    # hold; and its classes with a decuplet member, held at the octet
+    # classes' share (na49_mixing.baryon_pair_completion).  ``None`` and
+    # empty keep the committed vertex bit for bit.
+    baryon_pair_completion: str | None = None
+    completion_pair_classes: tuple[str, ...] = ()
+    completion_resonance_classes: tuple[str, ...] = ()
+    # the universal baryon-pair share (2026-11-04; KernelConfig.baryon_pair_share): the family whose committed pair
+    # share at the same mass the completion's pairs that create no s-sbar take here.  ``None`` keeps the weight law.
+    pair_share_reference: str | None = None
+    # the line-emitted pair share (2026-11-04; KernelConfig.baryon_pair_share = "line"): the completion's classes are
+    # offered only at a state whose parent is baryonic (a cluster a baryonic line emits directly).  ``False`` offers
+    # them at every state of the family.
+    completion_line_only: bool = False
+    # the axis of the leading splits (2026-11-04; KernelConfig.leading_split_axis): None = the beam axis of the c.m.
+    # frame in the root's rest frame; "gottfried_jackson" = the incoming baryon's direction in the root's rest frame
+    leading_split_axis: str | None = None
+    # the aligned continuing baryonic steps (2026-11-05; KernelConfig.baryon_line_kappa): at a baryonic vertex that
+    # continues into a baryonic continuum daughter beside an established hadron, the continuing daughter's angle to
+    # the line's beam axis follows exp(kappa cos theta).  ``None`` keeps the isotropic decay bit for bit.
+    baryon_line_kappa: float | None = None
+    # "all" or "nonstrange" (the steps whose established hadron has S = 0)
+    baryon_line_kappa_scope: str = "all"
+    # "beam" or "helicity" (the parent's own direction of motion) for the aligned continuing steps
+    baryon_line_kappa_axis: str = "beam"
+    # the aligned final baryonic step (2026-11-05; KernelConfig.baryon_line_kappa_final): the established baryon of a
+    # line's last step (beside a mesonic continuum daughter) along the line's beam axis by exp(kappa cos theta)
+    baryon_line_kappa_final: float | None = None
+    # the kaon-led direct pair (2026-11-06; KernelConfig.baryon_line_kappa_kaon): the strange meson beside an
+    # established hyperon along the line's beam axis by exp(kappa cos theta), the hyperon recoiling
+    baryon_line_kappa_kaon: float | None = None
+    # the strangeness-transfer step reversed (2026-11-05; KernelConfig.baryon_line_kappa_strange): the emitted strange
+    # hadron of a continuing baryonic step along the line's beam axis by exp(kappa cos theta)
+    baryon_line_kappa_strange: float | None = None
 
 
 # ----------------------------------------------------------------------

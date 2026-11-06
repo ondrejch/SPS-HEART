@@ -1,0 +1,416 @@
+{
+ "schema": "na49_mixing.run_spec/1",
+ "description": "R107: the R106 contract with the baryon-pair creation step at L = 0 (KernelConfig.baryon_pair_s_wave: the continuation step of a mesonic state into a baryonic continuum and an antibaryon at the lowest wave a negative-parity cluster allows, the meson-emission steps at the P-wave barrier), generated at the R106 optimum",
+ "identity": {
+  "run_id": "r107_pair_s_wave_2026-10-22",
+  "card": "TASK-20261022-r107-pair-s-wave",
+  "schema": "na49_mixing.run_engine",
+  "ledger_run": "r107_pair_s_wave",
+  "gate_record": "gate8_pair_s_wave_r107.json"
+ },
+ "statistics": {
+  "replicas": 32,
+  "events_per_slot": 100000,
+  "max_generations": 4
+ },
+ "floor_grid": [
+  2.0
+ ],
+ "seeds": {
+  "master": 20261002,
+  "raw_first": 20340600,
+  "partition_base": 6050000000,
+  "smoke_seed": 20304446,
+  "smoke_partition": 3330000000
+ },
+ "kernel": {
+  "continuation_floor": 2.0,
+  "continuation_ceiling": 17.3,
+  "continuation_mass_law": "density",
+  "continuation_barrier_l": 1,
+  "isospin_completion": [
+   "baryonic",
+   "strange_baryonic",
+   "strange_mesonic"
+  ],
+  "delta_lines": true,
+  "three_body_phase_space": true,
+  "leading_split_fraction": 0.2,
+  "leading_split_kappa": 4.0,
+  "isoscalar_dipion": true,
+  "floor_pools": [
+   "charged",
+   "strange"
+  ],
+  "conjugate_towers": true,
+  "baryon_resonance_pairs": true,
+  "continuation_q_min": 0.25,
+  "non_diffractive_isospin_mixture": true,
+  "meson_split_fraction": 0.03,
+  "meson_split_slope": 4.0,
+  "light_scalar_mesons": true,
+  "nucleon_kstar_pairs": true,
+  "pdg_hyperons": true,
+  "eta_prime": true,
+  "delta_isoscalar_pairs": true,
+  "charged_scalar_pairs": true,
+  "sibling_line_width": 0.5,
+  "xi_baryons": true,
+  "pdg_meson_modes": true,
+  "nstar_range_rule": true,
+  "dalitz_matrix_elements": true,
+  "pdg_nucleon_resonances": true,
+  "axial_isoscalars": true,
+  "associated_kstar_pairs": true,
+  "baryon_table_corrections": true,
+  "baryon_pdg_widths": true,
+  "baryon_pair_s_wave": true
+ },
+ "parameters": [
+  {
+   "name": "epsilon",
+   "transform": "identity",
+   "bounds": [
+    -0.5,
+    5.0
+   ],
+   "free": true,
+   "gen0": 0.56230481368639,
+   "hessian_step": 0.01,
+   "starts": [
+    "gen0",
+    0.5,
+    2.0,
+    0.3,
+    3.0,
+    1.5,
+    0.8,
+    2.5
+   ],
+   "midpoint": "arithmetic",
+   "bound_check": true
+  },
+  {
+   "name": "b_sd",
+   "transform": "log",
+   "bounds": [
+    1.0,
+    20.0
+   ],
+   "free": true,
+   "gen0": 6.267847873778827,
+   "hessian_step": 0.1,
+   "hessian_box": [
+    1.0,
+    20.0
+   ],
+   "starts": [
+    "gen0",
+    3.0,
+    2.0,
+    5.0,
+    2.5,
+    4.0,
+    1.5,
+    6.0
+   ],
+   "midpoint": "arithmetic",
+   "bound_check": true
+  },
+  {
+   "name": "epsilon_nd",
+   "transform": "identity",
+   "bounds": [
+    -1.5,
+    1.5
+   ],
+   "free": true,
+   "gen0": 0.23388556566050764,
+   "hessian_step": 0.02,
+   "starts": [
+    "gen0",
+    0.15,
+    0.45,
+    0.0,
+    0.35,
+    0.25,
+    -0.2,
+    0.5
+   ],
+   "midpoint": "arithmetic",
+   "bound_check": true
+  },
+  {
+   "name": "w_excited",
+   "transform": "logit",
+   "bounds": [
+    -8.0,
+    8.0
+   ],
+   "free": false,
+   "gen0": 1.0,
+   "hessian_step": 0.02,
+   "starts": [
+    "gen0",
+    0.8,
+    0.95,
+    0.7,
+    0.9,
+    0.85,
+    0.6,
+    0.97
+   ],
+   "midpoint": "arithmetic",
+   "bound_check": false,
+   "value": 1.0
+  },
+  {
+   "name": "gamma_s_had",
+   "transform": "log",
+   "bounds": [
+    0.05,
+    20.0
+   ],
+   "free": true,
+   "gen0": 0.24790763290178489,
+   "hessian_step": 0.015,
+   "starts": [
+    "gen0",
+    0.8,
+    0.5,
+    1.0,
+    0.6,
+    0.7,
+    0.9,
+    0.55
+   ],
+   "midpoint": "geometric",
+   "bound_check": true
+  },
+  {
+   "name": "assoc_norm",
+   "transform": "log",
+   "bounds": [
+    0.05,
+    20.0
+   ],
+   "free": true,
+   "gen0": 1.5748271669492016,
+   "hessian_step": 0.008,
+   "starts": [
+    "gen0",
+    0.4,
+    0.2,
+    0.3,
+    0.5,
+    0.15,
+    0.25,
+    0.35
+   ],
+   "midpoint": "geometric",
+   "bound_check": true
+  },
+  {
+   "name": "r_bbar",
+   "transform": "log",
+   "bounds": [
+    0.05,
+    20.0
+   ],
+   "free": true,
+   "gen0": 2.3668300442920454,
+   "hessian_step": 0.04,
+   "starts": [
+    "gen0",
+    2.0,
+    1.2,
+    3.0,
+    1.0,
+    2.5,
+    1.6,
+    4.0
+   ],
+   "midpoint": "geometric",
+   "bound_check": true
+  },
+  {
+   "name": "r_v",
+   "transform": "log",
+   "bounds": [
+    0.05,
+    20.0
+   ],
+   "free": true,
+   "gen0": 0.9476190571204642,
+   "hessian_step": 0.04,
+   "starts": [
+    "gen0",
+    1.3,
+    0.8,
+    1.6,
+    1.1,
+    0.9,
+    1.4,
+    2.0
+   ],
+   "midpoint": "geometric",
+   "bound_check": true
+  },
+  {
+   "name": "f_isovector",
+   "transform": "identity",
+   "bounds": [
+    0.0,
+    1.0
+   ],
+   "free": true,
+   "gen0": 6.61069613518963e-05,
+   "hessian_step": 0.02,
+   "starts": [
+    "gen0",
+    0.3,
+    0.75,
+    0.45,
+    0.9,
+    0.15,
+    0.65,
+    0.95
+   ],
+   "midpoint": "arithmetic",
+   "bound_check": false
+  },
+  {
+   "name": "intact_vertex_factor",
+   "transform": "log",
+   "bounds": [
+    0.5,
+    3.0
+   ],
+   "free": true,
+   "gen0": 1.3470009304849562,
+   "hessian_step": 0.04,
+   "starts": [
+    "gen0",
+    1.0,
+    1.6,
+    1.15,
+    1.45,
+    2.0,
+    1.25,
+    1.8
+   ],
+   "midpoint": "geometric",
+   "bound_check": true
+  },
+  {
+   "name": "f_central",
+   "transform": "identity",
+   "bounds": [
+    0.0,
+    1.0
+   ],
+   "free": false,
+   "gen0": 0.0,
+   "starts": [
+    "gen0",
+    0.0,
+    1.0,
+    0.3,
+    0.8,
+    0.1,
+    0.5,
+    0.9
+   ],
+   "value": 0.0
+  }
+ ],
+ "fixed": {},
+ "generation_0": {
+  "run": "r106_baryon_tables_2026-10-21",
+  "branch_digest": "ac0da4db4355832c01c1fb8e678cac2318a620a7a3b8ae2d1ad3b326428e3fc5",
+  "fit": "free",
+  "from_fit": [
+   "epsilon",
+   "b_sd",
+   "epsilon_nd",
+   "gamma_s_had",
+   "r_bbar",
+   "assoc_norm",
+   "f_isovector",
+   "r_v",
+   "intact_vertex_factor"
+  ],
+  "extra": {
+   "w_low_mass": 0.0
+  }
+ },
+ "fit": {
+  "fc_scan": [
+   0.1,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "test_delta_chi2": 3.84,
+  "n_starts": 8,
+  "n_starts_null": 4,
+  "n_starts_variant": 4,
+  "maxfev": 8000,
+  "neutron_segment": true,
+  "bin_center_correction": true
+ },
+ "report_fixed": {
+  "diffractive_shapes": "free"
+ },
+ "readout_label": "r107_readout",
+ "texts": {
+  "parametrization_space": "epsilon, log B_SD, epsilon_nd, logit w_excited, log flavor weights (r_V among them), the log intact vertex factor, f_isovector",
+  "report_title": "R107: the R106 contract with the baryon-pair creation step at L = 0, at the R106 optimum",
+  "report_kernel_line": "the density-weighted continuation step above the 2.0 GeV floor with the P-wave barrier on the isospin-complete towers (baryonic, strange baryonic, strange mesonic) with the Delta-like lines, the sibling weight at the edge mass (the committed rule, control); the exact 2 -> 2 transfer window, the per-line thresholds, the flat three-body phase space; the model bins converted to the tabulated points (the bin-center correction); the isovector exchange fraction free; diffractive shapes free. The leading-baryon split: a share 0.2 of the baryonic continuum roots draws over the split channels (its established baryon and a mesonic continuum state of mass mu), mu flat in ln mu^2, the baryon along the incoming baryon with exp(4 cos theta); the other roots draw over every continuum channel with the density step and isotropic angles, the split channels included. The factorized vertex slopes: each 2 -> 2 transfer follows exp(B t) at B = b_sd [(m_p/M1)^1.25 + (m_p/M2)^1.25] / 2. The vacuum lines draw their low-mass record over the I = 1/2 records with weight 2J + 1. The isoscalar S-wave dipion: the f0(500) record (pole 475 MeV, width 550 MeV, pi pi at the I = 0 shares), the six N* multiplets at the PDG 2025 hadronic decay modes (range midpoints, isospin Clebsch-Gordan charge splits, normalized), and the (N, f0(500)) class of the baryonic continuum's direct pool. The floor pools: a charged or strange mesonic continuum state with no open continuation channel also decays into the heavier pairs (rho omega, rho rho, f2 pi, a2 pi, a1 pi, b1 pi, rho(1450) pi, phi pi, K* Kbar*; K* rho, K* omega, K eta, phi K, K1(1270) pi, K2*(1430) pi, K f2) with the direct pairs' weight law; the continuation steps keep the committed classes. The single-diffraction classes carry an intact proton on the non-excited line (the nominal R50 split was intact 0.5, low-mass resonance 0.5), as the single-diffraction anchor pp -> pX counts it. The charge-conjugate baryonic towers: the conjugate of every baryonic family, every antibaryon record the conjugate of its baryon, and the two conjugate baryon-pair continuations of a mesonic vertex at half the weight each. The baryon-resonance pairs: the neutral mesonic continuum also pairs N, N*(1440), N(1520) and N(1535) with each other's antibaryons at matched charge, and Delta(1232) with its antibaryon, with the direct pairs' weight law, the baryon-pair share of its continuation channels and of its direct pairs each held at its value without them. The minimum continuation-step momentum: a continuation channel opens only when its sibling's decay momentum at the daughter's floor mass reaches 0.25 GeV/c, and a state whose continuation channels all close decays into its direct pairs. The isospin mixture of the non-diffractive lines: in the non-diffractive events every baryonic continuum vertex counts each charge combination of its continuation channels and direct pairs equally, the equal mixture of I = 1/2 and 3/2; the diffractive lines keep the isospin shares of I = 1/2. The review of 2026-10-10: the flavor ledger of a split-branch root normalizes over the split channels it was drawn over, and every antibaryon decays as the charge conjugate of its baryon. The leading-meson split: at a root of the leading-baryon split a share 0.03 of the decays draws over the continuation channels of an established meson and a baryonic continuum state of mass mu, mu flat in ln mu^2, the meson along the incoming baryon with exp(kappa cos theta), kappa = 2 b q*^2 at b = 4 GeV^-2; the other decays of those roots draw as before. The light scalar mesons: the f0(980) (990 MeV, width 55 MeV, pi pi : K Kbar = 0.68 : 0.32) and the three a0(980) charge states (980 MeV, width 75 MeV, eta pi : K Kbar = 1 : 0.172) as catalog records; the neutral mesonic continuum pairs omega f0, a0 0 pi0 and a0+- pi-+, and the non-strange baryonic continuum pairs the nucleon with the f0(980) beside the f0(500), the first kaon-pair channel of a non-strange baryonic vertex. The (N, Kbar*) pairs: every strange baryonic continuum vertex pairs the nucleon with the Kbar*(892) beside each (N, Kbar) pair, so a hyperon-like line hands its strangeness to a vector antikaon as well. The low-mass non-diffractive lines: a vacuum non-diffractive line below 2.0 GeV decays as one of the low-mass (1, 1, 0) N* and Delta records at its own mass and momentum, each record with weight (2J + 1) times its Breit-Wigner inside its mass range, equal for both isospins; below 1.4 GeV the line also takes its mass from the records' line shapes, the continuum's share below that mass kept. The non-diffractive lines carry no low-mass record kind: every excited non-diffractive remnant is a continuum line (w_excited fixed at 1). The vector-to-pseudoscalar weight r_V of the continuum vertices is free. The intact proton of the single-diffraction classes carries its own vertex term f of the factorized vertex slopes, free. The completion kernel adds the PDG hyperons up to 2.0 GeV, the eta'(958), the (Delta, I = 0 meson) pairs, the charged scalar partners, the f0(500) line shape and the diffractive I = 1/2 records. The S = -2 baryons: the Xi0 and Xi- (stable, as the feed-down corrected tables count the Lambda and Sigma) and the Xi(1530) with the (Xi, K) and (Xi(1530), K) classes of the strange baryonic lines. The review of 2026-10-16: the intact vertex term on the proton only, and the PDG hyperon table with the Delta Kbar of Sigma(1910) and Sigma(1915) and the N Kbar* of Lambda(1670). The PDG 2024 tables of the rho0, omega, phi(1020), f2(1270), a2(1320), K1(1270) and K2*(1430): every mode of at least 1% at its central value, the four-body and missing-state modes through their three-body final states, the masses of the vendored table. The N* fractions at one common position inside their PDG ranges. The duality picks of the low-mass non-diffractive and diffractive lines weight each N* and Delta record by its normalized line shape with the running width, the one the decayer samples for it. The redraw of the line masses below the shape mass follows the mixture of the records' normalized running-width line shapes. The omega, eta and eta' three-body decays follow their measured Dalitz distributions (the omega's P-wave |p+ x p-|^2). The PDG 2025 N and Delta resonances of three and four stars up to 2.0 GeV join the duality picks as records; f1(1285) and h1(1170) join beside every (omega, pi) class; (Y, K*(892)) beside every (Y, K) class of the non-strange baryonic lines. The Delta(1600) and Delta(1700) decay at their PDG 2025 modes; the committed N(1440), N(1520), N(1680), N(1720) and Delta(1600) carry their PDG 2025 widths; the Lambda(1520) Lambda pi pi is an I = 0 dipion. The continuation step that creates a baryon-antibaryon pair from a mesonic state draws its daughter mass at L = 0.",
+  "obligation": "the two-component fit with the leading-baryon split, the factorized vertex slopes at the mass exponent 1.25, the isoscalar low-mass remnant and the isoscalar S-wave dipion at the 2.0 GeV continuation floor, with the floor pools of the charged and strange mesonic continuum, the single-diffraction non-excited line intact, the charge-conjugate baryonic towers, the baryon-resonance pairs the minimum continuation-step momentum 0.25 GeV/c, the isospin mixture of the non-diffractive lines the leading-meson split the light scalar mesons f0(980) and a0(980) and the (N, Kbar*(892)) pairs of the strange baryonic lines and the low-mass non-diffractive lines through the N* and Delta records below 2.0 GeV, their line shapes below 1.4 GeV and no low-mass record kind on the non-diffractive lines and the vector-to-pseudoscalar weight r_V free and the intact proton's vertex term f free and the completion kernel and the S = -2 baryons on the reviewed code and the PDG 2024 meson tables with the N* range rule and the duality picks on the records' own line shapes and the redraw on the records' own line shapes and the measured Dalitz distributions of the omega, eta and eta' three-body decays and the PDG N and Delta resonances up to the floor, the axial isoscalars and the (Y, K*(892)) partners and the PDG 2025 Delta(1600) and Delta(1700) tables, the PDG 2025 widths of the committed N* and Delta records and the Lambda(1520) dipion isospin and the baryon-pair creation step at L = 0 (R107, generated at the R106 optimum)",
+  "register_command": "cd dev/mixing2006 && python -m pytest tests/test_run_engine.py -q",
+  "hypothesis": "The R106 kernel with the continuation step that creates a baryon-antibaryon pair from a mesonic state at L = 0 in place of the P-wave barrier of the meson-emission steps. The pair's parity is (-1)^(L+1), so a negative-parity cluster makes it in an S-wave; the continuum carries no J^P, so the wave is a convention. At the R106 optimum, regenerated on the seeds of the two base blocks: -270 +- 39 and -189 +- 39 with the yields fixed (-268 and -193 fitted), the antiprotons -274 and -217, the protons +20 and +19; the central soft antiprotons 0.75 -> 0.85 of the data.",
+  "kernel_change": {
+   "diagnosis": "_knowledge/operations/physics-review-triage-2026-10-21-r104.md (sections 8 and 9: the mechanism probes at the R106 optimum and their review)",
+   "unchanged": "every kernel option of R106 (the baryon table corrections), R105 (the PDG N and Delta resonances as records, the axial isoscalars, the (Y, K*) partners), R104 (the measured Dalitz distributions), R103 (the redraw on the records' line shapes), R102 (the duality line shapes), R100 (the PDG tables), R99 (the S = -2 baryons), R98 (the completion kernel), R97 (the intact vertex factor free), R96 (r_V free), R95 (w_excited fixed at 1) and R94: the low-mass non-diffractive lines through the N* and Delta records, the (N, Kbar*(892)) pairs, the light scalar mesons, the leading-meson split, the isospin mixture of the non-diffractive lines, the baryon-resonance pairs, the step minimum 0.25 GeV/c, the charge-conjugate towers, the vertex-slope exponent 1.25, the intact single-diffraction line, the floor pools, the 2.0 GeV continuation floor, the exact transfer window, the per-line thresholds, the three-body phase-space law, the density continuation law with the P-wave barrier, the edge sibling weight, the bin-center correction, the leading-baryon split, the isoscalar low-mass remnant, the isoscalar S-wave dipion, the class fractions at the external anchors",
+   "baryon_pair_s_wave": "KernelConfig.baryon_pair_s_wave (na49_mixing.cascade_decay._daughter_masses): at a continuation step of a B = 0 state into a baryonic family the daughter-mass density draw uses L = 0 (the plain q* law) on the same single uniform"
+  },
+  "shapes_note": "the class fractions stay at the external anchors (diffraction is the owner's global-fit question); the diffractive epsilon and B_SD are free",
+  "central_component_basis": "R74 and R75 found f_central compatible with zero (intervals 0-0.046 and 0-0.040) on the clamped transfer draw; the barrier-radius probe of 2026-10-06 found the central soft region overfilled without a central component at r0 = 1.0, 2.85 and 5.07 GeV^-1 on the exact window"
+ },
+ "frozen_extra": [
+  "dev/mixing2006/config/v2_singlet/baryon_table_corrections_pdg2025.json",
+  "dev/mixing2006/config/v2_singlet/isoscalar_dipion_pdg2025.json",
+  "dev/mixing2006/na49_mixing/baryon_table_corrections.py",
+  "dev/mixing2006/na49_mixing/continuum_isospin.py",
+  "dev/mixing2006/na49_mixing/floor_pools.py",
+  "dev/mixing2006/na49_mixing/isoscalar_dipion.py",
+  "dev/mixing2006/na49_mixing/isovector_exchange.py",
+  "dev/mixing2006/na49_mixing/kernel_config.py"
+ ],
+ "isovector": {
+  "generation_fraction": 0.2,
+  "texts": {
+   "sizing": "_knowledge/evidence/fixed-kernel-residual-mechanisms-2026-10-03.md (the isovector exchange class, sizing)",
+   "reading": "the isospin of the exchange adjacent to each leading line (the end link of the multiperipheral chain), not the reggeon share of the total cross section"
+  }
+ },
+ "central_component": false,
+ "topology": {
+  "exact_transfer_range": true,
+  "line_thresholds": true,
+  "transfer_slope_mass_exponent": 1.25,
+  "low_mass_spin_isospin": true,
+  "nd_duality_mass": 2.0,
+  "nd_duality_shape_mass": 1.4,
+  "diffractive_duality_mass": 1.7,
+  "duality_line_shapes": true,
+  "duality_redraw_shapes": true
+ },
+ "diffractive_split": {
+  "intact_proton": 1.0,
+  "low_mass_baryonic_resonance": 0.0,
+  "high_mass_baryonic_continuum": 0.0
+ }
+}

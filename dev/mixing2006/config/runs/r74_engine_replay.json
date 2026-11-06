@@ -1,0 +1,276 @@
+{
+ "schema": "na49_mixing.run_spec/1",
+ "description": "the run engine's replay of the sealed R74 contract on R74's seeds (acceptance of TASK-20261004-refactor-run-engine-kernel-config; no seal)",
+ "identity": {
+  "run_id": "r74_engine_replay_2026-10-04",
+  "card": "TASK-20261003-r6-central-component-barrier-step-r74",
+  "schema": "na49_mixing.run_engine",
+  "ledger_run": "r74_central_component_barrier_step",
+  "gate_record": "gate6_central_component_r74.json"
+ },
+ "statistics": {
+  "replicas": 32,
+  "events_per_slot": 100000,
+  "max_generations": 4
+ },
+ "floor_grid": [
+  1.7
+ ],
+ "seeds": {
+  "master": 20261002,
+  "raw_first": 20319600,
+  "partition_base": 4300000000,
+  "smoke_seed": 20304114,
+  "smoke_partition": 3140000000
+ },
+ "kernel": {
+  "continuation_floor": 1.7,
+  "continuation_ceiling": 17.3,
+  "continuation_mass_law": "density",
+  "continuation_barrier_l": 1
+ },
+ "parameters": [
+  {
+   "name": "epsilon",
+   "transform": "identity",
+   "bounds": [
+    -0.5,
+    5.0
+   ],
+   "free": true,
+   "gen0": 0.9547069629451458,
+   "hessian_step": 0.01,
+   "starts": [
+    "gen0",
+    0.5,
+    2.0,
+    0.3,
+    3.0,
+    1.5,
+    0.8,
+    2.5
+   ],
+   "midpoint": "arithmetic",
+   "bound_check": true
+  },
+  {
+   "name": "b_sd",
+   "transform": "log",
+   "bounds": [
+    1.0,
+    20.0
+   ],
+   "free": true,
+   "gen0": 2.8194379036150066,
+   "hessian_step": 0.1,
+   "hessian_box": [
+    1.0,
+    20.0
+   ],
+   "starts": [
+    "gen0",
+    3.0,
+    2.0,
+    5.0,
+    2.5,
+    4.0,
+    1.5,
+    6.0
+   ],
+   "midpoint": "arithmetic",
+   "bound_check": true
+  },
+  {
+   "name": "epsilon_nd",
+   "transform": "identity",
+   "bounds": [
+    -1.5,
+    1.5
+   ],
+   "free": true,
+   "gen0": 0.18867562496594092,
+   "hessian_step": 0.02,
+   "starts": [
+    "gen0",
+    0.15,
+    0.45,
+    0.0,
+    0.35,
+    0.25,
+    -0.2,
+    0.5
+   ],
+   "midpoint": "arithmetic",
+   "bound_check": true
+  },
+  {
+   "name": "w_excited",
+   "transform": "logit",
+   "bounds": [
+    -8.0,
+    8.0
+   ],
+   "free": true,
+   "gen0": 0.8450776214617123,
+   "hessian_step": 0.02,
+   "starts": [
+    "gen0",
+    0.8,
+    0.95,
+    0.7,
+    0.9,
+    0.85,
+    0.6,
+    0.97
+   ],
+   "midpoint": "arithmetic",
+   "bound_check": false
+  },
+  {
+   "name": "gamma_s_had",
+   "transform": "log",
+   "bounds": [
+    0.05,
+    20.0
+   ],
+   "free": true,
+   "gen0": 0.34412384019894254,
+   "hessian_step": 0.015,
+   "starts": [
+    "gen0",
+    0.8,
+    0.5,
+    1.0,
+    0.6,
+    0.7,
+    0.9,
+    0.55
+   ],
+   "midpoint": "geometric",
+   "bound_check": true
+  },
+  {
+   "name": "assoc_norm",
+   "transform": "log",
+   "bounds": [
+    0.05,
+    20.0
+   ],
+   "free": true,
+   "gen0": 0.4110990965384945,
+   "hessian_step": 0.008,
+   "starts": [
+    "gen0",
+    0.4,
+    0.2,
+    0.3,
+    0.5,
+    0.15,
+    0.25,
+    0.35
+   ],
+   "midpoint": "geometric",
+   "bound_check": true
+  },
+  {
+   "name": "r_bbar",
+   "transform": "log",
+   "bounds": [
+    0.05,
+    20.0
+   ],
+   "free": true,
+   "gen0": 1.2330019394500142,
+   "hessian_step": 0.04,
+   "starts": [
+    "gen0",
+    2.0,
+    1.2,
+    3.0,
+    1.0,
+    2.5,
+    1.6,
+    4.0
+   ],
+   "midpoint": "geometric",
+   "bound_check": true
+  },
+  {
+   "name": "f_central",
+   "transform": "identity",
+   "bounds": [
+    0.0,
+    1.0
+   ],
+   "free": true,
+   "gen0": 0.25,
+   "starts": [
+    "gen0",
+    0.0,
+    1.0,
+    0.3,
+    0.8,
+    0.1,
+    0.5,
+    0.9
+   ]
+  }
+ ],
+ "fixed": {
+  "r_v": 1.0
+ },
+ "generation_0": {
+  "run": "r73_central_component_density_step_2026-10-03",
+  "branch_digest": "1d15ca2da0a72675204cda02c889b8adab87cb0f9d7a9fb613b0c89467d17475",
+  "fit": "null",
+  "from_fit": [
+   "epsilon",
+   "b_sd",
+   "epsilon_nd",
+   "w_excited",
+   "w_low_mass",
+   "gamma_s_had",
+   "r_bbar",
+   "assoc_norm"
+  ],
+  "extra": {
+   "w_low_mass": 0.15492237853828772
+  },
+  "judgment": {
+   "f_central": "0.25 by judgment (R73: 0, R71: 0.52)"
+  }
+ },
+ "fit": {
+  "fc_scan": [
+   0.1,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "test_delta_chi2": 3.84,
+  "n_starts": 8,
+  "n_starts_null": 4,
+  "n_starts_variant": 4,
+  "maxfev": 8000
+ },
+ "report_fixed": {
+  "diffractive_shapes": "free"
+ },
+ "readout_label": "r74_readout",
+ "texts": {
+  "parametrization_space": "epsilon_nd, logit w_excited, log flavor weights, f_central",
+  "report_title": "R74: the central-component test on the density-weighted step with the P-wave barrier",
+  "report_kernel_line": "the density-weighted continuation step with the P-wave barrier; diffractive shapes free.",
+  "obligation": "the test of the central component on the density-weighted continuation step with the P-wave barrier (R74)",
+  "register_command": "cd dev/mixing2006 && python -m pytest tests/test_run_engine.py -q",
+  "hypothesis": "the owner's pure two-component picture: no central component (owner, 2026-10-02: 'I would like ND to be shown as compatible with zero, validating no central component'); R74 repeats the test on the density-weighted step completed with the P-wave barrier of the plan section 10.3 weight, which at the R73 optimum matches the pi- spectra in the soft and the hard region",
+  "kernel_change": {
+   "diagnosis": "_knowledge/evidence/fixed-kernel-residual-mechanisms-2026-10-03.md (R73 and the step-law probes)",
+   "continuation_mass_law": "density, with the P-wave barrier (continuation_barrier_l = 1)",
+   "unchanged": "the channel weights (the card-4 mass), the source density, the catalog vertices, the topology classes, the flavor ledger, the central mass law"
+  },
+  "shapes_note": "the class fractions stay at the external anchors (diffraction is the owner's global-fit question); the diffractive epsilon and B_SD are free"
+ },
+ "frozen_extra": []
+}

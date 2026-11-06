@@ -151,3 +151,38 @@ def test_the_r104_spec_is_r103_with_the_dalitz_law():
         gen0 = {p["name"]: p["gen0"] for p in r104["parameters"]}
         for name in r104["generation_0"]["from_fit"]:
             assert float(gen0[name]) == float(report["fitted"][name]), name
+
+
+def test_the_omega_density_follows_the_besiii_variables():
+    """The omega -> pi+ pi- pi0 density 1 + 2 alpha z + 2 beta z^(3/2) sin 3 phi in BESIII's variables (PRD 98 (2018)
+    112007, Eq. (1)): x = (t - u)/(sqrt(3) R), y = (s - s0)/R + 2(m+- - m0)/(m_omega - 2 m+- - m0), with t = m^2(pi- pi0),
+    u = m^2(pi0 pi+), s = m^2(pi+ pi-).  At points where the odd beta term is large the code's density agrees within the
+    charged-neutral mass offset (1.2% at the edge), where the opposite beta sign misses by 3-11% (the code review of 2026-11-04,
+    finding M4)."""
+    import math as _m
+    from na49_mixing import dalitz_matrix_elements as D
+    mw, mc, m0 = 0.78266, 0.13957, 0.13498
+    q = mw - 2 * mc - m0
+    r = 2.0 / 3.0 * mw * q
+    checked = 0
+    for tp, tm in ((0.05, 0.25), (0.25, 0.05), (0.15, 0.03), (0.02, 0.18), (0.12, 0.12), (0.1, 0.2)):
+        t0 = q - tp - tm
+        if t0 <= 0.0:
+            continue
+        e = (tp + mc, tm + mc, t0 + m0)
+        s = mw * mw + m0 * m0 - 2 * mw * e[2]
+        t = mw * mw + mc * mc - 2 * mw * e[0]
+        u = mw * mw + mc * mc - 2 * mw * e[1]
+        s0 = (s + t + u) / 3.0
+        x = (t - u) / (_m.sqrt(3.0) * r)
+        y = (s - s0) / r + 2 * (mc - m0) / (mw - 2 * mc - m0)
+        z = x * x + y * y
+        odd = 3 * x * x * y - y ** 3
+        want = 1 + 2 * D.OMEGA_ALPHA * z + 2 * D.OMEGA_BETA * odd
+        wrong = 1 + 2 * D.OMEGA_ALPHA * z - 2 * D.OMEGA_BETA * odd
+        got = D._omega_3pi((tp, tm, t0), mw, q, 1.0)
+        assert abs(got / want - 1.0) < 0.015, (tp, tm, got, want)   # the charged-neutral offset of y
+        if abs(wrong / want - 1.0) > 0.02:
+            checked += 1
+            assert abs(got / want - 1.0) < abs(got / wrong - 1.0)
+    assert checked >= 2
