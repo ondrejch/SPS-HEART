@@ -1,6 +1,6 @@
 # Future development
 
-HEART is open source (GPL v2), and the directions below are open to anyone. Each entry states what the model does now,
+HEART is open source (GPL-2.0-or-later), and the directions below are open to anyone. Each entry states what the model does now,
 what the extension needs, and which data would test it. Energy dependence is the largest extension, and the spin of
 the continuum is the largest approximation inside the model.
 

@@ -59,4 +59,5 @@ events per second. The output is one JSON line per event with every final-state 
 
 ## License
 
-GNU General Public License, version 2 (`LICENSE`).
+GNU General Public License, version 2 or (at your option) any later version (SPDX: `GPL-2.0-or-later`). The
+license text is in `LICENSE`.
