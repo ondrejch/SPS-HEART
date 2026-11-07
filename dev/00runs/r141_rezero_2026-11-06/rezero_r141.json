@@ -1,0 +1,1166 @@
+{
+ "point": "r141_aligned_lines_2026-11-05",
+ "base_blocks": [
+  "sp141a",
+  "sp141b"
+ ],
+ "estimator": "probe_noise.py, normalizations fitted, bias-corrected; paired jackknife sigma over 32 batches per block; the mean of blocks a and b, sigma sqrt(sa^2 + sb^2) / 2",
+ "results": {
+  "vxlz141": {
+   "env": {
+    "PROBE_TOPOLOGY": "transfer_slope_mass_exponent=1.0"
+   },
+   "a": {
+    "name": "gen_vxlz141a",
+    "delta": 593,
+    "delta_raw": 581,
+    "sigma": 71.8,
+    "by_species": {
+     "proton": 370,
+     "pi_plus": 148,
+     "pi_minus": 76,
+     "k_plus": 31,
+     "k_minus": -29,
+     "antiproton": -16
+    }
+   },
+   "b": {
+    "name": "gen_vxlz141b",
+    "delta": 557,
+    "delta_raw": 537,
+    "sigma": 60.6,
+    "by_species": {
+     "proton": 343,
+     "pi_plus": 164,
+     "pi_minus": 32,
+     "k_plus": 6,
+     "k_minus": -8,
+     "antiproton": 0
+    }
+   },
+   "mean": 575.0,
+   "sigma": 46.97765426242566
+  },
+  "vxhz141": {
+   "env": {
+    "PROBE_TOPOLOGY": "transfer_slope_mass_exponent=1.5"
+   },
+   "a": {
+    "name": "gen_vxhz141a",
+    "delta": 629,
+    "delta_raw": 634,
+    "sigma": 84.7,
+    "by_species": {
+     "proton": 463,
+     "pi_plus": -12,
+     "pi_minus": 78,
+     "k_plus": -7,
+     "k_minus": 100,
+     "antiproton": 12
+    }
+   },
+   "b": {
+    "name": "gen_vxhz141b",
+    "delta": 618,
+    "delta_raw": 626,
+    "sigma": 76.3,
+    "by_species": {
+     "proton": 507,
+     "pi_plus": -46,
+     "pi_minus": 78,
+     "k_plus": -2,
+     "k_minus": 69,
+     "antiproton": 20
+    }
+   },
+   "mean": 623.5,
+   "sigma": 56.999517541817845
+  },
+  "floz141": {
+   "env": {
+    "PROBE_FLOOR": "1.8"
+   },
+   "a": {
+    "name": "gen_floz141a",
+    "delta": 2372,
+    "delta_raw": 2329,
+    "sigma": 136.4,
+    "by_species": {
+     "proton": 297,
+     "pi_plus": 758,
+     "pi_minus": 742,
+     "k_plus": 319,
+     "k_minus": 140,
+     "antiproton": 73
+    }
+   },
+   "b": {
+    "name": "gen_floz141b",
+    "delta": 2497,
+    "delta_raw": 2453,
+    "sigma": 155.5,
+    "by_species": {
+     "proton": 279,
+     "pi_plus": 892,
+     "pi_minus": 804,
+     "k_plus": 325,
+     "k_minus": 151,
+     "antiproton": 2
+    }
+   },
+   "mean": 2434.5,
+   "sigma": 103.4229302427658
+  },
+  "fhiz141": {
+   "env": {
+    "PROBE_FLOOR": "2.2"
+   },
+   "a": {
+    "name": "gen_fhiz141a",
+    "delta": 3054,
+    "delta_raw": 3055,
+    "sigma": 202.3,
+    "by_species": {
+     "proton": 20,
+     "pi_plus": 1000,
+     "pi_minus": 1329,
+     "k_plus": 34,
+     "k_minus": 375,
+     "antiproton": 297
+    }
+   },
+   "b": {
+    "name": "gen_fhiz141b",
+    "delta": 3175,
+    "delta_raw": 3224,
+    "sigma": 184.5,
+    "by_species": {
+     "proton": 169,
+     "pi_plus": 1075,
+     "pi_minus": 1419,
+     "k_plus": 51,
+     "k_minus": 246,
+     "antiproton": 265
+    }
+   },
+   "mean": 3114.5,
+   "sigma": 136.8991782298199
+  },
+  "qloz141": {
+   "env": {
+    "PROBE_KERNEL": "continuation_q_min=0.15"
+   },
+   "a": {
+    "name": "gen_qloz141a",
+    "delta": 603,
+    "delta_raw": 567,
+    "sigma": 81.3,
+    "by_species": {
+     "proton": 103,
+     "pi_plus": 255,
+     "pi_minus": 99,
+     "k_plus": 120,
+     "k_minus": 6,
+     "antiproton": -17
+    }
+   },
+   "b": {
+    "name": "gen_qloz141b",
+    "delta": 695,
+    "delta_raw": 661,
+    "sigma": 72.1,
+    "by_species": {
+     "proton": 96,
+     "pi_plus": 296,
+     "pi_minus": 192,
+     "k_plus": 103,
+     "k_minus": -17,
+     "antiproton": -10
+    }
+   },
+   "mean": 649.0,
+   "sigma": 54.332540894016724
+  },
+  "qhiz141": {
+   "env": {
+    "PROBE_KERNEL": "continuation_q_min=0.35"
+   },
+   "a": {
+    "name": "gen_qhiz141a",
+    "delta": 412,
+    "delta_raw": 441,
+    "sigma": 81.9,
+    "by_species": {
+     "proton": -74,
+     "pi_plus": 147,
+     "pi_minus": 301,
+     "k_plus": -41,
+     "k_minus": 75,
+     "antiproton": 34
+    }
+   },
+   "b": {
+    "name": "gen_qhiz141b",
+    "delta": 363,
+    "delta_raw": 382,
+    "sigma": 72.2,
+    "by_species": {
+     "proton": -9,
+     "pi_plus": 92,
+     "pi_minus": 216,
+     "k_plus": -49,
+     "k_minus": 57,
+     "antiproton": 76
+    }
+   },
+   "mean": 387.5,
+   "sigma": 54.59040666637317
+  },
+  "n18z141": {
+   "env": {
+    "PROBE_TOPOLOGY": "nd_duality_mass=1.8"
+   },
+   "a": {
+    "name": "gen_n18z141a",
+    "delta": 255,
+    "delta_raw": 250,
+    "sigma": 32.6,
+    "by_species": {
+     "proton": 44,
+     "pi_plus": 89,
+     "pi_minus": 92,
+     "k_plus": 25,
+     "k_minus": 1,
+     "antiproton": 0
+    }
+   },
+   "b": {
+    "name": "gen_n18z141b",
+    "delta": 186,
+    "delta_raw": 180,
+    "sigma": 41.1,
+    "by_species": {
+     "proton": 23,
+     "pi_plus": 112,
+     "pi_minus": 57,
+     "k_plus": 7,
+     "k_minus": -16,
+     "antiproton": -3
+    }
+   },
+   "mean": 220.5,
+   "sigma": 26.22961112940869
+  },
+  "n20z141": {
+   "env": {
+    "PROBE_TOPOLOGY": "nd_duality_mass=2.0"
+   },
+   "a": {
+    "name": "gen_n20z141a",
+    "delta": 141,
+    "delta_raw": 138,
+    "sigma": 29.6,
+    "by_species": {
+     "proton": 30,
+     "pi_plus": 43,
+     "pi_minus": 55,
+     "k_plus": 15,
+     "k_minus": -4,
+     "antiproton": -1
+    }
+   },
+   "b": {
+    "name": "gen_n20z141b",
+    "delta": 83,
+    "delta_raw": 79,
+    "sigma": 31.8,
+    "by_species": {
+     "proton": 12,
+     "pi_plus": 58,
+     "pi_minus": 31,
+     "k_plus": -3,
+     "k_minus": -18,
+     "antiproton": -1
+    }
+   },
+   "mean": 112.0,
+   "sigma": 21.72210855326895
+  },
+  "n24z141": {
+   "env": {
+    "PROBE_TOPOLOGY": "nd_duality_mass=2.4"
+   },
+   "a": {
+    "name": "gen_n24z141a",
+    "delta": 139,
+    "delta_raw": 150,
+    "sigma": 52.1,
+    "by_species": {
+     "proton": 51,
+     "pi_plus": 65,
+     "pi_minus": 27,
+     "k_plus": 1,
+     "k_minus": 6,
+     "antiproton": 0
+    }
+   },
+   "b": {
+    "name": "gen_n24z141b",
+    "delta": 113,
+    "delta_raw": 125,
+    "sigma": 48.0,
+    "by_species": {
+     "proton": 86,
+     "pi_plus": 21,
+     "pi_minus": 11,
+     "k_plus": -5,
+     "k_minus": 12,
+     "antiproton": -1
+    }
+   },
+   "mean": 126.0,
+   "sigma": 35.42036843399571
+  },
+  "n26z141": {
+   "env": {
+    "PROBE_TOPOLOGY": "nd_duality_mass=2.6"
+   },
+   "a": {
+    "name": "gen_n26z141a",
+    "delta": 1142,
+    "delta_raw": 1173,
+    "sigma": 113.3,
+    "by_species": {
+     "proton": 366,
+     "pi_plus": 422,
+     "pi_minus": 355,
+     "k_plus": 16,
+     "k_minus": 17,
+     "antiproton": -2
+    }
+   },
+   "b": {
+    "name": "gen_n26z141b",
+    "delta": 1102,
+    "delta_raw": 1133,
+    "sigma": 104.0,
+    "by_species": {
+     "proton": 414,
+     "pi_plus": 334,
+     "pi_minus": 347,
+     "k_plus": 17,
+     "k_minus": 20,
+     "antiproton": 0
+    }
+   },
+   "mean": 1122.0,
+   "sigma": 76.8974804528731
+  },
+  "d16z141": {
+   "env": {
+    "PROBE_TOPOLOGY": "diffractive_duality_mass=1.6"
+   },
+   "a": {
+    "name": "gen_d16z141a",
+    "delta": -15,
+    "delta_raw": -13,
+    "sigma": 13.4,
+    "by_species": {
+     "proton": 3,
+     "pi_plus": -2,
+     "pi_minus": -8,
+     "k_plus": -5,
+     "k_minus": 0,
+     "antiproton": -1
+    }
+   },
+   "b": {
+    "name": "gen_d16z141b",
+    "delta": 18,
+    "delta_raw": 18,
+    "sigma": 8.7,
+    "by_species": {
+     "proton": 5,
+     "pi_plus": 3,
+     "pi_minus": 9,
+     "k_plus": 2,
+     "k_minus": -1,
+     "antiproton": 0
+    }
+   },
+   "mean": 1.5,
+   "sigma": 7.988272654335229
+  },
+  "d18z141": {
+   "env": {
+    "PROBE_TOPOLOGY": "diffractive_duality_mass=1.8"
+   },
+   "a": {
+    "name": "gen_d18z141a",
+    "delta": 14,
+    "delta_raw": 16,
+    "sigma": 11.0,
+    "by_species": {
+     "proton": 0,
+     "pi_plus": 9,
+     "pi_minus": 5,
+     "k_plus": 2,
+     "k_minus": 0,
+     "antiproton": 0
+    }
+   },
+   "b": {
+    "name": "gen_d18z141b",
+    "delta": -4,
+    "delta_raw": -4,
+    "sigma": 8.6,
+    "by_species": {
+     "proton": 3,
+     "pi_plus": 7,
+     "pi_minus": -8,
+     "k_plus": -4,
+     "k_minus": -1,
+     "antiproton": 0
+    }
+   },
+   "mean": 5.0,
+   "sigma": 6.981403870282825
+  },
+  "s110z141": {
+   "env": {
+    "PROBE_TOPOLOGY": "nd_duality_shape_mass=1.1"
+   },
+   "a": {
+    "name": "gen_s110z141a",
+    "delta": 169,
+    "delta_raw": 168,
+    "sigma": 18.1,
+    "by_species": {
+     "proton": -35,
+     "pi_plus": 199,
+     "pi_minus": 4,
+     "k_plus": 0,
+     "k_minus": -1,
+     "antiproton": 1
+    }
+   },
+   "b": {
+    "name": "gen_s110z141b",
+    "delta": 169,
+    "delta_raw": 168,
+    "sigma": 15.1,
+    "by_species": {
+     "proton": -40,
+     "pi_plus": 208,
+     "pi_minus": 0,
+     "k_plus": 1,
+     "k_minus": -1,
+     "antiproton": 1
+    }
+   },
+   "mean": 169.0,
+   "sigma": 11.78579653650953
+  },
+  "s115z141": {
+   "env": {
+    "PROBE_TOPOLOGY": "nd_duality_shape_mass=1.15"
+   },
+   "a": {
+    "name": "gen_s115z141a",
+    "delta": 42,
+    "delta_raw": 41,
+    "sigma": 11.3,
+    "by_species": {
+     "proton": -16,
+     "pi_plus": 57,
+     "pi_minus": 2,
+     "k_plus": 0,
+     "k_minus": -2,
+     "antiproton": 0
+    }
+   },
+   "b": {
+    "name": "gen_s115z141b",
+    "delta": 49,
+    "delta_raw": 49,
+    "sigma": 8.4,
+    "by_species": {
+     "proton": -21,
+     "pi_plus": 68,
+     "pi_minus": 0,
+     "k_plus": 1,
+     "k_minus": 0,
+     "antiproton": 1
+    }
+   },
+   "mean": 45.5,
+   "sigma": 7.040063920164362
+  },
+  "s130z141": {
+   "env": {
+    "PROBE_TOPOLOGY": "nd_duality_shape_mass=1.3"
+   },
+   "a": {
+    "name": "gen_s130z141a",
+    "delta": 48,
+    "delta_raw": 48,
+    "sigma": 11.7,
+    "by_species": {
+     "proton": 8,
+     "pi_plus": 43,
+     "pi_minus": -3,
+     "k_plus": -1,
+     "k_minus": 1,
+     "antiproton": 0
+    }
+   },
+   "b": {
+    "name": "gen_s130z141b",
+    "delta": 59,
+    "delta_raw": 58,
+    "sigma": 7.1,
+    "by_species": {
+     "proton": 13,
+     "pi_plus": 42,
+     "pi_minus": 4,
+     "k_plus": -1,
+     "k_minus": 2,
+     "antiproton": -1
+    }
+   },
+   "mean": 53.5,
+   "sigma": 6.842879510849215
+  },
+  "s140z141": {
+   "env": {
+    "PROBE_TOPOLOGY": "nd_duality_shape_mass=1.4"
+   },
+   "a": {
+    "name": "gen_s140z141a",
+    "delta": 91,
+    "delta_raw": 91,
+    "sigma": 14.6,
+    "by_species": {
+     "proton": 17,
+     "pi_plus": 67,
+     "pi_minus": 9,
+     "k_plus": -2,
+     "k_minus": 0,
+     "antiproton": 0
+    }
+   },
+   "b": {
+    "name": "gen_s140z141b",
+    "delta": 106,
+    "delta_raw": 106,
+    "sigma": 9.7,
+    "by_species": {
+     "proton": 23,
+     "pi_plus": 65,
+     "pi_minus": 9,
+     "k_plus": 2,
+     "k_minus": 3,
+     "antiproton": 5
+    }
+   },
+   "mean": 98.5,
+   "sigma": 8.764274071479052
+  },
+  "s150z141": {
+   "env": {
+    "PROBE_TOPOLOGY": "nd_duality_shape_mass=1.5"
+   },
+   "a": {
+    "name": "gen_s150z141a",
+    "delta": 283,
+    "delta_raw": 276,
+    "sigma": 24.0,
+    "by_species": {
+     "proton": 78,
+     "pi_plus": 147,
+     "pi_minus": 45,
+     "k_plus": 2,
+     "k_minus": 2,
+     "antiproton": 3
+    }
+   },
+   "b": {
+    "name": "gen_s150z141b",
+    "delta": 297,
+    "delta_raw": 293,
+    "sigma": 21.7,
+    "by_species": {
+     "proton": 91,
+     "pi_plus": 152,
+     "pi_minus": 47,
+     "k_plus": 2,
+     "k_minus": -4,
+     "antiproton": 4
+    }
+   },
+   "mean": 290.0,
+   "sigma": 16.177839781627213
+  },
+  "biz141": {
+   "env": {
+    "PROBE_KERNEL": "baryon_line_kappa=none"
+   },
+   "a": {
+    "name": "gen_biz141a",
+    "delta": 552,
+    "delta_raw": 536,
+    "sigma": 48.2,
+    "by_species": {
+     "proton": 208,
+     "pi_plus": 38,
+     "pi_minus": 251,
+     "k_plus": 36,
+     "k_minus": 29,
+     "antiproton": -26
+    }
+   },
+   "b": {
+    "name": "gen_biz141b",
+    "delta": 612,
+    "delta_raw": 598,
+    "sigma": 61.8,
+    "by_species": {
+     "proton": 199,
+     "pi_plus": 56,
+     "pi_minus": 250,
+     "k_plus": 43,
+     "k_minus": 24,
+     "antiproton": 26
+    }
+   },
+   "mean": 582.0,
+   "sigma": 39.18698763620393
+  },
+  "bn1z141": {
+   "env": {
+    "PROBE_KERNEL": "baryon_line_kappa=1.0,baryon_line_kappa_scope=nonstrange"
+   },
+   "a": {
+    "name": "gen_bn1z141a",
+    "delta": 80,
+    "delta_raw": 70,
+    "sigma": 29.9,
+    "by_species": {
+     "proton": 35,
+     "pi_plus": -7,
+     "pi_minus": 39,
+     "k_plus": 4,
+     "k_minus": 5,
+     "antiproton": -6
+    }
+   },
+   "b": {
+    "name": "gen_bn1z141b",
+    "delta": 130,
+    "delta_raw": 127,
+    "sigma": 34.9,
+    "by_species": {
+     "proton": 34,
+     "pi_plus": -1,
+     "pi_minus": 45,
+     "k_plus": 16,
+     "k_minus": 26,
+     "antiproton": 7
+    }
+   },
+   "mean": 105.0,
+   "sigma": 22.978359384429513
+  },
+  "bn2z141": {
+   "env": {
+    "PROBE_KERNEL": "baryon_line_kappa=2.0,baryon_line_kappa_scope=nonstrange"
+   },
+   "a": {
+    "name": "gen_bn2z141a",
+    "delta": -12,
+    "delta_raw": -11,
+    "sigma": 26.6,
+    "by_species": {
+     "proton": -13,
+     "pi_plus": 20,
+     "pi_minus": -8,
+     "k_plus": -4,
+     "k_minus": -13,
+     "antiproton": 6
+    }
+   },
+   "b": {
+    "name": "gen_bn2z141b",
+    "delta": -32,
+    "delta_raw": -31,
+    "sigma": 29.1,
+    "by_species": {
+     "proton": 3,
+     "pi_plus": -3,
+     "pi_minus": -38,
+     "k_plus": -8,
+     "k_minus": 3,
+     "antiproton": 13
+    }
+   },
+   "mean": -22.0,
+   "sigma": 19.712749681361046
+  },
+  "bn3z141": {
+   "env": {
+    "PROBE_KERNEL": "baryon_line_kappa=3.0,baryon_line_kappa_scope=nonstrange"
+   },
+   "a": {
+    "name": "gen_bn3z141a",
+    "delta": 113,
+    "delta_raw": 117,
+    "sigma": 41.3,
+    "by_species": {
+     "proton": 4,
+     "pi_plus": 54,
+     "pi_minus": 28,
+     "k_plus": -13,
+     "k_minus": 4,
+     "antiproton": 39
+    }
+   },
+   "b": {
+    "name": "gen_bn3z141b",
+    "delta": 17,
+    "delta_raw": 22,
+    "sigma": 43.7,
+    "by_species": {
+     "proton": 34,
+     "pi_plus": 24,
+     "pi_minus": -38,
+     "k_plus": -11,
+     "k_minus": -10,
+     "antiproton": 24
+    }
+   },
+   "mean": 65.0,
+   "sigma": 30.064015034589108
+  },
+  "bahz141": {
+   "env": {
+    "PROBE_KERNEL": "baryon_line_kappa=0.5,baryon_line_kappa_scope=all"
+   },
+   "a": {
+    "name": "gen_bahz141a",
+    "delta": 308,
+    "delta_raw": 295,
+    "sigma": 50.1,
+    "by_species": {
+     "proton": 95,
+     "pi_plus": 18,
+     "pi_minus": 128,
+     "k_plus": 70,
+     "k_minus": -7,
+     "antiproton": -9
+    }
+   },
+   "b": {
+    "name": "gen_bahz141b",
+    "delta": 335,
+    "delta_raw": 333,
+    "sigma": 53.9,
+    "by_species": {
+     "proton": 86,
+     "pi_plus": 35,
+     "pi_minus": 146,
+     "k_plus": 73,
+     "k_minus": -27,
+     "antiproton": 19
+    }
+   },
+   "mean": 321.5,
+   "sigma": 36.79408919921786
+  },
+  "ba1z141": {
+   "env": {
+    "PROBE_KERNEL": "baryon_line_kappa=1.0,baryon_line_kappa_scope=all"
+   },
+   "a": {
+    "name": "gen_ba1z141a",
+    "delta": 193,
+    "delta_raw": 187,
+    "sigma": 53.2,
+    "by_species": {
+     "proton": 24,
+     "pi_plus": 13,
+     "pi_minus": 42,
+     "k_plus": 130,
+     "k_minus": -30,
+     "antiproton": 8
+    }
+   },
+   "b": {
+    "name": "gen_ba1z141b",
+    "delta": 190,
+    "delta_raw": 196,
+    "sigma": 49.3,
+    "by_species": {
+     "proton": 25,
+     "pi_plus": 9,
+     "pi_minus": 53,
+     "k_plus": 136,
+     "k_minus": -38,
+     "antiproton": 11
+    }
+   },
+   "mean": 191.5,
+   "sigma": 36.26544498555064
+  },
+  "ba15z141": {
+   "env": {
+    "PROBE_KERNEL": "baryon_line_kappa=1.5,baryon_line_kappa_scope=all"
+   },
+   "a": {
+    "name": "gen_ba15z141a",
+    "delta": 128,
+    "delta_raw": 128,
+    "sigma": 44.0,
+    "by_species": {
+     "proton": -13,
+     "pi_plus": 12,
+     "pi_minus": -3,
+     "k_plus": 183,
+     "k_minus": -67,
+     "antiproton": 15
+    }
+   },
+   "b": {
+    "name": "gen_ba15z141b",
+    "delta": 112,
+    "delta_raw": 118,
+    "sigma": 44.7,
+    "by_species": {
+     "proton": -9,
+     "pi_plus": 8,
+     "pi_minus": -9,
+     "k_plus": 186,
+     "k_minus": -72,
+     "antiproton": 15
+    }
+   },
+   "mean": 120.0,
+   "sigma": 31.361162287134704
+  },
+  "lssz141": {
+   "env": {
+    "PROBE_KERNEL": "leading_split_strange=false"
+   },
+   "a": {
+    "name": "gen_lssz141a",
+    "delta": 236,
+    "delta_raw": 216,
+    "sigma": 89.3,
+    "by_species": {
+     "proton": 72,
+     "pi_plus": -8,
+     "pi_minus": -27,
+     "k_plus": 108,
+     "k_minus": 43,
+     "antiproton": 28
+    }
+   },
+   "b": {
+    "name": "gen_lssz141b",
+    "delta": 287,
+    "delta_raw": 280,
+    "sigma": 120.1,
+    "by_species": {
+     "proton": 77,
+     "pi_plus": 4,
+     "pi_minus": -52,
+     "k_plus": 135,
+     "k_minus": 44,
+     "antiproton": 72
+    }
+   },
+   "mean": 261.5,
+   "sigma": 74.8306421193885
+  },
+  "lsrz141": {
+   "env": {
+    "PROBE_KERNEL": "leading_split_regge=true"
+   },
+   "a": {
+    "name": "gen_lsrz141a",
+    "delta": 745,
+    "delta_raw": 685,
+    "sigma": 87.7,
+    "by_species": {
+     "proton": 133,
+     "pi_plus": 279,
+     "pi_minus": 75,
+     "k_plus": 129,
+     "k_minus": 71,
+     "antiproton": -2
+    }
+   },
+   "b": {
+    "name": "gen_lsrz141b",
+    "delta": 659,
+    "delta_raw": 603,
+    "sigma": 96.8,
+    "by_species": {
+     "proton": 118,
+     "pi_plus": 256,
+     "pi_minus": 123,
+     "k_plus": 95,
+     "k_minus": 45,
+     "antiproton": -32
+    }
+   },
+   "mean": 702.0,
+   "sigma": 65.30989588109907
+  },
+  "csz141": {
+   "env": {
+    "PROBE_TWOSIDED": "2,0,0.01,otc"
+   },
+   "a": {
+    "name": "gen_csz141a",
+    "delta": 22777,
+    "delta_raw": 23035,
+    "sigma": 557.8,
+    "by_species": {
+     "proton": 4240,
+     "pi_plus": 9530,
+     "pi_minus": 8149,
+     "k_plus": 210,
+     "k_minus": 469,
+     "antiproton": 437
+    }
+   },
+   "b": {
+    "name": "gen_csz141b",
+    "delta": 22670,
+    "delta_raw": 23025,
+    "sigma": 554.9,
+    "by_species": {
+     "proton": 3952,
+     "pi_plus": 9770,
+     "pi_minus": 8036,
+     "k_plus": 239,
+     "k_minus": 602,
+     "antiproton": 426
+    }
+   },
+   "mean": 22723.5,
+   "sigma": 393.4001938230331
+  },
+  "ssz141": {
+   "env": {
+    "PROBE_KERNEL": "string_step_mass=3.0"
+   },
+   "a": {
+    "name": "gen_ssz141a",
+    "delta": 42389,
+    "delta_raw": 42501,
+    "sigma": 292.7,
+    "by_species": {
+     "proton": 16214,
+     "pi_plus": 6864,
+     "pi_minus": 8319,
+     "k_plus": 1028,
+     "k_minus": 7877,
+     "antiproton": 2197
+    }
+   },
+   "b": {
+    "name": "gen_ssz141b",
+    "delta": 42686,
+    "delta_raw": 42796,
+    "sigma": 337.9,
+    "by_species": {
+     "proton": 16222,
+     "pi_plus": 6961,
+     "pi_minus": 8343,
+     "k_plus": 943,
+     "k_minus": 8146,
+     "antiproton": 2181
+    }
+   },
+   "mean": 42537.5,
+   "sigma": 223.52276170448502
+  },
+  "xsz141": {
+   "env": {
+    "PROBE_XSPLIT": "5,4"
+   },
+   "a": {
+    "name": "gen_xsz141a",
+    "delta": 5212,
+    "delta_raw": 5227,
+    "sigma": 178.9,
+    "by_species": {
+     "proton": 1034,
+     "pi_plus": 1635,
+     "pi_minus": 1636,
+     "k_plus": 544,
+     "k_minus": 258,
+     "antiproton": 119
+    }
+   },
+   "b": {
+    "name": "gen_xsz141b",
+    "delta": 5198,
+    "delta_raw": 5200,
+    "sigma": 151.2,
+    "by_species": {
+     "proton": 1006,
+     "pi_plus": 1524,
+     "pi_minus": 1694,
+     "k_plus": 553,
+     "k_minus": 283,
+     "antiproton": 141
+    }
+   },
+   "mean": 5205.0,
+   "sigma": 117.11815615010339
+  },
+  "thaz141": {
+   "env": {
+    "PROBE_TH_ALPHA": "0.05"
+   },
+   "a": {
+    "name": "gen_thaz141a",
+    "delta": 19740,
+    "delta_raw": 19855,
+    "sigma": 392.8,
+    "by_species": {
+     "proton": 6037,
+     "pi_plus": 4304,
+     "pi_minus": 4710,
+     "k_plus": 1465,
+     "k_minus": 1810,
+     "antiproton": 1529
+    }
+   },
+   "b": {
+    "name": "gen_thaz141b",
+    "delta": 21412,
+    "delta_raw": 21563,
+    "sigma": 428.1,
+    "by_species": {
+     "proton": 6260,
+     "pi_plus": 4987,
+     "pi_minus": 4935,
+     "k_plus": 1356,
+     "k_minus": 2174,
+     "antiproton": 1851
+    }
+   },
+   "mean": 20576.0,
+   "sigma": 290.50019363160504
+  },
+  "ppr05": {
+   "env": {
+    "PROBE_REWEIGHT": "ppr05"
+   },
+   "a": {
+    "name": "gen_rpz141a.ppr05",
+    "delta": 49,
+    "delta_raw": 33,
+    "sigma": 7.2,
+    "by_species": {
+     "proton": 21,
+     "pi_plus": 9,
+     "pi_minus": -1,
+     "k_plus": -2,
+     "k_minus": 7,
+     "antiproton": 0
+    }
+   },
+   "b": {
+    "name": "gen_rpz141b.ppr05",
+    "delta": 64,
+    "delta_raw": 50,
+    "sigma": 8.3,
+    "by_species": {
+     "proton": 29,
+     "pi_plus": 9,
+     "pi_minus": 2,
+     "k_plus": -3,
+     "k_minus": 13,
+     "antiproton": 1
+    }
+   },
+   "mean": 56.5,
+   "sigma": 5.493860209360992
+  },
+  "ppr1": {
+   "env": {
+    "PROBE_REWEIGHT": "ppr1"
+   },
+   "a": {
+    "name": "gen_rpz141a.ppr1",
+    "delta": 105,
+    "delta_raw": 80,
+    "sigma": 11.6,
+    "by_species": {
+     "proton": 55,
+     "pi_plus": 16,
+     "pi_minus": -1,
+     "k_plus": -3,
+     "k_minus": 13,
+     "antiproton": 0
+    }
+   },
+   "b": {
+    "name": "gen_rpz141b.ppr1",
+    "delta": 131,
+    "delta_raw": 108,
+    "sigma": 13.5,
+    "by_species": {
+     "proton": 67,
+     "pi_plus": 17,
+     "pi_minus": 3,
+     "k_plus": -4,
+     "k_minus": 23,
+     "antiproton": 1
+    }
+   },
+   "mean": 118.0,
+   "sigma": 8.899578641711079
+  },
+  "ppr2": {
+   "env": {
+    "PROBE_REWEIGHT": "ppr2"
+   },
+   "a": {
+    "name": "gen_rpz141a.ppr2",
+    "delta": 201,
+    "delta_raw": 165,
+    "sigma": 16.5,
+    "by_species": {
+     "proton": 119,
+     "pi_plus": 29,
+     "pi_minus": -1,
+     "k_plus": -3,
+     "k_minus": 21,
+     "antiproton": 1
+    }
+   },
+   "b": {
+    "name": "gen_rpz141b.ppr2",
+    "delta": 239,
+    "delta_raw": 207,
+    "sigma": 19.8,
+    "by_species": {
+     "proton": 138,
+     "pi_plus": 29,
+     "pi_minus": 6,
+     "k_plus": -4,
+     "k_minus": 36,
+     "antiproton": 2
+    }
+   },
+   "mean": 220.0,
+   "sigma": 12.88691196524598
+  }
+ },
+ "missing": []
+}

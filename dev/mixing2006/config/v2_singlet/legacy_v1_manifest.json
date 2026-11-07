@@ -4572,6 +4572,37 @@
     "helpers/benchmarking/orchestrate_gateway_joint_fit.py"
    ],
    "reason": "the orchestrator back to its committed state (a prepared R142 entry removed, R142 not built); the pins of a5c2faf had captured it"
+  },
+  {
+   "card": "TASK-20261106-r142-r145-replicas",
+   "files": [
+    "dev/mixing2006/config/runs/r142.json",
+    "dev/mixing2006/config/runs/r143.json",
+    "dev/mixing2006/config/runs/r144.json",
+    "dev/mixing2006/config/runs/r145.json",
+    "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_joint_fit.py",
+    "dev/mixing2006/tests/test_r142_r145_specs.py",
+    "helpers/benchmarking/orchestrate_gateway_joint_fit.py"
+   ],
+   "reason": "R142-R145 specs (the R141 model regenerated at the R141 optimum on four new seed blocks: three replica checks and the epsilon-free fit), their test and the orchestrator entries"
+  },
+  {
+   "card": "TASK-20261106-r146-regenerated",
+   "files": [
+    "dev/mixing2006/config/runs/r146.json",
+    "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_joint_fit.py",
+    "dev/mixing2006/tests/test_r146_spec.py",
+    "helpers/benchmarking/orchestrate_gateway_joint_fit.py"
+   ],
+   "reason": "R146 spec (the R141 model regenerated at the R142 optimum on a new seed block, the next regeneration step after the R142-R144 replicas), its test and the orchestrator entries"
+  },
+  {
+   "card": "TASK-20261106-r146-adoption",
+   "files": [
+    "dev/mixing2006/helpers/benchmarking/heart_events.py",
+    "helpers/benchmarking/heart_events.py"
+   ],
+   "reason": "the event writer's usage examples name R146, the papers' fitted model"
   }
  ],
  "frozen_fit_outputs": {
@@ -4819,6 +4850,11 @@
   "dev/mixing2006/config/runs/r139.json": "80302c0514d6a968e22755ed2abcef26458640066b041c00e2c8df5e17f68c04",
   "dev/mixing2006/config/runs/r140.json": "12bc31f888c9b29f90a95a4f64cc14e46aeafaffdd3bd87ba5d38dcaa9754974",
   "dev/mixing2006/config/runs/r141.json": "6b30ef9c85b1cd83453e25734bd2a8578817a56207df3d47ce7bb3207fabdff4",
+  "dev/mixing2006/config/runs/r142.json": "7aec0e983e3000e8411e027857deb6b3e4c296a683b6cf98e919fa37218cb18d",
+  "dev/mixing2006/config/runs/r143.json": "bf1185464fe876826a058e7d1f5521822250389e851874a13501d0aa0826c60f",
+  "dev/mixing2006/config/runs/r144.json": "b9e27bac7416235d50715a6371bf2682a062e66de2919ea827888546451fd9bf",
+  "dev/mixing2006/config/runs/r145.json": "5ef7f485804093619d67b33ad2ae60771067ad73a8842676dc599dc390b1bd1d",
+  "dev/mixing2006/config/runs/r146.json": "c3e5b2558c977c60b95873bb315b552d385fffd52067bd277e9cf52440bcc64f",
   "dev/mixing2006/config/runs/r74.json": "e208966fdec2cb3ab70301d3f2a24104ddd23406e5ea2b0cdc0ec66c6ce8bd4d",
   "dev/mixing2006/config/runs/r74_engine_replay.json": "1751982f1708299103aa128c6b10d8ba8e981beb7a37d7bdecdb7fa6f4eff7c3",
   "dev/mixing2006/config/runs/r75.json": "dbc4db3a118362502ab0edf245219b8609d4e041f7336ed629d60c734e243dd7",
@@ -4896,14 +4932,14 @@
   "dev/mixing2006/helpers/benchmarking/flavor_fit_core.py": "b8506698fcfccb9c86b39b534af90a612c9ecc34b73de561487984b88f2187f2",
   "dev/mixing2006/helpers/benchmarking/flavor_run_driver.py": "08f9c932ff72648c3425fa7300624920f75abcae0af640c51a1f5c4add0260e0",
   "dev/mixing2006/helpers/benchmarking/freeze_pp_baseline.py": "9b6c48afbe992efc9e2fa8bdc711405421530f5976af908a09497fadaebd6c46",
-  "dev/mixing2006/helpers/benchmarking/heart_events.py": "e02ad3026e9b85fae2a7fca0fdd53be8a1e05015239133d9f92bb196b09e8ed5",
+  "dev/mixing2006/helpers/benchmarking/heart_events.py": "ee76fbee88ca03ce78c2ff8fb0e2ac65ccef8dddf1cca936c59ec8c2d392bacf",
   "dev/mixing2006/helpers/benchmarking/import_resonance_catalog.py": "4c474bcfe1fa86e7dcf3922afe919d2acdeae64370171f3df3c5876e43f3ed0c",
   "dev/mixing2006/helpers/benchmarking/make_archive_checksums.py": "9de1fa82bf5a8a1f09e495fc317def2a2b4a9cdee98a8ff3cdb0aba7bc31ce17",
   "dev/mixing2006/helpers/benchmarking/make_sharedfit_species_grid.py": "344e28855ef8491263ecb1633868a7b90d34c595da1a1d506f74277a23aa4651",
   "dev/mixing2006/helpers/benchmarking/neutron_falsifier.py": "cd69138832a7e86eb172ad50268318ba0e79cabea689dc25fc07f4634111bb10",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_absyield_prior_scan.py": "9470725a17f272418a6bb127bcf794764df5b96e369252ea2210484704b916bc",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_balanced_reruns.py": "0254f671f3e004a9f9cec4dd95826ea342b1263b6505eba512dff0209f7ef018",
-  "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_joint_fit.py": "6edf7ec6823d644383ba8aeabd63f0a8cb401ab90e8e5f0dbcfc7875ad2060ea",
+  "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_joint_fit.py": "d27c75fe57f53f5ee60a4634ff5ebcc5ae91bafa863329b5a4688b60c0abdfea",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_multispecies.py": "5a5461849db516d0dc586d95d72dc06d7c23d2fe5412811d9b8754b8a4be02cb",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_nstar_ladder_dynamic.py": "9d5b5f22f7aebbd46d8389597638f1d93338c4afb4cbb7628c5974e89ce1e3de",
   "dev/mixing2006/helpers/benchmarking/orchestrate_gateway_nstar_ladder_grid.py": "faffde8c054964ba895d5cd4e4f925fd9e4dd59b879c2e3f7715d3f5fb4a5b9f",
@@ -5334,6 +5370,8 @@
   "dev/mixing2006/tests/test_r139_spec.py": "27f9189f4bdf3d8bd7970dc603002f4e868e07ae7643284619c3e19d857febfd",
   "dev/mixing2006/tests/test_r140_spec.py": "ecbd27f14518043b9dc9b18d11de9a5df8e097df7a986323f342332eb100afa4",
   "dev/mixing2006/tests/test_r141_spec.py": "1da53e677a0f428d4743986d5053f77e5870d24ecf717b995dbb5fd24b96bee1",
+  "dev/mixing2006/tests/test_r142_r145_specs.py": "2acd77f975b19531278570bb01fc97f42dc601a52e049e6e96873473928a2feb",
+  "dev/mixing2006/tests/test_r146_spec.py": "d8ac104165f2b71f186038a8daec9872e2f152f3e7362d23a81d7f88fb37df89",
   "dev/mixing2006/tests/test_r31_resume_contract_pins.py": "9ddf8dba0b75abc25e8f50fc851403e8bf8ac33165aa283293388511bce1fe2f",
   "dev/mixing2006/tests/test_r32_blend_contract_pins.py": "e848b76bd5b4894810aea269a2b5e612b4a3d9d62fe9b3915ee488bfffa125b7",
   "dev/mixing2006/tests/test_r3_engine_fix_contract_pins.py": "5555381a5e1162291c2c4a39654458d46c0770be01b16eebd33471d4253bc5b1",
@@ -5517,14 +5555,14 @@
   "helpers/benchmarking/flavor_fit_core.py": "b8506698fcfccb9c86b39b534af90a612c9ecc34b73de561487984b88f2187f2",
   "helpers/benchmarking/flavor_run_driver.py": "08f9c932ff72648c3425fa7300624920f75abcae0af640c51a1f5c4add0260e0",
   "helpers/benchmarking/freeze_pp_baseline.py": "9b6c48afbe992efc9e2fa8bdc711405421530f5976af908a09497fadaebd6c46",
-  "helpers/benchmarking/heart_events.py": "e02ad3026e9b85fae2a7fca0fdd53be8a1e05015239133d9f92bb196b09e8ed5",
+  "helpers/benchmarking/heart_events.py": "ee76fbee88ca03ce78c2ff8fb0e2ac65ccef8dddf1cca936c59ec8c2d392bacf",
   "helpers/benchmarking/import_resonance_catalog.py": "4c474bcfe1fa86e7dcf3922afe919d2acdeae64370171f3df3c5876e43f3ed0c",
   "helpers/benchmarking/make_archive_checksums.py": "9de1fa82bf5a8a1f09e495fc317def2a2b4a9cdee98a8ff3cdb0aba7bc31ce17",
   "helpers/benchmarking/make_sharedfit_species_grid.py": "250653d99fe765e15c2e5fdef39840a654afdb08df0ba00dceee97eda1ecee6c",
   "helpers/benchmarking/neutron_falsifier.py": "cd69138832a7e86eb172ad50268318ba0e79cabea689dc25fc07f4634111bb10",
   "helpers/benchmarking/orchestrate_gateway_absyield_prior_scan.py": "418e8d27f48a7542afbee643c4fb1fde53546751050d7f322ef83b13b8c8848a",
   "helpers/benchmarking/orchestrate_gateway_balanced_reruns.py": "a438fb6674ba39a14fc37ba8f54e2bc67cd81fdbedce1eb83558a0daec04cb15",
-  "helpers/benchmarking/orchestrate_gateway_joint_fit.py": "6edf7ec6823d644383ba8aeabd63f0a8cb401ab90e8e5f0dbcfc7875ad2060ea",
+  "helpers/benchmarking/orchestrate_gateway_joint_fit.py": "d27c75fe57f53f5ee60a4634ff5ebcc5ae91bafa863329b5a4688b60c0abdfea",
   "helpers/benchmarking/orchestrate_gateway_multispecies.py": "eada9d96c8cd2f028974df17925970e1df0c195143376e59fd060e26c9724004",
   "helpers/benchmarking/orchestrate_gateway_nstar_ladder_dynamic.py": "60d411ddb57b056a43ecdf4e54ef266e8e17bc7774d9c8939a06c11b32170537",
   "helpers/benchmarking/orchestrate_gateway_nstar_ladder_grid.py": "1dd30722d36c89eb3a6532944cb93b0d39559a01982cf2d7f52f1cddc631a970",
@@ -5704,5 +5742,5 @@
   "helpers/benchmarking/tests/test_window_yield_kernel.py": "182cb78cd2d55eaa411b52847d1fa39a7bd799331d5a3b8be22ead6e4d9abf03",
   "helpers/benchmarking/validate_np_scattering.py": "77d3763be583aab30a46ae70bd6ff21a574bb747f5cbf96cd77d6c2287e75b45"
  },
- "inventory_count": 926
+ "inventory_count": 933
 }

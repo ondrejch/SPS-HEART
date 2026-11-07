@@ -1,8 +1,8 @@
 # The fit
 
-The published model is the result of one fit, described by `dev/mixing2006/config/runs/r141.json`. Its run
-directory is `dev/00runs/r141_aligned_lines_2026-11-05/`, and its result record is
-`dev/00runs/paper_record_r141/RECORD.json`.
+The published model is the result of one fit, described by `dev/mixing2006/config/runs/r146.json`. Its run
+directory is `dev/00runs/r146_regenerated_2026-11-06/`, and its result record is
+`dev/00runs/paper_record_r146/RECORD.json`.
 
 ## How the fit works
 
@@ -25,7 +25,7 @@ neutron dn/dx_F. It carries the correlated systematic uncertainties of the NA49 
 The fit driver is `helpers/benchmarking/run_engine.py`. Each call does one step:
 
 ```bash
-python helpers/benchmarking/run_engine.py --spec dev/mixing2006/config/runs/r141.json --<step> [--run-dir DIR] [--workers N]
+python helpers/benchmarking/run_engine.py --spec dev/mixing2006/config/runs/r146.json --<step> [--run-dir DIR] [--workers N]
 ```
 
 | Step | What it does |
@@ -74,7 +74,7 @@ The keys of `report.json` that most users need are `fitted` (the optimum), `hess
 
 ## The result record
 
-`dev/00runs/paper_record_r141/RECORD.json` is written by `helpers/publishing/make_paper_record.py` in the development
+`dev/00runs/paper_record_r146/RECORD.json` is written by `helpers/publishing/make_paper_record.py` in the development
 checkout. It names the run that produced every number of the papers and carries enough of the report to check them
 without the events: the run identity and the hashes of its spec, report, and manifest; the code commits the fit ran
 on; the fitted parameters with their errors; the objective by segment, checked to add to the total; the profiled

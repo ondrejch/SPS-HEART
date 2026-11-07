@@ -1,7 +1,7 @@
 {
- "card": "TASK-20261105-r141-aligned-lines",
+ "card": "TASK-20261106-r146-regenerated",
  "driver": "helpers/benchmarking/run_engine.py",
- "driver_sha256": "509bb33d0f2c8eea3ff6a04a04f283a03f33b42af9cdcba897a34a1c891d87ae",
+ "driver_sha256": "b9286e14d5bd29901186fbc5f8b962844d4c68c0ade9bfb7b2c38d8794cbe372",
  "environment": {
   "cpu_count": 64,
   "machine": "x86_64",
@@ -10,8 +10,8 @@
   "python": "3.12.15"
  },
  "frozen_substrate": {
-  "dev/mixing2006/config/runs/r141.json": {
-   "sha256": "6b30ef9c85b1cd83453e25734bd2a8578817a56207df3d47ce7bb3207fabdff4",
+  "dev/mixing2006/config/runs/r146.json": {
+   "sha256": "c3e5b2558c977c60b95873bb315b552d385fffd52067bd277e9cf52440bcc64f",
    "verified": true
   },
   "dev/mixing2006/config/staged_excitation.json": {
@@ -75,7 +75,7 @@
    "verified": true
   },
   "dev/mixing2006/na49_mixing/cascade_decay.py": {
-   "sha256": "0c7091720002245c62ec7437aba522225b753213b57361c022c5169cdf6488e3",
+   "sha256": "abd3be88773d1a95013ab3eb29bbc76e7d39e3042a506ee5aa3fc7fb323cf990",
    "verified": true
   },
   "dev/mixing2006/na49_mixing/cascade_form_factor.py": {
@@ -199,7 +199,7 @@
    "verified": true
   },
   "dev/mixing2006/na49_mixing/kernel_config.py": {
-   "sha256": "155185be5a482d2eb25ad33f91570bd3aac94722e658141365cffbf718b740e5",
+   "sha256": "203daeaaa9f2e4ab347180b51a7388dc8d9cbcf6b48d8dd163a49c33036d1d65",
    "verified": true
   },
   "dev/mixing2006/na49_mixing/light_scalar_mesons.py": {
@@ -283,7 +283,7 @@
    "verified": true
   },
   "dev/mixing2006/na49_mixing/spectral_density.py": {
-   "sha256": "e963149811ad7a84d58692d009a9a07d6a7b5857c00acd2ad3281ec1ea88869f",
+   "sha256": "865b041661a917e11d56550fa8a04955d437b97ddb378d44ba48982fd9952c54",
    "verified": true
   },
   "dev/mixing2006/na49_mixing/split_reweight.py": {
@@ -391,7 +391,7 @@
    "verified": true
   },
   "helpers/benchmarking/run_engine.py": {
-   "sha256": "509bb33d0f2c8eea3ff6a04a04f283a03f33b42af9cdcba897a34a1c891d87ae",
+   "sha256": "b9286e14d5bd29901186fbc5f8b962844d4c68c0ade9bfb7b2c38d8794cbe372",
    "verified": true
   },
   "helpers/benchmarking/run_observables.py": {
@@ -415,8 +415,8 @@
    "head": ""
   }
  },
- "run": "r141_aligned_lines_2026-11-05",
- "run_dir": "/home/ondrejch/NA49/2026/01-NA49-res/dev/00runs/r141_aligned_lines_2026-11-05",
+ "run": "r146_regenerated_2026-11-06",
+ "run_dir": "/home/ondrejch/NA49/2026/01-NA49-res/dev/00runs/r146_regenerated_2026-11-06",
  "schema": "na49_mixing.run_engine.provenance/1",
- "written_utc": "2026-11-05T21:21:41Z"
+ "written_utc": "2026-11-07T01:21:43Z"
 }

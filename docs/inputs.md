@@ -6,7 +6,7 @@ and, for event generation at a fitted point, the fit report.
 ## The run description
 
 A run description is one JSON file under `dev/mixing2006/config/runs/` (schema `na49_mixing.run_spec/1`).
-`r141.json` describes the fit of the paper. The other files describe the project's earlier fits, which the tests
+`r146.json` describes the fit of the paper. The other files describe the project's earlier fits, which the tests
 read and which record how the model was built up. The fit driver (`helpers/benchmarking/run_engine.py`, `configure()`)
 reads it and refuses a file whose sections are inconsistent.
 
@@ -35,7 +35,7 @@ traced to its inputs.
 `dev/mixing2006/na49_mixing/kernel_config.py` defines `KernelConfig`. Its docstring documents every option. The
 `kernel` section of a run description sets them, and `load_kernel()` builds the catalog and the continuum families
 from them. Each option added after a fit defaults to the behavior that fit used, so an older run description
-reproduces its events. The options of `r141.json` fall into four groups:
+reproduces its events. The options of `r146.json` fall into four groups:
 
 - **The continuum and its cascade:** `continuation_floor` and `continuation_ceiling`, the mass law of a continuation
   step (`continuation_mass_law`, `continuation_barrier_l`), the opening threshold `continuation_q_min`, and the
@@ -91,5 +91,5 @@ generates events:
 | `f_isovector` | the isovector exchange fraction |
 | `class_fractions`, `remnant_weights` | the event-class fractions and the non-diffractive remnant mixture |
 
-The report of the paper's fit is `dev/00runs/r141_aligned_lines_2026-11-05/report.json`. Its contents are described
+The report of the paper's fit is `dev/00runs/r146_regenerated_2026-11-06/report.json`. Its contents are described
 in [fit.md](fit.md).

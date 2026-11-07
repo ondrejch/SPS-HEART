@@ -1,0 +1,74 @@
+{
+ "point": "r141_aligned_lines_2026-11-05",
+ "base_blocks": [
+  "sp141a",
+  "sp141b"
+ ],
+ "estimator": "probe_noise.py, normalizations fitted, bias-corrected; paired jackknife sigma over 32 batches per block; the mean of blocks a and b, sigma sqrt(sa^2 + sb^2) / 2; mean_vs_isotropic = the variant's mean minus the isotropic decay's (biz141), both against the adopted base",
+ "adopted": {
+  "baryon_line_kappa": 1.5,
+  "baryon_line_kappa_scope": "nonstrange"
+ },
+ "isotropic": {
+  "tag": "biz141",
+  "mean_vs_adopted": 582.0,
+  "sigma": 39.18698763620393
+ },
+ "variants": [
+  {
+   "tag": "sp141",
+   "kappa": 1.5,
+   "scope": "nonstrange",
+   "mean_vs_isotropic": -582.0,
+   "sigma": 39.18698763620393
+  },
+  {
+   "tag": "bn1z141",
+   "kappa": 1.0,
+   "scope": "nonstrange",
+   "mean_vs_isotropic": -477.0,
+   "mean_vs_adopted": 105.0,
+   "sigma_vs_adopted": 22.978359384429513
+  },
+  {
+   "tag": "bn2z141",
+   "kappa": 2.0,
+   "scope": "nonstrange",
+   "mean_vs_isotropic": -604.0,
+   "mean_vs_adopted": -22.0,
+   "sigma_vs_adopted": 19.712749681361046
+  },
+  {
+   "tag": "bn3z141",
+   "kappa": 3.0,
+   "scope": "nonstrange",
+   "mean_vs_isotropic": -517.0,
+   "mean_vs_adopted": 65.0,
+   "sigma_vs_adopted": 30.064015034589108
+  },
+  {
+   "tag": "bahz141",
+   "kappa": 0.5,
+   "scope": "all",
+   "mean_vs_isotropic": -260.5,
+   "mean_vs_adopted": 321.5,
+   "sigma_vs_adopted": 36.79408919921786
+  },
+  {
+   "tag": "ba1z141",
+   "kappa": 1.0,
+   "scope": "all",
+   "mean_vs_isotropic": -390.5,
+   "mean_vs_adopted": 191.5,
+   "sigma_vs_adopted": 36.26544498555064
+  },
+  {
+   "tag": "ba15z141",
+   "kappa": 1.5,
+   "scope": "all",
+   "mean_vs_isotropic": -462.0,
+   "mean_vs_adopted": 120.0,
+   "sigma_vs_adopted": 31.361162287134704
+  }
+ ]
+}

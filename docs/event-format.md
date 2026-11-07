@@ -7,14 +7,14 @@ following line is one inelastic event. A file is read with any JSON parser, one 
 
 ```json
 {"format": "heart-events/1",
- "spec": "dev/mixing2006/config/runs/r141.json",
- "report": "dev/00runs/r141_aligned_lines_2026-11-05/report.json",
- "run_id": "r141_aligned_lines_2026-11-05",
+ "spec": "dev/mixing2006/config/runs/r146.json",
+ "report": "dev/00runs/r146_regenerated_2026-11-06/report.json",
+ "run_id": "r146_regenerated_2026-11-06",
  "reaction": "p+p", "beam_momentum_gev_c": 158.0, "sqrt_s_gev": 17.270205201372406,
  "frame": "lab (target at rest, beam along +z)", "units": "GeV",
  "seed": 1, "events": 1000, "final_state": "observed",
- "class_fractions": {"dd": 0.0472, "nd0": 0.5873, "sd_projectile": 0.1827, "sd_target": 0.1827},
- "isovector_fraction": 3.1e-06,
+ "class_fractions": {"dd": 0.0472, "nd0": 0.5771, "sd_projectile": 0.1878, "sd_target": 0.1878},
+ "isovector_fraction": 1.6e-09,
  "particle_columns": ["pdg", "E", "px", "py", "pz", "mass", "B", "Q", "S", "I3x2", "line"]}
 ```
 

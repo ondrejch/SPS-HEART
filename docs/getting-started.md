@@ -32,8 +32,8 @@ The point is read from a fit report, so the events are those of the published mo
 
 ```bash
 python helpers/benchmarking/heart_events.py \
-    --spec dev/mixing2006/config/runs/r141.json \
-    --report dev/00runs/r141_aligned_lines_2026-11-05/report.json \
+    --spec dev/mixing2006/config/runs/r146.json \
+    --report dev/00runs/r146_regenerated_2026-11-06/report.json \
     --events 10000 --workers 8 --seed 1 --out heart_events.jsonl
 ```
 

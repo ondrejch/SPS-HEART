@@ -26,8 +26,8 @@ The first paper defines the model and its fit. The second gives the historical p
 git clone https://github.com/ondrejch/SPS-HEART.git && cd SPS-HEART
 python -m pip install -e dev/mixing2006
 python helpers/benchmarking/heart_events.py \
-    --spec dev/mixing2006/config/runs/r141.json \
-    --report dev/00runs/r141_aligned_lines_2026-11-05/report.json \
+    --spec dev/mixing2006/config/runs/r146.json \
+    --report dev/00runs/r146_regenerated_2026-11-06/report.json \
     --events 1000 --workers 4 --out heart_events.jsonl
 ```
 
@@ -50,12 +50,12 @@ events per second. The output is one JSON line per event with every final-state 
 ## Layout
 
 - `dev/mixing2006/`: the generator package `na49_mixing`, its configuration (`config/`, with the run descriptions of
-  the project's fits under `config/runs/`; `r141.json` is the paper's), and its tests
+  the project's fits under `config/runs/`; `r146.json` is the paper's), and its tests
 - `dev/mixing2006/spshadrons.web.cern.ch/`: the NA49 and SPS data tables
 - `helpers/benchmarking/`: the fit driver (`run_engine.py`), the event writer (`heart_events.py`), and their tests
 - `helpers/na49_gateway/`: the client for running the fit on a cluster, with an example configuration
 - `dev/00runs/`: the fit's report and the readout files the papers quote, and the result record
-  `paper_record_r141/RECORD.json`
+  `paper_record_r146/RECORD.json`
 
 ## License
 

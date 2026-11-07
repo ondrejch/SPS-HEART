@@ -13,8 +13,8 @@ class fractions and generated on its own random substreams, so a given
 Example (from the repository root)::
 
     python helpers/benchmarking/heart_events.py \\
-        --spec dev/mixing2006/config/runs/r141.json \\
-        --report dev/00runs/r141_aligned_lines_2026-11-05/report.json \\
+        --spec dev/mixing2006/config/runs/r146.json \\
+        --report dev/00runs/r146_regenerated_2026-11-06/report.json \\
         --events 1000 --out heart_events.jsonl
 
 The final state is the one the fit bins (``--final observed``, the default):
@@ -143,7 +143,7 @@ def _chunk(args) -> list[str]:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    ap.add_argument("--spec", required=True, help="run description JSON (e.g. dev/mixing2006/config/runs/r141.json)")
+    ap.add_argument("--spec", required=True, help="run description JSON (e.g. dev/mixing2006/config/runs/r146.json)")
     ap.add_argument("--report", required=True, help="the fit's report.json (its 'fitted' block is the point)")
     ap.add_argument("--events", type=int, default=1000, help="number of inelastic events")
     ap.add_argument("--seed", type=int, default=1, help="root seed; (seed, event index) fixes each event")

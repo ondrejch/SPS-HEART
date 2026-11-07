@@ -1,0 +1,67 @@
+submitted lsz141xf25: 20261106T212815Z-39206b8b
+finished in 332 s
+spec r141.json x_F [0.2, 0.3] events {'nd0': 112000, 'sd_projectile': 16000, 'sd_target': 16000, 'dd': 16000} fractions {'nd0': 0.5873100746642156, 'sd_projectile': 0.18274496266789217, 'sd_target': 0.18274496266789217, 'dd': 0.0472}
+K+ pT0-0.5     per event 0.0064 | classes nd 0.63, sdp 0.28, dd 0.08, sdt 0.00
+               nd:K*(892)0 0.143, nd:K*(892)+ 0.121, nd:step0[2-3]:baryonic_np:d0:m>2 0.071, sdp:K*(892)0 0.068, sdp:step0[2-3]:baryonic_np:d0:m>2 0.039, sdp:K*(892)+ 0.037, sdp:f0(980) 0.025, nd:direct[2-3]:baryonic_np:d1:m>2 0.025, nd:N(1720)+ 0.023, nd:f0(980) 0.020
+K+ pT0.5-1     per event 0.0038 | classes nd 0.63, sdp 0.29, dd 0.09
+               nd:K*(892)0 0.146, nd:K*(892)+ 0.100, sdp:K*(892)0 0.058, sdp:K*(892)+ 0.049, nd:direct[2-3]:mesonic_antistrange_q1:d1:m>2 0.047, nd:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.042, nd:step0[2-3]:baryonic_np:d0:m>2 0.025, dd:K*(892)0 0.022, sdp:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.021, nd:step0[>3]:baryonic_np:d0:m>2 0.020
+K+ pT1-2.5     per event 0.0007 | classes nd 0.76, sdp 0.19, dd 0.05
+               nd:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.118, nd:direct[2-3]:mesonic_antistrange_q1:d1:m>2 0.103, nd:K*(892)0 0.095, nd:direct[2-3]:mesonic_charged:d2:m>2 0.071, nd:direct[2-3]:mesonic_antistrange:d2:m>2 0.063, nd:K*(892)+ 0.055, sdp:direct[2-3]:mesonic_antistrange_q1:d2:m>2 0.034, sdp:K*(892)0 0.034, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.032, nd:K*(1680)0 0.032
+K- pT0-0.5     per event 0.0023 | classes nd 0.58, sdp 0.34, dd 0.08
+               nd:aK*(892)0 0.183, sdp:aK*(892)0 0.100, sdp:f0(980) 0.070, nd:K*(892)- 0.059, nd:f0(980) 0.059, nd:phi(1020) 0.037, nd:Lambda(1520) 0.034, sdp:Lambda(1520) 0.030, sdp:Lambda(1820) 0.025, sdp:K*(892)- 0.025
+K- pT0.5-1     per event 0.0013 | classes nd 0.66, sdp 0.27, dd 0.08
+               nd:aK*(892)0 0.195, nd:K*(892)- 0.085, sdp:aK*(892)0 0.080, sdp:K*(892)- 0.044, nd:direct[2-3]:mesonic_strange_qm1:d2:m>2 0.041, nd:Lambda(1820) 0.037, nd:Lambda(1890) 0.028, sdp:direct[2-3]:baryonic_strange:d1:m>2 0.027, nd:phi(1020) 0.024, dd:aK*(892)0 0.021
+K- pT1-2.5     per event 0.0003 | classes nd 0.78, sdp 0.18, dd 0.05
+               nd:aK*(892)0 0.204, sdp:direct[2-3]:mesonic_strange_qm1:d2:m>2 0.089, nd:direct[2-3]:mesonic_strange_qm1:d2:m>2 0.082, nd:Lambda(1890) 0.061, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.061, nd:K*(892)- 0.061, sdp:K*(892)- 0.044, sdp:aK*(892)0 0.044, nd:phi(1020) 0.041, nd:Sigma(1775)- 0.041
+Lambda pT0-0.5 per event 0.0039 | classes nd 0.60, sdp 0.31, dd 0.09, sdt 0.00
+               nd:Sigma(1385)0 0.133, nd:Sigma(1385)+ 0.115, sdp:Sigma(1385)0 0.062, sdp:Sigma(1385)+ 0.056, nd:Sigma(1385)- 0.031, sdp:Sigma(1385)- 0.029, nd:Lambda(1690) 0.027, nd:step0[>3]:baryonic_np:d0:m>2 0.026, sdp:Lambda(1670) 0.021, nd:N(1720)+ 0.020
+Lambda pT0.5-1 per event 0.0031 | classes nd 0.68, sdp 0.23, dd 0.08, sdt 0.01
+               nd:Sigma(1385)0 0.147, nd:Sigma(1385)+ 0.116, sdp:Sigma(1385)+ 0.056, nd:Sigma(1385)- 0.053, sdp:Sigma(1385)0 0.049, nd:step0[>3]:baryonic_np:d0:m>2 0.048, sdp:N(1650)+ 0.026, sdp:step0[>3]:baryonic_np:d0:m>2 0.026, nd:step[>3]:mesonic_neutral:d1:m>2 0.026, nd:N(1720)+ 0.026
+Lambda pT1-2.5 per event 0.0006 | classes nd 0.69, sdp 0.25, dd 0.07
+               nd:Sigma(1385)0 0.122, nd:Sigma(1385)+ 0.066, sdp:Sigma(1775)+ 0.061, nd:Sigma(1385)- 0.047, sdp:Lambda(1690) 0.041, nd:Sigma(1775)0 0.038, nd:step[>3]:mesonic_neutral:d1:m>2 0.038, nd:Sigma(1915)0 0.038, nd:Sigma(1660)+ 0.028, nd:N(1650)+ 0.028
+Lambdabar pT0-0.5 per event 0.0002 | classes nd 0.72, sdp 0.25, dd 0.03
+               nd:step[>3]:mesonic_neutral:d1:m>2 0.232, sdp:step[>3]:mesonic_neutral:d1:m>2 0.152, nd:step[>3]:mesonic_neutral:d2:m>2 0.139, nd:aSigma(1385)0 0.139, nd:aSigma(1385)+ 0.116, sdp:step[>3]:mesonic_neutral:d2:m>2 0.101, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.023, nd:direct[2-3]:anti_baryonic_strange_q1:d2:m>2 0.023, nd:aSigma(1915)0 0.023, nd:direct[2-3]:anti_baryonic_np:d2:m>2 0.023
+Lambdabar pT0.5-1 per event 0.0001 | classes nd 0.74, sdp 0.24, dd 0.02
+               nd:step[>3]:mesonic_neutral:d1:m>2 0.221, sdp:aSigma(1385)- 0.080, sdp:step[>3]:mesonic_neutral:d2:m>2 0.080, sdp:step[>3]:mesonic_neutral:d1:m>2 0.080, nd:aSigma(1385)+ 0.074, nd:step[>3]:mesonic_neutral:d2:m>2 0.074, nd:step[>3]:anti_baryonic_strange:d2:m>2 0.037, nd:aN(1650)+ 0.037, nd:direct[2-3]:anti_baryonic_strange:d2:m>2 0.037, nd:aSigma(1775)+ 0.037
+Lambdabar pT1-2.5 per event 0.0000 | classes sdp 0.49, nd 0.45, dd 0.06
+               sdp:step[>3]:mesonic_neutral:d2:m>2 0.244, sdp:step[>3]:mesonic_neutral:d1:m>2 0.244, nd:aSigma(1385)0 0.224, nd:step[>3]:mesonic_neutral:d2:m>2 0.112, nd:step[>3]:mesonic_neutral:d1:m>2 0.112, dd:aSigma(1385)+ 0.063
+Sigma0 pT0-0.5 per event 0.0011 | classes nd 0.67, sdp 0.22, dd 0.10
+               nd:step0[>3]:baryonic_np:d0:m>2 0.084, nd:Lambda(1520) 0.070, nd:Sigma(1750)0 0.056, nd:Sigma(1670)0 0.046, nd:Sigma(1670)+ 0.046, sdp:Sigma(1750)0 0.040, nd:Lambda(1830) 0.037, nd:Sigma(1910)+ 0.037, nd:Lambda(1690) 0.037, nd:Lambda(1405) 0.032
+Sigma0 pT0.5-1 per event 0.0012 | classes nd 0.72, sdp 0.21, dd 0.06, sdt 0.01
+               nd:step0[>3]:baryonic_np:d0:m>2 0.122, nd:Sigma(1670)+ 0.057, nd:Lambda(1520) 0.052, nd:Sigma(1750)0 0.048, nd:Lambda(1405) 0.048, nd:Lambda(1830) 0.039, nd:Sigma(1910)+ 0.039, nd:Sigma(1385)+ 0.030, sdp:Sigma(1670)+ 0.028, sdp:Lambda(1405) 0.028
+Sigma0 pT1-2.5 per event 0.0002 | classes nd 0.83, sdp 0.09, dd 0.07
+               nd:Sigma(1670)+ 0.150, nd:Sigma(1910)+ 0.128, nd:step0[>3]:baryonic_np:d0:m>2 0.107, nd:Lambda(1520) 0.064, sdp:Lambda(1800) 0.047, sdp:Lambda(1670) 0.047, nd:Delta(1950)+ 0.043, dd:Lambda(1520) 0.024, nd:step[>3]:baryonic_strange_q1:d2:m>2 0.021, nd:direct[2-3]:baryonic_strange_q1:d2:m>2 0.021
+Sigma0bar pT0-0.5 per event 0.0000 | classes sdp 0.69, nd 0.31
+               sdp:aLambda(1830) 0.343, sdp:direct[2-3]:anti_baryonic_strange:d2:m>2 0.343, nd:direct[2-3]:anti_baryonic_strange_qm1:d2:m>2 0.157, nd:step[>3]:anti_baryonic_np_q0:d2:m>2 0.157
+Sigma0bar pT0.5-1 per event 0.0000 | classes nd 0.58, sdp 0.42
+               sdp:direct[2-3]:anti_baryonic_np_q0:d2:m>2 0.421, nd:step[>3]:anti_baryonic_np:d2:m>2 0.193, nd:step[>3]:anti_baryonic_strange_q1:d2:m>2 0.193, nd:direct[2-3]:anti_baryonic_strange_q1:d2:m>2 0.193
+n pT0-0.5      per event 0.0241 | classes nd 0.72, sdp 0.21, dd 0.07, sdt 0.00
+               nd:Delta0 0.143, nd:Delta+ 0.099, nd:Delta- 0.069, nd:step0[>3]:baryonic_np:d0:m>2 0.049, nd:N*(1440)+ 0.042, nd:N*(1680)+ 0.035, nd:N*(1520)+ 0.033, sdp:Delta0 0.023, nd:N*(1440)0 0.022, sdp:step0[>3]:baryonic_np:d0:m>2 0.019
+n pT0.5-1      per event 0.0155 | classes nd 0.73, sdp 0.20, dd 0.07
+               nd:Delta0 0.116, nd:Delta+ 0.073, nd:Delta- 0.067, nd:N*(1680)+ 0.051, nd:step0[>3]:baryonic_np:d0:m>2 0.043, nd:N*(1520)+ 0.035, nd:N*(1440)+ 0.034, nd:N*(1680)0 0.026, nd:direct[2-3]:baryonic_np:d1:m>2 0.025, sdp:Delta- 0.021
+n pT1-2.5      per event 0.0030 | classes nd 0.79, sdp 0.17, dd 0.04
+               nd:Delta0 0.105, nd:N*(1680)+ 0.077, nd:Delta- 0.077, nd:Delta+ 0.052, nd:step0[>3]:baryonic_np:d0:m>2 0.045, nd:N*(1680)0 0.042, nd:N*(1520)+ 0.042, nd:N*(1440)+ 0.035, sdp:N*(1680)+ 0.034, nd:N*(1440)0 0.026
+p pT0-0.5      per event 0.0377 | classes nd 0.68, sdp 0.21, dd 0.06, sdt 0.05
+               nd:Delta++ 0.178, nd:Delta+ 0.138, sdp:Delta++ 0.057, nd:Delta0 0.047, sdt:record 0.045, nd:step0[>3]:baryonic_np:d0:m>2 0.031, nd:direct[2-3]:baryonic_np:d1:m>2 0.021, nd:N*(1440)+ 0.021, nd:N*(1680)+ 0.018, sdp:step0[>3]:baryonic_np:d0:m>2 0.017
+p pT0.5-1      per event 0.0221 | classes nd 0.72, sdp 0.21, dd 0.07, sdt 0.01
+               nd:Delta++ 0.157, nd:Delta+ 0.106, nd:Delta0 0.050, sdp:Delta++ 0.044, nd:N*(1680)0 0.032, nd:step0[>3]:baryonic_np:d0:m>2 0.030, nd:N*(1680)+ 0.029, nd:direct[2-3]:baryonic_np:d1:m>2 0.029, nd:N*(1520)0 0.023, nd:N*(1440)+ 0.019
+p pT1-2.5      per event 0.0038 | classes nd 0.78, sdp 0.18, dd 0.03, sdt 0.00
+               nd:Delta++ 0.165, nd:Delta+ 0.102, nd:N*(1680)+ 0.042, nd:N*(1680)0 0.042, nd:Delta0 0.041, nd:step0[>3]:baryonic_np:d0:m>2 0.038, nd:N*(1440)+ 0.024, nd:Delta(1700)++ 0.022, nd:N*(1440)0 0.022, nd:N(1650)0 0.021
+pbar pT0-0.5   per event 0.0007 | classes nd 0.70, sdp 0.26, dd 0.04
+               nd:direct[2-3]:mesonic_neutral:d1:m>2 0.120, nd:aDelta-- 0.113, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.099, nd:step[>3]:mesonic_neutral:d1:m>2 0.085, nd:aDelta+ 0.064, sdp:direct[2-3]:mesonic_neutral:d1:m>2 0.062, sdp:direct[2-3]:mesonic_neutral:d2:m>2 0.046, sdp:direct[2-3]:anti_baryonic_np:d2:m>2 0.031, nd:direct[2-3]:anti_baryonic_np:d2:m>2 0.028, nd:aN(1535)+ 0.021
+pbar pT0.5-1   per event 0.0007 | classes nd 0.69, sdp 0.26, dd 0.04
+               nd:direct[2-3]:anti_baryonic_np:d2:m>2 0.093, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.086, sdp:direct[2-3]:anti_baryonic_np:d2:m>2 0.078, nd:direct[2-3]:mesonic_neutral:d1:m>2 0.071, nd:aDelta-- 0.071, nd:aDelta+ 0.057, nd:step[>3]:mesonic_neutral:d1:m>2 0.050, sdp:aDelta-- 0.047, nd:aN*(1520)0 0.036, sdp:direct[2-3]:mesonic_neutral:d2:m>2 0.031
+pbar pT1-2.5   per event 0.0001 | classes nd 0.86, sdp 0.14
+               nd:direct[2-3]:mesonic_neutral:d2:m>2 0.264, nd:aDelta-- 0.198, sdp:step[>3]:mesonic_neutral:d2:m>2 0.144, nd:aSigma(1915)0 0.066, nd:aDelta(1700)0 0.066, nd:step[>3]:mesonic_neutral:d2:m>2 0.066, nd:step[>3]:mesonic_neutral:d1:m>2 0.066, nd:aN(1535)+ 0.066, nd:direct[2-3]:anti_baryonic_np:d2:m>2 0.066
+pi+ pT0-0.5    per event 0.0704 | classes nd 0.66, sdp 0.24, dd 0.08, sdt 0.02
+               nd:Delta+ 0.132, nd:rho+ 0.074, nd:Delta++ 0.071, nd:rho0 0.061, nd:omega 0.036, nd:N*(1440)+ 0.035, sdp:N*(1440)+ 0.032, sdp:Delta++ 0.026, sdp:omega 0.025, sdp:rho+ 0.023
+pi+ pT0.5-1    per event 0.0288 | classes nd 0.70, sdp 0.22, dd 0.07, sdt 0.01
+               nd:rho+ 0.121, nd:rho0 0.093, nd:N*(1680)+ 0.034, sdp:rho+ 0.034, nd:direct[2-3]:mesonic_charged:d2:m>2 0.032, nd:direct[2-3]:mesonic_charged:d1:m>2 0.027, sdp:rho0 0.026, nd:direct[2-3]:baryonic_np:d1:m>2 0.024, nd:direct[2-3]:baryonic_np_q2:d1:m>2 0.023, nd:Delta(1950)+ 0.022
+pi+ pT1-2.5    per event 0.0034 | classes nd 0.75, sdp 0.19, dd 0.05, sdt 0.01
+               nd:rho+ 0.141, nd:direct[2-3]:mesonic_charged:d2:m>2 0.109, nd:rho0 0.101, nd:direct[2-3]:mesonic_charged:d1:m>2 0.054, nd:f2(1270) 0.054, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.030, sdp:direct[2-3]:mesonic_charged:d2:m>2 0.027, sdp:f2(1270) 0.027, sdp:rho0 0.024, nd:rho(1450)0 0.023
+pi- pT0-0.5    per event 0.0371 | classes nd 0.65, sdp 0.26, dd 0.08, sdt 0.01
+               nd:rho0 0.130, nd:rho- 0.065, nd:omega 0.064, sdp:rho0 0.045, nd:f0(500) 0.041, sdp:omega 0.039, nd:Delta0 0.034, sdp:rho- 0.032, sdp:f0(500) 0.019, nd:step0[2-3]:baryonic_np:d0:m>2 0.018
+pi- pT0.5-1    per event 0.0191 | classes nd 0.69, sdp 0.23, dd 0.07, sdt 0.00
+               nd:rho0 0.146, nd:rho- 0.105, sdp:rho0 0.044, nd:f2(1270) 0.034, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.031, sdp:rho- 0.026, nd:omega 0.026, nd:N*(1680)0 0.022, nd:f0(500) 0.021, nd:direct[2-3]:baryonic_np_q0:d1:m>2 0.020
+pi- pT1-2.5    per event 0.0024 | classes nd 0.73, sdp 0.21, dd 0.05, sdt 0.01
+               nd:rho0 0.131, nd:direct[2-3]:mesonic_anticharged:d2:m>2 0.101, nd:rho- 0.088, nd:f2(1270) 0.067, nd:direct[2-3]:mesonic_neutral:d2:m>2 0.060, nd:direct[2-3]:mesonic_anticharged:d1:m>2 0.034, sdp:direct[2-3]:mesonic_anticharged:d2:m>2 0.033, nd:N*(1680)0 0.032, nd:direct[2-3]:mesonic_neutral:d1:m>2 0.026, nd:f0(980) 0.024
