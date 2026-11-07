@@ -1,6 +1,6 @@
 # SPS-HEART
 
-![HEART model logo](assets/logo/heart_logo.png)
+<img src="assets/logo/heart_logo.png" align="right" width="220" alt="HEART model logo">
 
 HEART (Hadronic Excitations And Resonance Transitions) is an event generator for soft identified-hadron production
 in p+p collisions at 158 GeV/c beam momentum (√s = 17.3 GeV). An inelastic event is the decay of two excited hadronic
