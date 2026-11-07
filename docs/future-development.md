@@ -94,7 +94,7 @@ law would decide.
 
 ## 3. Proton–nucleus collisions
 
-Fischer and co-workers developed the two-component reading on nuclear targets as well (Eur. Phys. J. C 49, 919 (2007);
+Fischer and co-workers developed the two-component picture on nuclear targets as well (Eur. Phys. J. C 49, 919 (2007);
 Chvala et al., Eur. Phys. J. C 73, 2329 (2013)). A p+A event can be built from repeated
 color-singlet exchanges of the projectile system along its path through the nucleus, with the p+p kernel frozen and
 the nuclear geometry and the nucleon–nucleon cross section as external inputs. At most three quantities may be
