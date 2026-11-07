@@ -15,7 +15,7 @@ the fit, is here.
 ## Papers
 
 - *HEART: a resonance-cascade model of soft hadron production in p+p collisions at 158 GeV/c.* arXiv: TBD.
-- *The two-component picture of soft hadron production in the fragmentation region: Regge exchange, duality, and
+- *The two-component picture of soft hadron production: Regge exchange, duality, and
   resonance cascades.* arXiv: TBD.
 
 The first paper defines the model and its fit. The second gives the historical picture the model realizes.
