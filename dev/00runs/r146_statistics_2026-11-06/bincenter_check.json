@@ -1,0 +1,23 @@
+{
+ "run": "r146_regenerated_2026-11-06",
+ "method": "factors from the model's own local shape (m_bare at the tabulated points) against the data's; chi2 of the six spectra with the model's predictions rescaled by their ratio, the profiled scales and per-point denominators held at the optimum",
+ "data_factor_median": 0.9953445684637294,
+ "data_departure_median": 0.012280576991891556,
+ "data_over_5pct": 197,
+ "data_departure_max": 0.20201955102656166,
+ "model_change_median": 0.0019884467414422735,
+ "model_over_5pct": 37,
+ "model_change_max": 0.10094038685495121,
+ "chi2_base": 2235.183312260472,
+ "chi2_model_shape": 2409.6076592409877,
+ "n_points": 1254,
+ "over_5pct_by_species": {
+  "pi_minus": 2,
+  "k_minus": 3,
+  "proton": 20,
+  "antiproton": 12
+ },
+ "over_5pct_at_pt_1p5": 13,
+ "mc_rel_error_median_over_5pct": 0.026993781208288176,
+ "mc_rel_error_median_all": 0.013128848343230875
+}

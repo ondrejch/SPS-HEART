@@ -11,7 +11,7 @@ development checkout, so every path in the code and in these pages is valid here
 - `dev/mixing2006/config/runs/`: the run descriptions of the project's fits; `r146.json` is the paper's
 - `helpers/benchmarking/`: the fit driver, the event writer, and their tests
 - `helpers/na49_gateway/`: the cluster client, with an example configuration only
-- `dev/00runs/`: 37 result files of the paper's fit, namely its report, the report and
+- `dev/00runs/`: 38 result files of the paper's fit, namely its report, the report and
   manifest of the earlier fit its first generation starts from, the readouts and statistics the
   papers quote, and the result record `paper_record_r146/RECORD.json`
 
