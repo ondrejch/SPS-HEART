@@ -34,6 +34,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import subprocess
 from pathlib import Path
 
@@ -115,5 +116,10 @@ def test_preflight_passes_when_sps_files_verified(tmp_path):
         pytest.skip("reference SPS mirror not present in this checkout")
     result = _run_preflight(tmp_path, mirror)
     combined = result.stdout + result.stderr
+    # A public clone leaves out the paper PDFs of the mirror (git-ignored); the preflight reports them as absent and
+    # warns. The PASS verdict needs the complete mirror, so an incomplete one skips, while a mismatch still fails.
+    summary = re.search(r"CHECK_ONLY_SUMMARY verified=(\d+) absent=(\d+) mismatch=(\d+)", combined)
+    if summary and int(summary.group(2)) > 0 and int(summary.group(3)) == 0:
+        pytest.skip(f"reference SPS mirror incomplete: {summary.group(2)} manifest files absent")
     assert result.returncode == 0, combined
     assert "check PASS sps_hash_check" in combined, combined
