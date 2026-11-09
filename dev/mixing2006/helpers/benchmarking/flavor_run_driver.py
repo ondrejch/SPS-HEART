@@ -377,7 +377,8 @@ def render_report_md(spec: RunSpec, report: dict) -> str:
              "| parameter | value | error | free |", "|---|---|---|---|"]
     errors = (report["hessian"] or {}).get("errors") or {}
     for name in FC.FLAVOR_NAMES:
-        err = errors.get(name); lines.append(f"| {name} | {report['fitted'][name]:.5g} | {'' if not err else f'{err['sigma']:.3g}'} | {'yes' if name in report['free_parameters'] else 'no'} |")
+        err = errors.get(name); sig = "" if not err else f"{err['sigma']:.3g}"
+        lines.append(f"| {name} | {report['fitted'][name]:.5g} | {sig} | {'yes' if name in report['free_parameters'] else 'no'} |")
     o = report["objective_at_optimum"]
     lines += ["", f"Objective {o['value']:.3f} (data {o['minus2lnl_data']:.3f}); eta_hat {o['eta_hat']:.4f}; smallest ESS {o['ess_min']:.3f}; converged {report['optimizer']['converged']}; Hessian PD {report['hessian'].get('positive_definite')}.",
               f"Verdict: {'CONSTRAINED' if report['verdict']['constrained'] else ('VALIDATION' if report['verdict']['validation_only'] else 'NOT_CONSTRAINED')}.", "",

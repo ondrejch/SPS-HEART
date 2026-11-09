@@ -87,6 +87,12 @@ EXCLUDED_DIR_NAMES = frozenset({"__pycache__", ".pytest_cache"})
 FIXTURES_NPZ_PREFIX = "dev/mixing2006/tests/fixtures/"
 NPZ_SUFFIX = ".npz"
 
+
+def _numpy_major() -> int:
+    import numpy
+
+    return int(numpy.__version__.split(".")[0])
+
 # Artifact store: run-directory names are recorded there.  The scratch
 # area dev/00runs/tmp/ is excluded from the record.
 RUNS_DIR_REL = "dev/00runs"
@@ -177,10 +183,13 @@ def test_legacy_v1_manifest_matches_working_tree():
     )
     missing = sorted(recorded_hashed.keys() - computed_hashed.keys())
     added = sorted(computed_hashed.keys() - recorded_hashed.keys())
+    # The NPZ fixtures are git-ignored and regenerated on first use, so their size follows the installed NumPy:
+    # the recorded sizes come from NumPy 1.26, and NumPy 2 writes the same arrays with other bytes.
+    numpy_major = _numpy_major()
     npz_changed = sorted(
         path
         for path in recorded_npz.keys() & computed_npz.keys()
-        if recorded_npz[path] != computed_npz[path]
+        if recorded_npz[path] != computed_npz[path] and numpy_major < 2
     )
 
     problems = [_HEADING]

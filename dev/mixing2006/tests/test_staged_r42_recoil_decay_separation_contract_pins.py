@@ -201,8 +201,10 @@ SUPERSEDED_DRIVER_SHA256 = (
 #: re-touched this solver test file (TASK-20260925-r5-topology-template-runner).
 #: re-pinned by the Round 5 card 9 test-author 528 -> 529 count re-pin, which
 #: re-touched this solver test file (TASK-20260925-r5-topology-template-runner-test-author).
+#: re-pinned 2026-11-08: the solver test uses np.trapezoid where NumPy 2 removed np.trapz
+#: (TASK-20261108-sps-heart-numpy2-compat).
 SOLVER_TEST_SHA256 = (
-    "921aae355a79d218c9b3c312b6bf314f92b0a4eb9936e27e15920a6fa2a8b746"
+    "db7f9814b226ee04ec505235b14c9d28f9466ea1d53312498a02222596b56a0e"
 )
 
 # ----------------------------------------------------------------------

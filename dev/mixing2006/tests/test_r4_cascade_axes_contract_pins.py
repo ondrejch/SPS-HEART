@@ -687,7 +687,13 @@ def no_random(monkeypatch):
 
     import random as _random
 
-    original_default_rng = np.random.default_rng
+    # The returned factory is built from classes captured before the patches: NumPy 2's default_rng checks its seed
+    # against np.random.RandomState, which the sentinels below replace. Generator(PCG64(SeedSequence(seed))) has the
+    # same state as default_rng(seed).
+    _generator, _pcg64, _seed_sequence = np.random.Generator, np.random.PCG64, np.random.SeedSequence
+
+    def original_default_rng(seed):
+        return _generator(_pcg64(_seed_sequence(seed)))
     for name in ("random", "randint", "uniform", "choice", "choices",
                  "getrandbits", "seed", "SystemRandom", "Random",
                  "shuffle", "sample", "triangular", "gauss", "beta",

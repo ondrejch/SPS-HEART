@@ -33,6 +33,8 @@ def _load(name: str):
         sys.path.insert(0, str(HELPERS))
     spec = importlib.util.spec_from_file_location(name.replace(".py", ""), HELPERS / name)
     module = importlib.util.module_from_spec(spec)
+    # dataclasses resolve string annotations through sys.modules, so the module is registered before it runs
+    sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module
 

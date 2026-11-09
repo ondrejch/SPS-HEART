@@ -332,7 +332,8 @@ def test_prepare_fetches_pinned_commit_on_40_hex(scratch_root):
     calls = _git_calls(git_log)
     assert any(f"fetch --depth 1 origin {GIT_COMMIT}" in call for call in calls), calls
     assert any("rev-parse HEAD" in call for call in calls), calls
-    assert not any("clone" in call for call in calls), (
+    # compare the git subcommand tokens, not substrings: a checkout path may itself contain "clone"
+    assert not any("clone" in call.split() for call in calls), (
         f"pinned flow must not fall back to the tag clone: {calls}"
     )
 
