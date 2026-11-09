@@ -661,7 +661,7 @@ def test_point_target_sigma_boundary_matrix_rejected(bad) -> None:
         NucleusSpec(name="p", A=1, Z=1, sigma_nn_inel_mb=bad)
     msg = str(excinfo.value)
     assert "sigma_nn_inel_mb must be finite and positive" in msg
-    assert repr(bad) in msg
+    assert repr(float(bad)) in msg
 
 
 VALID_POINT_SIGMA_MATRIX = [

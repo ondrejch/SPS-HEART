@@ -167,7 +167,8 @@ def test_transfer_log_weight_closed_form():
     weights = np.exp(r42.transfer_log_weight(
         grid, np.full_like(grid, lo), np.full_like(grid, hi),
         b_gen, b_trial))
-    assert float(np.trapz(density_gen * weights, grid)) == pytest.approx(
+    trapezoid = getattr(np, "trapezoid", None) or np.trapz
+    assert float(trapezoid(density_gen * weights, grid)) == pytest.approx(
         1.0, rel=1e-6)
 
 

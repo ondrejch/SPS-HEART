@@ -620,7 +620,8 @@ def test_acceptance_t_law():
                         dtype=float, count=n)
     mean = float(np.mean(draws))
     sigma_mean = float(np.std(draws)) / math.sqrt(n)
-    assert mean == T_SAMPLE_MEAN
+    # np.mean's summation order differs between NumPy versions, so the pin holds to 1e-14 relative
+    assert math.isclose(mean, T_SAMPLE_MEAN, rel_tol=1e-14, abs_tol=0.0)
     assert abs(mean - MEAN_EXACT) <= 3.0 * sigma_mean
     z = abs(mean - MEAN_EXACT) / sigma_mean
     assert abs(z - T_SAMPLE_Z) <= 1e-3
