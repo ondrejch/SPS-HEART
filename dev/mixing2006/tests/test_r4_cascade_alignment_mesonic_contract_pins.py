@@ -424,7 +424,7 @@ def _reference_erfi(x: float, precision: int = 80) -> float:
 
     with localcontext() as ctx:
         ctx.prec = precision
-        x_dec = Decimal(repr(x))
+        x_dec = Decimal(repr(float(x)))  # NumPy 2 writes repr(np.float64) as 'np.float64(...)'
         if x_dec == 0:
             return 0.0
         sqrt_pi = Decimal(_DECIMAL_PI).sqrt()
