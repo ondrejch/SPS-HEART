@@ -4615,6 +4615,19 @@
     "helpers/benchmarking/tests/test_stale_prose_numbers.py"
    ],
    "reason": "SPS-HEART clean-clone fixes: the CRMC no-clone check compares subcommand tokens, the SPS preflight PASS test skips on an incomplete public mirror, and the three paper-publishing tests leave this repository"
+  },
+  {
+   "card": "TASK-20261108-sps-heart-numpy2-compat",
+   "files": [
+    "dev/mixing2006/helpers/benchmarking/flavor_run_driver.py",
+    "dev/mixing2006/tests/test_glauber.py",
+    "dev/mixing2006/tests/test_r4_cascade_axes_contract_pins.py",
+    "dev/mixing2006/tests/test_staged_r42_recoil_decay_separation.py",
+    "dev/mixing2006/tests/test_staged_r6x_flavor_runs.py",
+    "dev/mixing2006/tests/test_topology_elastic_contract_pins.py",
+    "helpers/benchmarking/flavor_run_driver.py"
+   ],
+   "reason": "Python 3.10 and NumPy 2 compatibility fixes found by the first CI run"
   }
  ],
  "frozen_fit_outputs": {
@@ -4942,7 +4955,7 @@
   "dev/mixing2006/helpers/benchmarking/fit_fanout.py": "51001448678e71d76bd558f537684ba34f4cedd252a00c46bc1f7757a28469bd",
   "dev/mixing2006/helpers/benchmarking/fit_table9_branching_params.py": "4f2db1e3b11407b01ac33719c8bdadf0e8ee53b362bba9d2f08f522055d6c823",
   "dev/mixing2006/helpers/benchmarking/flavor_fit_core.py": "b8506698fcfccb9c86b39b534af90a612c9ecc34b73de561487984b88f2187f2",
-  "dev/mixing2006/helpers/benchmarking/flavor_run_driver.py": "08f9c932ff72648c3425fa7300624920f75abcae0af640c51a1f5c4add0260e0",
+  "dev/mixing2006/helpers/benchmarking/flavor_run_driver.py": "ab1a2522bb9e468aa77fd00ef60b8369ead2d08537d08f9315ca20697c4bb1e5",
   "dev/mixing2006/helpers/benchmarking/freeze_pp_baseline.py": "9b6c48afbe992efc9e2fa8bdc711405421530f5976af908a09497fadaebd6c46",
   "dev/mixing2006/helpers/benchmarking/heart_events.py": "ee76fbee88ca03ce78c2ff8fb0e2ac65ccef8dddf1cca936c59ec8c2d392bacf",
   "dev/mixing2006/helpers/benchmarking/import_resonance_catalog.py": "4c474bcfe1fa86e7dcf3922afe919d2acdeae64370171f3df3c5876e43f3ed0c",
@@ -5318,7 +5331,7 @@
   "dev/mixing2006/tests/test_free_rv.py": "67c2a33c4e70ee6acc6f18e06eb9f30423d6f31105568097aad70cc01942c822",
   "dev/mixing2006/tests/test_gateway_suite.py": "ab53630dbf3269eb3d24eb2eb944917fbc4c56495de3dbc6c8ad723edd5ad517",
   "dev/mixing2006/tests/test_generator_cards.py": "4736be19d083e5b8457fe1d15b54aa9c9f3fe240107a52aebfc8540b3a066ca0",
-  "dev/mixing2006/tests/test_glauber.py": "0477efdc1e721689bf9ca6991739e7811114a3ec3873940707e8021a146d2636",
+  "dev/mixing2006/tests/test_glauber.py": "9eb6edc5c8d528c4ac3d69ff11720038e6a83bb15a590876af73e527aa6b7850",
   "dev/mixing2006/tests/test_hadron_catalog.py": "3caa96a27a285d5e114a6e2c0ef3197742a86a19bb930564329a0b8201e89575",
   "dev/mixing2006/tests/test_heldout_correlations.py": "4350e71d066af7df6f0011018cf812b95aea57c4dac1e6960037c26046ebdb2a",
   "dev/mixing2006/tests/test_helpers_gate.py": "6c7f8d6561317815c7c8e63f465ea1d080a953401d4e8d47dc92b159c3d40c3d",
@@ -5394,7 +5407,7 @@
   "dev/mixing2006/tests/test_r4_cascade_ablation_contract_pins.py": "da465ef7ca8af4fc40f67b69033ad6d8f25db7427da182f998a94b79a88daa17",
   "dev/mixing2006/tests/test_r4_cascade_alignment_baryonic_contract_pins.py": "2c6a4761c4dae13d3e914a105da9c5eb0acb1b551584a77aef5ff7e7a5782d5e",
   "dev/mixing2006/tests/test_r4_cascade_alignment_mesonic_contract_pins.py": "e8d2c5c6de74739300d39c2eade603ca43f366fa907a2b54ada75baa358d669d",
-  "dev/mixing2006/tests/test_r4_cascade_axes_contract_pins.py": "5bba8a6a04598c64e57013e17e1bd6e1b07747085ff05b5c77f7692e5b9d7477",
+  "dev/mixing2006/tests/test_r4_cascade_axes_contract_pins.py": "af4ceae37cd6c1884dfb0b039ba7a656e402fbfd6c436a9b2644ea46ca50c455",
   "dev/mixing2006/tests/test_r4_cascade_decay_contract_pins.py": "011a0ef76c9289796ce82cd3ec92cefaad5fa8c104413ff48d560b80bb1ad689",
   "dev/mixing2006/tests/test_r4_cascade_form_factor_contract_pins.py": "0c83ff0f70a93f1061b63084f4ad4d6f954867a75afe7f8a269c98ded36332d5",
   "dev/mixing2006/tests/test_r4_cascade_termination_contract_pins.py": "6abcaad898ced2918614c317becae3d1612b772d22e8387c9e9ec71001c401af",
@@ -5467,7 +5480,7 @@
   "dev/mixing2006/tests/test_staged_r40_alignment_scan_contract_pins.py": "9afdd518382609398d1c057bd2978b78ecfdd991095ae2218491eff0b8b86df3",
   "dev/mixing2006/tests/test_staged_r41_nonstrange_pilot_fit.py": "0fe8a88a2ff9b6c6a814f79f3f6b2c2fe08ccb22aa80addeb8c4b9c8b6ec106d",
   "dev/mixing2006/tests/test_staged_r41_nonstrange_pilot_fit_contract_pins.py": "67cbe96434af89466a64c7cbebe8b590579b07a29e852a1616f4d461f9f46fc9",
-  "dev/mixing2006/tests/test_staged_r42_recoil_decay_separation.py": "921aae355a79d218c9b3c312b6bf314f92b0a4eb9936e27e15920a6fa2a8b746",
+  "dev/mixing2006/tests/test_staged_r42_recoil_decay_separation.py": "db7f9814b226ee04ec505235b14c9d28f9466ea1d53312498a02222596b56a0e",
   "dev/mixing2006/tests/test_staged_r42_recoil_decay_separation_contract_pins.py": "172fca13548921ec41259c14eebc5f55e1aad9b71b80c1f2cd8c0de491f276f0",
   "dev/mixing2006/tests/test_staged_r43_cascade_ablation.py": "f53771a8183ec3deb6b0723afd7b4938d322e77f357f55a05d6d679299660c0c",
   "dev/mixing2006/tests/test_staged_r43_cascade_ablation_contract_pins.py": "0c631860ceb5869a814d9abf83cf920abcef47eaa3a7e417aa8df7c30372481e",
@@ -5499,7 +5512,7 @@
   "dev/mixing2006/tests/test_staged_r67_central_component_test.py": "97e77fec858d01316f4ac993a55df40ff5752054d7aa835eaf9dd57d238d2605",
   "dev/mixing2006/tests/test_staged_r68_central_component_uncapped.py": "342b9a178d4cec65edd502ff7efef1c53b897751f9dbd8400d3869ccd65fcef3",
   "dev/mixing2006/tests/test_staged_r69_flavor_central_uncapped.py": "9deabaaafb3d2f34fc168e0512d48bab9da12f325f5e02e1b95ebad99c407e0e",
-  "dev/mixing2006/tests/test_staged_r6x_flavor_runs.py": "2d6cc276e3963e1713d35e5f769e1dd0ec655af3399c473ee8dfe8bbf77928bd",
+  "dev/mixing2006/tests/test_staged_r6x_flavor_runs.py": "74c3dcf59d850b4fe8f140984e4e4b322e95ebd9680a12d85cfbf6eba6603e8a",
   "dev/mixing2006/tests/test_staged_r70_flavor_central_convolved.py": "0373dd760e0e2640c1eac6bba4c88694d34be14535572e8d5246f4ce97fb6eba",
   "dev/mixing2006/tests/test_staged_r71_central_component_fixed_kernel.py": "97cdf136bf7aa92e27ca278644d28b5c8e6e068fc4a90d2b8e355ee1dbe0a0c6",
   "dev/mixing2006/tests/test_staged_r72_fixed_kernel_r70_shapes.py": "e6e6575797f83c50c5c18648a34bb1ed509eb128a623b4c38a56aaf4b9aa4d37",
@@ -5520,7 +5533,7 @@
   "dev/mixing2006/tests/test_topology_double_diffraction.py": "0203c87d6b3596f63e59c3b102d64a23bb060e87eec5f7e84c7fd548ee36edf2",
   "dev/mixing2006/tests/test_topology_double_diffraction_contract_pins.py": "30206d8f741e06aedfce1f226f90218f4fc4a05c16db669480e1948772a84b5a",
   "dev/mixing2006/tests/test_topology_elastic.py": "cc1098e5b34091263b75624a4d1e3a2f8dc1c00631f74a6addbb092b27eb960e",
-  "dev/mixing2006/tests/test_topology_elastic_contract_pins.py": "361d0e9ec6903d633a2324cb7dd2f97c5e6c6c9352c33b977f9923367fd80877",
+  "dev/mixing2006/tests/test_topology_elastic_contract_pins.py": "353601c9bde4780ffa2b774746cc6d9e8c3b86c1462de9ebf7bc74db533f2f6e",
   "dev/mixing2006/tests/test_topology_mass_laws.py": "c7b7116e17c61f45f2f7b0dfc67d8f84bb213baaf7e88da5be59abe606763573",
   "dev/mixing2006/tests/test_topology_mass_laws_contract_pins.py": "c5735e5c24bd7af76cc45c998b9523a2999e8b281cd7c629c5b3e06410a84b69",
   "dev/mixing2006/tests/test_topology_multi_neutral.py": "f0fdc83549fd3522c1ce6f1a95c62a2208d75fae300bdf094f1276a945ef347d",
@@ -5566,7 +5579,7 @@
   "helpers/benchmarking/fit_fanout.py": "51001448678e71d76bd558f537684ba34f4cedd252a00c46bc1f7757a28469bd",
   "helpers/benchmarking/fit_table9_branching_params.py": "95fa2d7daca7ddce35d404fcde4d4608d16e19512611e660f0d3f679dec670c4",
   "helpers/benchmarking/flavor_fit_core.py": "b8506698fcfccb9c86b39b534af90a612c9ecc34b73de561487984b88f2187f2",
-  "helpers/benchmarking/flavor_run_driver.py": "08f9c932ff72648c3425fa7300624920f75abcae0af640c51a1f5c4add0260e0",
+  "helpers/benchmarking/flavor_run_driver.py": "ab1a2522bb9e468aa77fd00ef60b8369ead2d08537d08f9315ca20697c4bb1e5",
   "helpers/benchmarking/freeze_pp_baseline.py": "9b6c48afbe992efc9e2fa8bdc711405421530f5976af908a09497fadaebd6c46",
   "helpers/benchmarking/heart_events.py": "ee76fbee88ca03ce78c2ff8fb0e2ac65ccef8dddf1cca936c59ec8c2d392bacf",
   "helpers/benchmarking/import_resonance_catalog.py": "4c474bcfe1fa86e7dcf3922afe919d2acdeae64370171f3df3c5876e43f3ed0c",
