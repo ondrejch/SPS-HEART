@@ -4619,15 +4619,12 @@
   {
    "card": "TASK-20261108-sps-heart-numpy2-compat",
    "files": [
-    "dev/mixing2006/helpers/benchmarking/flavor_run_driver.py",
-    "dev/mixing2006/tests/test_glauber.py",
-    "dev/mixing2006/tests/test_r4_cascade_axes_contract_pins.py",
-    "dev/mixing2006/tests/test_staged_r42_recoil_decay_separation.py",
-    "dev/mixing2006/tests/test_staged_r6x_flavor_runs.py",
-    "dev/mixing2006/tests/test_topology_elastic_contract_pins.py",
-    "helpers/benchmarking/flavor_run_driver.py"
+    "dev/mixing2006/tests/test_legacy_v1_freeze.py",
+    "dev/mixing2006/tests/test_r4_cascade_alignment_mesonic_contract_pins.py",
+    "dev/mixing2006/tests/test_staged_r42_recoil_decay_separation_contract_pins.py",
+    "dev/mixing2006/tests/test_threshold_metric.py"
    ],
-   "reason": "Python 3.10 and NumPy 2 compatibility fixes found by the first CI run"
+   "reason": "NumPy 2 fixes of the remaining full-suite failures"
   }
  ],
  "frozen_fit_outputs": {
@@ -5348,7 +5345,7 @@
   "dev/mixing2006/tests/test_leading_split.py": "f036c78aba3c789d7663e38a15c5524a40262726a1ee579936b9e24b8d4a1864",
   "dev/mixing2006/tests/test_leading_split_regge.py": "1247f97a825c68edb1bd8a7993ccf566c784dc38f85ba56abd07f88b34a341a4",
   "dev/mixing2006/tests/test_leading_split_strange.py": "7ae057d2406abe60377ec15096f51c96e6dc14010e1ff2a57549a502bec1a4d5",
-  "dev/mixing2006/tests/test_legacy_v1_freeze.py": "d79ac869fbe54491bf62d03ba3657f8c2f52f42dbe96386860addb77df6efc81",
+  "dev/mixing2006/tests/test_legacy_v1_freeze.py": "afa99c59ae9be739b51ef58dc86110f0a6f4bd06779fb5e5c65356bd24513baf",
   "dev/mixing2006/tests/test_light_scalar_mesons.py": "8168d6a91580eaea349b09d43fd257122773a94efee68db8dc88b8c28a556ee6",
   "dev/mixing2006/tests/test_line_model.py": "69864fd3ce14aa2611d22b30a486059fd8c3da282342f0b55e07c7568aad11d0",
   "dev/mixing2006/tests/test_line_shape_moments.py": "021f364231fde905fb4f3e8d9369b1f09d5b6b74edd8bd8902d9881a5dada0f3",
@@ -5406,7 +5403,7 @@
   "dev/mixing2006/tests/test_r4_audit_strange_sector_contract_pins.py": "d3fdf4fa5360e302cfae432fe532a65e8ce9b5c81b9d249f341016d01cba1422",
   "dev/mixing2006/tests/test_r4_cascade_ablation_contract_pins.py": "da465ef7ca8af4fc40f67b69033ad6d8f25db7427da182f998a94b79a88daa17",
   "dev/mixing2006/tests/test_r4_cascade_alignment_baryonic_contract_pins.py": "2c6a4761c4dae13d3e914a105da9c5eb0acb1b551584a77aef5ff7e7a5782d5e",
-  "dev/mixing2006/tests/test_r4_cascade_alignment_mesonic_contract_pins.py": "e8d2c5c6de74739300d39c2eade603ca43f366fa907a2b54ada75baa358d669d",
+  "dev/mixing2006/tests/test_r4_cascade_alignment_mesonic_contract_pins.py": "8dccb165062878f4ed61cd1de8875c5151f7b17f96485328e3b08e3e933f1436",
   "dev/mixing2006/tests/test_r4_cascade_axes_contract_pins.py": "af4ceae37cd6c1884dfb0b039ba7a656e402fbfd6c436a9b2644ea46ca50c455",
   "dev/mixing2006/tests/test_r4_cascade_decay_contract_pins.py": "011a0ef76c9289796ce82cd3ec92cefaad5fa8c104413ff48d560b80bb1ad689",
   "dev/mixing2006/tests/test_r4_cascade_form_factor_contract_pins.py": "0c83ff0f70a93f1061b63084f4ad4d6f954867a75afe7f8a269c98ded36332d5",
@@ -5481,7 +5478,7 @@
   "dev/mixing2006/tests/test_staged_r41_nonstrange_pilot_fit.py": "0fe8a88a2ff9b6c6a814f79f3f6b2c2fe08ccb22aa80addeb8c4b9c8b6ec106d",
   "dev/mixing2006/tests/test_staged_r41_nonstrange_pilot_fit_contract_pins.py": "67cbe96434af89466a64c7cbebe8b590579b07a29e852a1616f4d461f9f46fc9",
   "dev/mixing2006/tests/test_staged_r42_recoil_decay_separation.py": "db7f9814b226ee04ec505235b14c9d28f9466ea1d53312498a02222596b56a0e",
-  "dev/mixing2006/tests/test_staged_r42_recoil_decay_separation_contract_pins.py": "172fca13548921ec41259c14eebc5f55e1aad9b71b80c1f2cd8c0de491f276f0",
+  "dev/mixing2006/tests/test_staged_r42_recoil_decay_separation_contract_pins.py": "da5b47a8f22f887e5b744207c77661645826279ddc8c26006cae9029a23d5c01",
   "dev/mixing2006/tests/test_staged_r43_cascade_ablation.py": "f53771a8183ec3deb6b0723afd7b4938d322e77f357f55a05d6d679299660c0c",
   "dev/mixing2006/tests/test_staged_r43_cascade_ablation_contract_pins.py": "0c631860ceb5869a814d9abf83cf920abcef47eaa3a7e417aa8df7c30372481e",
   "dev/mixing2006/tests/test_staged_r44_frozen_nonstrange_validation.py": "f567202c177d7f2d7a7d01e546260719b57882b48acef938284b01f6e5ec1d22",
@@ -5529,7 +5526,7 @@
   "dev/mixing2006/tests/test_tail_edge.py": "dfbdc6463de95ebacbeaafc270a16d77cbe21da3d7cb6f3367bccb36d61a5063",
   "dev/mixing2006/tests/test_three_body_endings.py": "a6ed050e75cfde38e1029428f3fff7c91f60802e9fa134bc1d4cc2727bcd3c3b",
   "dev/mixing2006/tests/test_three_body_phase_space_law.py": "8bd2ced3a0bcf17fda3bff7d76e4e2dc33655bb6fd6e315f034f0ed330e32716",
-  "dev/mixing2006/tests/test_threshold_metric.py": "b6b278eda23b22b1b213ad303a97e975ff18044ef8efd6842d95c20ddf36b78e",
+  "dev/mixing2006/tests/test_threshold_metric.py": "4056c484591e1a583949f847b70fbad67f535886cc2359f933f69430aecbbf0b",
   "dev/mixing2006/tests/test_topology_double_diffraction.py": "0203c87d6b3596f63e59c3b102d64a23bb060e87eec5f7e84c7fd548ee36edf2",
   "dev/mixing2006/tests/test_topology_double_diffraction_contract_pins.py": "30206d8f741e06aedfce1f226f90218f4fc4a05c16db669480e1948772a84b5a",
   "dev/mixing2006/tests/test_topology_elastic.py": "cc1098e5b34091263b75624a4d1e3a2f8dc1c00631f74a6addbb092b27eb960e",
