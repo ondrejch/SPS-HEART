@@ -4603,6 +4603,18 @@
     "helpers/benchmarking/heart_events.py"
    ],
    "reason": "the event writer's usage examples name R146, the papers' fitted model"
+  },
+  {
+   "card": "TASK-20261108-sps-heart-clean-clone-tests",
+   "files": [
+    "dev/mixing2006/tests/snapshot_collect_ignore.txt",
+    "dev/mixing2006/tests/test_crmc_commit_gate.py",
+    "dev/mixing2006/tests/test_preflight_sps_check.py",
+    "helpers/benchmarking/tests/test_arxiv_plain_text.py",
+    "helpers/benchmarking/tests/test_paper_record.py",
+    "helpers/benchmarking/tests/test_stale_prose_numbers.py"
+   ],
+   "reason": "SPS-HEART clean-clone fixes: the CRMC no-clone check compares subcommand tokens, the SPS preflight PASS test skips on an incomplete public mirror, and the three paper-publishing tests leave this repository"
   }
  ],
  "frozen_fit_outputs": {
@@ -5219,6 +5231,7 @@
   "dev/mixing2006/tests/fixtures/golden_stage0_summary_pi_minus.json": "a588ab96932e0fa9eabb1572272d196c3c3a84fb188ea7d33295fc5346e61b31",
   "dev/mixing2006/tests/fixtures/golden_stage0_summary_pi_plus.json": "5a0b0b19fb1c48daa9a6624cc8d91b86743579ff2fa67454e354e5689c7e33b1",
   "dev/mixing2006/tests/fixtures/make_golden_fixtures.py": "469e93d8b90c8fc8e01374c047715c513395fd8c85eecb074facb1c530af3093",
+  "dev/mixing2006/tests/snapshot_collect_ignore.txt": "6a99e8080bbb52abf18700e021834be8e9e71443b808d15eae086f7e770a63b9",
   "dev/mixing2006/tests/superseded_substrate_tests.txt": "c44885e5dbee6c5c3d1bc08ba2ad8fe8f9fe0db738b188ea23f2803944547b88",
   "dev/mixing2006/tests/test_08rev_bugfixes.py": "1708f057fbaff9cad748dd0ba550f1c575a19a8b27f94ed6fc0ee1566669aaf6",
   "dev/mixing2006/tests/test_api_boundary_validation.py": "ef2d29d0bc5105c36619b9ea868003c7427e970b85d36487e7b8a3acd6023520",
@@ -5270,7 +5283,7 @@
   "dev/mixing2006/tests/test_continuum_isospin.py": "894c0f724b3cc375949a2ee6980a27c2353b75f423fcd6595501b6521180ffeb",
   "dev/mixing2006/tests/test_correlated_errors.py": "c5286d5d3b9b54a475cda5af096c1da25daffa8cb64e14cf89835ceb3bad50df",
   "dev/mixing2006/tests/test_counted_decays.py": "787ef3b0d937d3c5605294535166cd62b91187fd84866316d72d44f5763c9d1a",
-  "dev/mixing2006/tests/test_crmc_commit_gate.py": "18c41b0813513e18e274a8539b37461a9aaefb6c22af9eaf9501359faca81409",
+  "dev/mixing2006/tests/test_crmc_commit_gate.py": "180a6f083629ada71abcacd76e0f94f53e797f477f0e26492ffae1a4b22956ed",
   "dev/mixing2006/tests/test_cuts.py": "24d4c03b9c3adb5890e509f2a1296807662974f42cafb95dbc565b9d300e4612",
   "dev/mixing2006/tests/test_dalitz_matrix_elements.py": "226545b48b56d149c6abeb2b8ecea97fd497f8589f51ccfd32b69bc49c36bb5e",
   "dev/mixing2006/tests/test_data_closure_coverage.py": "a940880d5e4535b2dce47d69ee29411ddb9aad3600b239c5ef19c33764787326",
@@ -5349,7 +5362,7 @@
   "dev/mixing2006/tests/test_pdg_hyperons.py": "9064ec20e4fc4f97fa0e2709930f85e80edf6c0b55ad0830c6c18882bcf3f08a",
   "dev/mixing2006/tests/test_physics_fixes_2026_08.py": "9703f32e5b0e2b874d6bc24e0bf945af912e7b06d8de97572ac73a9c2d398a33",
   "dev/mixing2006/tests/test_pomeron_shrinkage.py": "27bda63a943f50b8d0b1cc742414fe8612a09f546b02eafbe39560e092cbe999",
-  "dev/mixing2006/tests/test_preflight_sps_check.py": "aa4746e826e626a4406219c8d7c4fda380c26cfd929acf33f7ac8bbc8b7cc9e9",
+  "dev/mixing2006/tests/test_preflight_sps_check.py": "976349c17b8815a4e331492f44ecdc8edd44c05bb69562ef8a5737c4ee6460dd",
   "dev/mixing2006/tests/test_quasi_two_body_widths.py": "da0ac0268f7e57b2712637d0f4b186a9a9030922cd977615ee26e860d53b27e3",
   "dev/mixing2006/tests/test_r00_correctness_harness.py": "c964755d110662cd221d18b7b3c8b1afd5abd37fddfccebd75922857c93004f8",
   "dev/mixing2006/tests/test_r00_harness_coverage.py": "5f464f9a6ea077025e1064df18e86caf9fe957cfaf0181c940d8d06121e554cf",
@@ -5705,7 +5718,6 @@
   "helpers/benchmarking/summarize_table9_fraction_scan.py": "a783eb29a1abf7be2cf567a422695dd6b478ab4a13530ecf02c7127639fe9d44",
   "helpers/benchmarking/tests/_na49_fixtures.py": "b8a9554ddd5864b64f44b8c299b56d4032c7584aa62c88eae0851a440c0c6c93",
   "helpers/benchmarking/tests/test_08rev_pipeline.py": "df742b8345fd286b815395579cd93d65ee6b20a286d5ffe440482de1bbc54f3c",
-  "helpers/benchmarking/tests/test_arxiv_plain_text.py": "a3dde916630785ebd20de883df1c1739ce476a4ddb8476feb0214ec3a08832c8",
   "helpers/benchmarking/tests/test_bmc_details_schema.py": "121e57e53cdb94d38850e903ba3b05f00f5413fc729633e989f6bc75a4191542",
   "helpers/benchmarking/tests/test_constrained_fit_golden.py": "70d9a1b63f65b65c93489e0609b85ea55563a41d9d51cc440193d3e631f22a0b",
   "helpers/benchmarking/tests/test_digitize_vector_figure.py": "9d57cdd2e3f77e500f4015d0fbf81a554196bc0ba30a024c2380e2e824218677",
@@ -5718,7 +5730,6 @@
   "helpers/benchmarking/tests/test_pa_acceptance_audit.py": "5e1c285cbaaf03d1c233f1633823af7153e49bd56eeb3fe1fb76478ee3221d31",
   "helpers/benchmarking/tests/test_pa_data_centrality_ptint.py": "c70592f23189201059a6557f4f465c18ba1b981e7ac0c6201446c09139a64d01",
   "helpers/benchmarking/tests/test_pa_data_systems.py": "739bde3bc40466dc8ea3e1deae3d6011378c182e5e2d9a35536a749b25830b64",
-  "helpers/benchmarking/tests/test_paper_record.py": "eb4e735a3e65cbd043fed28308d961352c2146e1e1311a9ab39793409d71fdd7",
   "helpers/benchmarking/tests/test_production_fit_validation.py": "59b3cb878d59a3bba29a151b6d2a9a322bacb4bd63c580c211e0540d14c8c4f4",
   "helpers/benchmarking/tests/test_ratio_windows.py": "c874a232961e0dd71b6d5eaf597eaa4f7354cd8024ab6c324c46138533b8898e",
   "helpers/benchmarking/tests/test_resonance_worker_batches.py": "e093f01cbbe75be7255edad1b3d9136eb770f66cabb90176f269003690b3663e",
@@ -5737,10 +5748,9 @@
   "helpers/benchmarking/tests/test_staged_heldout_ratios_pa.py": "b344447cfa1c71e5f0eeae9df3702a606805065701d25cb207e99b3b3f1833d3",
   "helpers/benchmarking/tests/test_staged_mass_law_compare.py": "71ecd7af9e33927f42b3f2067db8f6fcc0f46da238a47048a4bb5e9dadf7f896",
   "helpers/benchmarking/tests/test_staged_resonance_fit.py": "7d13cfbc88eeddeecd758506d02ff44bac183f2ab2566d24d9482410612bccea",
-  "helpers/benchmarking/tests/test_stale_prose_numbers.py": "23469119c15019e1f28f09e611e4ce91bc4689ca616d92f397ed03ffe804e1a5",
   "helpers/benchmarking/tests/test_terminal_unstable_gate.py": "5886602f4cbfbd19595b2caa95fb9857c31d7952d46b66b607df898911cd5bd5",
   "helpers/benchmarking/tests/test_window_yield_kernel.py": "182cb78cd2d55eaa411b52847d1fa39a7bd799331d5a3b8be22ead6e4d9abf03",
   "helpers/benchmarking/validate_np_scattering.py": "77d3763be583aab30a46ae70bd6ff21a574bb747f5cbf96cd77d6c2287e75b45"
  },
- "inventory_count": 933
+ "inventory_count": 931
 }
