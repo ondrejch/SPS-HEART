@@ -14,7 +14,8 @@ the fit, is here.
 
 ## Papers
 
-- *HEART: a resonance-cascade model of soft hadron production in p+p collisions at 158 GeV/c.* arXiv: TBD.
+- *HEART: a resonance-cascade model of soft hadron production in p+p collisions at 158 GeV/c.*
+  [arXiv:2611.11570](https://arxiv.org/abs/2611.11570) [hep-ph].
 - *The two-component picture of soft hadron production: Regge exchange, duality, and
   resonance cascades.* arXiv: TBD.
 

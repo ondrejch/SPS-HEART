@@ -1,7 +1,7 @@
 # The model
 
 This page maps the layers of HEART onto the code. The equations, the parameter values, and the comparison with the
-data are in the HEART paper (arXiv: TBD). Module paths are relative to `dev/mixing2006/na49_mixing/`.
+data are in the HEART paper ([arXiv:2611.11570](https://arxiv.org/abs/2611.11570)). Module paths are relative to `dev/mixing2006/na49_mixing/`.
 
 ## Event classes and the exchange
 
