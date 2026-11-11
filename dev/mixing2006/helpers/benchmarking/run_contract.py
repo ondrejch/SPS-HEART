@@ -82,6 +82,10 @@ def locate_roots(anchor: Path | None = None) -> tuple[Path, Path]:
             break
     if nested is None:
         refuse(f"cannot locate the na49_mixing package next to {here}")
+    if not (nested / "config").is_dir() and (nested / "na49_mixing" / "_data" / "config").is_dir():
+        # an installed wheel: the configuration is bundled inside the package,
+        # and the install directory holds both na49_mixing and helpers
+        return (nested / "na49_mixing" / "_data").resolve(), nested
     mono = nested.parent.parent if nested.parent.name == "dev" else nested
     return nested, mono
 

@@ -130,7 +130,8 @@ def _pole(catalog: HadronCatalog, pdg: int) -> float:
     if int(pdg) in _LATE_SINGLETS and int(pdg) not in {int(r.pdg_id) for r in catalog.records()}:
         # the eta'(958) before the eta' option appends it: its mass from that option's configuration
         from .eta_prime import ETA_PRIME_REL
-        root = Path(__file__).resolve().parents[1]
+        from ._paths import nested_root
+        root = nested_root()
         return float(json.loads((root / ETA_PRIME_REL).read_text(encoding="utf-8"))["record"]["pole_mass"])
     return float(_daughter_pole_mass(catalog, int(pdg)))
 

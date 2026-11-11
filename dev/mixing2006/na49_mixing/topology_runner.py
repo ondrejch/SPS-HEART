@@ -1140,7 +1140,8 @@ def _committed_surfaces():
     if _CATALOG_CACHE is None:
         from na49_mixing.hadron_catalog import HadronCatalog
         from na49_mixing.spectral_density import families_from_json
-        nested_root = Path(__file__).resolve().parent.parent
+        from na49_mixing._paths import nested_root as _nested_root
+        nested_root = _nested_root()
         _CATALOG_CACHE = HadronCatalog.from_json(
             nested_root / "config" / "v2_singlet" / "resonance_catalog.json")
         _FAMS_CACHE = families_from_json(

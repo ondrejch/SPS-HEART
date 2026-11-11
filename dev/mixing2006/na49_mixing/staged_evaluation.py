@@ -98,7 +98,9 @@ _SUBSTREAM_REPLICA_SEED_RULE = (
 # Nested source-tree root (config-relative table paths). The helpers.benchmarking
 # import above is an installed package sibling of na49_mixing, not a
 # repository-relative sys.path injection.
-_NESTED_ROOT = Path(__file__).resolve().parents[1]
+from na49_mixing._paths import nested_root as _nested_root  # noqa: E402
+
+_NESTED_ROOT = _nested_root()
 
 _BINNED_DATA_PREREQUISITE = (
     "the binned six-species objective reads the NA49 SPS tables under "

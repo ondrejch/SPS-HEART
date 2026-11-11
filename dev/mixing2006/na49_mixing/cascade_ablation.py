@@ -366,7 +366,9 @@ SUPPORT_BOUNDARY: dict = {
 # ----------------------------------------------------------------------
 # The committed catalog and family configuration (lazy singletons)
 # ----------------------------------------------------------------------
-_NESTED_ROOT = Path(__file__).resolve().parent.parent
+from na49_mixing._paths import nested_root as _nested_root  # noqa: E402
+
+_NESTED_ROOT = _nested_root()
 _CATALOG_PATH = _NESTED_ROOT / "config" / "v2_singlet" / "resonance_catalog.json"
 _FAMILIES_PATH = (
     _NESTED_ROOT / "config" / "v2_singlet" / "continuum_resonances.json"
