@@ -2,7 +2,8 @@ name: release
 
 # Build the wheel and the source distribution of a published release, test
 # the wheel in a clean environment, and attach both to the release together
-# with the fit report the event writer reads.
+# with the fit report the event writer reads. Build the container image of
+# the release, test it, and push it to ghcr.io/ondrejch/sps-heart.
 
 on:
   release:
@@ -53,3 +54,45 @@ jobs:
           test "$(wc -l < events.jsonl)" -eq 11
       - name: Attach the files to the release
         run: gh release upload "$TAG" dist/*.whl dist/*.tar.gz dist/r146_report.json --clobber
+
+  container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: write
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+      IMAGE: ghcr.io/ondrejch/sps-heart
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+      - name: Read the version
+        run: |
+          version="${TAG#v}"
+          grep -q "^version = \"${version}\"$" dev/mixing2006/pyproject.toml
+          echo "VERSION=${version}" >> "$GITHUB_ENV"
+      - uses: docker/setup-buildx-action@v3
+      - name: Build the image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true
+          build-args: VERSION=${{ env.VERSION }}
+          tags: ${{ env.IMAGE }}:${{ env.VERSION }},${{ env.IMAGE }}:latest
+      - name: Generate events from the image
+        run: |
+          mkdir smoke && cd smoke
+          docker run --rm -v "$PWD":/work "$IMAGE:$VERSION" --events 5 --workers 2 --out /work/ev.jsonl
+          head -1 ev.jsonl | python3 -c "import json,sys; assert json.load(sys.stdin)['format'] == 'heart-events/1'"
+          test "$(wc -l < ev.jsonl)" -eq 6
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push the image
+        run: |
+          docker push "$IMAGE:$VERSION"
+          docker push "$IMAGE:latest"

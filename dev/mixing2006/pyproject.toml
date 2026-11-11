@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sps-heart"
-version = "1.1.0"
+version = "1.1.1"
 description = "HEART: an event-level resonance-cascade model of soft hadron production in p+p collisions at 158 GeV/c"
 readme = "README.md"
 requires-python = ">=3.9"
