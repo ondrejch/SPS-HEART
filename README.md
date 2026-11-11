@@ -43,8 +43,8 @@ The wheel bundles the configuration, the run descriptions included. The release 
 `r146_report.json`.
 
 ```bash
-python -m pip install https://github.com/ondrejch/SPS-HEART/releases/download/v1.1.0/sps_heart-1.1.0-py3-none-any.whl
-curl -LO https://github.com/ondrejch/SPS-HEART/releases/download/v1.1.0/r146_report.json
+python -m pip install https://github.com/ondrejch/SPS-HEART/releases/download/v1.1.1/sps_heart-1.1.1-py3-none-any.whl
+curl -LO https://github.com/ondrejch/SPS-HEART/releases/download/v1.1.1/r146_report.json
 root=$(python -c "from na49_mixing._paths import nested_root; print(nested_root())")
 python -m helpers.benchmarking.heart_events --spec "$root/config/runs/r146.json" --report r146_report.json \
     --events 1000 --workers 4 --out heart_events.jsonl
@@ -52,6 +52,16 @@ python -m helpers.benchmarking.heart_events --spec "$root/config/runs/r146.json"
 
 The wheel generates events. Repeating the fit needs a clone, because the fit reads the NA49 and SPS tables of the
 repository.
+
+### Container image
+
+The image `ghcr.io/ondrejch/sps-heart` carries the generator, its configuration, and the fit report. It generates
+events of the fitted model with nothing else installed:
+
+```bash
+docker pull ghcr.io/ondrejch/sps-heart:1.1.1
+docker run --rm -v "$PWD":/work ghcr.io/ondrejch/sps-heart:1.1.1 --events 1000 --workers 4 --out /work/heart_events.jsonl
+```
 
 ## Documentation
 

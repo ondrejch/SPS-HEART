@@ -1,0 +1,13 @@
+.git
+.github
+**/__pycache__
+**/*.pyc
+**/*.egg-info
+**/build
+**/.pytest_cache
+**/.venv*
+dev/mixing2006/tests
+dev/mixing2006/spshadrons.web.cern.ch
+dev/00runs
+!dev/00runs/r146_regenerated_2026-11-06/report.json
+docs
