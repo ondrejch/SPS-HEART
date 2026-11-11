@@ -1,3 +1,8 @@
 # Ship the license text in source distributions (the wheel picks
 # LICENSE up through the default license_files globs).
 include LICENSE
+
+# Ship the configuration in source distributions: setup.py bundles it into
+# the wheel under na49_mixing/_data/config.
+graft config
+global-exclude __pycache__ *.py[cod]

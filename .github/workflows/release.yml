@@ -1,0 +1,55 @@
+name: release
+
+# Build the wheel and the source distribution of a published release, test
+# the wheel in a clean environment, and attach both to the release together
+# with the fit report the event writer reads.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "release tag to build and attach (e.g. v1.1.0)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  wheel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build the wheel and the source distribution
+        run: |
+          python -m pip install --upgrade pip build
+          python -m build -o dist dev/mixing2006
+          cp dev/00runs/r146_regenerated_2026-11-06/report.json dist/r146_report.json
+          ls -l dist
+      - name: Check that the version matches the tag
+        run: |
+          version="${TAG#v}"
+          test -f "dist/sps_heart-${version}-py3-none-any.whl"
+      - name: Generate events from the installed wheel outside the checkout
+        run: |
+          python -m venv /tmp/venv
+          /tmp/venv/bin/pip install dist/*.whl
+          mkdir /tmp/smoke && cp dist/r146_report.json /tmp/smoke/ && cd /tmp/smoke
+          root=$(/tmp/venv/bin/python -I -c "from na49_mixing._paths import nested_root; print(nested_root())")
+          /tmp/venv/bin/python -I -m helpers.benchmarking.heart_events \
+              --spec "$root/config/runs/r146.json" --report r146_report.json \
+              --events 10 --workers 2 --out events.jsonl
+          head -1 events.jsonl | python -c "import json,sys; assert json.load(sys.stdin)['format'] == 'heart-events/1'"
+          test "$(wc -l < events.jsonl)" -eq 11
+      - name: Attach the files to the release
+        run: gh release upload "$TAG" dist/*.whl dist/*.tar.gz dist/r146_report.json --clobber

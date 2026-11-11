@@ -36,6 +36,23 @@ The first call builds the decay kernel, which takes one to two minutes. Afterwar
 events per second. The output is one JSON line per event with every final-state hadron's four-momentum
 ([event format](docs/event-format.md)).
 
+### Without a clone
+
+Each [release](https://github.com/ondrejch/SPS-HEART/releases) carries a wheel, `sps_heart-<version>-py3-none-any.whl`.
+The wheel bundles the configuration, the run descriptions included. The release also carries the fit report
+`r146_report.json`.
+
+```bash
+python -m pip install https://github.com/ondrejch/SPS-HEART/releases/download/v1.1.0/sps_heart-1.1.0-py3-none-any.whl
+curl -LO https://github.com/ondrejch/SPS-HEART/releases/download/v1.1.0/r146_report.json
+root=$(python -c "from na49_mixing._paths import nested_root; print(nested_root())")
+python -m helpers.benchmarking.heart_events --spec "$root/config/runs/r146.json" --report r146_report.json \
+    --events 1000 --workers 4 --out heart_events.jsonl
+```
+
+The wheel generates events. Repeating the fit needs a clone, because the fit reads the NA49 and SPS tables of the
+repository.
+
 ## Documentation
 
 | Document | Contents |

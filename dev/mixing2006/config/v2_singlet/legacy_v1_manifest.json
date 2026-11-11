@@ -4625,6 +4625,20 @@
     "dev/mixing2006/tests/test_threshold_metric.py"
    ],
    "reason": "NumPy 2 fixes of the remaining full-suite failures"
+  },
+  {
+   "card": "TASK-20261111-sps-heart-wheel-packaging",
+   "files": [
+    "dev/mixing2006/helpers/benchmarking/run_contract.py",
+    "dev/mixing2006/na49_mixing/_paths.py",
+    "dev/mixing2006/na49_mixing/cascade_ablation.py",
+    "dev/mixing2006/na49_mixing/pdg_nucleon_resonances.py",
+    "dev/mixing2006/na49_mixing/staged_evaluation.py",
+    "dev/mixing2006/na49_mixing/topology_runner.py",
+    "dev/mixing2006/tests/test_package_paths.py",
+    "helpers/benchmarking/run_contract.py"
+   ],
+   "reason": "Self-contained wheel: config bundled into na49_mixing/_data; four package root computations and run_contract.locate_roots resolve through na49_mixing._paths.nested_root(); checkout paths unchanged (40 events at seed 7 byte-identical before, after, and from the installed wheel); new tests/test_package_paths.py"
   }
  ],
  "frozen_fit_outputs": {
@@ -5024,7 +5038,7 @@
   "dev/mixing2006/helpers/benchmarking/rereval_feeddown_lineage.py": "0b500862cdf87be28b2da5066ac4a04cfbb181acda503a1108b46f795a56721d",
   "dev/mixing2006/helpers/benchmarking/rereval_threshold_checks.py": "95f3ac6f0077b69c074eb701265d3a302fff09010f41641baf9c73cb6002b024",
   "dev/mixing2006/helpers/benchmarking/run_constrained_refit.py": "fbb0f9fca1d72cfb915a56f888314299f1cad8227f9764bb53fb660d9922716c",
-  "dev/mixing2006/helpers/benchmarking/run_contract.py": "af7f66fdf6d0e91bfc21d39919ea5fdb2a00af89038922bdceb5b366b9067809",
+  "dev/mixing2006/helpers/benchmarking/run_contract.py": "0ec5ba4888a6618899d8b70bde16c0cbe183f8e544c20345b8b545b37f293b35",
   "dev/mixing2006/helpers/benchmarking/run_engine.py": "b9286e14d5bd29901186fbc5f8b962844d4c68c0ade9bfb7b2c38d8794cbe372",
   "dev/mixing2006/helpers/benchmarking/run_epos_crmc_to_csv.py": "75855079b40b93ebe4f581e06c632f9881e1f7f2ef2262cad05dba288e25d993",
   "dev/mixing2006/helpers/benchmarking/run_nstar_ladder_grid.py": "019c4f56ce2255029ba64fceb4eb7e4024fe25e365adeceb2e84ddce6026fa0e",
@@ -5105,12 +5119,13 @@
   "dev/mixing2006/helpers/benchmarking/validate_np_scattering.py": "77d3763be583aab30a46ae70bd6ff21a574bb747f5cbf96cd77d6c2287e75b45",
   "dev/mixing2006/na49_mixing/__init__.py": "7d2c5a85d9b24de104c0d9cf72195689bf7c39c873e154798699448073b36de8",
   "dev/mixing2006/na49_mixing/_cli.py": "61bb58fc4c99c0425f7d2096598d779fe8137d831d95ea55e2f7577c05b39c05",
+  "dev/mixing2006/na49_mixing/_paths.py": "ad239ebecc36cdc64bd5f4ec8bc0cab397e6e8faaddb3964cdd692302efbaa75",
   "dev/mixing2006/na49_mixing/associated_kstar.py": "8f50f0f808a881f42ee868f283ece32c59b46ce966cee83603eb57e10e825041",
   "dev/mixing2006/na49_mixing/axial_isoscalars.py": "e0d6a96dfef4ce447d7c0a159c83ed6d38a573e76c54f97c2ac4623387b56ffa",
   "dev/mixing2006/na49_mixing/baryon_pair_completion.py": "890a8751986a148c264c80a00f7598857158747f4ff635547ff323626a840f7b",
   "dev/mixing2006/na49_mixing/baryon_table_corrections.py": "4852d08d399f3afccc1471957b192c5f513b7a197787f1d73c03af95a9a7c487",
   "dev/mixing2006/na49_mixing/breit_wigner.py": "06548e5fba0fb299636944b5a5a86a25055c7669880c88de45eb0bbe85315883",
-  "dev/mixing2006/na49_mixing/cascade_ablation.py": "b06ce66a2a1887306c31cc98a0df4a17b1fd0fa057591c916ab601933dc32de9",
+  "dev/mixing2006/na49_mixing/cascade_ablation.py": "1909e7872268588ebb7e9d260767e507ff3091ea2f4f6723d8634bc0bdefe9b5",
   "dev/mixing2006/na49_mixing/cascade_alignment.py": "d0ae03fb0ab44f11a58d2216f98c435f56a4bda6d0c84bf8cae3e18082b00e88",
   "dev/mixing2006/na49_mixing/cascade_axes.py": "7ab3906e4e8020e775f21fc018e36f9f86adbf7dffd4c3db9c5a6a3b17dd28b4",
   "dev/mixing2006/na49_mixing/cascade_decay.py": "abd3be88773d1a95013ab3eb29bbc76e7d39e3042a506ee5aa3fc7fb323cf990",
@@ -5205,7 +5220,7 @@
   "dev/mixing2006/na49_mixing/particle.py": "ad80cff04bf58973c286340ee1eb53c12c74dc7db3ef0b30ab3bd16a73f5b24e",
   "dev/mixing2006/na49_mixing/pdg_database.py": "4c57ecb60af416f2447e4358f749862d5e8fd2729b525d051feebc8f8a3f2f12",
   "dev/mixing2006/na49_mixing/pdg_hyperons.py": "8c2b785fae68b130a2dae67d42ce2103c74e39a463df4498ebdbc561a66612f8",
-  "dev/mixing2006/na49_mixing/pdg_nucleon_resonances.py": "cd36c9f48980b1f78ecb03cecae3c9af48ec87b735e7aada8532c3c6b1028c42",
+  "dev/mixing2006/na49_mixing/pdg_nucleon_resonances.py": "f2e67c8c1422f87ef18ba22678867629598de1e99ebad1b2a7375e7f418f7fc9",
   "dev/mixing2006/na49_mixing/quantum_numbers.py": "dd31fcb42f97a0bc408e3644c431ed641c58a31003b98f96fc1c6621a4e4b71a",
   "dev/mixing2006/na49_mixing/reaction.py": "f2fd44a72aae229b8448048bad903cfd0eede2baa7348c80fed16e74552f6c8f",
   "dev/mixing2006/na49_mixing/resonance_decay.py": "b4d737e15d38feed948ee34320c4a743388de298bb9ed0d846005a18c62a7d09",
@@ -5217,7 +5232,7 @@
   "dev/mixing2006/na49_mixing/spectra.py": "42012dd89f28a6081be1c20beb226a70fe3ebc68f34b1ffb2641c40d9fc8c8ab",
   "dev/mixing2006/na49_mixing/spectral_density.py": "865b041661a917e11d56550fa8a04955d437b97ddb378d44ba48982fd9952c54",
   "dev/mixing2006/na49_mixing/split_reweight.py": "3701e667c02c0247b60805ae3e1f5ff94e30a0d72beb442fbe09b3df797d4191",
-  "dev/mixing2006/na49_mixing/staged_evaluation.py": "5698be25a3f27a40e1c744822685a2e6b7b67b3764619847a7cd02c21cc93187",
+  "dev/mixing2006/na49_mixing/staged_evaluation.py": "c0cca45f3bab0c47407c8335794e2a1fc0d5b73ccf7a7a26a45f16ddef4525f7",
   "dev/mixing2006/na49_mixing/state_validation.py": "1132cce01c9ef7f56db78b43dbe8873bc4da4d4ac9bd84da02e4ffab7e4cb3b2",
   "dev/mixing2006/na49_mixing/three_body_endings.py": "71d8c26f3318681fbb3390c77f159afb11a05f6b95422c2a3bac97d2d6d706df",
   "dev/mixing2006/na49_mixing/threshold_metric.py": "ee240f44645d2e592acfae462f7d1e9c3b3dd8cd78c96bd40b7b73509f7fcc63",
@@ -5227,7 +5242,7 @@
   "dev/mixing2006/na49_mixing/topology_multi_neutral.py": "45206c552f635904dae1e0267214363d389487708b8627a9345a902137fae531",
   "dev/mixing2006/na49_mixing/topology_non_diffractive.py": "928ad90c99843c6c9ecf0cd8269ff3272caf76f47bf7e8b430a775fa9eef8e2a",
   "dev/mixing2006/na49_mixing/topology_remnants.py": "b6ec218632e05b53b2405b1ae35613dfa155e6b193abef59c6b9182f0d75037c",
-  "dev/mixing2006/na49_mixing/topology_runner.py": "92d155b783f49bf997bc60a7b664dfc2c4efd2b0910b9684d4fed58b5743dc68",
+  "dev/mixing2006/na49_mixing/topology_runner.py": "1f62023b7bc84d4999e70f7e38c833f1ace49ab6b072bf7b8a336fd1acb1ff0f",
   "dev/mixing2006/na49_mixing/topology_single_diffraction.py": "afe9723594d34a0944bc6966daa232289259ff233961865208e0f4639f2719ad",
   "dev/mixing2006/na49_mixing/two_sided_hadronization.py": "896f1384943bec6dd296334c614bc70ee40b46c7d41783fcdd5634df32b9bb09",
   "dev/mixing2006/na49_mixing/xi_baryons.py": "39e3cd457fe6532947c64cb58d9092f890f2c221841e17af30929672baa92fa4",
@@ -5367,6 +5382,7 @@
   "dev/mixing2006/tests/test_pa_acceptance_audit.py": "2326de59e130d36e2e30e913ee8a38ec78b91de67e4c0dccdd6d1dfe163d1d0e",
   "dev/mixing2006/tests/test_pa_builder_wound_slices.py": "ed0eff7eecda6fb7d32f724749ded5559e1459fa2c5cc07de04bb0b0f1976aeb",
   "dev/mixing2006/tests/test_pa_nn_cm_frame.py": "68286870167d29073d1caec1ea4602885017e6461ddb9f0a56c66640eeee5a27",
+  "dev/mixing2006/tests/test_package_paths.py": "ec96ee93ebbaafee53d21adef6b07f4f317ab2f34c26a1ed7fe2b189538b1922",
   "dev/mixing2006/tests/test_parallel_generation.py": "a0a4abb79e45aade8d72cc2f4bef44b1ec0f4eda5d4b539d965b5e46d1d332c7",
   "dev/mixing2006/tests/test_particle.py": "c97a63d66daa20c2095939f4dd249f5751fb282eace7cfd0a092858d14ee0ed7",
   "dev/mixing2006/tests/test_pdg_hyperons.py": "9064ec20e4fc4f97fa0e2709930f85e80edf6c0b55ad0830c6c18882bcf3f08a",
@@ -5648,7 +5664,7 @@
   "helpers/benchmarking/rereval_feeddown_lineage.py": "0b500862cdf87be28b2da5066ac4a04cfbb181acda503a1108b46f795a56721d",
   "helpers/benchmarking/rereval_threshold_checks.py": "95f3ac6f0077b69c074eb701265d3a302fff09010f41641baf9c73cb6002b024",
   "helpers/benchmarking/run_constrained_refit.py": "a0131056d745292676a9e696e719c82991de672198817df679ebf643fd51b81b",
-  "helpers/benchmarking/run_contract.py": "af7f66fdf6d0e91bfc21d39919ea5fdb2a00af89038922bdceb5b366b9067809",
+  "helpers/benchmarking/run_contract.py": "0ec5ba4888a6618899d8b70bde16c0cbe183f8e544c20345b8b545b37f293b35",
   "helpers/benchmarking/run_engine.py": "b9286e14d5bd29901186fbc5f8b962844d4c68c0ade9bfb7b2c38d8794cbe372",
   "helpers/benchmarking/run_epos_crmc_to_csv.py": "4958b9bccf682e925c1924c963e0765bc8d10d5a3aef52e7156d47f7896b567d",
   "helpers/benchmarking/run_nstar_ladder_grid.py": "a0a0ea2405154bed1bdbe8af34879106c02f2ab56d55c21e0f46c24afcc34f52",
@@ -5762,5 +5778,5 @@
   "helpers/benchmarking/tests/test_window_yield_kernel.py": "182cb78cd2d55eaa411b52847d1fa39a7bd799331d5a3b8be22ead6e4d9abf03",
   "helpers/benchmarking/validate_np_scattering.py": "77d3763be583aab30a46ae70bd6ff21a574bb747f5cbf96cd77d6c2287e75b45"
  },
- "inventory_count": 931
+ "inventory_count": 933
 }
